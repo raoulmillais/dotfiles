@@ -5,5 +5,20 @@ set t_Co=256
 syntax on
 colorscheme zenburn
 
-" Enable sudo save
+" Show the ruler
+set ruler
+
+" Show line numbers
+set number
+
+" Highlight matching brackets
+set showmatch
+
+" Make backspace work as expected (indent, eol, start)
+set backspace=2
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Command Maps
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Enable saving readonly files with sudo
 cmap w!! %!sudo tee > /dev/null %
