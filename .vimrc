@@ -22,3 +22,5 @@ set backspace=2
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 " Enable saving readonly files with sudo
 cmap w!! %!sudo tee > /dev/null %
+command! -nargs=1 -range SuperRetab <line1>,<line2>s/\v%(^ *)@<= {<args>}/\t/g
+
