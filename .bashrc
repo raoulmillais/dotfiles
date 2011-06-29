@@ -122,4 +122,4 @@ YELLOW="\[\e[1;33m\]"
 
 export PS1="${GOLD}\u${GRAY}@${CYAN}\h ${GRAY}in ${GREEN}\w ${RED}\$(vcprompt)\n${GRAY}$ "
 export HISTIGNORE="&:ls:[bf]g:exit"
-
+export PATH="$PATH:~/code/shell-scripts"
