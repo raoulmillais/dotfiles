@@ -24,3 +24,9 @@ set backspace=2
 cmap w!! %!sudo tee > /dev/null %
 command! -nargs=1 -range SuperRetab <line1>,<line2>s/\v%(^ *)@<= {<args>}/\t/g
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Gentags config
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
+nmap ,t :!(cd %:p:h;ctags *)&
+set tags=./tags,./../tags,./../../tags,./../../../tags,tags
+
