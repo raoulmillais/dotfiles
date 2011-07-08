@@ -17,6 +17,9 @@ set showmatch
 " Make backspace work as expected (indent, eol, start)
 set backspace=2
 
+" Indentation
+set autoindent
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 " Command Maps
 """""""""""""""""""""""""""""""""""""""""""""""""""""
