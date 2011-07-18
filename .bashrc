@@ -79,7 +79,7 @@ fi
 
 # some more ls aliases
 alias ll='ls -alF'
-alias la='ls -A'
+alias la='ls -Al'
 alias l='ls -CF'
 
 # git aliases
