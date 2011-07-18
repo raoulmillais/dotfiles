@@ -4,6 +4,9 @@ set nocompatible
 " Set 256 color mode
 set t_Co=256
 
+" start scrollign 2 lines from screen edge
+set so=2
+
 " Enable syntax highlighting
 syntax on
 colorscheme zenburn
