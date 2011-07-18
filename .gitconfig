@@ -5,7 +5,6 @@
 	co = checkout
 	df = diff
 	lg = log --graph --pretty=oneline --abbrev-commit
-	conflicts = git ls-files -u | cut -f 2 | sort -u
 
 [user]
 	name = Raoul Millais
