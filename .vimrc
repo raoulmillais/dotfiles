@@ -25,8 +25,13 @@ set showmatch
 " Make backspace work as expected (indent, eol, start)
 set backspace=2
 
-" Indentation
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Indentation 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Indent new lines to same level as last 
 set autoindent
+" Use nicer whitespace characters
+set listchars=tab:>-,trail:-
 
 " Mouse
 set mouse=a
