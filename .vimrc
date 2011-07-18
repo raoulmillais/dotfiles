@@ -1,3 +1,6 @@
+" Turn off vi compatibility mode
+set nocompatible
+
 " Set 256 color mode
 set t_Co=256
 
@@ -19,6 +22,9 @@ set backspace=2
 
 " Indentation
 set autoindent
+
+" Mouse
+set mouse=a
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 " Command Maps
