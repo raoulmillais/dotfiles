@@ -8,8 +8,10 @@ set t_Co=256
 syntax on
 colorscheme zenburn
 
-" Show the ruler
+" Show the ruler, incomplete search matches and incomplete commands
 set ruler
+set showcmd
+set incsearch
 
 " Show line numbers
 set number
