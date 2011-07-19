@@ -32,6 +32,8 @@ set backspace=2
 set autoindent
 " Use nicer whitespace characters
 set listchars=tab:>-,trail:-
+" Set visible character size of tabstops to 4
+set tabstop=4
 
 " Mouse
 set mouse=a
