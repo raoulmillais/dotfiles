@@ -79,7 +79,7 @@ fi
 
 # some more ls aliases
 alias ll='ls -alF'
-alias la='ls -Al'
+alias la='ls -A'
 alias l='ls -CF'
 
 # git aliases
@@ -87,6 +87,11 @@ alias gs='git status -s'
 alias gc='git commit'
 alias ga='git add'
 alias gd='git diff --color'
+alias gpom='git push origin master'
+alias gpl='git pull'
+
+# sudo env fix
+alias sudo='sudo env PATH=$PATH'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -108,8 +113,6 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-# Functions
-###########
 
 # Some example functions
 # function settitle() { echo -ne "\e]2;$@\a\e]1;$@\a"; }
@@ -122,4 +125,5 @@ YELLOW="\[\e[1;33m\]"
 
 export PS1="${GOLD}\u${GRAY}@${CYAN}\h ${GRAY}in ${GREEN}\w ${RED}\$(vcprompt)\n${GRAY}$ "
 export HISTIGNORE="&:ls:[bf]g:exit"
-export PATH="$PATH:~/code/shell-scripts"
+export PATH="$PATH:~/code/shell-scripts:/usr/local/bin"
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
