@@ -3,7 +3,7 @@
 	ci = commit
 	br = branch
 	co = checkout
-	df = diff
+	df = difftool
 	lg = log --graph --pretty=oneline --abbrev-commit
 
 [user]
@@ -30,3 +30,8 @@
 	added = yellow
 	changed = green
 	untracked = cyan
+
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
