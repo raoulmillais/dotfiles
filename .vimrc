@@ -30,8 +30,9 @@ set backspace=2
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 " Indent new lines to same level as last 
 set autoindent
-" Use nicer whitespace characters
+" Use nicer whitespace characters and show whitespace
 set listchars=tab:>-,trail:-
+set list
 " Set visible character size of tabstops to 4
 set tabstop=4
 
