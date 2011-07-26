@@ -52,3 +52,8 @@ command! -nargs=1 -range SuperRetab <line1>,<line2>s/\v%(^ *)@<= {<args>}/\t/g
 nmap ,t :!(cd %:p:h;ctags *)&
 set tags=./tags,./../tags,./../../tags,./../../../tags,tags
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Commands to run on startup
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
+autocmd VimEnter * NERDTree
+autocmd VimEnter * wincmd p
