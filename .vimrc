@@ -33,8 +33,10 @@ set autoindent
 " Use nicer whitespace characters and show whitespace
 set listchars=tab:>-,trail:-
 set list
-" Set visible character size of tabstops to 4
+" Set visible character size of tabstops to 4 and make shift keys 
+" shift by 4 characters
 set tabstop=4
+set shiftwidth=4
 
 " Mouse
 set mouse=a
