@@ -1,0 +1,6 @@
+caption always "%{= kw}%?%-Lw%?%{+b kw}%n*%t%f %?(%u)%?%{= kw}%?%+Lw%?"
+hardstatus alwayslastline "%{= bd}%{4}(%H) %{+b y}%t %{g} %l %=%{-bc}%D, %d %M %Y  %c"
+shell -/bin/bash
+defscrollback 10240
+startup_message off
+hardstatus on
