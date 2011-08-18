@@ -90,6 +90,8 @@ alias gd='git diff --color'
 alias gpom='git push origin master'
 alias gpl='git pull'
 
+#node aliases
+alias ndoe='node'
 # sudo env fix
 alias sudo='sudo env PATH=$PATH'
 
@@ -125,5 +127,5 @@ YELLOW="\[\e[1;33m\]"
 
 export PS1="${GOLD}\u${GRAY}@${CYAN}\h ${GRAY}in ${GREEN}\w ${RED}\$(vcprompt)\n${GRAY}$ "
 export HISTIGNORE="&:ls:[bf]g:exit"
-export PATH="$PATH:~/code/shell-scripts:/usr/local/bin"
+export PATH="$PATH:~/code/shell-scripts:/usr/local/bin:~/bin"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
