@@ -11,6 +11,11 @@ set so=2
 syntax on
 colorscheme zenburn
 
+" Show 80 char column in light grey
+set colorcolumn=80
+highlight ColorColumn ctermbg=lightgrey guibg=lightgrey
+
+
 " Show the ruler, incomplete search matches and incomplete commands
 set ruler
 set showcmd
