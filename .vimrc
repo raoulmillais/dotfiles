@@ -43,13 +43,21 @@ set list
 set tabstop=4
 set shiftwidth=4
 
-" Mouse
+" Allow Mouse selection and navigation
 set mouse=a
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 " Folding
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 set foldcolumn=3
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Keymaps
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Toggle NERDTRee with F2 in command mode
+map <f2> :NERDTreeToggle<cr>
+" and in insert mode
+imap <f2> :NERDTreeToggle<cr>i
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 " Command Maps
