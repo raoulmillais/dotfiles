@@ -58,6 +58,8 @@ set foldcolumn=3
 map <f2> :NERDTreeToggle<cr>
 " and in insert mode
 imap <f2> :NERDTreeToggle<cr>i
+" Move line down one
+noremap - ddp
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 " Command Maps
@@ -69,7 +71,7 @@ command! -nargs=1 -range SuperRetab <line1>,<line2>s/\v%(^ *)@<= {<args>}/\t/g
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 " Gentags config
 """""""""""""""""""""""""""""""""""""""""""""""""""""
-nmap ,t :!(cd %:p:h;ctags *)&
+nnoremap ,t :!(cd %:p:h;ctags *)&
 set tags=./tags,./../tags,./../../tags,./../../../tags,tags
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""
