@@ -4,17 +4,35 @@ set nocompatible
 " Set 256 color mode
 set t_Co=256
 
-" start scrollign 2 lines from screen edge
-set so=2
+" start scrolling 2 lines from screen edge
+set scrolloff=2
 
 " Enable syntax highlighting
 syntax on
 colorscheme zenburn
 
+" Allow vim to manage multiple buffers effectively
+set hidden
+
 " Show 80 char column in light grey
 set colorcolumn=80
 highlight ColorColumn ctermbg=lightgrey guibg=lightgrey
 
+" Increase command history size
+set history=1000
+
+" Improve tab completion for files and directories to show number of options
+set wildmenu
+" Make tab completion behave like the shell completing only up to the point of
+" ambiguity
+set wildmode=list:longest
+
+" Set the window title in the terminal
+set title
+
+" Use the matchit macro to enable switching between open close tags and
+" if/elsif/else/end with %
+runtime macros/matchit.vim
 
 " Show the ruler, incomplete search matches and incomplete commands
 set ruler
@@ -29,6 +47,9 @@ set showmatch
 
 " Make backspace work as expected (indent, eol, start)
 set backspace=2
+
+" Shorten the large interruptive prompts
+set shortmess=atI
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 " Indentation 
