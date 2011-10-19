@@ -83,8 +83,10 @@ map <f2> :NERDTreeToggle<cr>
 imap <f2> :NERDTreeToggle<cr>i
 " Move line down one
 noremap - ddp
-" Mappping to allow opening .vimrc in a new vsplit for quick editing
+" Open .vimrc in a new vsplit for quick editing
 :nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+" Source .vimrc in current window
+:nnoremap <leader>sv :source $MYVIMRC<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 " Command Maps
