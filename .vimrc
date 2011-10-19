@@ -83,8 +83,8 @@ map <f2> :NERDTreeToggle<cr>
 imap <f2> :NERDTreeToggle<cr>i
 " Move line down one
 noremap - ddp
-" Open .vimrc in a new vsplit for quick editing
-:nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+" Open .vimrc in a new split for quick editing
+:nnoremap <leader>ev :split $MYVIMRC<cr>
 " Source .vimrc in current window
 :nnoremap <leader>sv :source $MYVIMRC<cr>
 
