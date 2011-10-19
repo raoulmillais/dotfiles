@@ -75,12 +75,16 @@ set foldcolumn=3
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 " Keymaps
 """""""""""""""""""""""""""""""""""""""""""""""""""""
+:let mapleader=","
+
 " Toggle NERDTRee with F2 in command mode
 map <f2> :NERDTreeToggle<cr>
 " and in insert mode
 imap <f2> :NERDTreeToggle<cr>i
 " Move line down one
 noremap - ddp
+" Mappping to allow opening .vimrc in a new vsplit for quick editing
+:nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 " Command Maps
