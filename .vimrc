@@ -87,7 +87,10 @@ noremap - ddp
 :nnoremap <leader>ev :split $MYVIMRC<cr>
 " Source .vimrc in current window
 :nnoremap <leader>sv :source $MYVIMRC<cr>
-
+" Go to start of line
+:nnoremap H 0
+" Go to end of  line
+:nnoremap L $
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 " Command Maps
 """""""""""""""""""""""""""""""""""""""""""""""""""""
