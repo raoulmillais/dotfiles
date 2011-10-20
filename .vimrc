@@ -75,22 +75,36 @@ set foldcolumn=3
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 " Keymaps
 """""""""""""""""""""""""""""""""""""""""""""""""""""
-:let mapleader=","
+let mapleader=","
 
 " Toggle NERDTRee with F2 in command mode
-map <f2> :NERDTreeToggle<cr>
+noremap <f2> :NERDTreeToggle<cr>
 " and in insert mode
-imap <f2> :NERDTreeToggle<cr>i
+inoremap <f2> :NERDTreeToggle<cr>i
 " Move line down one
-noremap - ddp
+nnoremap - ddp
 " Open .vimrc in a new split for quick editing
-:nnoremap <leader>ev :split $MYVIMRC<cr>
+nnoremap <leader>ev :split $MYVIMRC<cr>
 " Source .vimrc in current window
-:nnoremap <leader>sv :source $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
 " Go to start of line
-:nnoremap H 0
-" Go to end of  line
-:nnoremap L $
+nnoremap H 0
+" Go to end of line
+nnoremap L $
+" Exit insert mode
+inoremap jk <esc>
+inoremap <esc> <NOP>
+inoremap <c-c> <NOP>
+" Unmap the arrow keys
+inoremap <Up> <NOP>
+inoremap <Down> <NOP>
+inoremap <Left> <NOP>
+inoremap <Right> <NOP>
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 " Command Maps
 """""""""""""""""""""""""""""""""""""""""""""""""""""
