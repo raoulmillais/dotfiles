@@ -76,6 +76,14 @@ set foldcolumn=3
 " Keymaps
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 let mapleader=","
+let maplocalleader=","
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Filetype plugin
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
+filetype on
+filetype indent on
+filetype plugin on
 
 " Toggle NERDTRee with F2 in command mode
 noremap <f2> :NERDTreeToggle<cr>
@@ -91,6 +99,15 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap H 0
 " Go to end of line
 nnoremap L $
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Default map overrides
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Quicker window navigation
+noremap <C-h> <C-w>h
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
 " Exit insert mode
 inoremap jk <esc>
 inoremap <esc> <NOP>
