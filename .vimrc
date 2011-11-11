@@ -4,6 +4,9 @@ set nocompatible
 " Set 256 color mode
 set t_Co=256
 
+" Default to UTF-8
+set encoding=utf-8
+
 " start scrolling 2 lines from screen edge
 set scrolloff=2
 
@@ -41,6 +44,9 @@ set incsearch
 
 " Show line numbers
 set number
+
+" Show the current mode in the last line
+set showmode
 
 " Highlight matching brackets
 set showmatch
