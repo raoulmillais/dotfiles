@@ -41,9 +41,11 @@ runtime macros/matchit.vim
 set ruler
 set showcmd
 set incsearch
+" Keep search highlight after complete
+set hlsearch
 
 " Show line numbers
-set number
+set relativenumber
 
 " Show the current mode in the last line
 set showmode
@@ -129,6 +131,12 @@ noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
+" Fix vim's regexp search to use perl regexps
+nnoremap / /\v
+vnoremap \ /\v
+
+" Turn off search highlighting
+nnoremap <leader><space> :noh<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 " Command Maps
