@@ -53,6 +53,10 @@ set showmode
 " Highlight matching brackets
 set showmatch
 
+" Remember undo history between opening files
+set undofile
+set undodir=~/.vim/undo
+
 " Make backspace work as expected (indent, eol, start)
 set backspace=2
 
@@ -131,9 +135,19 @@ noremap <Up> <NOP>
 noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
+" Unmap the help shortcut key
+inoremap <F1> <ESC>
+nnoremap <F1> <ESC>
+vnoremap <F1> <ESC>
+" Move up and down by screenline instead of file line
+nnoremap j gj
+nnoremap k gk
 " Fix vim's regexp search to use perl regexps
 nnoremap / /\v
 vnoremap \ /\v
+" Move to matching bracket
+nnoremap <tab> %
+vnoremap <tab> %
 
 " Turn off search highlighting
 nnoremap <leader><space> :noh<cr>
@@ -156,3 +170,6 @@ set tags=./tags,./../tags,./../../tags,./../../../tags,tags
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd VimEnter * NERDTree
 autocmd VimEnter * wincmd p
+
+" Save on losing focus
+autocmd FocusLost * :wa
