@@ -66,12 +66,44 @@ set shortmess=atI
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 " Indentation 
 """""""""""""""""""""""""""""""""""""""""""""""""""""
-" Indent new lines to same level as last 
+" Automate resizing tabs
+" See http://vimcasts.org/episodes/tabs-and-spaces/
+command! -nargs=* Stab call Stab()
+
+function! Stab()
+	let l:tabstop = 1 * input('set tabstop = softtabstop = shiftwidth = ')
+	if l:tabstop > 0
+		let &l:sts = l:tabstop
+		let &l:ts = l:tabstop
+		let &l:sw = l:tabstop
+	endif
+	call SummarizeTabs()
+endfunction
+
+function! SummarizeTabs()
+	try
+		echohl ModeMsg
+		echon 'tabstop='.&l:ts
+		echon ' shiftwidth='.&l:sw
+		echon ' softtabstop='.&l:sts
+		if &l:et
+			echon ' expandtab'
+		else
+			echon ' noexpandtab'
+		endif
+	finally
+		echohl None
+	endtry
+endfunction
+
+"Shortcut mapping
+noremap <leader><tab> :Stab<cr>
+" Indent new lines to same level as last
 set autoindent
 " Use nicer whitespace characters and show whitespace
 set listchars=tab:>-,trail:-
 set list
-" Set visible character size of tabstops to 4 and make shift keys 
+" Set visible character size of tabstops to 4 and make shift keys
 " shift by 4 characters
 set softtabstop=4
 set tabstop=4
