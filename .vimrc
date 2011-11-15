@@ -210,4 +210,10 @@ if has("autocmd")
 
 	" Save on losing focus
 	autocmd FocusLost * :wa
+
+	" Custom tab settings
+	" make must be tabs
+	autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
+	" yaml must be spaces
+	autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 endif
