@@ -79,8 +79,10 @@ fi
 
 # some more ls aliases
 alias ll='ls -alF'
-alias la='ls -A'
+alias la='ls -Al'
 alias l='ls -CF'
+
+alias top='htop'
 
 # git aliases
 alias gs='git status -s'
@@ -90,8 +92,6 @@ alias gd='git diff --color'
 alias gpom='git push origin master'
 alias gpl='git pull'
 
-#node aliases
-alias ndoe='node'
 # sudo env fix
 alias sudo='sudo env PATH=$PATH'
 
@@ -115,9 +115,9 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-
-# Some example functions
-# function settitle() { echo -ne "\e]2;$@\a\e]1;$@\a"; }
+#--------------------------------------------------------
+# PROMPT
+#--------------------------------------------------------
 GRAY="\[\e[0;37m\]"
 GOLD="\[\e[0;33m\]"
 CYAN="\[\e[1;36m\]"
@@ -127,5 +127,10 @@ YELLOW="\[\e[1;33m\]"
 
 export PS1="${GOLD}\u${GRAY}@${CYAN}\h ${GRAY}in ${GREEN}\w ${RED}\$(vcprompt)\n${GRAY}$ "
 export HISTIGNORE="&:ls:[bf]g:exit"
-export PATH="$PATH:~/code/shell-scripts:/usr/local/bin:~/bin"
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+#--------------------------------------------------------
+# PATH
+#--------------------------------------------------------
+PATH="/usr/local/bin:$PATH"
+test -d "~/bin" && PATH="~/bin:$PATH"
+test -d "~/code/shell-scripts" && PATH="~/code/shell-scripts:$PATH"
