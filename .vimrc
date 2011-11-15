@@ -73,6 +73,7 @@ set listchars=tab:>-,trail:-
 set list
 " Set visible character size of tabstops to 4 and make shift keys 
 " shift by 4 characters
+set softtabstop=4
 set tabstop=4
 set shiftwidth=4
 
@@ -111,6 +112,8 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap H 0
 " Go to end of line
 nnoremap L $
+" Toggle whitespace
+noremap <leader>l :set list!<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 " Default map overrides
@@ -122,6 +125,7 @@ noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
 noremap + <C-w>+
 noremap - <C-w>-
+nnoremap <leader>w <C-w>s<C-w>j
 " Exit insert mode
 inoremap jk <esc>
 inoremap <esc> <NOP>
