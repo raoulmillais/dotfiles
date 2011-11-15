@@ -204,8 +204,10 @@ set tags=./tags,./../tags,./../../tags,./../../../tags,tags
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 " Commands to run on startup
 """""""""""""""""""""""""""""""""""""""""""""""""""""
-autocmd VimEnter * NERDTree
-autocmd VimEnter * wincmd p
+if has("autocmd")
+	autocmd VimEnter * NERDTree
+	autocmd VimEnter * wincmd p
 
-" Save on losing focus
-autocmd FocusLost * :wa
+	" Save on losing focus
+	autocmd FocusLost * :wa
+endif
