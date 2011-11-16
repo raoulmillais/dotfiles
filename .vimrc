@@ -64,7 +64,7 @@ set backspace=2
 set shortmess=atI
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""
-" Indentation 
+" Indentation and whitespace
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 " Automate resizing tabs
 " See http://vimcasts.org/episodes/tabs-and-spaces/
@@ -94,6 +94,18 @@ function! SummarizeTabs()
 	finally
 		echohl None
 	endtry
+endfunction
+
+function! <SID>StripTrailingWhitespaces()
+	" Save the last search and cursor position
+	let _s=@/
+	let l = line(".")
+	let c = col(".")
+
+	%s/\s\+$//e
+
+	let @/=_s
+	call cursor(l, c)
 endfunction
 
 "Shortcut mapping
@@ -144,8 +156,14 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap H 0
 " Go to end of line
 nnoremap L $
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Whitespace keymaps
+"""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Toggle whitespace
 noremap <leader>l :set list!<cr>
+" Strip Trailing
+nnoremap <leader>W :call <SID>StripTrailingWhitespaces()<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""
 " Default map overrides
