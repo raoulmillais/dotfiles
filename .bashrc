@@ -131,6 +131,9 @@ export HISTIGNORE="&:ls:[bf]g:exit"
 #--------------------------------------------------------
 # PATH
 #--------------------------------------------------------
+HOME="/home/raoul"
 PATH="/usr/local/bin:$PATH"
-test -d "~/bin" && PATH="~/bin:$PATH"
-test -d "~/code/shell-scripts" && PATH="~/code/shell-scripts:$PATH"
+test -d "${HOME}/bin" && PATH="${HOME}/bin:$PATH"
+test -d "${HOME}/code/shell-scripts" && PATH="${HOME}/code/shell-scripts:$PATH"
+export PATH
+source ~/code/shell-scripts/ssh-login
