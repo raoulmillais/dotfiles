@@ -8,18 +8,17 @@ hardstatus on
 # allow bold colors - necessary for some reason
 attrcolor b ".I" 
 
-term xterm-256colo0r
+term xterm
 bell_msg '^Gbell in window %n...'
 
 # erase background with current bg color 
 defbce "on"
 
-# Fix Shift Page up / down in xterms
-termcapinfo rxvt-256color ti@:te@
-termcapinfo xterm-256color ti@:te@
-
 # Make colours work
-termcapinfo xterm-256color 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm' 
+termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm' 
+
+# Fix Shift Page up / down in xterms
+termcapinfo xterm ti@:te@
 
 # Load the screen profile
 source "$SCREEN_CONF_DIR/$SCREEN_CONF"
