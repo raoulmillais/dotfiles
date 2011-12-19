@@ -1,0 +1,4 @@
+# session name: develop
+screen -t vim vim
+screen -t node node
+screen -t shell bash
