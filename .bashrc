@@ -129,6 +129,7 @@ export PS1="${GOLD}\u${GRAY}@${CYAN}\h ${GRAY}in ${GREEN}\w ${RED}\$(vcprompt)\n
 export HISTIGNORE="&:ls:[bf]g:exit"
 
 HOME="/home/raoul"
+export EDITOR="vim"
 
 #--------------------------------------------------------
 # SCREEN
