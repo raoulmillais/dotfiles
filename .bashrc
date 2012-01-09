@@ -134,10 +134,20 @@ export LESS="--RAW-CONTROL-CHARS"
 export PS1="${GOLD}\u${GRAY}@${CYAN}\h ${GRAY}in ${GREEN}\w ${RED}\$(vcprompt)\n${GRAY}$ "
 export HISTIGNORE="&:ls:[bf]g:exit"
 
+HOME="/home/raoul"
+export EDITOR="vim"
+
+#--------------------------------------------------------
+# SCREEN
+#--------------------------------------------------------
+export SCREEN_CONF_DIR="${HOME}/screenconfig"
+export SCREEN_CONF='clean'
+alias irssi='SCREEN_CONF=irssi screen -S irssi -R -D'
+alias develop='SCREEN_CONF=develop screen -S develop -D -R'
+
 #--------------------------------------------------------
 # PATH
 #--------------------------------------------------------
-HOME="/home/raoul"
 PATH="/usr/local/bin:$PATH"
 test -d "${HOME}/bin" && PATH="${HOME}/bin:$PATH"
 test -d "${HOME}/code/shell-scripts" && PATH="${HOME}/code/shell-scripts:$PATH"

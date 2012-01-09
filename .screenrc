@@ -7,8 +7,18 @@ hardstatus on
 # terminfo and termcap for nice 256 color terminal
 # allow bold colors - necessary for some reason
 attrcolor b ".I" 
-# tell screen how to set colors. AB = background, AF=foreground 
-termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm' 
+
+term xterm
+bell_msg '^Gbell in window %n...'
+
 # erase background with current bg color 
 defbce "on"
+
+# Make colours work
+termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm' 
+
+# Fix Shift Page up / down in xterms
 termcapinfo xterm ti@:te@
+
+# Load the screen profile
+source "$SCREEN_CONF_DIR/$SCREEN_CONF"
