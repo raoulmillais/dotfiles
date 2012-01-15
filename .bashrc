@@ -92,6 +92,9 @@ alias gd='git diff --color'
 alias gpom='git push origin master'
 alias gpl='git pull'
 
+# bash helpers
+alias bashmfu='cat ~/.bash_history | sort | uniq -c | sort -g | tail'
+
 # sudo env fix
 alias sudo='sudo env PATH=$PATH'
 
