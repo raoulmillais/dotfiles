@@ -18,6 +18,7 @@ function prompt_command() {
 	fi
 
 	export LASTDIR=$newdir
+	echo -n "[$(date +%H:%M)] "
 }
 export PROMPT_COMMAND="prompt_command"
 
