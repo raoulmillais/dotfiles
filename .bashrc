@@ -85,6 +85,7 @@ alias l='ls -CF'
 alias top='htop'
 
 # git aliases
+alias g='git'
 alias gs='git status -s'
 alias gc='git commit'
 alias ga='git add'
