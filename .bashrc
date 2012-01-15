@@ -137,6 +137,18 @@ export LESS="--RAW-CONTROL-CHARS"
 export PS1="${GOLD}\u${GRAY}@${CYAN}\h ${GRAY}in ${GREEN}\w ${RED}\$(vcprompt)\n${GRAY}$ "
 export HISTIGNORE="&:ls:[bf]g:exit"
 
+export LASTDIR="/"
+function prompt_command() {
+	newdir=`pwd`
+
+	if [ ! "${LASTDIR}" = "${newdir}" ]; then
+		ls -Alt | head -7 | sort
+	fi
+
+	export LASTDIR=$newdir
+}
+export PROMPT_COMMAND="prompt_command"
+
 HOME="/home/raoul"
 export EDITOR="vim"
 
