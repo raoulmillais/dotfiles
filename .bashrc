@@ -141,7 +141,7 @@ export HISTIGNORE="&:ls:[bf]g:exit"
 HOME="/home/raoul"
 export EDITOR="vim"
 
-# Change to the last directory
+# Change to the last accessed directory
 if [ -f ~/.lastdir ]; then
 	cd "`cat ~/.lastdir`"
 fi
@@ -151,8 +151,16 @@ function prompt_command() {
 	newdir=`pwd`
 
 	if [ ! "${LASTDIR}" = "${newdir}" ]; then
+		# Remember the new directory
 		pwd > ~/.lastdir
-		ls -Alt | head -7 | sort
+
+		if [ -d ./.git ]; then
+			# Show git status if the new dir is a repository
+			git status
+		else
+			# Show 7 most receently accessed files
+			ls -Alt | head -7 | sort
+		fi
 	fi
 
 	export LASTDIR=$newdir
