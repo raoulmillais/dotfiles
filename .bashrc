@@ -135,7 +135,14 @@ export LESS="--RAW-CONTROL-CHARS"
 # Use colors for less, man, etc.
 [[ -f ~/.less_termcap ]] && . ~/.less_termcap
 
-export PS1="${GOLD}\u${GRAY}@${CYAN}\h ${GRAY}in ${GREEN}\w ${RED}\$(vcprompt)\n${GRAY}$ "
+PS1="${GOLD}\u"                           # Username
+PS1="${PS1}${GRAY}@"                      # @
+PS1="${PS1}${CYAN}\h "                    # Hostname
+PS1="${PS1}${GRAY}in "                    # in
+PS1="${PS1}${GREEN}\w "                   # Working directory
+PS1="${PS1}${RED}\$(vcprompt)\n"          # Version control status
+PS1="${PS1}${GRAY}$ "
+export PS1
 export HISTIGNORE="&:ls:[bf]g:exit"
 
 HOME="/home/raoul"
