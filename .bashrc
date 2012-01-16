@@ -135,7 +135,8 @@ export LESS="--RAW-CONTROL-CHARS"
 # Use colors for less, man, etc.
 [[ -f ~/.less_termcap ]] && . ~/.less_termcap
 
-PS1="${GOLD}\u"                           # Username
+PS1="[\$(date +%H:%M)] "                  # Current time
+PS1="${PS1}${GOLD}\u"                     # Username
 PS1="${PS1}${GRAY}@"                      # @
 PS1="${PS1}${CYAN}\h "                    # Hostname
 PS1="${PS1}${GRAY}in "                    # in
@@ -171,7 +172,6 @@ function prompt_command() {
 	fi
 
 	export LASTDIR=$newdir
-	echo -n "[$(date +%H:%M)] "
 }
 export PROMPT_COMMAND="prompt_command"
 
