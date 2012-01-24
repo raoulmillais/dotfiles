@@ -146,6 +146,24 @@ function prompt_command() {
 			# Show 7 most receently accessed files
 			ls -Alt | head -7 | sort
 		fi
+
+		# Update the screen title if we're in a screen session
+		if expr match "${TERM}" "\(screen\)" > /dev/null; then
+			local HPWD="${newdir}"
+			case $HPWD in
+				"${HOME}")
+					HPWD="~"
+					;;
+				"${HOME/*}")
+					HPWD="~${HPWD#HOME}"
+					;;
+				*)
+					HPWD=`basename "${HPWD}"`
+					;;
+			esac
+
+			printf '\ek%s\e\\' "${HPWD}"
+		fi
 	fi
 
 	export LASTDIR=$newdir
