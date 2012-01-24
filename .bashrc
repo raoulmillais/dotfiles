@@ -154,7 +154,7 @@ function prompt_command() {
 				"${HOME}")
 					HPWD="~"
 					;;
-				"${HOME/*}")
+				"${HOME}/*")
 					HPWD="~${HPWD#HOME}"
 					;;
 				*)
