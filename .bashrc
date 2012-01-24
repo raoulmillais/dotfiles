@@ -186,3 +186,8 @@ test -d "${HOME}/bin" && PATH="${HOME}/bin:$PATH"
 test -d "${HOME}/code/shell-scripts" && PATH="${HOME}/code/shell-scripts:$PATH"
 export PATH
 source ~/code/shell-scripts/ssh-login
+
+#--------------------------------------------------------
+# SSH aliases
+#--------------------------------------------------------
+alias refinery-live='ssh root@178.79.183.164'
