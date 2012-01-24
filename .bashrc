@@ -94,7 +94,16 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 #--------------------------------------------------------
-# PROMPT AND COLOURS
+# LESS COLOURS
+#--------------------------------------------------------
+# Get color support for 'less'
+export LESS="--RAW-CONTROL-CHARS"
+
+# Use colors for less, man, etc.
+[[ -f ~/.less_termcap ]] && . ~/.less_termcap
+
+#--------------------------------------------------------
+# PROMPT
 #--------------------------------------------------------
 GRAY="\[\e[0;37m\]"
 GOLD="\[\e[0;33m\]"
@@ -102,12 +111,6 @@ CYAN="\[\e[1;36m\]"
 GREEN="\[\e[0;32m\]"
 RED="\[\e[1;31m\]"
 YELLOW="\[\e[1;33m\]"
-
-# Get color support for 'less'
-export LESS="--RAW-CONTROL-CHARS"
-
-# Use colors for less, man, etc.
-[[ -f ~/.less_termcap ]] && . ~/.less_termcap
 
 PS1="[\$(date +%H:%M)] "                  # Current time
 PS1="${PS1}${GOLD}\u"                     # Username
