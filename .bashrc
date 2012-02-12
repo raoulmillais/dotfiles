@@ -108,22 +108,15 @@ export LESS="--RAW-CONTROL-CHARS"
 #--------------------------------------------------------
 # PROMPT
 #--------------------------------------------------------
-GRAY="\[\e[0;37m\]"
-GOLD="\[\e[0;33m\]"
-CYAN="\[\e[1;36m\]"
-GREEN="\[\e[0;32m\]"
-RED="\[\e[1;31m\]"
-YELLOW="\[\e[1;33m\]"
+GRAY='\[\e[0;37m\]'
+BLUE='\e[1;34m'
+GOLD='\[\e[0;33m\]'
+CYAN='\[\e[1;36m\]'
+GREEN='\[\e[0;32m\]'
+RED='\[\e[1;31m\]'
+YELLOW='\[\e[1;33m\]'
+WHITE='\e[1;37m'
 
-PS1="[\$(date +%H:%M)] "                  # Current time
-PS1="${PS1}${GOLD}\u"                     # Username
-PS1="${PS1}${GRAY}@"                      # @
-PS1="${PS1}${CYAN}\h "                    # Hostname
-PS1="${PS1}${GRAY}in "                    # in
-PS1="${PS1}${GREEN}\w "                   # Working directory
-PS1="${PS1}${RED}\$(vcprompt)\n"          # Version control status
-PS1="${PS1}${GRAY}$ "
-export PS1
 export HISTIGNORE="&:ls:[bf]g:exit"
 
 HOME="/home/raoul"
@@ -171,8 +164,22 @@ function prompt_command() {
 
 	export LASTDIR=$newdir
 }
-export PROMPT_COMMAND="prompt_command"
-
+#return value visualisation
+PROMPT_COMMAND='RET=$?;'
+RET_VALUE='$(if [[ $RET = 0 ]]; then echo -ne "${GREEN} ${RET}"; else echo -ne "${RED} ${RET}"; fi;) '
+export PROMPT_COMMAND="${PROMPT_COMMAND} prompt_command;"
+RED='\e[0;31m'
+GREEN='\e[0;32m'
+PS1="${GRAY}[\$(date +%H:%M)]"                    # Current time
+PS1="${PS1}${RET_VALUE}"                          # Last Exit code
+PS1="${PS1}${BLUE}\u"                             # Username
+PS1="${PS1}${GRAY}@"                              # @
+PS1="${PS1}${CYAN}\h "                            # Hostname
+PS1="${PS1}${GRAY}in "                            # in
+PS1="${PS1}${WHITE}\w "                           # Working directory
+PS1="${PS1}${RED}\$(vcprompt)\n"                  # Version control status
+PS1="${PS1}${GRAY}$ "
+export PS1
 #--------------------------------------------------------
 # SCREEN
 #--------------------------------------------------------
