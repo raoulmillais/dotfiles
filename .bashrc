@@ -140,7 +140,7 @@ function prompt_command() {
 			git status
 		else
 			# Show 7 most receently accessed files
-			ls -Alt | head -7 | sort
+			ls -Alt --color=always | head -7 | sort
 		fi
 
 		# Update the screen title if we're in a screen session
