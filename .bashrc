@@ -56,9 +56,12 @@ if [ -x /usr/bin/dircolors ]; then
 fi
 
 # some more ls aliases
+alias ls='ls --color=auto'
 alias ll='ls -alF'
 alias la='ls -Al'
 alias l='ls -CF'
+
+alias diff='colordiff -u'
 
 alias top='htop'
 
@@ -75,7 +78,7 @@ alias gpl='git pull'
 alias bashmfu='cat ~/.bash_history | sort | uniq -c | sort -g | tail'
 
 # sudo env fix
-alias sudo='sudo env PATH=$PATH'
+# alias sudo='sudo env PATH=$PATH'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
