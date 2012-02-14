@@ -1,1 +1,10 @@
+# Show completion list immediately instead of ringing the bell
 set show-all-if-ambiguous on
+# Make tab completion case-insensitive
+set completion-ignore-case on
+# Show filetype indicator in completion list
+set visible-stats on
+# Visible instead of audible bell
+set bell-style visible
+# Account for already entered text when tab-completing
+set skip-completed-text on
