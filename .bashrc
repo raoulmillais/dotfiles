@@ -186,8 +186,6 @@ export PS1
 #--------------------------------------------------------
 export SCREEN_CONF_DIR="${HOME}/screenconfig"
 export SCREEN_CONF='clean'
-alias irssi='SCREEN_CONF=irssi screen -S irssi -R -D'
-alias develop='SCREEN_CONF=develop screen -S develop -D -R'
 
 #--------------------------------------------------------
 # PATH
