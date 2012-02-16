@@ -74,6 +74,7 @@ alias gd='git diff --color'
 alias gpom='git push origin master'
 alias gpl='git pull'
 
+alias ng-server='java -cp "`lein classpath`" vimclojure.nailgun.NGServer 127.0.0.1'
 # bash helpers
 alias bashmfu='cat ~/.bash_history | sort | uniq -c | sort -g | tail'
 
