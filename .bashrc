@@ -201,6 +201,7 @@ source ~/code/shell-scripts/ssh-login
 #--------------------------------------------------------
 alias refinery-live='ssh root@178.79.183.164'
 alias refinery-systest='ssh root@178.79.182.32'
+alias linode1='ssh raoul@178.79.152.163'
 
 #--------------------------------------------------------
 # Reattach any detached screens
