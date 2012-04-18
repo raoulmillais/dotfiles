@@ -27,4 +27,6 @@ termcapinfo xterm ti@:te@
 shelltitle '|bash'
 
 # Load the screen profile
+screen -t ROOT su -
+screen -t bash bash
 source "$SCREEN_CONF_DIR/$SCREEN_CONF"
