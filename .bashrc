@@ -210,3 +210,5 @@ SCREENS=`screen -ls | grep 'Attached'`
 if [ $? -ne "0" ]; then
 	screen -U -R
 fi
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
