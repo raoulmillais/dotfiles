@@ -194,7 +194,7 @@ PATH="/usr/local/bin:$PATH"
 test -d "${HOME}/bin" && PATH="${HOME}/bin:$PATH"
 test -d "${HOME}/code/shell-scripts" && PATH="${HOME}/code/shell-scripts:$PATH"
 export PATH
-source ~/code/shell-scripts/ssh-login
+test -x ~/code/shell-scripts/ssh-login && source ~/code/shell-scripts/ssh-login
 
 #--------------------------------------------------------
 # SSH aliases
