@@ -64,7 +64,7 @@
 	// Tolerate `ExpressionStatement` as Programs.
 	"expr"          : false,  
 	// Tolerate `for in` loops without `hasOwnPrototype`.
-	"forin"         : false,
+	"forin"         : true,
 	// Require immediate invocations to be wrapped in parens e.g. 
 	//     `( function(){}() );`
 	"immed"         : true,
@@ -96,7 +96,7 @@
 	// Prohibit use of constructors for side-effects.
 	"nonew"         : true,
 	// Prohibit use of initial or trailing underbars in names.
-	"nomen"         : true,
+	"nomen"         : false,
 	// Allow only one `var` statement per function.
 	"onevar"        : true,
 	// Prohibit use of `++` & `--`.
