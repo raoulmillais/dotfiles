@@ -209,7 +209,7 @@ alias webteamcity='ssh raoul@10.0.10.36'
 #--------------------------------------------------------
 SCREENS=`screen -ls | grep 'Attached'`
 if [ $? -ne "0" ]; then
-	screen -U -R
+	screen -S raoul-default -U -R
 fi
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
