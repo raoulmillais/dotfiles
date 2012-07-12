@@ -28,5 +28,6 @@ shelltitle '|bash'
 
 # Load the screen profile
 screen -t ROOT su -
+screen -t NODE node
 screen -t bash bash
 source "$SCREEN_CONF_DIR/$SCREEN_CONF"
