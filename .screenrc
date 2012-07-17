@@ -7,6 +7,7 @@ defscrollback 10240
 startup_message off
 defhstatus "screen ^E (^Et) | $USER@^EH"
 hardstatus off
+
 # terminfo and termcap for nice 256 color terminal
 # allow bold colors - necessary for some reason
 attrcolor b ".I" 
@@ -14,7 +15,10 @@ attrcolor b ".I"
 term screen-256color
 bell_msg '^Gbell in window %n...'
 
-# erase background with current bg color 
+# Enable multiuser mode for screensharing when pairing
+multiuser on
+
+# Erase background with current bg color 
 defbce "on"
 
 # Make colours work
@@ -25,6 +29,11 @@ termcapinfo xterm ti@:te@
 
 # Set the title according to the bash title
 shelltitle '|bash'
+
+# Bind region navigation keys to match vim
+bind j focus down
+bind k focus up
+
 
 # Load the screen profile
 screen -t ROOT su -
