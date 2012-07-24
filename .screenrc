@@ -16,7 +16,7 @@ term screen-256color
 bell_msg '^Gbell in window %n...'
 
 # Enable multiuser mode for screensharing when pairing
-multiuser on
+# multiuser on
 
 # Erase background with current bg color 
 defbce "on"
@@ -34,9 +34,7 @@ shelltitle '|bash'
 bind j focus down
 bind k focus up
 
-
 # Load the screen profile
 screen -t ROOT su -
 screen -t NODE node
 screen -t bash bash
-source "$SCREEN_CONF_DIR/$SCREEN_CONF"

@@ -1,4 +1,0 @@
-# session name: develop
-screen -t node node
-screen -t shell bash
-screen -t vim vim

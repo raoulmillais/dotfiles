@@ -181,11 +181,6 @@ PS1="${PS1}${WHITE}\w "                           # Working directory
 PS1="${PS1}${YELLOW}\$(vcprompt)\n"               # Version control status
 PS1="${PS1}${GRAY}$ "
 export PS1
-#--------------------------------------------------------
-# SCREEN
-#--------------------------------------------------------
-export SCREEN_CONF_DIR="${HOME}/screenconfig"
-export SCREEN_CONF='clean'
 
 #--------------------------------------------------------
 # PATH
@@ -204,6 +199,8 @@ alias refinery-systest='ssh root@178.79.182.32'
 alias linode1='ssh raoul@178.79.152.163'
 alias webteamcity='ssh raoul@10.0.10.36'
 
+#--------------------------------------------------------
+# SCREEN
 #--------------------------------------------------------
 # Reattach any detached screens
 #--------------------------------------------------------
