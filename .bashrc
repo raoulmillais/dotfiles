@@ -188,6 +188,7 @@ export PS2
 # PATH
 #--------------------------------------------------------
 PATH="/usr/local/bin:$PATH"
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 test -d "${HOME}/bin" && PATH="${HOME}/bin:$PATH"
 test -d "${HOME}/code/shell-scripts" && PATH="${HOME}/code/shell-scripts:$PATH"
 export PATH
@@ -216,5 +217,3 @@ SCREENS=`screen -ls | grep 'Attached'`
 if [ $? -ne "0" ]; then
 	screen -S raoul-default -U -R
 fi
-
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
