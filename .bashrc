@@ -103,11 +103,17 @@ export HISTIGNORE="&:ls:[bf]g:exit"
 HOME="/home/raoul"
 export EDITOR="vim"
 
+#--------------------------------------------------------
+# REMEMBER LAST DIRECTORY ACROSS SESSIONS
+#--------------------------------------------------------
 # Change to the last accessed directory
 if [ -f ~/.lastdir ]; then
 	cd "`cat ~/.lastdir`"
 fi
 
+#--------------------------------------------------------
+# CHANGE DIRECTORY - SHOW LAST MODIFIED OR GIT STATUS
+#--------------------------------------------------------
 export LASTDIR="/"
 function prompt_command() {
 	newdir=`pwd`
