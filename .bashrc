@@ -101,7 +101,12 @@ WHITE='\e[1;37m'
 export HISTIGNORE="&:ls:[bf]g:exit"
 
 HOME="/home/raoul"
+
+#--------------------------------------------------------
+# TEXT EDITORS
+#--------------------------------------------------------
 export EDITOR="vim"
+export VISUAL="vim"
 
 #--------------------------------------------------------
 # REMEMBER LAST DIRECTORY ACROSS SESSIONS
