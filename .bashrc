@@ -133,6 +133,16 @@ function prompt_command() {
 			ls -Alt --color=always | head -7 | sort
 		fi
 
+		# PACMAN: Show any packages ready for upgrade
+		# For this to work you must add a cronjob to synchornise updates
+		# regularly (pacman -Sy)
+		UPDATE_COUNT=`pacman -Qu | wc -l`
+		if [[ "${UPDATE_COUNT}" != "0" ]] ;
+		then
+			echo "There are ${UPDATE_COUNT} updates available:"
+			pacman -Qu | cut -d' ' -f1 | sed 's:^:\*  :'
+		fi
+
 		# Update the screen title if we're in a screen session
 		if expr match "${TERM}" "\(screen\)" > /dev/null; then
 			local HPWD="${newdir}"
@@ -154,6 +164,7 @@ function prompt_command() {
 
 	export LASTDIR=$newdir
 }
+
 #return value visualisation
 PROMPT_COMMAND='RET=$?;'
 RET_VALUE='$(if [[ $RET = 0 ]]; then echo -ne "${GREEN} ${RET}"; else echo -ne "${RED} ${RET}"; fi;) '
