@@ -85,7 +85,7 @@ export LESS="--RAW-CONTROL-CHARS"
 [[ -f ~/.less_termcap ]] && . ~/.less_termcap
 
 #--------------------------------------------------------
-# PROMPT
+# COLOUR VARIABLES
 #--------------------------------------------------------
 GRAY='\[\e[0;37m\]'
 BLUE='\e[1;34m'
