@@ -5,16 +5,17 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
-# don't put duplicate lines in the history. See bash(1) for more options
-# ... or force ignoredups and ignorespace
+#--------------------------------------------------------
+# HISTORY
+#--------------------------------------------------------
+# don't put duplicate lines in the history.
 HISTCONTROL=ignoredups:ignorespace
-
 # append to the history file, don't overwrite it
 shopt -s histappend
-
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+# Set really long history length (see bashmfu alias below)
 HISTSIZE=10000
 HISTFILESIZE=10000
+export HISTIGNORE="&:ls:[bf]g:exit"
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -97,8 +98,6 @@ GREEN='\[\e[0;32m\]'
 RED='\[\e[1;31m\]'
 YELLOW='\[\e[1;33m\]'
 WHITE='\e[1;37m'
-
-export HISTIGNORE="&:ls:[bf]g:exit"
 
 #--------------------------------------------------------
 # TEXT EDITORS
