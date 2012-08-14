@@ -1,11 +1,23 @@
 # Just my dotfiles
 
-Configuration files for unix systems. (I use ArchLinux and cygwin predominantly
-so consider all other systems untested!)
+My configuration files for unix systems. I use ArchLinux and cygwin
+predominantly so consider all other systems untested.
+
+## Requirements
+
+archlinux
+bash
+screen
+git
+unicode terminal
+htop
+vim
+postfix (or other Maildir format mail daemon)
+screen
 
 ## Installation instructions
 
-Symlink the files to your home directory
+Symlink the files to your home directory.
 
 ## Here be dragons
 
