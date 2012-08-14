@@ -135,7 +135,7 @@ function prompt_command() {
 		UPDATE_COUNT=`pacman -Qu | wc -l`
 		if [[ "${UPDATE_COUNT}" != "0" ]] ;
 		then
-			echo "There are ${UPDATE_COUNT} updates available:"
+			echo -e "\n${UPDATE_COUNT} system updates available:"
 			pacman -Qu | cut -d' ' -f1 | sed 's:^:\*  :'
 		fi
 
