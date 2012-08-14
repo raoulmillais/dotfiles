@@ -60,9 +60,6 @@ alias ng-server='java -cp "`lein classpath`" vimclojure.nailgun.NGServer 127.0.0
 # bash helpers
 alias bashmfu='cat ~/.bash_history | sort | uniq -c | sort -g | tail'
 
-# sudo env fix
-# alias sudo='sudo env PATH=$PATH'
-
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
