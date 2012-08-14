@@ -1,0 +1,16 @@
+#--------------------------------------------------------
+# PACMAN
+#--------------------------------------------------------
+# Check we can sync the database as a normal user
+sudo -n pacman -Sy >/dev/null 2>&1
+if [[ "$?" != "0" ]];
+then
+	echo "Cannot synchronise pacman database as ${USER} without a password"
+	echo "Add \"pacman -Sy\" to the sudoers for your user with NOPASSWD and"
+	echo "Setup a cron job to run regularly for update notification to work"
+else
+	# Show the packages ready for upgrade
+	UPDATE_COUNT=`pacman -Qu | wc -l`
+	echo "There are ${UPDATE_COUNT} updates available"
+	pacman -Qu | cut -d' ' -f1 | sed 's:^:\t:'
+fi;
