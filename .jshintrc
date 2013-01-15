@@ -98,7 +98,7 @@
 	// Prohibit use of initial or trailing underbars in names.
 	"nomen"         : false,
 	// Allow only one `var` statement per function.
-	"onevar"        : true,
+	"onevar"        : false,
 	// Prohibit use of `++` & `--`.
 	"plusplus"      : false,
 	// Tolerate all forms of subscript notation besides dot notation e.g. 
