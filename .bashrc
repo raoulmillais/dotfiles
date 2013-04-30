@@ -175,7 +175,7 @@ PS1="${PS1}${CYAN}\h "                            # Hostname
 PS1="${PS1}${GRAY}in "                            # in
 PS1="${PS1}${WHITE}\w "                           # Working directory
 PS1="${PS1}${YELLOW}\$(vcprompt)\n"               # Version control status
-PS1="${PS1}${CYAN}⟫ ${GRAY}"
+PS1="${PS1}${CYAN}$ ${GRAY}"
 export PS1
 PS2="${CYAN}… ${GRAY}"
 export PS2
