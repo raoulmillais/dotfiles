@@ -208,10 +208,10 @@ export MAIL
 #--------------------------------------------------------
 # SCREEN
 #--------------------------------------------------------
-SCREENS=`screen -ls | grep 'Attached'`
-if [ $? -ne "0" ]; then
-	screen -S raoul-default -U -R
-fi
+#SCREENS=`screen -ls | grep 'Attached'`
+#if [ $? -ne "0" ]; then
+#	screen -S raoul-default -U -R
+#fi
 
 #--------------------------------------------------------
 # NPM
