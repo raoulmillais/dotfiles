@@ -1,9 +1,9 @@
-# ~/.bashrc: executed by bash(1) for non-login shells.
-# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
-# for examples
+# vim: set tabstop=m4 softtabstop=4 shiftwidthw=4 expandtab
 
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
+# Detect if this is arch linux system
+uname -r | grep -q ARCH && ARCH_LINUX=true
 
 #--------------------------------------------------------
 # HISTORY
@@ -21,6 +21,9 @@ export HISTIGNORE="&:ls:[bf]g:exit"
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
+#--------------------------------------------------------
+# TERM AND COREUTILS COLORS
+#--------------------------------------------------------
 # set a fancy prompt (non-color, unless we know we "want" color)
 case "$TERM" in
     xterm-color) color_prompt=yes;;
@@ -35,15 +38,16 @@ if [ -x /usr/bin/dircolors ]; then
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
+    if [ -x /usr/bin/colordiff ]; then 
+        alias diff='colordiff -y'
+    fi
 fi
 
 # some more ls aliases
-alias ls='ls --color=auto'
 alias ll='ls -alF'
 alias la='ls -Al'
 alias l='ls -CF'
 
-alias diff='colordiff -y'
 
 alias top='htop'
 
@@ -115,50 +119,53 @@ fi
 #--------------------------------------------------------
 export LASTDIR="/"
 function prompt_command() {
-	newdir=`pwd`
+newdir=`pwd`
 
-	if [ ! "${LASTDIR}" = "${newdir}" ]; then
-		# Remember the new directory
-		pwd > ~/.lastdir
+if [ ! "${LASTDIR}" = "${newdir}" ]; then
+    # Remember the new directory
+    pwd > ~/.lastdir
 
-		if [ -d ./.git ]; then
-			# Show git status if the new dir is a repository
-			git status
-		else
-			# Show 7 most receently accessed files
-			ls -Alt --color=always | head -7 | sort
-		fi
+    if [ -d ./.git ]; then
+        # Show git status if the new dir is a repository
+        git status
+    else
+        # Show 7 most receently accessed files
+        ls -Alt --color=always | head -7 | sort
+    fi
 
-		# PACMAN: Show any packages ready for upgrade
-		# For this to work you must add a cronjob to synchornise updates
-		# regularly (pacman -Sy)
-		UPDATE_COUNT=`pacman -Qu | wc -l`
-		if [[ "${UPDATE_COUNT}" != "0" ]] ;
-		then
-			echo -e "\n${UPDATE_COUNT} system updates available:"
-			pacman -Qu | cut -d' ' -f1 | sed 's:^:\*  :'
-		fi
 
-		# Update the screen title if we're in a screen session
-		if expr match "${TERM}" "\(screen\)" > /dev/null; then
-			local HPWD="${newdir}"
-			case $HPWD in
-				"${HOME}")
-					HPWD="~"
-					;;
-				"${HOME}/*")
-					HPWD="~${HPWD#HOME}"
-					;;
-				*)
-					HPWD=`basename "${HPWD}"`
-					;;
-			esac
+    if [[ -z "ARCH_LINUX" ]]; then
+        # PACMAN: Show any packages ready for upgrade
+        # For this to work you must add a cronjob to synchornise updates
+        # regularly (pacman -Sy)
+        UPDATE_COUNT=`pacman -Qu | wc -l`
+        if [[ "${UPDATE_COUNT}" != "0" ]] ;
+        then
+            echo -e "\n${UPDATE_COUNT} system updates available:"
+            pacman -Qu | cut -d' ' -f1 | sed 's:^:\*  :'
+        fi
+    fi
 
-			printf '\ek%s\e\\' "${HPWD}"
-		fi
-	fi
+    # Update the screen title if we're in a screen session
+    if expr match "${TERM}" "\(screen\)" > /dev/null; then
+        local HPWD="${newdir}"
+        case $HPWD in
+            "${HOME}")
+                HPWD="~"
+                ;;
+            "${HOME}/*")
+                HPWD="~${HPWD#HOME}"
+                ;;
+            *)
+                HPWD=`basename "${HPWD}"`
+                ;;
+        esac
 
-	export LASTDIR=$newdir
+        printf '\ek%s\e\\' "${HPWD}"
+    fi
+fi
+
+export LASTDIR=$newdir
 }
 
 #return value visualisation
@@ -195,7 +202,6 @@ test -x ~/code/shell-scripts/ssh-login && source ~/code/shell-scripts/ssh-login
 #--------------------------------------------------------
 alias refinery-live='ssh root@178.79.183.164'
 alias refinery-systest='ssh root@178.79.182.32'
-alias linode1='ssh raoul@178.79.152.163'
 alias webteamcity='ssh raoul@10.0.10.36'
 alias web-nix00='ssh raoul@10.100.39.35'
 
@@ -206,7 +212,7 @@ MAIL=~/Maildir/
 export MAIL
 
 #--------------------------------------------------------
-# SCREEN
+# AUTO SCREEN
 #--------------------------------------------------------
 #SCREENS=`screen -ls | grep 'Attached'`
 #if [ $? -ne "0" ]; then
