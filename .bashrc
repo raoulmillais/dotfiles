@@ -43,7 +43,7 @@ alias ll='ls -alF'
 alias la='ls -Al'
 alias l='ls -CF'
 
-alias diff='colordiff -u'
+alias diff='colordiff -y'
 
 alias top='htop'
 
