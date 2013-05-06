@@ -134,7 +134,7 @@ if [ ! "${LASTDIR}" = "${newdir}" ]; then
     fi
 
 
-    if [[ -z "ARCH_LINUX" ]]; then
+    if [[ -z "${ARCH_LINUX}" ]]; then
         # PACMAN: Show any packages ready for upgrade
         # For this to work you must add a cronjob to synchornise updates
         # regularly (pacman -Sy)
