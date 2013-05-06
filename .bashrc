@@ -24,10 +24,10 @@ shopt -s checkwinsize
 #--------------------------------------------------------
 # TERM AND COREUTILS COLORS
 #--------------------------------------------------------
-# set a fancy prompt (non-color, unless we know we "want" color)
-case "$TERM" in
-    xterm-color) color_prompt=yes;;
-esac
+# "Fix" 256 colors in gnome terminal
+if [ "${COLORTERM}"="gnome-terminal" ]; then
+    export TERM=xterm-256color
+fi
 
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
@@ -47,7 +47,6 @@ fi
 alias ll='ls -alF'
 alias la='ls -Al'
 alias l='ls -CF'
-
 
 alias top='htop'
 
