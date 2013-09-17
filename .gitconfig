@@ -37,3 +37,7 @@
 	tool = vimdiff
 [difftool]
 	prompt = false
+[core]
+	editor = vim
+[help]
+	autocorrect = 1

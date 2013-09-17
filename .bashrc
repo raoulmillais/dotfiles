@@ -190,8 +190,8 @@ export PS2
 # PATH
 #--------------------------------------------------------
 PATH="/usr/local/bin:$PATH"
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 test -d "${HOME}/bin" && PATH="${HOME}/bin:$PATH"
+PATH="$(ruby -rubygems -e "puts Gem.user_dir")/bin:${PATH}"
 test -d "${HOME}/code/shell-scripts" && PATH="${HOME}/code/shell-scripts:$PATH"
 export PATH
 test -x ~/code/shell-scripts/ssh-login && source ~/code/shell-scripts/ssh-login
