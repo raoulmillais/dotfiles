@@ -2,7 +2,7 @@ caption always "%{= kw}%?%-Lw%?%{+b kw}%n*%t%f %?(%u)%?%{= kw}%?%+Lw%?"
 hardstatus alwayslastline "%{= bd}%{4}(%H) %{+b y}%t %{g} %l %=%{-bc}%D, %d %M %Y  %c"
 windowlist title "Num Name%=Location Flags"
 windowlist string "%03n %t%=%h %f"
-shell -/bin/bash
+shell -/usr/bin/zsh
 defscrollback 10240
 startup_message off
 defhstatus "screen ^E (^Et) | $USER@^EH"
@@ -37,4 +37,4 @@ bind k focus up
 # Load the screen profile
 screen -t ROOT su -
 screen -t NODE node
-screen -t bash bash
+screen -t zsh zsh
