@@ -76,7 +76,7 @@ export _7D_CONSUMER_KEY=7digital.uat
 export _7D_CONSUMER_SECRET=bz3c2y8eb47jvpbg
 
 if [[ -z $LS_COLORS  ]]; then
-	if [-f $HOME/.dircolors ]; then
+	if [ -f $HOME/.dircolors ]; then
 		eval $(dircolors -b $HOME/.dircolors)
 	fi
 fi
