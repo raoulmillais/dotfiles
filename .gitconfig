@@ -6,6 +6,7 @@
 	df = difftool
 	rso = remote show origin
 	lg = log --graph --pretty=oneline --abbrev-commit
+	longlog = log
 
 [user]
 	name = Raoul Millais

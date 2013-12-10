@@ -66,14 +66,24 @@ RPS1='[%*]'
 alias openproj="gvim -c 'cd '$PWD"
 alias cat='cat.sh'
 
+alias refinery-live='ssh root@178.79.183.164'
+alias refinery-systest='ssh root@178.79.182.32'
+alias webteamcity='ssh raoul@webteamcity.internal.svc.7d'
+alias web-nix00='ssh raoul@10.100.39.35'
+
 # Customize to your needs...
 export EDITOR=vim
 export VISUAL=vim
+#export NODE_ENV=development
 export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/raoul/.rvm/bin:/home/raoul/bin
 export PATH=$(ruby -rubygems -e "puts Gem.user_dir")/bin:$PATH
 source /home/raoul/code/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-export _7D_CONSUMER_KEY=7digital.uat
-export _7D_CONSUMER_SECRET=bz3c2y8eb47jvpbg
+
+# Sensitive config
+if [ -f $HOME/.priv-env ]; then
+	source $HOME/.priv-env
+	
+fi
 
 if [[ -z $LS_COLORS  ]]; then
 	if [ -f $HOME/.dircolors ]; then
