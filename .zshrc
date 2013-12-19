@@ -52,7 +52,7 @@ man() {
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git npm screen themes node history git-remote-branch archlinux)
+plugins=(git npm screen themes node history git-remote-branch archlinux tmux)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -78,6 +78,15 @@ export VISUAL=vim
 export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/raoul/.rvm/bin:/home/raoul/bin
 export PATH=$(ruby -rubygems -e "puts Gem.user_dir")/bin:$PATH
 source /home/raoul/code/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# "Fix" 256 colors in gnome terminal
+if [ "${COLORTERM}"="gnome-terminal" ]; then
+	if [[ -z $TMUX ]]; then 
+		export TERM=xterm-256color
+	else
+		export TERM=screen-256color
+	fi
+fi
 
 # Sensitive config
 if [ -f $HOME/.priv-env ]; then
