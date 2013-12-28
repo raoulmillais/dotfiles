@@ -23,6 +23,9 @@ man() {
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Beeps are annoying
+setopt NO_BEEP
+
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
