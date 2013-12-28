@@ -67,7 +67,7 @@ RPS1='[%*]'
 
 # Aliases
 alias openproj="gvim -c 'cd '$PWD"
-alias cat='cat.sh'
+alias cat='pygmentize -g'
 
 alias refinery-live='ssh root@178.79.183.164'
 alias refinery-systest='ssh root@178.79.182.32'
