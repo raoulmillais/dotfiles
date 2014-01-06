@@ -81,6 +81,7 @@ export VISUAL=vim
 export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/raoul/.rvm/bin:/home/raoul/bin
 export PATH=$(ruby -rubygems -e "puts Gem.user_dir")/bin:$PATH
 source /home/raoul/code/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+export TMUX_POWERLINE_SYMBOLS="vim-powerline"
 
 # "Fix" 256 colors in gnome terminal
 if [ "${COLORTERM}"="gnome-terminal" ]; then
