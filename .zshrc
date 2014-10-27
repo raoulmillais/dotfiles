@@ -78,6 +78,7 @@ alias web-nix00='ssh raoul@10.100.39.35'
 export EDITOR=vim
 export VISUAL=vim
 #export NODE_ENV=development
+export PATH=./node_modules/.bin:$PATH
 export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/raoul/.rvm/bin:/home/raoul/bin
 export PATH=$(ruby -rubygems -e "puts Gem.user_dir")/bin:$PATH
 source /home/raoul/code/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
