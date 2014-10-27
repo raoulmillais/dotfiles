@@ -105,3 +105,4 @@ if [[ -z $LS_COLORS  ]]; then
 	fi
 fi
 
+setopt no_share_history
