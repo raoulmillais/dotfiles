@@ -66,8 +66,8 @@ ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%} %{$fg[green]%}✓%{$reset_color%}"
 RPS1='[%*]'
 
 # Aliases
+alias node="env NODE_NO_READLINE=1 rlwrap babel-node"
 alias openproj="gvim -c 'cd '$PWD"
-alias cat='pygmentize -g'
 
 alias refinery-live='ssh root@178.79.183.164'
 alias refinery-systest='ssh root@178.79.182.32'
@@ -106,3 +106,10 @@ if [[ -z $LS_COLORS  ]]; then
 fi
 
 setopt no_share_history
+export NVM_DIR="/home/raoul/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+# OPAM configuration
+. /home/raoul/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+
+[ -s "/home/raoul/.dnx/dnvm/dnvm.sh" ] && . "/home/raoul/.dnx/dnvm/dnvm.sh" # Load dnvm
