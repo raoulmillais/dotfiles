@@ -60,28 +60,25 @@ plugins=(git grunt npm screen themes node history git-remote-branch archlinux tm
 source $ZSH/oh-my-zsh.sh
 
 #Theme customisation
-PROMPT='λ %~/ %{$fg[blue]%}⭠ $(git_prompt_info)%{$reset_color%}» '
+PROMPT='%{$fg[blue]%}λ%{$reset_color%} %~/ %{$fg[blue]%}$(git_prompt_info)%{$reset_color%}» '
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%} %{$fg[red]%}✗%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%} %{$fg[green]%}✓%{$reset_color%}"
 RPS1='[%*]'
 
 # Aliases
-alias node="env NODE_NO_READLINE=1 rlwrap babel-node"
 alias openproj="gvim -c 'cd '$PWD"
+alias vim="nvim"
+alias ack="ag"
 
-alias refinery-live='ssh root@178.79.183.164'
-alias refinery-systest='ssh root@178.79.182.32'
-alias webteamcity='ssh raoul@webteamcity.internal.svc.7d'
-alias web-nix00='ssh raoul@10.100.39.35'
 
 # Customize to your needs...
-export EDITOR=vim
-export VISUAL=vim
+export EDITOR=nvim
+export VISUAL=nvim
+
 #export NODE_ENV=development
 export PATH=./node_modules/.bin:$PATH
 export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/raoul/.rvm/bin:/home/raoul/bin
 export PATH=$(ruby -rubygems -e "puts Gem.user_dir")/bin:$PATH
-source /home/raoul/code/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export TMUX_POWERLINE_SYMBOLS="vim-powerline"
 
 # "Fix" 256 colors in gnome terminal
