@@ -34,7 +34,7 @@ COMPLETION_WAITING_DOTS="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git grunt npm screen themes node history git-remote-branch archlinux tmux)
 
-export ZSH=/home/raoul/.oh-my-zsh
+export ZSH=~/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
 #Theme customisation
@@ -50,8 +50,11 @@ alias ack="ag"
 # Docker and triton
 alias docker-kill-all='docker kill $(docker ps -q)'
 docker-local() {
-  eval "$(triton env -u)"
+  unset DOCKER_CERT_PATH
+  unset DOCKER_HOST
+  unset DOCKER_TLS_VERIFY
 }
+
 docker-triton() {
   eval "$(triton env)"
 }
@@ -60,23 +63,12 @@ export EDITOR=nvim
 export VISUAL=nvim
 
 export PATH=./node_modules/.bin:$PATH
-export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/raoul/.rvm/bin:/home/raoul/bin
+export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/vendor_perl:/usr/bin/core_perl:/home/raoul/.rvm/bin:/home/raoul/bin:~/bin
 export PATH=$(ruby -rubygems -e "puts Gem.user_dir")/bin:$PATH
 export TMUX_POWERLINE_SYMBOLS="vim-powerline"
 export CLOUDSDK_PYTHON=`which python2`
 
 export PYTHONSTARTUP=~/.pythonrc
-
-#
-# "Fix" 256 colors in gnome terminal
-#
-if [ "${COLORTERM}"="gnome-terminal" ]; then
-	if [[ -z $TMUX ]]; then 
-		export TERM=xterm-256color
-	else
-		export TERM=screen-256color
-	fi
-fi
 
 #
 # Private environment variables
@@ -91,13 +83,13 @@ fi
 #
 if [[ -z $LS_COLORS  ]]; then
 	if [ -f $HOME/.dircolors ]; then
-		eval $(dircolors -b $HOME/.dircolors)
+#		eval $(dircolors -b $HOME/.dircolors)
 	fi
 fi
 
 setopt no_share_history
-export NVM_DIR="/home/raoul/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+export NVM_DIR="/usr/local/opt/nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # OPAM configuration
 . /home/raoul/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
@@ -110,11 +102,21 @@ export NVM_DIR="/home/raoul/.nvm"
 # Cloud Platforms
 #
 
+# source "~/.triton.completion"
+
+
 # The next line updates PATH for the Google Cloud SDK.
-source '/home/raoul/Downloads/google-cloud-sdk/path.zsh.inc'
+if [ -f /Users/raoul/Downloads/google-cloud-sdk/path.zsh.inc ]; then
+  source '/Users/raoul/Downloads/google-cloud-sdk/path.zsh.inc'
+fi
 
 # The next line enables shell command completion for gcloud.
-source '/home/raoul/Downloads/google-cloud-sdk/completion.zsh.inc'
+if [ -f /Users/raoul/Downloads/google-cloud-sdk/completion.zsh.inc ]; then
+  source '/Users/raoul/Downloads/google-cloud-sdk/completion.zsh.inc'
+fi
 
-source '/home/raoul/.triton.completion'
+export GOPATH=$HOME/go
+export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOPATH/bin
 
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
