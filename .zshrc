@@ -32,7 +32,7 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git grunt npm screen themes node history git-remote-branch archlinux tmux)
+plugins=(git npm node history git-remote-branch archlinux tmux)
 
 export ZSH=~/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
@@ -133,7 +133,7 @@ load-nvmrc() {
     local -r nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
 
     if [ "$nvmrc_node_version" = "N/A" ]; then
-      nvm install > /dev/null
+      nvm install
     elif [[ "$nvmrc_node_version" != "$node_version" ]] ; then
       nvm use
     fi
