@@ -33,7 +33,7 @@ configure_new_session() {
   tmux new-session -s  "${TES_TMUX_SESSION_NAME}" -n editor -d
   tmux send-keys -t "${TES_TMUX_SESSION_NAME}"  cd " ${TES_WORKSPACE}" C-m
   tmux send-keys -t "${TES_TMUX_SESSION_NAME}" 'vim' C-m
-  tmux split-window -v -t "${TES_TMUX_SESSION_NAME}"
+  tmux split-window -v -p 10 -t "${TES_TMUX_SESSION_NAME}"
   tmux select-layout -t "${TES_TMUX_SESSION_NAME}" main-horizontal
   tmux send-keys -t  "${TES_TMUX_SESSION_NAME}:1.2" cd " ${TES_WORKSPACE}" C-m
 

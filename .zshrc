@@ -100,9 +100,6 @@ export NVM_DIR="/usr/local/opt/nvm"
 . /home/raoul/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
 [ -s "/home/raoul/.dnx/dnvm/dnvm.sh" ] && . "/home/raoul/.dnx/dnvm/dnvm.sh" # Load dnvm
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 #
 # Cloud Platforms
 #
