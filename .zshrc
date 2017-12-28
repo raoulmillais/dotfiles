@@ -38,10 +38,15 @@ export ZSH=~/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
 #Theme customisation
-PROMPT='%{$fg[blue]%}λ%{$reset_color%} %~/ %{$fg[blue]%}$(git_prompt_info)%{$reset_color%}» '
+local nvm_info='$(nvm_prompt_info)'
+local git_info='$(git_prompt_info)'
+ZSH_THEME_NVM_PROMPT_PREFIX="%{$fg[green]%}⬢ "
+ZSH_THEME_NVM_PROMPT_SUFFIX=""
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%} %{$fg[red]%}✗%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%} %{$fg[green]%}✓%{$reset_color%}"
 
+PROMPT="%{$fg[blue]%}λ%{$reset_color%} %~/ %{$fg[blue]%}${git_info}%{$reset_color%} ${nvm_info}%{$reset_color%}
+» "
 # Aliases
 alias openproj="gvim -c 'cd '$PWD"
 alias vim="nvim"
@@ -75,7 +80,7 @@ export PYTHONSTARTUP=~/.pythonrc
 #
 if [ -f $HOME/.priv-env ]; then
 	source $HOME/.priv-env
-	
+
 fi
 
 #
@@ -119,4 +124,26 @@ export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
 export PATH=$PATH:$GOPATH/bin
 
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# This loads nvm bash_completion
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+# Auto install and use correct node via nvm
+autoload -U add-zsh-hook
+load-nvmrc() {
+  local -r node_version="$(nvm version)"
+  local -r nvmrc_path="$(nvm_find_nvmrc)"
+
+  if [[ -n "$nvmrc_path" ]] ; then
+    local -r nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+
+    if [ "$nvmrc_node_version" = "N/A" ]; then
+      nvm install > /dev/null
+    elif [[ "$nvmrc_node_version" != "$node_version" ]] ; then
+      nvm use
+    fi
+  elif [[ "$node_version" != "$(nvm version default)" ]] ; then
+    nvm use default
+  fi
+}
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc
