@@ -45,8 +45,7 @@ ZSH_THEME_NVM_PROMPT_SUFFIX=""
 ZSH_THEME_GIT_PROMPT_DIRTY="%{$fg[blue]%} %{$fg[red]%}✗%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_CLEAN="%{$fg[blue]%} %{$fg[green]%}✓%{$reset_color%}"
 
-PROMPT="%{$fg[blue]%}λ%{$reset_color%} %~/ %{$fg[blue]%}${git_info}%{$reset_color%} ${nvm_info}%{$reset_color%}
-» "
+PROMPT="%{$fg[blue]%}λ%{$reset_color%} %~/ %{$fg[blue]%}${git_info}%{$reset_color%} ${nvm_info}%{$reset_color%} » "
 # Aliases
 alias openproj="gvim -c 'cd '$PWD"
 alias vim="nvim"
