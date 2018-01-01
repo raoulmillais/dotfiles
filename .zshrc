@@ -1,5 +1,3 @@
-DISABLE_AUTO_UPDATE=true
-
 #
 # Documentation
 #
@@ -18,11 +16,7 @@ nd() {
     nd 2>/dev/null "$@"
 }
 
-# Beeps are annoying
-setopt NO_BEEP
 
-# Uncomment following line if you want red dots to be displayed while waiting for completion
-COMPLETION_WAITING_DOTS="true"
 
 # Uncomment following line if you want to disable marking untracked files under
 # VCS as dirty. This makes repository status check for large repositories much,
@@ -32,10 +26,17 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git npm node history git-remote-branch archlinux tmux)
+plugins=(git git-remote-branch history npm tmux)
 
 export ZSH=~/.oh-my-zsh
 source $ZSH/oh-my-zsh.sh
+
+# Completion settings
+COMPLETION_WAITING_DOTS="true"
+setopt NO_BEEP
+setopt MENU_COMPLETE
+bindkey '^I' expand-or-complete-prefix   # Keep rest of line when completing
+bindkey '\M-\C-I' reverse-menu-complete  # Alt-tab to reverse cycle completions
 
 #Theme customisation
 local nvm_info='$(nvm_prompt_info)'
@@ -97,8 +98,6 @@ export NVM_DIR="/usr/local/opt/nvm"
 
 # OPAM configuration
 . /home/raoul/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
-
-[ -s "/home/raoul/.dnx/dnvm/dnvm.sh" ] && . "/home/raoul/.dnx/dnvm/dnvm.sh" # Load dnvm
 #
 # Cloud Platforms
 #
