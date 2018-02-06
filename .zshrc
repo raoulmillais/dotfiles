@@ -2,7 +2,7 @@
 # Documentation
 #
 man() {
-    env LESS_TERMCAP_mb=$'\E[01;31m' \
+  env LESS_TERMCAP_mb=$'\E[01;31m' \
     LESS_TERMCAP_md=$'\E[01;38;5;74m' \
     LESS_TERMCAP_me=$'\E[0m' \
     LESS_TERMCAP_se=$'\E[0m' \
@@ -11,18 +11,7 @@ man() {
     LESS_TERMCAP_us=$'\E[04;38;5;146m' \
     man "$@"
 }
-
-nd() {
-    nd 2>/dev/null "$@"
-}
-
-
-
-# Uncomment following line if you want to disable marking untracked files under
-# VCS as dirty. This makes repository status check for large repositories much,
-# much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
+#
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
@@ -37,6 +26,7 @@ setopt NO_BEEP
 setopt MENU_COMPLETE
 bindkey '^I' expand-or-complete-prefix   # Keep rest of line when completing
 bindkey '\M-\C-I' reverse-menu-complete  # Alt-tab to reverse cycle completions
+#zstyle ’:completion:*’ list-colors ${(s.:.)LS_COLORS}
 
 #Theme customisation
 local nvm_info='$(nvm_prompt_info)'
@@ -55,13 +45,13 @@ alias ack="ag"
 # Docker and triton
 alias docker-kill-all='docker kill $(docker ps -q)'
 docker-local() {
-  unset DOCKER_CERT_PATH
-  unset DOCKER_HOST
-  unset DOCKER_TLS_VERIFY
+unset DOCKER_CERT_PATH
+unset DOCKER_HOST
+unset DOCKER_TLS_VERIFY
 }
 
 docker-triton() {
-  eval "$(triton env)"
+eval "$(triton env)"
 }
 
 export EDITOR=nvim
@@ -79,18 +69,10 @@ export PYTHONSTARTUP=~/.pythonrc
 # Private environment variables
 #
 if [ -f $HOME/.priv-env ]; then
-	source $HOME/.priv-env
+  source $HOME/.priv-env
 
 fi
 
-#
-# Nicer colours when running ls
-#
-if [[ -z $LS_COLORS  ]]; then
-	if [ -f $HOME/.dircolors ]; then
-#		eval $(dircolors -b $HOME/.dircolors)
-	fi
-fi
 
 setopt no_share_history
 export NVM_DIR="/usr/local/opt/nvm"
@@ -125,20 +107,20 @@ export PATH=$PATH:$GOPATH/bin
 # Auto install and use correct node via nvm
 autoload -U add-zsh-hook
 load-nvmrc() {
-  local -r node_version="$(nvm version)"
-  local -r nvmrc_path="$(nvm_find_nvmrc)"
+local -r node_version="$(nvm version)"
+local -r nvmrc_path="$(nvm_find_nvmrc)"
 
-  if [[ -n "$nvmrc_path" ]] ; then
-    local -r nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+if [[ -n "$nvmrc_path" ]] ; then
+  local -r nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
 
-    if [ "$nvmrc_node_version" = "N/A" ]; then
-      nvm install
-    elif [[ "$nvmrc_node_version" != "$node_version" ]] ; then
-      nvm use
-    fi
-  elif [[ "$node_version" != "$(nvm version default)" ]] ; then
-    nvm use default
+  if [ "$nvmrc_node_version" = "N/A" ]; then
+    nvm install
+  elif [[ "$nvmrc_node_version" != "$node_version" ]] ; then
+    nvm use
   fi
+elif [[ "$node_version" != "$(nvm version default)" ]] ; then
+  nvm use default
+fi
 }
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc

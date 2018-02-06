@@ -39,7 +39,7 @@
 [difftool]
 	prompt = false
 [core]
-	editor = vim
+	editor = nvim
 [help]
 	autocorrect = 3
 [push]
