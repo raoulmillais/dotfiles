@@ -27,6 +27,19 @@ bindkey '^R' history-incremental-search-backward
 bindkey "^Q" push-input        # Ctrl-Q will save a long line to history and
                                # clear the line without running the command
 
+# Vi mode line editing
+bindkey -v
+function zle-line-init zle-keymap-select {
+  VIM_PROMPT="%{$fg_bold[yellow]%} [% NORMAL]%  %{$reset_color%}"
+  RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/} $EPS1"
+  zle reset-prompt
+}
+
+zle -N zle-line-init
+zle -N zle-keymap-select
+export KEYTIMEOUT=1            # reduce the timeout switching modes
+
+
 # Less source code highlighting
 export LESSOPEN="| /usr/bin/src-hilite-lesspipe.sh %s"
 export LESS=" -R "
