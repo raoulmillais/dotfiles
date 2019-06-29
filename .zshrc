@@ -89,7 +89,7 @@ docker-local() {
 export EDITOR=vim
 export VISUAL=vim
 
-export PATH=./node_modules/.bin:$HOME/bin:$PATH
+export PATH=./node_modules/.bin:$HOME/go/bin:$HOME/bin:$PATH
 export TMUX_POWERLINE_SYMBOLS="vim-powerline"
 export CLOUDSDK_PYTHON=`which python2`
 
