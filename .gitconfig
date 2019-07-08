@@ -11,6 +11,7 @@
 [user]
 	name = Raoul Millais
 	email = raoul@raoulmillais.com
+	signing-key = 6A81631CEB1F430E
 
 [color]
 	branch = auto
@@ -39,8 +40,10 @@
 [difftool]
 	prompt = false
 [core]
-	editor = nvim
+	editor = vim
 [help]
 	autocorrect = 3
 [push]
 	default = nothing
+[commit]
+	verbose = true

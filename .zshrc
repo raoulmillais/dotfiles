@@ -26,7 +26,7 @@ setopt interactivecomments     # Allow comments with a # in a interactive shell
 bindkey '^R' history-incremental-search-backward
 bindkey "^Q" push-input        # Ctrl-Q will save a long line to history and
                                # clear the line without running the command
-
+                               #
 # Vi mode line editing
 bindkey -v
 function zle-line-init zle-keymap-select {
@@ -39,6 +39,38 @@ zle -N zle-line-init
 zle -N zle-keymap-select
 export KEYTIMEOUT=1            # reduce the timeout switching modes
 
+autoload -U colors && colors
+#
+autoload -Uz compinit && compinit
+
+# Git status prompt
+autoload -Uz vcs_info
+precmd_vcs_info() { vcs_info }
+precmd_functions+=( precmd_vcs_info )
+setopt prompt_subst
+
+### git: Show marker (T) if there are untracked files in repository
+# Make sure you have added staged to your 'formats':  %c
+zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
++vi-git-untracked() {
+    if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' ]] && \
+        git status --porcelain | grep '??' &> /dev/null ; then
+        # This will show the marker if there are any untracked files in repo.
+        # If instead you want to show the marker only if there are untracked
+        # files in $PWD, use:
+        #[[ -n $(git ls-files --others --exclude-standard) ]] ; then
+        hook_com[staged]+='T'
+    fi
+}
+
+# Check the repository for changes so they can be used in %u/%c (see
+# below). This comes with a speed penalty for bigger repositories.
+zstyle ':vcs_info:git*' check-for-changes true
+zstyle ':vcs_info:git*' get-revision true
+
+
+# Format string for the vcs info
+zstyle ':vcs_info:git*' formats "%{%F{214}%}%s%{$reset_color%} %{$fg[red]%}%b %{$reset_color%}%m%{%F{220}%}%u%{%F{118}%}%c%{%F{123}%}%a%{$reset_color%}"
 
 # Less source code highlighting
 export LESSOPEN="| /usr/bin/src-hilite-lesspipe.sh %s"
@@ -46,15 +78,10 @@ export LESS=" -R "
 alias less='COLUMNS=80 less -m -N -g -i -J --underline-special --SILENT'
 alias more='less'
 
-# ls colors
-autoload -U colors && colors
-#
 # # Enable ls colors
-export LSCOLORS="Gxfxcxdxbxegedabagacad"
-
-if [[ -z "$LS_COLORS" ]]; then
-  (( $+commands[dircolors] )) && eval "$(dircolors -b)"
-fi
+#export LSCOLORS="Gxfxcxdxbxegedabagacad"
+DIRCOLORS=/home/raoul/code/LS_COLORS/LS_COLORS
+test -r ${DIRCOLORS} && eval "$(dircolors ${DIRCOLORS})"
 
 ls --color -d . &>/dev/null && alias ls='ls --color=tty' || { ls -G . &>/dev/null && alias ls='ls -G' }
 
@@ -73,23 +100,19 @@ setopt MENU_COMPLETE
 bindkey '^I' expand-or-complete-prefix   # Keep rest of line when completing
 bindkey '\M-\C-I' reverse-menu-complete  # Alt-tab to reverse cycle completions
 
-PROMPT="%{$fg[blue]%}λ%{$reset_color%} %~/%{$reset_color%} » "
+
+PROMPT="%{%F{214}%}λ%{$reset_color%} %~/%{$reset_color%} \$vcs_info_msg_0_ »%{$reset_color%} "
 
 # Aliases
 alias ack="ag"
 
-# Docker and triton
+# Docker
 alias docker-kill-all='docker kill $(docker ps -q)'
-docker-local() {
-  unset DOCKER_CERT_PATH
-  unset DOCKER_HOST
-  unset DOCKER_TLS_VERIFY
-}
 
 export EDITOR=vim
 export VISUAL=vim
 
-export PATH=./node_modules/.bin:$HOME/go/bin:$HOME/bin:$PATH
+export PATH=./node_modules/.bin:$HOME/go/bin:$HOME/bin:$PATH:/home/raoul/code/zsh-git-prompt/src/.bin
 export TMUX_POWERLINE_SYMBOLS="vim-powerline"
 export CLOUDSDK_PYTHON=`which python2`
 
