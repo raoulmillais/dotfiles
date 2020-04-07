@@ -29,6 +29,10 @@ bindkey "^Q" push-input        # Ctrl-Q will save a long line to history and
                                #
 # Vi mode line editing
 bindkey -v
+# bind jk to esc like in vim
+bindkey jk vi-cmd-mode
+
+# Display vi mode on right
 function zle-line-init zle-keymap-select {
   VIM_PROMPT="%{$fg_bold[yellow]%} [% NORMAL]%  %{$reset_color%}"
   RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/} $EPS1"
@@ -112,7 +116,7 @@ alias docker-kill-all='docker kill $(docker ps -q)'
 export EDITOR=vim
 export VISUAL=vim
 
-export PATH=./node_modules/.bin:$HOME/go/bin:$HOME/bin:$PATH:/home/raoul/code/zsh-git-prompt/src/.bin
+export PATH=./node_modules/.bin:$HOME/go/bin:$HOME/bin:$PATH:/home/raoul/code/zsh-git-prompt/src/.bin:$HOME/.local/bin:/usr/go/bin
 export TMUX_POWERLINE_SYMBOLS="vim-powerline"
 export CLOUDSDK_PYTHON=`which python2`
 
@@ -135,3 +139,11 @@ if [ -f '/home/raoul/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/raoul
 eval "$(hub alias -s)"
 export NVS_HOME="$HOME/.nvs"
 [ -s "$NVS_HOME/nvs.sh" ] && . "$NVS_HOME/nvs.sh"
+
+# Completion for kitty
+kitty + complete setup zsh | source /dev/stdin
+
+# Kitty kitten aliases
+alias d="kitty +kitten diff"
+alias icat="kitty +kitten icat"
+

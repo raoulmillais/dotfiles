@@ -7,11 +7,13 @@
 	rso = remote show origin
 	lg = log --graph --pretty=oneline --abbrev-commit
 	longlog = log
+  lb = "!git branch --sort=\"-committerdate\" --format=\"%(color:green)%(committerdate:relative)%(color:reset) %(refname:short)\""
+	re-sign = "!f() { git rebase --exec 'git commit --amend --no-edit -n -S' -i $1; }; f"
 
 [user]
 	name = Raoul Millais
 	email = raoul@raoulmillais.com
-	signing-key = 6A81631CEB1F430E
+	signing-key = B272730398770C78
 
 [color]
 	branch = auto
@@ -47,3 +49,4 @@
 	default = nothing
 [commit]
 	verbose = true
+  gpgsign = true
