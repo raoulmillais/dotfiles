@@ -47,6 +47,11 @@ autoload -U colors && colors
 #
 autoload -Uz compinit && compinit
 
+
+# fzf support
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
+
 # Git status prompt
 autoload -Uz vcs_info
 precmd_vcs_info() { vcs_info }
