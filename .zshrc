@@ -12,8 +12,9 @@ man() {
     COLUMNS=80 \
     man "$@"
 }
-
-# Zsh config
+#
+# Zsh basic config
+#
 export HISTFILE=~/.history
 export HISTSIZE=10000
 export SAVEHIST=10000
@@ -32,12 +33,6 @@ bindkey -v
 # bind jk to esc like in vim
 bindkey jk vi-cmd-mode
 
-# Display vi mode on right
-function zle-line-init zle-keymap-select {
-  VIM_PROMPT="%{$fg_bold[yellow]%} [% NORMAL]%  %{$reset_color%}"
-  RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/} $EPS1"
-  zle reset-prompt
-}
 
 zle -N zle-line-init
 zle -N zle-keymap-select
@@ -51,6 +46,10 @@ autoload -Uz compinit && compinit
 # fzf support
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
+
+#
+# PROMPT
+#
 
 # Git status prompt
 autoload -Uz vcs_info
@@ -80,6 +79,17 @@ zstyle ':vcs_info:git*' get-revision true
 
 # Format string for the vcs info
 zstyle ':vcs_info:git*' formats "%{%F{214}%}%s%{$reset_color%} %{$fg[red]%}%b %{$reset_color%}%m%{%F{220}%}%u%{%F{118}%}%c%{%F{123}%}%a%{$reset_color%}"
+#
+# Display vi mode on right
+function zle-line-init zle-keymap-select {
+  VIM_PROMPT="%{$fg_bold[yellow]%} [% NORMAL]%  %{$reset_color%}"
+  RPS1="${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/} $EPS1"
+  zle reset-prompt
+}
+
+#
+# LESS
+#
 
 # Less source code highlighting
 export LESSOPEN="| /usr/bin/src-hilite-lesspipe.sh %s"
