@@ -1,0 +1,352 @@
+# You can edit this file by hand, but it's recommended not to do that.
+
+# Marks:
+'H
+	/home/raoul/
+	..
+1592320932
+'b
+	/home/raoul/bin/
+	..
+1592320932
+'h
+	/home/raoul/
+	..
+1592320932
+
+# Bookmarks:
+
+# TUI:
+al
+q1
+v2
+ov
+m-1
+l2
+r2
+
+# Left window history (oldest to newest):
+d/home/raoul/code/controlplane/kubesim/web2/bin
+	..
+0
+d/home/raoul/code/controlplane/kubesim/web2
+	..
+0
+d/home/raoul/code/controlplane
+	next-test
+26
+d/home/raoul/code/controlplane/next-test
+	..
+0
+d/home/raoul/code/controlplane
+	nextjs-test
+28
+d/home/raoul/code/controlplane/nextjs-test
+	..
+0
+d/home/raoul/code/controlplane
+	..
+0
+d/home/raoul/code
+	material-app
+15
+d/home/raoul/code/material-app
+	..
+0
+d/home/raoul/code
+	material-dashboard-react-master
+16
+d/home/raoul/code/material-dashboard-react-master
+	src
+3
+d/home/raoul/code/material-dashboard-react-master/src
+	..
+0
+d/home/raoul/code/material-dashboard-react-master
+	..
+0
+d/home/raoul/code
+	..
+0
+d/home/raoul
+	Downloads
+3
+d/home/raoul/Downloads
+	material-app-1-0-7.zip
+35
+d/home/raoul/code/controlplane/material-ui-theme
+	..
+0
+d/home/raoul/code/controlplane
+	..
+0
+d/home/raoul/code
+	..
+0
+d/home/raoul
+	.config
+6
+d/home/raoul/.config
+	vifm
+43
+d/home/raoul/.config/vifm
+	vifmrc
+5
+d/home/raoul/code/controlplane/material-ui-theme
+	..
+0
+d/home/raoul/code/controlplane
+	material-ui-theme
+25
+d/home/raoul/code/controlplane/material-ui-theme
+	src
+3
+d/home/raoul/code/controlplane/material-ui-theme/src
+	components
+1
+d/home/raoul/code/controlplane/material-ui-theme/src/components
+	..
+0
+d/home/raoul/code/controlplane/material-ui-theme/src
+	routes
+5
+d/home/raoul/code/controlplane/material-ui-theme/src/routes
+	..
+0
+d/home/raoul/code/controlplane/material-ui-theme/src
+	redux
+4
+d/home/raoul/code/controlplane/material-ui-theme/src/redux
+	..
+0
+d/home/raoul/code/controlplane/material-ui-theme/src
+	components
+1
+d/home/raoul/code/controlplane/material-ui-theme/src/components
+	..
+0
+d/home/raoul/code/controlplane/material-ui-theme/src
+	components
+1
+d/home/raoul/code/controlplane/material-ui-theme/src/components
+	..
+0
+d/home/raoul/.config
+	vlc
+41
+d/home/raoul/.config/tridactyl
+	themes
+1
+d/home/raoul/.config/tridactyl/themes
+	..
+0
+d/home/raoul/.config/tridactyl
+	.tridactylrc
+2
+d/home/raoul
+	go
+39
+d/home/raoul/code/controlplane/material-ui-theme
+	public
+2
+d/home/raoul/code/controlplane/material-ui-theme/public
+	static
+1
+d/home/raoul/code/controlplane/material-ui-theme/public/static
+	img
+1
+d/home/raoul/code/controlplane/material-ui-theme/public/static/img
+	avatars
+1
+d/home/raoul/code/controlplane/material-ui-theme/public/static/img/avatars
+	avatar-1.jpg
+1
+d/home/raoul/code/controlplane/material-ui-theme
+	public
+2
+d/home/raoul/code/controlplane/material-ui-theme/public
+	manifest.json
+5
+d/home/raoul/code/material-app
+	src
+3
+d/home/raoul/code/material-app/src
+	..
+0
+d/home/raoul/code/material-app
+	src
+3
+d/home/raoul/code/material-app/src
+	theme
+6
+d/home/raoul/code/material-app/src/theme
+	..
+0
+d/home/raoul/code/material-app/src
+	layouts
+2
+d/home/raoul/code/material-app/src/layouts
+	..
+0
+d/home/raoul/code/material-app/src
+	pages
+3
+d/home/raoul/code/material-app/src/pages
+	..
+0
+d/home/raoul/code/material-app/src
+	layouts
+2
+d/home/raoul/code/controlplane/material-ui-theme
+	src
+3
+d/home/raoul/code/controlplane/material-ui-theme/src
+	components
+1
+d/home/raoul/code/controlplane/material-ui-theme
+	src
+3
+d/home/raoul/code/controlplane/material-ui-theme/src
+	routes
+5
+d/home/raoul/code/controlplane/material-ui-theme/src/routes
+	..
+0
+d/home/raoul/code/controlplane/material-ui-theme/src
+	layouts
+2
+d/home/raoul/code/controlplane/material-ui-theme/src/layouts
+	..
+0
+d/home/raoul/code/controlplane/material-ui-theme/src
+	layouts
+2
+d/home/raoul/code/controlplane/material-ui-theme/src/layouts
+	..
+0
+d/home/raoul/code/controlplane/material-ui-theme/src
+	layouts
+2
+d/home/raoul/code/controlplane/material-ui-theme/src/layouts
+	..
+0
+d/home/raoul/code/controlplane/material-ui-theme/src
+	components
+1
+d/home/raoul/code/controlplane/material-ui-theme/src/components
+	..
+0
+d/home/raoul/code/controlplane/material-ui-theme/src
+	layouts
+2
+d/home/raoul/code/controlplane/material-ui-theme/src/layouts
+	Auth.js
+1
+d/home/raoul/code/controlplane/material-ui-theme/src
+	layouts
+2
+d/home/raoul/code/controlplane/material-ui-theme/src/layouts
+	Dashboard.js
+2
+d/home/raoul/code/controlplane/material-ui-theme/src
+	redux
+4
+d/home/raoul/code/controlplane/material-ui-theme/src/redux
+	store
+3
+d/home/raoul/code/controlplane/material-ui-theme/src/redux/store
+	index.js
+1
+d/home/raoul/code/controlplane/material-ui-theme/src/redux
+	reducers
+2
+d/home/raoul/code/controlplane/material-ui-theme/src/redux/reducers
+	..
+0
+d/home/raoul/code/controlplane/material-ui-theme/src/redux
+	actions
+1
+d/home/raoul/code/controlplane/material-ui-theme/src/redux/actions
+	..
+0
+d/home/raoul/code/controlplane/material-ui-theme/src/redux
+	actions
+1
+d/home/raoul/code/controlplane/material-ui-theme/src
+	routes
+5
+d/home/raoul/code/controlplane/material-ui-theme/src/routes
+	..
+0
+d/home/raoul/code/controlplane/material-ui-theme/src
+	..
+0
+d/home/raoul/code/controlplane/material-ui-theme
+	src
+3
+d/home/raoul/code/controlplane/nextjs-test
+	src
+5
+d/home/raoul/code/controlplane/nextjs-test/src
+	pages
+3
+d/home/raoul/code/controlplane/nextjs-test/src/pages
+	_document.js
+2
+d/home/raoul/code/controlplane/kubesim/web2
+	bin
+1
+d/home/raoul/code/controlplane/kubesim/web2/bin
+	..
+0
+d/home/raoul/code/controlplane/kubesim/web2
+	bin
+1
+d/home/raoul/code/controlplane/kubesim
+	web
+14
+d/home/raoul/.config
+	mimeapps.list
+37
+d
+
+# Right window history (oldest to newest):
+D/home/raoul/code/controlplane/kubesim/web2
+	..
+0
+D/home/raoul/code/controlplane/kubesim
+	
+0
+D
+
+# Command line history (oldest to newest):
+:view
+:fileview
+:h
+:h win
+:h wincmd
+:q
+:qa
+
+# Search history (oldest to newest):
+
+# Prompt history (oldest to newest):
+
+# Local filter history (oldest to newest):
+
+# Registers:
+
+# Directory stack (oldest to newest):
+
+# Trash content:
+
+# State:
+f
+i1
+[.0
+[F
+F
+I1
+].1
+]F
+s0
