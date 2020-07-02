@@ -1,0 +1,10 @@
+[Unit]
+Description=Run save-notes.service every 10 mins
+
+[Timer]
+OnBootSec=10min
+OnUnitActiveSec=10m
+Unit=save-notes.service
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,6 @@
+[Unit]
+Description=Commit and push notes repository if changed
+
+[Service]
+Type=simple
+ExecStart=/home/raoul/bin/commit-and-push.sh /home/raoul/Notes
