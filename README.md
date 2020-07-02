@@ -1,29 +1,17 @@
 # Just my dotfiles
 
-My configuration files for unix systems. I use ArchLinux and cygwin
-predominantly so consider all other systems untested.
+My configuration files for my dev environment on arch linux
 
-## Requirements
+## Installation instructions on a new machine
 
-archlinux
-bash
-screen
-git
-unicode terminal
-htop
-vim
-postfix (or other Maildir format mail daemon)
-screen
+```bash
+git clone --separate-git-dir=$HOME/.dotfiles raoulmillais/dotfiles $HOME/dotfiles-tmp
+rm -r ~/dotfiles-tmp/
+config config status.showUntrackedFiles no
+```
 
-## Installation instructions
+## Standing on the shoulders of giants fighting dragons
 
-Symlink the files to your home directory.
-
-## Here be dragons
-
-These are customised to my personal preferences.  If you are an ArchLinux user
-and hack in nodejs or JavaScript and use vim, then you may find these useful.
-Either way, you should take time to read them before using them!
-
-My vim configuration has now moved
-[here](https://github.com/raoulmillais/dotvim)
+Use at your own risk!  Feel free to peruse and take inspiration from anything
+you find useful.  I have done the same from many other colleagues and other 
+people on the web.

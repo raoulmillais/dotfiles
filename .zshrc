@@ -99,7 +99,7 @@ alias more='less'
 
 # # Enable ls colors
 #export LSCOLORS="Gxfxcxdxbxegedabagacad"
-DIRCOLORS=/home/raoul/code/dotfiles/gruvbox.dir_colors
+DIRCOLORS=/home/raoul/gruvbox.dir_colors
 test -r ${DIRCOLORS} && eval "$(dircolors ${DIRCOLORS})"
 
 ls --color -d . &>/dev/null && alias ls='ls --color=tty' || { ls -G . &>/dev/null && alias ls='ls -G' }
@@ -132,7 +132,6 @@ export EDITOR=vim
 export VISUAL=vim
 
 export PATH=./node_modules/.bin:$HOME/go/bin:$HOME/bin:$PATH:/home/raoul/code/zsh-git-prompt/src/.bin:$HOME/.local/bin:/usr/go/bin
-export TMUX_POWERLINE_SYMBOLS="vim-powerline"
 export CLOUDSDK_PYTHON=`which python2`
 
 export PYTHONSTARTUP=~/.pythonrc
@@ -155,6 +154,13 @@ kitty + complete setup zsh | source /dev/stdin
 # Kitty kitten aliases
 alias d="kitty +kitten diff"
 alias icat="kitty +kitten icat"
+
+# Special alias for managing dotfiles in home dir with git and avoiding clashes
+# See https://wiki.archlinux.org/index.php/Dotfiles
+alias config="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+
+# Use bat as a drop-in replacement for cat
+alias cat="bat"
 
 
 # The next line updates PATH for the Google Cloud SDK.
