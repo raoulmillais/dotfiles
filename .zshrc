@@ -1,6 +1,4 @@
-#
-# Documentation
-#
+# man pages - archlinux colours and 80 cols
 man() {
   env LESS_TERMCAP_mb=$'\E[01;31m' \
     LESS_TERMCAP_md=$'\E[01;38;5;74m' \
@@ -12,9 +10,8 @@ man() {
     COLUMNS=80 \
     man "$@"
 }
-#
-# Zsh basic config
-#
+
+# History configuration
 export HISTFILE=~/.history
 export HISTSIZE=10000
 export SAVEHIST=10000
@@ -23,25 +20,22 @@ setopt extended_history
 setopt inc_append_history
 setopt hist_save_by_copy
 setopt share_history
+
+# Builtin zsh plugins
+autoload -U colors && colors
+autoload -Uz compinit && compinit
+
+
+# Line editing
+bindkey -v                     # vi mode
+bindkey jk vi-cmd-mode         # bind jk to esc like in vim
 setopt interactivecomments     # Allow comments with a # in a interactive shell
-bindkey '^R' history-incremental-search-backward
+bindkey '^R' history-incremental-search-backward # reinstate Ctrl-r
 bindkey "^Q" push-input        # Ctrl-Q will save a long line to history and
                                # clear the line without running the command
-                               #
-# Vi mode line editing
-bindkey -v
-# bind jk to esc like in vim
-bindkey jk vi-cmd-mode
-
-
 zle -N zle-line-init
 zle -N zle-keymap-select
 export KEYTIMEOUT=1            # reduce the timeout switching modes
-
-autoload -U colors && colors
-#
-autoload -Uz compinit && compinit
-
 
 # fzf support
 source /usr/share/fzf/key-bindings.zsh
@@ -58,15 +52,10 @@ precmd_functions+=( precmd_vcs_info )
 setopt prompt_subst
 
 ### git: Show marker (T) if there are untracked files in repository
-# Make sure you have added staged to your 'formats':  %c
 zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
 +vi-git-untracked() {
     if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' ]] && \
         git status --porcelain | grep '??' &> /dev/null ; then
-        # This will show the marker if there are any untracked files in repo.
-        # If instead you want to show the marker only if there are untracked
-        # files in $PWD, use:
-        #[[ -n $(git ls-files --others --exclude-standard) ]] ; then
         hook_com[staged]+='T'
     fi
 }
@@ -75,7 +64,6 @@ zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
 # below). This comes with a speed penalty for bigger repositories.
 zstyle ':vcs_info:git*' check-for-changes true
 zstyle ':vcs_info:git*' get-revision true
-
 
 # Format string for the vcs info
 zstyle ':vcs_info:git*' formats "%{%F{214}%}%s%{$reset_color%} %{$fg[red]%}%b %{$reset_color%}%m%{%F{220}%}%u%{%F{118}%}%c%{%F{123}%}%a%{$reset_color%}"
@@ -87,9 +75,7 @@ function zle-line-init zle-keymap-select {
   zle reset-prompt
 }
 
-#
-# LESS
-#
+PROMPT="%{%F{214}%}λ%{$reset_color%} %~/%{$reset_color%} \$vcs_info_msg_0_ »%{$reset_color%} "
 
 # Less source code highlighting
 export LESSOPEN="| /usr/bin/src-hilite-lesspipe.sh %s"
@@ -97,43 +83,43 @@ export LESS=" -R "
 alias less='COLUMNS=80 less -m -N -g -i -J --underline-special --SILENT'
 alias more='less'
 
-# # Enable ls colors
-#export LSCOLORS="Gxfxcxdxbxegedabagacad"
+#
+# ls
+#
+
+# ls colors
 DIRCOLORS=/home/raoul/gruvbox.dir_colors
 test -r ${DIRCOLORS} && eval "$(dircolors ${DIRCOLORS})"
 
 ls --color -d . &>/dev/null && alias ls='ls --color=tty' || { ls -G . &>/dev/null && alias ls='ls -G' }
+alias ll='ls -lasph'
+alias la='ls -lasph'
 
-# Take advantage of $LS_COLORS for completion as well.
+# Use LS_COLORS for autompoletion too
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
-
-alias g='git'
-alias k='kubectl'
-alias t='terraform'
 
 # Completion settings
 COMPLETION_WAITING_DOTS="true"
 setopt NO_BEEP
 setopt MENU_COMPLETE
-
 bindkey '^I' expand-or-complete-prefix   # Keep rest of line when completing
 bindkey '\M-\C-I' reverse-menu-complete  # Alt-tab to reverse cycle completions
-
-
-PROMPT="%{%F{214}%}λ%{$reset_color%} %~/%{$reset_color%} \$vcs_info_msg_0_ »%{$reset_color%} "
+# Completion for kitty
+kitty + complete setup zsh | source /dev/stdin
 
 # Aliases
 alias ack="ag"
-
-# Docker
+alias g='git'
+alias k='kubectl'
+alias t='terraform'
 alias docker-kill-all='docker kill $(docker ps -q)'
+alias cat="bat"
+# Special alias for managing dotfiles in home dir with git and avoiding clashes
+# See https://wiki.archlinux.org/index.php/Dotfiles
+alias config="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+eval "$(hub alias -s)"
 
-export EDITOR=vim
-export VISUAL=vim
-
-export PATH=./node_modules/.bin:$HOME/go/bin:$HOME/bin:$PATH:/home/raoul/code/zsh-git-prompt/src/.bin:$HOME/.local/bin:/usr/go/bin
 export CLOUDSDK_PYTHON=`which python2`
-
 export PYTHONSTARTUP=~/.pythonrc
 
 #
@@ -144,23 +130,8 @@ if [ -f $HOME/.priv-env ]; then
 
 fi
 
-eval "$(hub alias -s)"
 export NVS_HOME="$HOME/.nvs"
 [ -s "$NVS_HOME/nvs.sh" ] && . "$NVS_HOME/nvs.sh"
-
-# Completion for kitty
-kitty + complete setup zsh | source /dev/stdin
-
-# Kitty kitten aliases
-alias d="kitty +kitten diff"
-alias icat="kitty +kitten icat"
-
-# Special alias for managing dotfiles in home dir with git and avoiding clashes
-# See https://wiki.archlinux.org/index.php/Dotfiles
-alias config="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
-
-# Use bat as a drop-in replacement for cat
-alias cat="bat"
 
 
 # The next line updates PATH for the Google Cloud SDK.
