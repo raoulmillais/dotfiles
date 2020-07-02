@@ -139,3 +139,9 @@ if [ -f '/home/raoul/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/home/r
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/raoul/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/raoul/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+
+# Show the git status of config files on every interactive login
+if [[ -n "$(config st)" ]]; then
+  echo "Config is dirty:"
+  config st
+fi
