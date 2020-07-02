@@ -99,7 +99,7 @@ alias more='less'
 
 # # Enable ls colors
 #export LSCOLORS="Gxfxcxdxbxegedabagacad"
-DIRCOLORS=/home/raoul/code/LS_COLORS/LS_COLORS
+DIRCOLORS=/home/raoul/code/dotfiles/gruvbox.dir_colors
 test -r ${DIRCOLORS} && eval "$(dircolors ${DIRCOLORS})"
 
 ls --color -d . &>/dev/null && alias ls='ls --color=tty' || { ls -G . &>/dev/null && alias ls='ls -G' }
@@ -145,12 +145,6 @@ if [ -f $HOME/.priv-env ]; then
 
 fi
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/raoul/google-cloud-sdk/path.zsh.inc' ]; then . '/home/raoul/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/home/raoul/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/raoul/google-cloud-sdk/completion.zsh.inc'; fi
-
 eval "$(hub alias -s)"
 export NVS_HOME="$HOME/.nvs"
 [ -s "$NVS_HOME/nvs.sh" ] && . "$NVS_HOME/nvs.sh"
@@ -162,3 +156,9 @@ kitty + complete setup zsh | source /dev/stdin
 alias d="kitty +kitten diff"
 alias icat="kitty +kitten icat"
 
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/raoul/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/home/raoul/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/home/raoul/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/raoul/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
