@@ -107,6 +107,8 @@ bindkey '\M-\C-I' reverse-menu-complete  # Alt-tab to reverse cycle completions
 # Completion for kitty
 kitty + complete setup zsh | source /dev/stdin
 
+export BAT_THEME=gruvbox
+
 # Aliases
 alias ack="ag"
 alias g='git'
