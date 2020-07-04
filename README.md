@@ -7,6 +7,7 @@ My configuration files for my dev environment on arch linux
 ```bash
 git clone --separate-git-dir=$HOME/.dotfiles raoulmillais/dotfiles $HOME/dotfiles-tmp
 rm -r ~/dotfiles-tmp/
+source .zshrc
 config config status.showUntrackedFiles no
 ```
 
