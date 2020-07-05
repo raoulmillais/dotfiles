@@ -230,7 +230,7 @@ set undofile
 set undodir=~/.vim/tmp/undo,~/tmp,/tmp
 set backupdir=~/.vim/tmp/backup,~/tmp,/tmp
 set directory=~/.vim/tmp/swap/,~/tmp,/tmp
-set noswapfile
+set updatecount=50
 
 " }}}
 " Indentation and whitespace {{{
