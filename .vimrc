@@ -109,8 +109,6 @@ inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
 
-"Hello
-
 " }}}
 " Make targets {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -306,6 +304,17 @@ set foldcolumn=3                    " Show 3 levels
 set foldtext=SimpleFoldText()       " Only the function name
 
 " }}}
+" Vimrc helpers {{{
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Open .vimrc in a new split for quick editing
+nnoremap <leader>ev :vs $MYVIMRC<cr>
+" Auto source .vimrc when it's saved
+augroup VimReload
+    autocmd!
+    autocmd BufWritePost  $MYVIMRC  source $MYVIMRC
+augroup END
+
+" }}}
 " Keymaps {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let mapleader=","
@@ -313,10 +322,6 @@ let maplocalleader=","
 
 " Toggle NERDTRee with F2 in command mode
 noremap <f2> :NERDTreeToggle<cr>
-" Open .vimrc in a new split for quick editing
-nnoremap <leader>ev :vs $MYVIMRC<cr>
-" Source .vimrc in current window
-nnoremap <leader>sv :source $MYVIMRC<cr>
 " Go to start of line
 nnoremap H 0
 " Go to end of line
