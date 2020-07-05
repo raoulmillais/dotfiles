@@ -4,6 +4,7 @@
 	br = branch
 	co = checkout
 	df = difftool
+  pom = push origin master
 	rso = remote show origin
 	lg = log --graph --pretty=oneline --abbrev-commit
 	longlog = log
