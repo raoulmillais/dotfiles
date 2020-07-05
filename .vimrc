@@ -47,6 +47,7 @@ call vundle#end()
 filetype on                 " Reenable filetype
 filetype indent on
 filetype plugin on
+set autowrite
 
 " }}}
 " Colorscheme {{{
