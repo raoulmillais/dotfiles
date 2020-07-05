@@ -34,8 +34,6 @@ Plugin 'scrooloose/nerdtree.git'
 Plugin 'tpope/vim-fugitive.git'
 Plugin 'tpope/vim-surround.git'
 Plugin 'tpope/vim-unimpaired'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
 Plugin 'vim-ruby/vim-ruby.git'
 Plugin 'vim-scripts/jsbeautify.git'
 Plugin 'vim-scripts/paredit.vim.git'
@@ -534,12 +532,6 @@ function! ToggleScratch()
 endfunction
 
 nnoremap <leader>S call ToggleScratch()
-
-" }}}
-" airline {{{
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:airline_powerline_fonts = 1
-let g:airline_theme='base16_gruvbox_dark_hard'
 
 " Always show status line
 set laststatus=2
