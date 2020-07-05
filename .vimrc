@@ -17,8 +17,6 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'elzr/vim-json'
 Plugin 'fatih/vim-go'
-Plugin 'honza/vim-snippets'
-Plugin 'iamcco/markdown-preview.nvim'
 Plugin 'junegunn/fzf.vim'
 Plugin 'mattn/vim-lsp-settings'
 Plugin 'mileszs/ack.vim.git'
@@ -34,8 +32,6 @@ Plugin 'scrooloose/nerdtree.git'
 Plugin 'tpope/vim-fugitive.git'
 Plugin 'tpope/vim-surround.git'
 Plugin 'tpope/vim-unimpaired'
-Plugin 'vim-scripts/jsbeautify.git'
-Plugin 'vim-scripts/paredit.vim.git'
 Plugin 'vim-scripts/scratch.vim'
 Plugin 'yami-beta/asyncomplete-omni.vim'
 Plugin 'w0rp/ale'
@@ -113,13 +109,6 @@ inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
 nnoremap <F5> :make build<BAR>copen<CR>
 nnoremap <F6> :make test<BAR>copen<CR>
 
-
-
-" }}}
-" Markdown preview {{{
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:mkdp_auto_start = 1
-let g:mkdp_auto_close = 1
 
 " }}}
 " Vimux mappings {{{
