@@ -47,7 +47,6 @@ call vundle#end()
 filetype on                 " Reenable filetype
 filetype indent on
 filetype plugin on
-set autowrite
 
 " }}}
 " Colorscheme {{{
@@ -200,6 +199,7 @@ set matchtime=3           " Jump to matching paren for a briefer time
 set splitbelow            " Open new splits below current window
 set splitright            " Open new vsplits to the right
 set autowrite             " Autowrite files when leaving
+set autowriteall          " Autowrite files for all commands
 set report=0              " Always tell me how many lines were affected
 set dictionary=/usr/share/dict/words
 set completeopt=menuone   " Show menu even for one item and no preview
@@ -321,10 +321,6 @@ let maplocalleader=","
 
 " Toggle NERDTRee with F2 in command mode
 noremap <f2> :NERDTreeToggle<cr>
-" Go to start of line
-nnoremap H 0
-" Go to end of line
-nnoremap L $
 " copy and paste with xclip
 vnoremap <leader>y :!xclip -f -sel  clip<CR>
 " noremap <leader>p :-1r !xclip -o -sel clip<CR>
@@ -337,7 +333,6 @@ endif
 cnoremap W w
 cnoremap Wq wq
 cnoremap Wqa wqa
-
 
 " }}}
 " Tab keymaps {{{
@@ -382,18 +377,6 @@ inoremap jk               <esc>
 nnoremap <F12>            :set paste!<cr>
 
 " }}}
-" Spellchecking keymaps {{{
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-noremap <leader>ss             :setlocal spell!<cr>
-" Next misspelling
-noremap <leader>sn             ]s
-" Previous misspelling
-noremap <leader>sp             [s
-" Add word to dictionary
-noremap <leader>sa             zg
-noremap <leader>s?             z=
-
-" }}}
 " Help{{{
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd FileType help wincmd L      " Open help in a vertical split
@@ -408,9 +391,6 @@ nnoremap k                gk
 " Fix vim's regexp search to use perl regexps
 nnoremap /                /\v
 vnoremap \                /\v
-" Move to matching bracket
-nnoremap <tab>            %
-vnoremap <tab>            %
 " Don't enter ex mode
 noremap Q                 <nop>
 
@@ -457,40 +437,10 @@ if has('autocommand')
   augroup END
 endif
 
-
-
-" }}}
-" Taglist configuration {{{
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let Tlist_Ctags_Cmd = "/usr/bin/ctags"
-let Tlist_WinWidth = 50
-noremap <F8> :!/usr/bin/ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<cr>
-
 " }}}
 " Ack configuration {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:ackprg = 'ag --nogroup --nocolor --column'
-
-" }}}
-" Cscope configuration {{{
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if has("cscope")
-  set csprg=/usr/bin/cscope
-  set csto=0
-  set cst
-  set nocsverb
-  " Add cscope database in current directory
-  if filereadable("cscope.out")
-    cs add cscope.out
-  elseif $CSCOPE_DB != ""
-    cs add $CSCOPE_DB
-  endif
-endif
-
-" }}}
-" CtrlP configuration {{{
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:ctrlp_open_new_file = 1         " Open new files in tabs
 
 " }}}
 " Enable toggling of the quickfix and errors window {{{
@@ -541,24 +491,10 @@ nnoremap <leader>S call ToggleScratch()
 set laststatus=2
 
 if has("autocmd")
+  " TODO: use gruvbox colors
   augroup ft_statusline_background_colour
     au InsertEnter * hi StatusLine ctermfg=15 guifg=#FF3145
     au InsertLeave * hi StatusLine ctermfg=236 guifg=#CD5907
-  augroup END
-endif
-
-" }}}
-" Css and less files {{{
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if has("autocmd")
-  augroup ft_css
-    au!
-
-    au BufNewFile,BufRead *.less setlocal filetype=less
-
-    " Make folding work
-    au FileType less,css setlocal foldmethod=marker
-    au FileType less,css setlocal foldmarker={,}
   augroup END
 endif
 
@@ -603,60 +539,8 @@ if has("autocmd")
   augroup END
 endif
 
-" }}}
-" Ruby files
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:go_rename_command = 'gopls'
 
-" }}}
-" Ruby files
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if has("autocmd")
-  augroup ft_ruby
-    au FileType ruby setlocal foldmethod=syntax
-    au FileType ruby setlocal ts=2 sts=2 sw=2 expandtab
-    au FileType ruby map <buffer> <localleader>ra        :RunSpecs<cr>
-    au FileType ruby map <buffer> <localleader>rs        :RunSpec<cr>
-    au FileType ruby map <buffer> <localleader>rl        :RunSpecLine<cr>
-  augroup END
-endif
-
-" }}}
-" JavaScript files
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if has("autocmd")
-  augroup ft_javascript
-    au FileType javascript setlocal foldmethod=syntax
-    au FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
-  augroup END
-endif
-
-" }}}
-" Scheme files
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if has("autocmd")
-  augroup ft_scheme
-    au FileType scheme setlocal foldmethod=syntax
-    au FileType scheme setlocal ts=2 sts=2 sw=2 expandtab
-    au FileType scheme let b:delimitMate_quotes = "\""
-    au FileType scheme setlocal equalprg=scmindent.rkt
-  augroup END
-  autocmd filetype lisp,scheme,art setlocal equalprg=scmindent.rkt
-endif
-
-" }}}
-" Scheme files
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-au BufRead,BufNewFile *.tag :set filetype=html
-
-" }}}
-" Clojure files
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! RunMidje() "{{{
-  Eval (require 'midje.repl)(midje.repl/load-facts :all)
-endfunction " }}}
-
-command! Midje call RunMidje()
 
 " }}}
 " Commands to run on startup {{{
@@ -667,9 +551,7 @@ if has("autocmd")
   " Custom tab settings
   " make must be tabs
   autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
-  " yaml and coffeescript must be spaces
   autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
-  autocmd FileType coffee setlocal ts=2 sts=2 sw=2 expandtab
   autocmd BufEnter * let &titlestring="vim: " . expand("%:t")
 endif
 
