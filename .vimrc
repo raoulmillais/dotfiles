@@ -339,7 +339,6 @@ nnoremap <leader>tp          :tabp<cr>
 nnoremap <leader>te          :tabe<space>
 nnoremap <leader>tc          :tabclose<cr>
 
-"
 " }}}
 " Commandline  keymaps {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -399,6 +398,7 @@ nnoremap <leader>h *<C-O>
 " }}}}}}
 " Ack configuration {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:ackprg = 'ag --nogroup --nocolor --column'
 " Bring up ack ready to searc
 nnoremap <leader>a        :Ack!<Space>
 " Highlight word at cursor and then Ack it.
@@ -435,62 +435,18 @@ if has('autocommand')
 endif
 
 " }}}
-" Ack configuration {{{
+"  quickfix window and location window mappings {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:ackprg = 'ag --nogroup --nocolor --column'
+noremap <F4> :cw<CR>
+noremap <F3> :lw<CR>
 
 " }}}
-" Enable toggling of the quickfix and errors window {{{
+" Status line {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! ToggleErrors()
-  if exists("w:is_error_window")
-    unlet w:is_error_window
-    lclose
-  else
-    exec "Errors"
-    botright lopen
-    let w:is_error_window = 1
-  endif
-endfunction
-
-function! ToggleQuickFix(forced)
-  if exists('g:quickfix_is_open') && a:forced == 0
-    unlet g:quickfix_is_open
-    cclose
-  else
-    botright copen 10
-    let g:quickfix_is_open = bufnr("$")
-  endif
-endfunction
-
-command! -bang -nargs=? ToggleQuickFix call ToggleQuickFix(<bang>0)
-command! ToggleErrors call ToggleErrors()
-
-noremap <F4> :ToggleQuickFix<CR>
-noremap <F3> :ToggleErrors<CR>
-
-" }}}
-" Scratch {{{
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-function! ToggleScratch()
-  if exists('w:scratch_is_open')
-    unlet w:scratch_is_open
-    exec "q"
-  else
-    Sscratch
-    let w:scratch_is_open = 1
-  endif
-endfunction
-
-nnoremap <leader>S call ToggleScratch()
-
-" Always show status line
-set laststatus=2
-
+set laststatus=2 " Taller status line to reduce annoying prompts
 if has("autocmd")
-  " TODO: use gruvbox colors
   augroup ft_statusline_background_colour
-    au InsertEnter * hi StatusLine ctermfg=15 guifg=#FF3145
+    au InsertEnter * hi StatusLine ctermfg=214 guifg=#FFAF00
     au InsertLeave * hi StatusLine ctermfg=236 guifg=#CD5907
   augroup END
 endif
@@ -505,7 +461,6 @@ if has("autocmd")
     au FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
     au FileType javascript setlocal foldmethod=marker
     au FileType javascript setlocal foldmarker={,}
-    au FileType javascript setl formatprg=js-beautify\ -t\ -j\ -w\ 80\ -f\ -
     au BufWritePre *.js :%s/\s\+$//e
   augroup END
 endif
@@ -515,7 +470,7 @@ endif
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:vim_json_syntax_conceal = 0
 if has("autocmd")
-  augroup ft_javascript
+  augroup ft_json
     au!
     au FileType json setlocal foldmethod=marker
     au FileType json setlocal foldmarker={,}
@@ -537,7 +492,6 @@ if has("autocmd")
 endif
 
 let g:go_rename_command = 'gopls'
-
 
 " }}}
 " Commands to run on startup {{{
