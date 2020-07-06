@@ -104,6 +104,14 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
 
 " }}}
+" Search mappings {{{
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Clobber S with fast global search and replace
+nmap S :%s::g<LEFT><LEFT>
+" Clobber M with mapping to replace all last search
+nmap <expr> M  ':%s/' . @/ . '//g<LEFT><LEFT>' "
+
+" }}}
 " Make targets {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <F5> :make build<BAR>copen<CR>
