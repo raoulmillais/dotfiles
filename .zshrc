@@ -84,16 +84,15 @@ alias less='COLUMNS=80 less -m -N -g -i -J --underline-special --SILENT'
 alias more='less'
 
 #
-# ls
+# ls / exa
 #
 
 # ls colors
 DIRCOLORS=/home/raoul/gruvbox.dir_colors
 test -r ${DIRCOLORS} && eval "$(dircolors ${DIRCOLORS})"
-
-ls --color -d . &>/dev/null && alias ls='ls --color=tty' || { ls -G . &>/dev/null && alias ls='ls -G' }
-alias ll='ls -lasph'
-alias la='ls -lasph'
+alias ls='exa'
+alias ll='exa -la'
+alias la='exa -la'
 
 # Use LS_COLORS for autompoletion too
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
