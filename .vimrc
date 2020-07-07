@@ -142,8 +142,10 @@ nnoremap <Leader>gtf :GolangTestFocused<CR>
 nnoremap <Leader>gcc :GoCoverageToggle!<CR>
 
 " }}}
-" fzf mappings {{{
+" fzf {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+command! -bang -nargs=? -complete=dir Files
+    \ call fzf#vim#files(<q-args>, {'options': ['--layout=reverse', '--info=inline', '--preview', '~/.vim/bundle/fzf.vim/bin/preview.sh {}']}, <bang>0)
 nnoremap <C-p> :Files<CR>
 "
 " }}}
@@ -303,7 +305,7 @@ set foldtext=SimpleFoldText()       " Only the function name
 " Vimrc helpers {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Open .vimrc in a new split for quick editing
-nnoremap <leader>ev :vs $MYVIMRC<cr>
+nmap <leader>ev :vs $MYVIMRC<cr>
 " Auto source .vimrc when it's saved
 augroup VimReload
     autocmd!
@@ -438,6 +440,9 @@ endif
 "  quickfix window and location window mappings {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 noremap <F4> :cw<CR>
+nmap <silent> <LEFT>  :cprev<CR>
+nmap <silent> <RIGHT> :cnext<CR>
+
 noremap <F3> :lw<CR>
 
 " }}}
