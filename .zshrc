@@ -90,9 +90,9 @@ alias more='less'
 # ls colors
 DIRCOLORS=/home/raoul/gruvbox.dir_colors
 test -r ${DIRCOLORS} && eval "$(dircolors ${DIRCOLORS})"
-alias ls='exa'
-alias ll='exa -la'
-alias la='exa -la'
+alias ls='exa --long --header --group --links --blocks --accessed --modified'
+alias ll='exa --long --grid --header --group'
+alias la='exa --long --grid --header --group'
 
 # Use LS_COLORS for autompoletion too
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
