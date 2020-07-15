@@ -38,6 +38,7 @@ Plugin 'w0rp/ale'
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-notes'
 Plugin 'vifm/vifm.vim'
+Plugin 'cespare/vim-toml'
 
 call vundle#end()
 filetype on                 " Reenable filetype
@@ -89,6 +90,15 @@ if executable('terraform-ls')
               \ 'whitelist': ['terraform'],
               \ })
     endif
+
+if executable('rls')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'rls',
+        \ 'cmd': {server_info->['rustup', 'run', 'stable', 'rls']},
+        \ 'workspace_config': {'rust': {'clippy_preference': 'on'}},
+        \ 'whitelist': ['rust'],
+        \ })
+endif
 
 " }}}
 " Autocomplete {{{
