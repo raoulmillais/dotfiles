@@ -90,7 +90,7 @@ alias more='less'
 # ls colors
 DIRCOLORS=/home/raoul/gruvbox.dir_colors
 test -r ${DIRCOLORS} && eval "$(dircolors ${DIRCOLORS})"
-alias ls='exa --long --header --group --links --blocks --accessed --modified'
+alias ls='exa --long --header --group --links --blocks --accessed --modified --git'
 alias ll='exa --long --grid --header --group'
 alias la='exa --long --grid --header --group'
 
