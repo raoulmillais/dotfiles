@@ -51,12 +51,15 @@ filetype plugin on
 syntax on                                " Enable syntax highlighting
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"   " Fix colors for tmux
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"   " https://github.com/tmux/tmux/issues/1246
-set termguicolors                        " Turn on 24bit colors
+" Enable true colors if available
+set termguicolors
 set background=dark                      " Dark colorscheme please
 let g:gruvbox_italic=1                   " KiTTY supports italics just fine
 let g:gruvbox_contrast_dark="hard"
 colorscheme gruvbox
-
+" Enable italics, Make sure this is immediately after colorscheme
+" https://stackoverflow.com/questions/3494435/vimrc-make-comments-italic
+highlight Comment cterm=italic gui=italic
 
 " }}}
 " Diffing {{{
