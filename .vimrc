@@ -484,6 +484,20 @@ if has("autocmd")
 endif
 
 " }}}
+" Rust files {{{
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if has("autocmd")
+  augroup ft_rust
+    au!
+
+    au FileType rust setlocal ts=4 sts=4 sw=4 noexpandtab
+    au FileType rust setlocal foldmethod=marker
+    au FileType rust setlocal foldmarker={,}
+    au BufWritePre *.rs :%s/\s\+$//e
+  augroup END
+endif
+
+" }}}
 " JSON {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:vim_json_syntax_conceal = 0
