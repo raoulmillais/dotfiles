@@ -37,9 +37,6 @@ zle -N zle-line-init
 zle -N zle-keymap-select
 export KEYTIMEOUT=1            # reduce the timeout switching modes
 
-# fzf support
-source /usr/share/fzf/key-bindings.zsh
-source /usr/share/fzf/completion.zsh
 
 #
 # PROMPT
@@ -103,8 +100,6 @@ setopt NO_BEEP
 setopt MENU_COMPLETE
 bindkey '^I' expand-or-complete-prefix   # Keep rest of line when completing
 bindkey '\M-\C-I' reverse-menu-complete  # Alt-tab to reverse cycle completions
-# Completion for kitty
-kitty + complete setup zsh | source /dev/stdin
 
 export BAT_THEME=gruvbox
 
@@ -146,3 +141,14 @@ if [[ -n "$(config st)" ]]; then
   echo "Config is dirty:"
   config st
 fi
+
+case `uname` in
+  Darwin)
+    [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+  ;;
+  Linux)
+    # commands for Linux go here
+    source /usr/share/fzf/key-bindings.zsh
+    source /usr/share/fzf/completion.zsh
+  ;;
+esac
