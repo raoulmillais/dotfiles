@@ -5,42 +5,43 @@ filetype off                " Interferes with Vundle plugin loading
 
 let g:python_host_prog = '/usr/bin/python3'
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
 
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'benmills/vimux'
-Plugin 'benmills/vimux-golang'
-Plugin 'bling/vim-bufferline'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'elzr/vim-json'
-Plugin 'fatih/vim-go'
-Plugin 'junegunn/fzf.vim'
-Plugin 'mattn/vim-lsp-settings'
-Plugin 'mileszs/ack.vim.git'
-Plugin 'morhetz/gruvbox'
-Plugin 'othree/yajs.vim'
-Plugin 'pedrohdz/vim-yaml-folds'
-Plugin 'prabirshrestha/async.vim'
-Plugin 'prabirshrestha/asyncomplete.vim'
-Plugin 'prabirshrestha/asyncomplete-lsp.vim'
-Plugin 'prabirshrestha/vim-lsp'
-Plugin 'ryanolsonx/vim-lsp-javascript'
-Plugin 'scrooloose/nerdtree.git'
-Plugin 'tpope/vim-fugitive.git'
-Plugin 'tpope/vim-surround.git'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'vim-scripts/scratch.vim'
-Plugin 'yami-beta/asyncomplete-omni.vim'
-Plugin 'w0rp/ale'
-Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-notes'
-Plugin 'vifm/vifm.vim'
-Plugin 'cespare/vim-toml'
 
-call vundle#end()
+Plug 'VundleVim/Vundle.vim'
+Plug 'benmills/vimux'
+Plug 'benmills/vimux-golang'
+Plug 'bling/vim-bufferline'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'elzr/vim-json'
+Plug 'fatih/vim-go'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'mattn/vim-lsp-settings'
+Plug 'morhetz/gruvbox'
+Plug 'othree/yajs.vim'
+Plug 'pedrohdz/vim-yaml-folds'
+Plug 'prabirshrestha/async.vim'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'prabirshrestha/vim-lsp'
+Plug 'ryanolsonx/vim-lsp-javascript'
+Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+Plug 'jremmen/vim-ripgrep'
+Plug 'vim-scripts/scratch.vim'
+Plug 'yami-beta/asyncomplete-omni.vim'
+Plug 'w0rp/ale'
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-notes'
+Plug 'vifm/vifm.vim'
+Plug 'cespare/vim-toml'
+
+call plug#end()
+
 filetype on                 " Reenable filetype
 filetype indent on
 filetype plugin on
@@ -94,11 +95,10 @@ if executable('terraform-ls')
               \ })
     endif
 
-if executable('rls')
+if executable('rust-analyzer')
     au User lsp_setup call lsp#register_server({
-        \ 'name': 'rls',
-        \ 'cmd': {server_info->['rustup', 'run', 'stable', 'rls']},
-        \ 'workspace_config': {'rust': {'clippy_preference': 'on'}},
+        \ 'name': 'rust-analyzer',
+        \ 'cmd': {server_info->['rust-analyzer']},
         \ 'whitelist': ['rust'],
         \ })
 endif
