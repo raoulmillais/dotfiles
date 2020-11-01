@@ -8,7 +8,7 @@ let g:python_host_prog = '/usr/bin/python3'
 call plug#begin('~/.vim/plugged')
 
 
-Plug 'VundleVim/Vundle.vim'
+Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
 Plug 'benmills/vimux'
 Plug 'benmills/vimux-golang'
 Plug 'bling/vim-bufferline'
@@ -18,27 +18,23 @@ Plug 'elzr/vim-json'
 Plug 'fatih/vim-go'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'mattn/vim-lsp-settings'
 Plug 'morhetz/gruvbox'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'othree/yajs.vim'
 Plug 'pedrohdz/vim-yaml-folds'
-Plug 'prabirshrestha/async.vim'
-Plug 'prabirshrestha/asyncomplete.vim'
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
-Plug 'prabirshrestha/vim-lsp'
-Plug 'ryanolsonx/vim-lsp-javascript'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'jremmen/vim-ripgrep'
 Plug 'vim-scripts/scratch.vim'
-Plug 'yami-beta/asyncomplete-omni.vim'
 Plug 'w0rp/ale'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
 Plug 'vifm/vifm.vim'
 Plug 'cespare/vim-toml'
+" Must come last
+Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
@@ -80,43 +76,6 @@ let g:ale_fixers = {
 \}
 
 " }}}
-" LSP {{{
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:lsp_log_file = expand('~/vim-lsp-log.txt')
-
-let g:lsp_diagnostics_enabled = 0
-let g:lsp_signs_error = { 'text': '✗' }
-let g:lsp_signs_warning = { 'text': '⚠️' }
-if executable('terraform-ls')
-      au User lsp_setup call lsp#register_server({
-              \ 'name': 'terraform-ls',
-              \ 'cmd': {server_info->['terraform-ls', 'serve']},
-              \ 'whitelist': ['terraform'],
-              \ })
-    endif
-
-if executable('rust-analyzer')
-    au User lsp_setup call lsp#register_server({
-        \ 'name': 'rust-analyzer',
-        \ 'cmd': {server_info->['rust-analyzer']},
-        \ 'whitelist': ['rust'],
-        \ })
-endif
-
-" }}}
-" Autocomplete {{{
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-call asyncomplete#register_source(asyncomplete#sources#omni#get_source_options({
-\ 'name': 'omni',
-\ 'whitelist': ['*'],
-\ 'blacklist': ['c', 'cpp', 'html'],
-\ 'completor': function('asyncomplete#sources#omni#completor')
-\  }))
-inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-inoremap <expr> <cr>    pumvisible() ? "\<C-y>" : "\<cr>"
-
-" }}}
 " Search mappings {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Clobber S with fast global search and replace
@@ -130,6 +89,17 @@ nmap <expr> M  ':%s/' . @/ . '//g<LEFT><LEFT>' "
 nnoremap <F5> :make build<BAR>copen<CR>
 nnoremap <F6> :make test<BAR>copen<CR>
 
+" }}}
+" Coc mappings {{{
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Use tab for trigger completion with characters ahead and navigate.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+nmap <Leader>cr <Plug>(coc-rename)
 
 " }}}
 " Vimux mappings {{{
@@ -292,7 +262,6 @@ function! <SID>StripTrailingWhitespaces()
 endfunction
 
 "Shortcut mapping
-noremap <leader><tab> :Stab<cr>
 set cindent                         " Indent new lines to same level as last
 set listchars=tab:▸▸,space:·        " Nicer whitespace characters
 set list                            " Show whitespace
