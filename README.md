@@ -5,8 +5,8 @@ My configuration files for my dev environment on arch linux
 ## Installation instructions on a new machine
 
 ```bash
-git clone --separate-git-dir=$HOME/.dotfiles raoulmillais/dotfiles $HOME/dotfiles-tmp
-rm -r ~/dotfiles-tmp/
+git clone --bare git@github.com:raoulmillais/dotfiles.git $HOME/.dotfiles
+git --git-dir=$HOME/.dotfiles --work-tree=$HOME reset --hard
 source .zshrc
 config config status.showUntrackedFiles no
 ```
