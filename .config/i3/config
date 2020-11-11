@@ -1,13 +1,26 @@
 # Set modifier key to alt
 set $mod Mod4
 
-font pango:Iosevka Nerd Font 12
+font pango:Iosevka Nerd Font 22
+
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
+#Needed for i3-gaps
+#hide_edge_borders both
+for_window [class="^.*"] border pixel 2 
+smart_gaps on
+gaps inner 50
+gaps outer 25
+
+bindsym $mod+z		gaps outer current plus 5
+bindsym $mod+Shift+z	gaps outer current minus 5
 
 # Open new terminal
 bindsym $mod+Return exec alacritty
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
+bindsym $mod+d exec --no-startup-id rofi -combi-modi window#drum#ssh -theme gruvbox-dark-hard -show run -font "Iosevka Nerd 22"
+bindsym $mod+space exec --no-startup-id rofi -combi-modi window#drum#ssh -theme gruvbox-dark-hard -show run -font "Iosevka Nerd 22"
 
 # Change focus
 bindsym $mod+h focus left
