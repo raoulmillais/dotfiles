@@ -3,14 +3,18 @@ set $mod Mod4
 
 font pango:Iosevka Nerd Font 22
 
+# Apps to launch once when i3 first starts
+exec --no-startup-id udiskie --tray
+
+# Apps to launch including on i3 restart
 exec_always --no-startup-id picom
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id nm-applet
-exec_always --no-startup-id feh --bg-scale /home/raoul/Pictures/polygon-wallpaper.jpg
-exec_always --no-startup-id udiskie --tray
+exec_always --no-startup-id betterlockscreen -u /home/raoul/Pictures/polygon-wallpaper.png
+exec_always --no-startup-id feh --bg-fill /home/raoul/Pictures/polygon-wallpaper.png
 
 #Needed for i3-gaps
-#hide_edge_borders both
+hide_edge_borders both
 for_window [class="^.*"] border pixel 2 
 gaps inner 50
 gaps outer 25
@@ -25,6 +29,9 @@ client.placeholder      #000000 #0C0C0C #FFFFFF #000000   #0C0C0C
 
 bindsym $mod+z		gaps outer current plus 5
 bindsym $mod+Shift+z	gaps outer current minus 5
+
+# Lockscreen
+bindsym $mod+Escape exec betterlockscreen -l pixel
 
 # Open new terminal
 bindsym $mod+Return exec alacritty
