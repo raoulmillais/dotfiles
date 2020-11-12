@@ -7,6 +7,7 @@ font pango:Iosevka Nerd Font 22
 exec --no-startup-id udiskie --tray
 
 # Apps to launch including on i3 restart
+exec_always --no-startup-id libinput-gestures-setup restart
 exec_always --no-startup-id picom
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id nm-applet
