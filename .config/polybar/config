@@ -16,6 +16,10 @@
 ;
 ;==========================================================
 
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
 [colors]
 ;background = ${xrdb:color0:#222}
 background = #222
@@ -30,11 +34,14 @@ alert = #bd2c40
 [bar/example]
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
-height = 27
+height = 50
 ;offset-x = 1%
 ;offset-y = 1%
 radius = 6.0
-fixed-center = false
+fixed-center = true
+
+dpi-x = 192
+dpi-y = 192
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -51,13 +58,13 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = fixed:pixelsize=10;1
-font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-2 = siji:pixelsize=10;1
+font-0 = Iosevka Nerd Font:pixelsize=10;1
+font-1 = Iosevka Nerd Font:fontformat=truetype:size=12:antialias=true;0
+font-2 = Iosevka Nerd Font:pixelsize=14;1
 
-modules-left = bspwm i3
-modules-center = mpd
-modules-right = filesystem xbacklight alsa pulseaudio xkeyboard memory cpu wlan eth battery temperature date powermenu
+modules-left = i3
+modules-center = xwindow
+modules-right = filesystem alsa pulseaudio memory cpu wlan eth battery temperature date powermenu
 
 tray-position = right
 tray-padding = 2
@@ -103,31 +110,9 @@ interval = 25
 
 mount-0 = /
 
-label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
-label-unmounted = %mountpoint% not mounted
-label-unmounted-foreground = ${colors.foreground-alt}
-
-[module/bspwm]
-type = internal/bspwm
-
-label-focused = %index%
-label-focused-background = ${colors.background-alt}
-label-focused-underline= ${colors.primary}
-label-focused-padding = 2
-
-label-occupied = %index%
-label-occupied-padding = 2
-
-label-urgent = %index%!
-label-urgent-background = ${colors.alert}
-label-urgent-padding = 2
-
-label-empty = %index%
-label-empty-foreground = ${colors.foreground-alt}
-label-empty-padding = 2
-
+label-mounted =   %free% free 
 ; Separator in between workspaces
-; label-separator = |
+label-separator = |
 
 [module/i3]
 type = internal/i3
@@ -143,17 +128,17 @@ label-mode-foreground = #000
 label-mode-background = ${colors.primary}
 
 ; focused = Active workspace on focused monitor
-label-focused = %index%
+label-focused = %icon%
 label-focused-background = ${colors.background-alt}
 label-focused-underline= ${colors.primary}
 label-focused-padding = 2
 
 ; unfocused = Inactive workspace on any monitor
-label-unfocused = %index%
+label-unfocused = %icon%
 label-unfocused-padding = 2
 
 ; visible = Active workspace on unfocused monitor
-label-visible = %index%
+label-visible = %icon%
 label-visible-background = ${self.label-focused-background}
 label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = ${self.label-focused-padding}
@@ -163,22 +148,16 @@ label-urgent = %index%
 label-urgent-background = ${colors.alert}
 label-urgent-padding = 2
 
-; Separator in between workspaces
-; label-separator = |
+ws-icon-0 = 1;ﲵ
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 3;
+ws-icon-4 = 4;
 
+ Separator in between workspaces
+ label-separator = |
+;
 
-[module/mpd]
-type = internal/mpd
-format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
-
-icon-prev = 
-icon-stop = 
-icon-play = 
-icon-pause = 
-icon-next = 
-
-label-song-maxlen = 25
-label-song-ellipsis = true
 
 [module/xbacklight]
 type = internal/xbacklight
@@ -205,7 +184,7 @@ card = intel_backlight
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = " "
+format-prefix = "  "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #f90000
 label = %percentage:2%%
@@ -213,7 +192,7 @@ label = %percentage:2%%
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = " "
+format-prefix = "  "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #4bffdc
 label = %percentage_used%%
@@ -233,11 +212,11 @@ format-disconnected =
 ;label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${colors.foreground-alt}
 
-ramp-signal-0 = 
+ramp-signal-0 = ﲁ
 ramp-signal-1 = 
 ramp-signal-2 = 
-ramp-signal-3 = 
-ramp-signal-4 = 
+ramp-signal-3 = 說
+ramp-signal-4 = 
 ramp-signal-foreground = ${colors.foreground-alt}
 
 [module/eth]
@@ -333,30 +312,25 @@ battery = BAT0
 adapter = AC
 full-at = 98
 
-format-charging = <animation-charging> <label-charging>
+format-charging = <animation-charging> <label-charging>  
 format-charging-underline = #ffb52a
 
 format-discharging = <animation-discharging> <label-discharging>
 format-discharging-underline = ${self.format-charging-underline}
 
-format-full-prefix = " "
+format-full-prefix = " "
 format-full-prefix-foreground = ${colors.foreground-alt}
 format-full-underline = ${self.format-charging-underline}
 
-ramp-capacity-0 = 
-ramp-capacity-1 = 
-ramp-capacity-2 = 
-ramp-capacity-foreground = ${colors.foreground-alt}
-
-animation-charging-0 = 
-animation-charging-1 = 
-animation-charging-2 = 
+animation-charging-0 =  
+animation-charging-1 =  
+animation-charging-2 =  
 animation-charging-foreground = ${colors.foreground-alt}
 animation-charging-framerate = 750
 
-animation-discharging-0 = 
-animation-discharging-1 = 
-animation-discharging-2 = 
+animation-discharging-0 =  
+animation-discharging-1 =  
+animation-discharging-2 =  
 animation-discharging-foreground = ${colors.foreground-alt}
 animation-discharging-framerate = 750
 
@@ -415,9 +389,5 @@ screenchange-reload = true
 ;compositing-foreground = source
 ;compositing-border = over
 ;pseudo-transparency = false
-
-[global/wm]
-margin-top = 5
-margin-bottom = 5
 
 ; vim:ft=dosini
