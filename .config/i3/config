@@ -44,6 +44,9 @@ bindsym $mod+b exec firefox
 bindsym $mod+d exec --no-startup-id rofi -combi-modi window#drum#ssh -theme gruvbox-dark-hard -show run -font "Iosevka Nerd 22"
 bindsym $mod+space exec --no-startup-id rofi -combi-modi window#drum#ssh -theme gruvbox-dark-hard -show run -font "Iosevka Nerd 22"
 
+# Alt tab - rofi window switching
+bindsym Mod1+Tab exec --no-startup-id rofi -modi combi -combi-modi window -show combi
+
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
 
