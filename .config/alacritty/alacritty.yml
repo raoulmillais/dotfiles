@@ -35,6 +35,8 @@ font:
   # false.
   use_thin_strokes: false
 
+background_opacity: 0.9
+
 # Base16 Gruvbox dark, hard - alacritty color config
 # Dawid Kurek (dawikur@gmail.com), morhetz (https://github.com/morhetz/gruvbox)
 colors:
