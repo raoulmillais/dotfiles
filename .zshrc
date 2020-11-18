@@ -152,3 +152,5 @@ case `uname` in
     source /usr/share/fzf/completion.zsh
   ;;
 esac
+
+export PATH=~/.npm-global/bin:$PATH
