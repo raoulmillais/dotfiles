@@ -19,7 +19,9 @@ Plug 'fatih/vim-go'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'morhetz/gruvbox'
+Plug 'mhinz/vim-startify'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc-tsserver'
 Plug 'othree/yajs.vim'
 Plug 'pedrohdz/vim-yaml-folds'
 Plug 'scrooloose/nerdtree'
@@ -101,6 +103,10 @@ inoremap <silent><expr> <TAB>
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 nmap <Leader>cr <Plug>(coc-rename)
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gr <Plug>(coc-references)
+
 
 " }}}
 " Vimux mappings {{{
@@ -409,6 +415,11 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 let NERDTreeIgnore = ['\~$','\.git']
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
+
+" after a re-source, fix syntax matching issues (concealing brackets):
+if exists('g:loaded_webdevicons')
+  call webdevicons#refresh()
+endif
 
 if has('autocommand')
   augroup ft_clojure
