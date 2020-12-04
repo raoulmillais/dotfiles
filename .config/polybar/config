@@ -34,7 +34,7 @@ alert = #bd2c40
 [bar/example]
 ;monitor = ${env:MONITOR:HDMI-1}
 width = 100%
-height = 50
+height = 70
 ;offset-x = 1%
 ;offset-y = 1%
 radius = 6.0
@@ -68,6 +68,7 @@ modules-right = filesystem alsa pulseaudio memory cpu wlan eth battery temperatu
 
 tray-position = right
 tray-padding = 2
+tray-maxsize = 32
 ;tray-background = #0063ff
 
 ;wm-restack = bspwm
@@ -157,7 +158,6 @@ ws-icon-4 = 4;
  Separator in between workspaces
  label-separator = |
 ;
-
 
 [module/xbacklight]
 type = internal/xbacklight
