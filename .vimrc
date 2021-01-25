@@ -20,6 +20,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'morhetz/gruvbox'
 Plug 'mhinz/vim-startify'
+Plug 'rust-lang/rust.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neoclide/coc-tsserver'
 Plug 'othree/yajs.vim'
@@ -30,7 +31,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'jremmen/vim-ripgrep'
 Plug 'vim-scripts/scratch.vim'
-Plug 'w0rp/ale'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
 Plug 'vifm/vifm.vim'
@@ -70,15 +70,6 @@ command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
 
 
 " }}}
-" ALE linting and fixing {{{
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:ale_fixers = {
-\  'javascript': [
-\    'standard'
-\  ]
-\}
-
-" }}}
 " Search mappings {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Clobber S with fast global search and replace
@@ -93,7 +84,7 @@ nnoremap <F5> :make build<BAR>copen<CR>
 nnoremap <F6> :make test<BAR>copen<CR>
 
 " }}}
-" Coc mappings {{{
+" Coc {{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Use tab for trigger completion with characters ahead and navigate.
 inoremap <silent><expr> <TAB>
@@ -102,10 +93,41 @@ inoremap <silent><expr> <TAB>
       \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-nmap <Leader>cr <Plug>(coc-rename)
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gr <Plug>(coc-references)
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> to trigger completion.
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
+
+nmap <leader>cr <Plug>(coc-rename)
+nmap <leader>cd <Plug>(coc-definition)
+nmap <leader>cy <Plug>(coc-type-definition)
+nmap <silent>cR <Plug>(coc-references)
+
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" Use K to show documentation in preview window.
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
 
 
 " }}}
@@ -130,6 +152,14 @@ nnoremap <Leader>gtd :GoDef<CR>
 nnoremap <Leader>gta :GolangTestCurrentPackage<CR>
 nnoremap <Leader>gtf :GolangTestFocused<CR>
 nnoremap <Leader>gcc :GoCoverageToggle!<CR>
+
+" }}}
+" rg {{{
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if executable('rg')
+set grepprg=rg\ --no-heading\ --vimgrep
+  set grepformat=%f:%l:%c:%m
+endif
 
 " }}}
 " fzf {{{

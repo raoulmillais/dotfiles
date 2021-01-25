@@ -4,3 +4,5 @@
 # or need to be changed 
 
 stty -ixon
+
+export PATH="$HOME/.cargo/bin:$PATH"
