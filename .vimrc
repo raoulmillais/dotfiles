@@ -7,7 +7,7 @@ let g:python_host_prog = '/usr/bin/python3'
 
 call plug#begin('~/.vim/plugged')
 
-
+Plug 'dense-analysis/ale'
 Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
 Plug 'benmills/vimux'
 Plug 'benmills/vimux-golang'
