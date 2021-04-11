@@ -1,6 +1,5 @@
 [global]
-    font = Monospace 10
-
+    font = "Iosevka Nerd Font 22"
     # allow a small subset of html markup:
     # <b>bold</b>
     # <i>italic</i>
@@ -11,6 +10,14 @@
     # If markup is not allowed, those tags will be stripped out of the message.
     allow_markup = yes
 
+    icon_path = /usr/share/icons/gnome/32x32/status/:/usr/share/icons/gnome/32x32/devices/:/usr/share/icons/gnome/32x32/legacy/
+
+    icon_position = left
+
+    min_icon_size = 32
+    
+    vertical_alignment = top
+
     # The format of the message. Possible variables are:
     #   %a  appname
     #   %s  summary
@@ -19,7 +26,7 @@
     #   %I  iconname (without its path)
     #   %p  progress value if set ([  0%] to [100%]) or nothing
     # Markup is allowed
-    format = "<i>%s</i>\n%b"
+    format = "%s\n%b"
 
     # Sort messages by urgency
     sort = no
@@ -59,11 +66,11 @@
     # right side of the screen.  Y is measured from the top and down respectevly.
     # The width can be negative. In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
-    geometry = "300x5-30+20"
+    geometry = "600x40-10+80"
 
     # The transparency of the window. range: [0; 100]
     # This option will only work if a compositing windowmanager is present (e.g. xcompmgr, compiz, etc..)
-    transparency = 0
+    transparency = 20
 
     # Don't remove messages, if the user is idle (no mouse or keyboard input)
     # for longer than idle_threshold seconds.
@@ -121,7 +128,7 @@
     dmenu = /usr/bin/dmenu -p dunst:
 
     # browser for opening urls in context menu
-    browser = /usr/bin/google-chrome
+    browser = /usr/bin/firefox
 
 [frame]
     width = 0
@@ -154,7 +161,7 @@
     timeout = 3
 
 [urgency_normal]
-    background = "#285577"
+    background = "#222222"
     foreground = "#ffffff"
     timeout = 3
 
