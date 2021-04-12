@@ -111,10 +111,10 @@ bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 
 # Workspace assignments
-for_window [class="alacritty"] move container to workspace $ws1
-for_window [class="Firefox"]   move container to workspace $ws2
-for_window [class="element"]   move container to workspace $ws3
-for_window [class="chromium"]  move container to workspace $ws4
+assign [class="Alacritty"] $ws1
+assign [class="firefox"]   $ws2
+assign [class="Element"]   $ws3
+assign [class="Chromium"]  $ws4
 
 # Startup apps on workspaces - needs to happen after `assign` is done
 exec --no-startup-id alacritty
