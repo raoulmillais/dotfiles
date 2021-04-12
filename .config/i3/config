@@ -45,8 +45,8 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+b exec firefox
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id rofi -combi-modi window#drum#ssh -theme gruvbox-dark-hard -show drun -icon-theme "gnome" -show-icons -font "Iosevka Nerd 22"
-bindsym $mod+space exec --no-startup-id rofi -combi-modi window#drum#ssh -theme gruvbox-dark-hard -show drun -icon-theme "gnome" -show-icons -font "Iosevka Nerd 22"
+bindsym $mod+d     exec --no-startup-id /home/raoul/.config/rofi/scripts/launcher.sh
+bindsym $mod+space exec --no-startup-id /home/raoul/.config/rofi/scripts/launcher.sh
 
 # Alt tab - rofi window switching
 bindsym Mod1+Tab exec --no-startup-id rofi -modi combi -combi-modi window -show combi
