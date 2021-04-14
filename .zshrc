@@ -101,7 +101,7 @@ setopt MENU_COMPLETE
 bindkey '^I' expand-or-complete-prefix   # Keep rest of line when completing
 bindkey '\M-\C-I' reverse-menu-complete  # Alt-tab to reverse cycle completions
 
-export BAT_THEME=gruvbox
+export BAT_THEME=gruvbox-dark
 
 # Aliases
 alias ack="ag"
