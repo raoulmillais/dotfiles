@@ -1,7 +1,5 @@
 " Bootstrap plugins and filetypes {{{
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set nocompatible            " Turn off vi compatibility mode
-filetype off                " Interferes with Vundle plugin loading
+set nocompatible            " Turn off vi compatibility mode filetype off                " Interferes with Vundle plugin loading
 
 let g:python_host_prog = '/usr/bin/python3'
 
@@ -35,6 +33,11 @@ Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
 Plug 'vifm/vifm.vim'
 Plug 'cespare/vim-toml'
+Plug 'eraserhd/parinfer-rust',                     {'for': 'clojure'}
+Plug 'guns/vim-sexp',                              {'for': 'clojure'}
+Plug 'tpope/vim-sexp-mappings-for-regular-people', {'for': 'clojure'}
+Plug 'liquidz/vim-iced',                           {'for': 'clojure'}
+Plug 'liquidz/vim-iced-coc-source',                {'for': 'clojure'}
 " Must come last
 Plug 'ryanoasis/vim-devicons'
 
@@ -43,6 +46,9 @@ call plug#end()
 filetype on                 " Reenable filetype
 filetype indent on
 filetype plugin on
+
+let g:iced_enable_default_key_mappings = v:true
+let g:sexp_enable_insert_mode_mappings = 0
 
 " }}}
 " Colorscheme {{{
