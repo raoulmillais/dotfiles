@@ -154,3 +154,4 @@ case `uname` in
 esac
 
 export PATH=~/.npm-global/bin:$PATH
+export PATH=$PATH:~/.vim/plugged/vim-iced/bin
