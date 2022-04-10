@@ -15,11 +15,11 @@
 # * `sudo echo 'SUBSYSTEM=="usb", ATTR{idVendor}=="04d9", ATTR{idProduct}=="4545", RUN+="/home/raoul/bin/udev-xmodmap.sh"' > /etc/udev/rules.d/90-keyboard.rules`
 # * Reload udev rules:
 # * `sudo udevadm control --reload`
+#
+# NOTE this won't work for multi-user systems
+
 
 set -euo pipefail
-
-export DISPLAY=":0"
-export HOME=/home/raoul
 
 # Plugging in the keyboard results in multiple udev events so drop a tmp file
 # recording when this script was last run. Check it and don't rerun it again if
@@ -29,22 +29,28 @@ date_file="/tmp/last-udev-xmodmap"
 now=$(date +%s)
 
 if [[ -f $date_file ]]; then
-    prev_ts=$(cat "$date_file")
+  prev_ts=$(cat "$date_file")
 else
-    prev_ts=0
+  prev_ts=0
 fi
 
 if ((now - prev_ts <= min_seconds_between_executions)); then
-    exit 0
+  exit 0
 fi
 
 echo "$now" > "$date_file"
 
 # run xmodmap in the background so as not to block udev
 do_xmodmap() {
-    sleep 1
-    xmodmap $HOME/.Xmodmap
-    notify-send "Xmodmap" "Keymap successfully activated"
+  export DISPLAY=:0.0 
+  export RUN_AS_USER=$(who | head -n 1 | cut -d " " -f 1)
+  echo "RUN_AS_USER=$RUN_AS_USER"
+  export HOME=/home/$RUN_AS_USER
+  sleep 1
+  xmodmap $HOME/.Xmodmap
+  # udev runs unattended as root so we need to set the DISPLAY and
+  # DBUS_SESSION_BUS_ADDRESS 
+  su $RUN_AS_USER -c "DISPLAY=:0.0 DBUS_SESSION_BUS_ADDESS=unix:path=/run/user/1000/bus notify-send 'USB Keyboard plugged in'"
 }
 
 do_xmodmap &> "${date_file}.log" &
