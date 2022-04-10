@@ -43,7 +43,6 @@ zle -N zle-line-init
 zle -N zle-keymap-select
 export KEYTIMEOUT=1            # reduce the timeout switching modes
 
-
 #
 # PROMPT
 #
@@ -158,6 +157,3 @@ case `uname` in
     source /usr/share/fzf/completion.zsh
   ;;
 esac
-
-export PATH=~/.npm-global/bin:$PATH
-export PATH=$PATH:~/.vim/plugged/vim-iced/bin
