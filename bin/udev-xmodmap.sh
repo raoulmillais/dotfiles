@@ -42,15 +42,16 @@ echo "$now" > "$date_file"
 
 # run xmodmap in the background so as not to block udev
 do_xmodmap() {
+  # xmodmap needs DISPLAY to be set which it isn't because udev runs this script
+  # as root outside an X session
   export DISPLAY=:0.0 
-  export RUN_AS_USER=$(who | head -n 1 | cut -d " " -f 1)
-  echo "RUN_AS_USER=$RUN_AS_USER"
-  export HOME=/home/$RUN_AS_USER
+  export PRIMARY_USER=$(who | head -n 1 | cut -d " " -f 1)
+  export HOME=/home/$PRIMARY_USER
+  # This doesn't work reliably without a delay but NOTE if you have swapped 
+  # caps in your .Xmodmap and hit caps within a second of plugging in the
+  # keyboard you will end up with caps stuck on!!
   sleep 1
   xmodmap $HOME/.Xmodmap
-  # udev runs unattended as root so we need to set the DISPLAY and
-  # DBUS_SESSION_BUS_ADDRESS 
-  su $RUN_AS_USER -c "DISPLAY=:0.0 DBUS_SESSION_BUS_ADDESS=unix:path=/run/user/1000/bus notify-send 'USB Keyboard plugged in'"
 }
 
 do_xmodmap &> "${date_file}.log" &
