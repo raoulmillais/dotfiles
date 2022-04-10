@@ -25,14 +25,20 @@ setopt share_history
 autoload -U colors && colors
 autoload -Uz compinit && compinit
 
-
 # Line editing
-bindkey -v                     # vi mode
-bindkey jk vi-cmd-mode         # bind jk to esc like in vim
 setopt interactivecomments     # Allow comments with a # in a interactive shell
-bindkey '^R' history-incremental-search-backward # reinstate Ctrl-r
-bindkey "^Q" push-input        # Ctrl-Q will save a long line to history and
-                               # clear the line without running the command
+bindkey -v                     # vi mode
+bindkey -M viins '^R' history-incremental-search-backward # Ctrl-r to search history
+bindkey -r 'j'                     # Unbind prefix key for next binding to work
+bindkey -M viins jk vi-cmd-mode    # Bind jk to esc like in vim
+bindkey -M viins '^Q' push-input   # Save line to history and clear line
+
+# "Fixes" for Filco USB keyboard in vi-cmd-mode ("normal" mode)
+# Make special keys behave more like in insert mode
+bindkey -M vicmd '^[[1~' vi-first-non-blank # Fix home key behave like "^"
+bindkey -M vicmd '^[[4~' vi-end-of-line     # Fix end key behave like "$"
+bindkey -M vicmd '^[[3~' vi-delete-char     # Make del key behave like "x" in vim
+
 zle -N zle-line-init
 zle -N zle-keymap-select
 export KEYTIMEOUT=1            # reduce the timeout switching modes
