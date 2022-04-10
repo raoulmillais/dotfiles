@@ -1,15 +1,12 @@
 " Bootstrap plugins and filetypes {{{
 set nocompatible            " Turn off vi compatibility mode filetype off                " Interferes with Vundle plugin loading
 
-let g:python_host_prog = '/usr/bin/python3'
-
 call plug#begin('~/.vim/plugged')
 
 Plug 'dense-analysis/ale'
 Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
 Plug 'benmills/vimux'
 Plug 'benmills/vimux-golang'
-Plug 'bling/vim-bufferline'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'elzr/vim-json'
@@ -22,7 +19,6 @@ Plug 'rust-lang/rust.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neoclide/coc-tsserver'
 Plug 'othree/yajs.vim'
-Plug 'pedrohdz/vim-yaml-folds'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
@@ -38,6 +34,8 @@ Plug 'guns/vim-sexp',                              {'for': 'clojure'}
 Plug 'tpope/vim-sexp-mappings-for-regular-people', {'for': 'clojure'}
 Plug 'liquidz/vim-iced',                           {'for': 'clojure'}
 Plug 'liquidz/vim-iced-coc-source',                {'for': 'clojure'}
+Plug 'lambdalisue/fern.vim'
+Plug 'liquidz/vim-iced-fern-debugger',             {'for': 'clojure'}
 " Must come last
 Plug 'ryanoasis/vim-devicons'
 
@@ -48,6 +46,7 @@ filetype indent on
 filetype plugin on
 
 let g:iced_enable_default_key_mappings = v:true
+let g:iced#debug#debugger = 'fern'
 let g:sexp_enable_insert_mode_mappings = 0
 
 " }}}
@@ -331,17 +330,6 @@ set foldcolumn=3                    " Show 3 levels
 set foldtext=SimpleFoldText()       " Only the function name
 
 " }}}
-" Vimrc helpers {{{
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Open .vimrc in a new split for quick editing
-nmap <leader>ev :vs $MYVIMRC<cr>
-" Auto source .vimrc when it's saved
-augroup VimReload
-    autocmd!
-    autocmd BufWritePost  $MYVIMRC  source $MYVIMRC
-augroup END
-
-" }}}
 " Keymaps {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let mapleader=","
@@ -356,11 +344,6 @@ vnoremap <leader>y :!xclip -f -sel  clip<CR>
 if has('autocommand')
   au InsertLeave * set nopaste
 endif
-
-" Fixup common save / exit typos
-cnoremap W w
-cnoremap Wq wq
-cnoremap Wqa wqa
 
 " }}}
 " Tab keymaps {{{
