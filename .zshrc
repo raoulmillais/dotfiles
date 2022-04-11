@@ -32,6 +32,7 @@ bindkey -M viins '^R' history-incremental-search-backward # Ctrl-r to search his
 bindkey -r 'j'                     # Unbind prefix key for next binding to work
 bindkey -M viins jk vi-cmd-mode    # Bind jk to esc like in vim
 bindkey -M viins '^Q' push-input   # Save line to history and clear line
+bindkey -s '^O' 'vim $(fzf)\n'     # Use Ctrl-O to interactively open a file in vim
 
 # "Fixes" for Filco USB keyboard in vi-cmd-mode ("normal" mode)
 # Make special keys behave more like in insert mode
@@ -107,6 +108,19 @@ bindkey '^I' expand-or-complete-prefix   # Keep rest of line when completing
 bindkey '\M-\C-I' reverse-menu-complete  # Alt-tab to reverse cycle completions
 
 export BAT_THEME=gruvbox-dark
+
+#
+# fzf
+#
+
+# gruvbox colors
+FZF_DEFAULT_OPTS="--color=bg+:#3c3836,spinner:#fb4934,hl:#928374,fg:#ebdbb2,header:#928374,info:#8ec07c,pointer:#fb4934,marker:#fb4934,fg+:#ebdbb2,prompt:#fb4934,hl+:#fb4934"
+# layout
+export FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS} --height 40% --layout=reverse --border"
+
+# prefer ripgrep to find
+export FZF_DEFAULT_COMMAND='rg --files --follow'
+
 
 # Aliases
 alias ack="ag"
