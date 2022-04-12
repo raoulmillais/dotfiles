@@ -220,7 +220,7 @@ set encoding=utf-8        " Default to UTF-8
 set scrolloff=2           " start scrolling 2 lines from screen edge
 set hidden                " Hide rather than close abandoned buffers
 set backspace=2           " Make backspace work for indent, eol, start
-set shortmess=atI         " Shorten the large interruptive prompts
+set shortmess=atIc        " Shorten the large interruptive prompts
 set ttyfast               " Smoother redrawing with multiple windows
 set lazyredraw            " Suspend redrawing while running macros
 set matchtime=3           " Jump to matching paren for a briefer time
@@ -233,6 +233,7 @@ set dictionary=/usr/share/dict/words
 set completeopt=menuone   " Show menu even for one item and no preview
 set autoread              " Autoreload buffers that have changed on disk
 set cmdheight=2           " Allow a bit more room for messages
+set signcolumn=number     " Merge the sign column and the line number column
 
 " }}}
 " Cursor settings {{{
@@ -257,7 +258,9 @@ set undofile
 set undodir=~/.vim/tmp/undo,~/tmp,/tmp
 set backupdir=~/.vim/tmp/backup,~/tmp,/tmp
 set directory=~/.vim/tmp/swap/,~/tmp,/tmp
-set updatecount=50
+set updatecount=50 " save the files sooner than the default (after 50 chars)
+" triggers the CursorHold event sooner than the default 4s (makes coc feel more responsive)
+set updatetime=300 
 
 " }}}
 " Indentation and whitespace {{{
