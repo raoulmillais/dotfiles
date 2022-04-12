@@ -26,11 +26,11 @@ autoload -U colors && colors
 autoload -Uz compinit && compinit
 
 # Line editing
+export KEYTIMEOUT=10            # reduce the timeout switching modes
 setopt interactivecomments     # Allow comments with a # in a interactive shell
 bindkey -v                     # vi mode
 bindkey -M viins '^R' history-incremental-search-backward # Ctrl-r to search history
-bindkey -r 'j'                     # Unbind prefix key for next binding to work
-bindkey -M viins jk vi-cmd-mode    # Bind jk to esc like in vim
+bindkey -M viins 'jk' vi-cmd-mode    # Bind jk to esc like in vim
 bindkey -M viins '^Q' push-input   # Save line to history and clear line
 bindkey -s '^O' 'vim $(fzf)\n'     # Use Ctrl-O to interactively open a file in vim
 
@@ -42,7 +42,6 @@ bindkey -M vicmd '^[[3~' vi-delete-char     # Make del key behave like "x" in vi
 
 zle -N zle-line-init
 zle -N zle-keymap-select
-export KEYTIMEOUT=1            # reduce the timeout switching modes
 
 #
 # PROMPT
