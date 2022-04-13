@@ -3,7 +3,6 @@ set nocompatible            " Turn off vi compatibility mode filetype off       
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'dense-analysis/ale'
 Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
 Plug 'benmills/vimux'
 Plug 'benmills/vimux-golang'
