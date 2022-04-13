@@ -16,6 +16,7 @@
     }
   },
   "coc.source.iced.enable": true,
+  "coc.preferences.formatOnSaveFiletypes": ["js", "ts", "css", "markdown"],
   "languageserver": {
     "elmLS": {
       "command": "elm-language-server",
