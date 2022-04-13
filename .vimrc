@@ -1,13 +1,15 @@
 " Philosophy
-
 "
 " * Strives for as much config as necessary but no more.  Adding more
 " configuration makes issues harder to diagnose
-" * Assumes the latest stable gvim package (from arch linux) - I.e. jdoesn't defensively
-" check for features. This vimrc is not designed to be portable
-" * Only change from default settings for the smallest scope possible. E.g if
-" a setting can be effective when it only applies to a single filetype then
-" don't make the setting global if it doesn't need to be.
+" * This vimrc is not designed to be portable it assumes the latest stable 
+" gvim package (from arch linux) - E.g. it don't defensively check for features
+" * Only change from default settings for the smallest scope possible. E.g 
+"   * if a setting can be effective when it only applies to a single filetype then
+"   don't make the setting global
+"   * prefer configuring coc in the coc-settings.json to here (we want this
+"   file as small as possible)
+"
 
 "
 " Bootstrap plugins and filetypes 
@@ -33,6 +35,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neoclide/coc-json'
 Plug 'neoclide/coc-tsserver'
 Plug 'neoclide/coc-prettier'
+Plug 'neoclide/coc-eslint'
 Plug 'othree/yajs.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
@@ -119,11 +122,7 @@ endfunction
 command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
 
 " Use <c-space> to trigger completion.
-if has('nvim')
-  inoremap <silent><expr> <c-space> coc#refresh()
-else
-  inoremap <silent><expr> <c-@> coc#refresh()
-endif
+inoremap <silent><expr> <c-@> coc#refresh()
 
 nmap <leader>cr <Plug>(coc-rename)
 nmap <leader>cd <Plug>(coc-definition)
@@ -200,7 +199,7 @@ command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
   \   'rg --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1,
   \   fzf#vim#with_preview(), <bang>0)
-"
+
 " }}}
 " Notes {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -363,12 +362,10 @@ set foldtext=SimpleFoldText()       " Only the function name
 " }}}
 " Automation {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if has('autocommand')
-  " Disable paste mode when leaving insert mode
-  autocmd InsertLeave * set nopaste
-  " Automatically rebalance windows on vim resize
-  autocmd VimResized * :wincmd =
-endif
+" Disable paste mode when leaving insert mode
+autocmd InsertLeave * set nopaste
+" Automatically rebalance windows on vim resize
+autocmd VimResized * :wincmd =
 
 " }}}
 " Keymaps {{{
@@ -391,7 +388,7 @@ nnoremap <leader>te          :tabe<space>
 nnoremap <leader>tc          :tabclose<cr>
 
 " }}}
-" Commandline  keymaps {{{
+" Commandline keymaps {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 cnoremap <C-j> <t_kd>
 cnoremap <C-k> <t_ku>
@@ -428,7 +425,6 @@ nnoremap <F12>            :set paste!<cr>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd FileType help wincmd L      " Open help in a vertical split
 
-
 " }}}
 " Remap annoying default keymaps {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -447,21 +443,11 @@ nnoremap <leader><space>  :noh<cr>
 nnoremap <leader>h *<C-O>
 
 " }}}}}}
-" Ack configuration {{{
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:ackprg = 'ag --nogroup --nocolor --column'
-" Bring up ack ready to searc
-nnoremap <leader>a        :Ack!<Space>
-" Highlight word at cursor and then Ack it.
-nnoremap <leader>H        *<C-O>:AckFromSearch!<CR>
-
-" }}}}}}
 " Command Maps {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Enable saving readonly files with sudo
 cmap w!! %!sudo tee > /dev/null %
 command! -nargs=1 -range SuperRetab <line1>,<line2>s/\v%(^ *)@<= {<args>}/\t/g
-cmap Q q
 
 " this mapping Enter key to <C-y> to chose the current highlight item
 " and close the selection list, same as other IDEs.
@@ -481,14 +467,10 @@ if exists('g:loaded_webdevicons')
   call webdevicons#refresh()
 endif
 
-if has('autocommand')
-  augroup ft_clojure
-    au!
-
-    " Disable delimitMate for clojure
-    au FileType clojure let b:loaded_delimitMate=1
-  augroup END
-endif
+augroup ft_clojure
+  " Disable delimitMate for clojure
+  au FileType clojure let b:loaded_delimitMate=1
+augroup END
 
 " }}}
 "  quickfix window and location window mappings {{{
@@ -503,66 +485,10 @@ noremap <F3> :lw<CR>
 " Status line {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set laststatus=2 " Taller status line to reduce annoying prompts
-if has("autocmd")
-  augroup ft_statusline_background_colour
-    au InsertEnter * hi StatusLine ctermfg=214 guifg=#FFAF00
-    au InsertLeave * hi StatusLine ctermfg=236 guifg=#CD5907
-  augroup END
-endif
-
-" }}}
-" Javascript files {{{
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if has("autocmd")
-  augroup ft_javascript
-    au!
-
-    au FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
-    au FileType javascript setlocal foldmethod=marker
-    au FileType javascript setlocal foldmarker={,}
-    au BufWritePre *.js :%s/\s\+$//e
-  augroup END
-endif
-
-" }}}
-" Rust files {{{
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if has("autocmd")
-  augroup ft_rust
-    au!
-
-    au FileType rust setlocal ts=4 sts=4 sw=4 noexpandtab
-    au FileType rust setlocal foldmethod=marker
-    au FileType rust setlocal foldmarker={,}
-    au BufWritePre *.rs :%s/\s\+$//e
-  augroup END
-endif
-
-" }}}
-" JSON {{{
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:vim_json_syntax_conceal = 0
-if has("autocmd")
-  augroup ft_json
-    au!
-    au FileType json setlocal foldmethod=marker
-    au FileType json setlocal foldmarker={,}
-
-
-    au FileType json setlocal ts=2 sts=2 sw=2 expandtab
-  augroup END
-endif
-
-" }}}
-" Vimscript files {{{
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if has("autocmd")
-  augroup ft_vim
-    au!
-
-    au FileType vim setlocal foldmethod=marker
-  augroup END
-endif
+augroup ft_statusline_background_colour
+  au InsertEnter * hi StatusLine ctermfg=214 guifg=#FFAF00
+  au InsertLeave * hi StatusLine ctermfg=236 guifg=#CD5907
+augroup END
 
 let g:go_rename_command = 'gopls'
 
