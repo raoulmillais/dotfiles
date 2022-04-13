@@ -93,8 +93,8 @@ alias more='less'
 DIRCOLORS=/home/raoul/gruvbox.dir_colors
 test -r ${DIRCOLORS} && eval "$(dircolors ${DIRCOLORS})"
 alias ls='exa --long --header --group --links --blocks --accessed --modified --git'
-alias ll='exa --long --grid --header --group'
-alias la='exa --long --grid --header --group'
+alias ll='exa --long --header --group --links --blocks --accessed --modified --git'       # same as ls
+alias la='exa --long --all --header --group --links --blocks --accessed --modified --git' # show hidden files
 
 # Use LS_COLORS for autompoletion too
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
