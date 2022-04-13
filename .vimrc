@@ -1,5 +1,19 @@
-" Bootstrap plugins and filetypes {{{
-set nocompatible            " Turn off vi compatibility mode filetype off                " Interferes with Vundle plugin loading
+" Philosophy
+
+"
+" * Strives for as much config as necessary but no more.  Adding more
+" configuration makes issues harder to diagnose
+" * Assumes the latest stable gvim package (from arch linux) - I.e. jdoesn't defensively
+" check for features. This vimrc is not designed to be portable
+" * Only change from default settings for the smallest scope possible. E.g if
+" a setting can be effective when it only applies to a single filetype then
+" don't make the setting global if it doesn't need to be.
+
+"
+" Bootstrap plugins and filetypes 
+"
+set nocompatible  " Turn off vi compatibility mode filetype off 
+                  " Interferes with Vundle plugin loading
 
 call plug#begin('~/.vim/plugged')
 
@@ -18,6 +32,7 @@ Plug 'rust-lang/rust.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neoclide/coc-json'
 Plug 'neoclide/coc-tsserver'
+Plug 'neoclide/coc-prettier'
 Plug 'othree/yajs.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
@@ -34,7 +49,9 @@ Plug 'guns/vim-sexp',                              {'for': 'clojure'}
 Plug 'tpope/vim-sexp-mappings-for-regular-people', {'for': 'clojure'}
 Plug 'liquidz/vim-iced',                           {'for': 'clojure'}
 Plug 'liquidz/vim-iced-coc-source',                {'for': 'clojure'}
-Plug 'lambdalisue/fern.vim'
+" TODO: move from NERDTree to fern instead of having both?  NERDTree plays nice 
+" with devicons and I know all the mappings but the iced debugger wants fern
+Plug 'lambdalisue/fern.vim' 
 Plug 'liquidz/vim-iced-fern-debugger',             {'for': 'clojure'}
 " Must come last
 Plug 'ryanoasis/vim-devicons'
@@ -44,10 +61,6 @@ call plug#end()
 filetype on                 " Reenable filetype
 filetype indent on
 filetype plugin on
-
-let g:iced_enable_default_key_mappings = v:true
-let g:iced#debug#debugger = 'fern'
-let g:sexp_enable_insert_mode_mappings = 0
 
 " }}}
 " Colorscheme {{{
@@ -102,6 +115,9 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
+" Easier to type :Prettier command that uses coc-prettier
+command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
+
 " Use <c-space> to trigger completion.
 if has('nvim')
   inoremap <silent><expr> <c-space> coc#refresh()
@@ -115,6 +131,10 @@ nmap <leader>cy <Plug>(coc-type-definition)
 nmap <leader>cR <Plug>(coc-references)
 nmap <leader>ca :CocAction<cr>
 nmap <leader>cD :CocDiagnostics<cr>
+
+" Format document
+vmap <leader>cf  <Plug>(coc-format-selected)
+nmap <leader>cf  <Plug>(coc-format-selected)
 
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
@@ -135,7 +155,7 @@ endfunction
 
 
 " }}}
-" Vimux mappings {{{
+" Vimux {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 map <Leader>vp :VimuxPromptCommand<CR>
 map <Leader>vl :VimuxRunLastCommand<CR>
@@ -145,7 +165,14 @@ map <Leader>vc :VimuxCloseRunner<CR>
 map <Leader>vz :VimuxZoomRunner<CR>
 
 " }}}
-" Golang mappings {{{
+" Iced (clojure) {{{
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:iced_enable_default_key_mappings = v:true
+let g:iced#debug#debugger = 'fern'
+let g:sexp_enable_insert_mode_mappings = 0
+
+" }}}
+" Golang {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 nnoremap <Leader>gb  :GoBuild<CR>
 nnoremap <Leader>gd  :GoDoc<CR>
@@ -158,12 +185,10 @@ nnoremap <Leader>gtf :GolangTestFocused<CR>
 nnoremap <Leader>gcc :GoCoverageToggle!<CR>
 
 " }}}
-" rg {{{
+" Searching {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if executable('rg')
 set grepprg=rg\ --no-heading\ --vimgrep
-  set grepformat=%f:%l:%c:%m
-endif
+set grepformat=%f:%l:%c:%m
 
 " }}}
 " fzf {{{
@@ -196,7 +221,6 @@ runtime ftplugin/man.vim  " Enable viewing man pages
 set noerrorbells          " No annoying beeps
 set visualbell t_vb=
 set history=1000          " Increase command history size
-set ruler                 " Show the ruler
 set incsearch             " Incomplete search matches
 set hlsearch              " Keep search highlight after complete
 set relativenumber        " Show line numbers
@@ -237,6 +261,7 @@ set signcolumn=number     " Merge the sign column and the line number column
 " }}}
 " Cursor settings {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set ruler                            " Show the line and column of the cursor position
 set cursorline                       " Highlight the line under the cursor
 set nocursorcolumn                   " Don't Highlight the column
 au WinEnter * setlocal cursorline    " Turn on cursorline on focus
@@ -245,9 +270,12 @@ au WinLeave * setlocal nocursorline  " And off on losing focus
 " }}}
 " Color column settings {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set colorcolumn=80        " Show 80 char column in light grey
+" Show 80 char column in light grey
+set colorcolumn=80
 highlight ColorColumn ctermbg=239 guibg=#4f4f4f
+
 " Disable colorcolumn in the quickfix buffers
+" TODO: why the hell did I set this?!
 au Filetype qf setlocal colorcolumn=0 nolist nocursorline nowrap
 
 " }}}
@@ -331,6 +359,17 @@ set foldlevelstart=99               " Open all folds
 set foldcolumn=3                    " Show 3 levels
 set foldtext=SimpleFoldText()       " Only the function name
 
+
+" }}}
+" Automation {{{
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+if has('autocommand')
+  " Disable paste mode when leaving insert mode
+  autocmd InsertLeave * set nopaste
+  " Automatically rebalance windows on vim resize
+  autocmd VimResized * :wincmd =
+endif
+
 " }}}
 " Keymaps {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -342,10 +381,6 @@ noremap <f2> :NERDTreeToggle<cr>
 " copy and paste with xclip
 vnoremap <leader>y :!xclip -f -sel  clip<CR>
 " noremap <leader>p :-1r !xclip -o -sel clip<CR>
-" Disable paste mode when leaving insert mode
-if has('autocommand')
-  au InsertLeave * set nopaste
-endif
 
 " }}}
 " Tab keymaps {{{
