@@ -113,6 +113,8 @@ nmap <leader>cr <Plug>(coc-rename)
 nmap <leader>cd <Plug>(coc-definition)
 nmap <leader>cy <Plug>(coc-type-definition)
 nmap <leader>cR <Plug>(coc-references)
+nmap <leader>ca :CocAction<cr>
+nmap <leader>cD :CocDiagnostics<cr>
 
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
