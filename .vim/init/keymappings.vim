@@ -18,22 +18,22 @@ command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
 " Use <c-space> to trigger completion.
 inoremap <silent><expr> <c-@> coc#refresh()
 
-nmap <leader>cr <Plug>(coc-rename)
-nmap <leader>cd <Plug>(coc-definition)
-nmap <leader>cy <Plug>(coc-type-definition)
-nmap <leader>cR <Plug>(coc-references)
-nmap <leader>ca :CocAction<cr>
-nmap <leader>cD :CocDiagnostics<cr>
+nnoremap <leader>cr <Plug>(coc-rename)
+nnoremap <leader>cd <Plug>(coc-definition)
+nnoremap <leader>cy <Plug>(coc-type-definition)
+nnoremap <leader>cR <Plug>(coc-references)
+nnoremap <leader>ca :CocAction<cr>
+nnoremap <leader>cD :CocDiagnostics<cr>
 
 " Format document
-vmap <leader>cf  <Plug>(coc-format-selected)
-nmap <leader>cf  <Plug>(coc-format-selected)
+vnoremap <leader>cf  <Plug>(coc-format-selected)
+nnoremap <leader>cf  <Plug>(coc-format-selected)
 
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
 " This matches the vim-unimpaired key bindings
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
+nnoremap <silent> [g <Plug>(coc-diagnostic-prev)
+nnoremap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " Use K to show documentation in preview window.
 nnoremap <silent> K :call <SID>show_documentation()<CR>
@@ -50,12 +50,12 @@ endfunction
 " }}}
 " Vimux {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-map <Leader>vp :VimuxPromptCommand<CR>
-map <Leader>vl :VimuxRunLastCommand<CR>
+nnoremap <Leader>vp :VimuxPromptCommand<CR>
+nnoremap <Leader>vl :VimuxRunLastCommand<CR>
 " enter vimux pane in copymode (same as entering and typing <C-[>)
-map <Leader>vi :VimuxInspectRunner<CR>
-map <Leader>vc :VimuxCloseRunner<CR>
-map <Leader>vz :VimuxZoomRunner<CR>
+nnoremap <Leader>vi :VimuxInspectRunner<CR>
+nnoremap <Leader>vc :VimuxCloseRunner<CR>
+nnoremap <Leader>vz :VimuxZoomRunner<CR>
 
 " }}}
 " Golang {{{
@@ -133,7 +133,7 @@ nnoremap <leader>h *<C-O>
 " Command Maps {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Enable saving readonly files with sudo
-cmap w!! %!sudo tee > /dev/null %
+cnoremap w!! %!sudo tee > /dev/null %
 command! -nargs=1 -range SuperRetab <line1>,<line2>s/\v%(^ *)@<= {<args>}/\t/g
 
 " this mapping Enter key to <C-y> to chose the current highlight item
