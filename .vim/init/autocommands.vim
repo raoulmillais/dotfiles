@@ -27,7 +27,7 @@ augroup ft_statusline_background_colour
 augroup END
 " }}}
 
-" Commands to run on startup {{{
+" GENERAL {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 augroup global_automation
   autocmd!
@@ -40,5 +40,3 @@ augroup global_automation
   autocmd BufEnter * let &titlestring="vim: " . expand("%:t")
 augroup END
 " }}}
-
-

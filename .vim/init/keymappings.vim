@@ -131,7 +131,8 @@ nnoremap k                gk
 noremap Q                 <nop>
 " }}}
 
-" Command Maps {{{
+" SUDO {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Enable saving readonly files with sudo
 cnoremap w!! %!sudo tee > /dev/null %
+" }}}

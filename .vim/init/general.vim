@@ -126,8 +126,9 @@ set expandtab                       " Expand tab to spaces
 set mouse=nv                        " Allow Mouse in normal and visual mode
 " }}}
 
-" Folding {{{
+" FOLDING {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" FIXME: move to autoload
 function! SimpleFoldText()
   return getline(v:foldstart).' '
 endfunction

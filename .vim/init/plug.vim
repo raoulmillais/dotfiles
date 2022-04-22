@@ -41,5 +41,3 @@ Plug 'liquidz/vim-iced-fern-debugger',             {'for': 'clojure'}
 Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
-
-
