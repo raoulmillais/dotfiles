@@ -4,16 +4,15 @@
 " set filetype plugin on   " Enable loading plugins for specific filetypes
 " syntax on            " Enable syntax highlighting
 
-" }}}
-" Bundled plugins {{{
+" BUNDLED PLUGINS {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Use the matchit macro to enable switching between open close tags and
 " if/elsif/else/end with %
 runtime macros/matchit.vim
 runtime ftplugin/man.vim  " Enable viewing man pages
-
 " }}}
-" Colorscheme {{{
+
+" COLORSCHEME {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"   " Fix colors for tmux
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"   " https://github.com/tmux/tmux/issues/1246
@@ -26,23 +25,22 @@ colorscheme gruvbox
 " Enable italics, Make sure this is immediately after colorscheme
 " https://stackoverflow.com/questions/3494435/vimrc-make-comments-italic
 highlight Comment cterm=italic gui=italic
-
 " }}}
-" Diffing {{{
+
+" DIFFING {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set diffopt=vertical
 command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
 	\ | wincmd p | diffthis
-
-
 " }}}
-" Searching {{{
+
+" SEARCHING {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set grepprg=rg\ --no-heading\ --vimgrep
 set grepformat=%f:%l:%c:%m
-
 " }}}
-" Basic stuff {{{
+
+" BASICS {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set guioptions-=T         " Remove GUI toolbar
 set guioptions-=e         " Use text tab bar, not GUI
@@ -86,18 +84,18 @@ set completeopt=menuone   " Show menu even for one item and no preview
 set autoread              " Autoreload buffers that have changed on disk
 set cmdheight=2           " Allow a bit more room for messages
 set signcolumn=number     " Merge the sign column and the line number column
-
 " }}}
-" Cursor settings {{{
+
+" CURSOR SETTINGS {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set ruler                            " Show the line and column of the cursor position
 set cursorline                       " Highlight the line under the cursor
 set nocursorcolumn                   " Don't Highlight the column
 au WinEnter * setlocal cursorline    " Turn on cursorline on focus
 au WinLeave * setlocal nocursorline  " And off on losing focus
-
 " }}}
-" Color column settings {{{
+
+" COLOR COLUMN SETTINGS {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Show 80 char column in light grey
 set colorcolumn=80
@@ -106,9 +104,9 @@ highlight ColorColumn ctermbg=239 guibg=#4f4f4f
 " Disable colorcolumn in the quickfix buffers
 " TODO: why the hell did I set this?!
 au Filetype qf setlocal colorcolumn=0 nolist nocursorline nowrap
-
 " }}}
-" Backups, undo and swapfiles {{{
+
+" BACKUPS, UNDO AND SWAPFILES {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set undofile
 set undodir=~/.vim/tmp/undo,~/tmp,/tmp
@@ -126,8 +124,8 @@ set tabstop=2                       " 2 spaces is equivalent to a tab
 set shiftwidth=2                    " Shift by 2 spaces
 set expandtab                       " Expand tab to spaces
 set mouse=nv                        " Allow Mouse in normal and visual mode
-
 " }}}
+
 " Folding {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 function! SimpleFoldText()
@@ -137,21 +135,21 @@ endfunction
 set foldlevelstart=99               " Open all folds
 set foldcolumn=3                    " Show 3 levels
 set foldtext=SimpleFoldText()       " Only the function name
-
 " }}}
-" Keymaps {{{
+
+" KEYMAPS {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let mapleader=","
 let maplocalleader=","
-
 " }}}
-" Line numbering {{{
+
+" LINE NUMBERING {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set number
 set relativenumber
 
-" }}}
-" Enable project level vimrcs {{{
+" PROJECT LEVEL VIMRCS {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set exrc
 set secure
+" }}}

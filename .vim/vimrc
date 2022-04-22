@@ -14,8 +14,9 @@
 " * custom library function should never be silently overwritten with ! - this
 " hides bugs
 
-" check whether vim-plug is installed and install it if necessary
-" this must happen in the vimrc for path resolution to work
+" AUTO-INSTALL VIM-PLUG {{{
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" FIXME: this must happen in the vimrc for path resolution to work
 let plugpath = expand('<sfile>:p:h'). '/autoload/plug.vim'
 if !filereadable(plugpath)
     if executable('curl')
@@ -30,18 +31,13 @@ if !filereadable(plugpath)
         exit
     endif
 endif
+" }}}
 
+" LOAD SCRIPTS {{{
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 source $HOME/.vim/init/plug.vim
 source $HOME/.vim/init/general.vim
+source $HOME/.vim/init/commands.vim
 source $HOME/.vim/init/keymappings.vim
 source $HOME/.vim/init/plugins.vim
 source $HOME/.vim/init/autocommands.vim
-
-" }}}
-" Indentation and whitespace {{{
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Automate resizing tabs
-" See http://vimcasts.org/episodes/tabs-and-spaces/
-command! -nargs=* Stab call g:tabs#Stab()
-
-
