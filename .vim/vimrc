@@ -2,9 +2,9 @@
 "
 " * Strives for as much config as necessary but no more.  Adding more
 " configuration makes issues harder to diagnose
-" * This vimrc is not designed to be portable it assumes the latest stable 
+" * This vimrc is not designed to be portable it assumes the latest stable
 " gvim package (from arch linux) - E.g. it don't defensively check for features
-" * Only change from default settings for the smallest scope possible. E.g 
+" * Only change from default settings for the smallest scope possible. E.g
 "   * if a setting can be effective when it only applies to a single filetype then
 "   don't make the setting global
 "   * prefer configuring coc in the coc-settings.json to here (we want this
@@ -43,21 +43,6 @@ source $HOME/.vim/init/plugins.vim
 " See http://vimcasts.org/episodes/tabs-and-spaces/
 command! -nargs=* Stab call g:tabs#Stab()
 
-
-function! <SID>StripTrailingWhitespaces()
-  " Save the last search and cursor position
-  let _s=@/
-  let l = line(".")
-  let c = col(".")
-
-  " Remove trailing whitespace characters
-  %s/\s\+$//e
-
-  " Reset last search position
-  let @/=_s
-  " Put the cursor back where it was
-  call cursor(l, c)
-endfunction
 
 " }}}
 " Automation {{{

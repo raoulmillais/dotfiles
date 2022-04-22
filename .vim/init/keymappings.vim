@@ -99,7 +99,7 @@ cnoremap <C-e> <End>
 " Toggle whitespace
 noremap <leader>l :set list!<cr>
 " Strip Trailing
-nnoremap <leader>W :call <SID>StripTrailingWhitespaces()<cr>
+nnoremap <leader>W :call whitespace#Strip()<cr>
 nnoremap <S-Tab>          <<
 vnoremap <S-Tab>          <<
 
