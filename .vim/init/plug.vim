@@ -1,6 +1,3 @@
-" Turn off vi compatibility mode
-set nocompatible  
-
 call plug#begin('~/.vim/plugged')
 
 Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
