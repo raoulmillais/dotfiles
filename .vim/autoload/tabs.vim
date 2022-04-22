@@ -1,4 +1,4 @@
-function! tabs#Stab()
+function tabs#Stab()
   let l:tabstop = 1 * input('set tabstop = softtabstop = shiftwidth = ')
   if l:tabstop > 0
     let &l:sts = l:tabstop
@@ -8,7 +8,7 @@ function! tabs#Stab()
   call tabs#SummarizeTabs()
 endfunction
 
-function! tabs#SummarizeTabs()
+function tabs#SummarizeTabs()
   try
     echohl ModeMsg
     echon 'tabstop='.&l:ts
