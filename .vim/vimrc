@@ -9,6 +9,10 @@
 "   don't make the setting global
 "   * prefer configuring coc in the coc-settings.json to here (we want this
 "   file as small as possible)
+" * custom library functions are defined in autoload scripts so that they are
+" loaded on demand.
+" * custom library function should never be silently overwritten with ! - this
+" hides bugs
 
 " check whether vim-plug is installed and install it if necessary
 " this must happen in the vimrc for path resolution to work
@@ -74,10 +78,8 @@ let g:go_rename_command = 'gopls'
 if has("autocmd")
   autocmd VimEnter * wincmd p
 
-  " Custom tab settings
   " make must be tabs
   autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
-  autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
   autocmd BufEnter * let &titlestring="vim: " . expand("%:t")
 endif
 

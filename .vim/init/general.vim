@@ -36,14 +36,6 @@ command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
 
 
 " }}}
-" Search mappings {{{
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Clobber S with fast global search and replace
-nmap S :%s::g<LEFT><LEFT>
-" Clobber M with mapping to replace all last search
-nmap <expr> M  ':%s/' . @/ . '//g<LEFT><LEFT>' "
-
-" }}}
 " Searching {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set grepprg=rg\ --no-heading\ --vimgrep

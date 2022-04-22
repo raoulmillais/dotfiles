@@ -46,6 +46,13 @@ function! s:show_documentation()
   endif
 endfunction
 
+" }}}
+" Search mappings {{{
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Clobber S with fast global search and replace
+nnoremap S :%s::g<LEFT><LEFT>
+" Clobber M with mapping to replace all last search
+nnoremap <expr> M  ':%s/' . @/ . '//g<LEFT><LEFT>' "
 
 " }}}
 " Vimux {{{
