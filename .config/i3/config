@@ -13,8 +13,8 @@ exec_always --no-startup-id picom
 exec_always --no-startup-id xfce4-power-manager
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id nm-applet
-exec_always --no-startup-id betterlockscreen -u /home/raoul/Pictures/polygon-wallpaper.png
-exec_always --no-startup-id feh --bg-fill /home/raoul/Pictures/polygon-wallpaper.png
+exec_always --no-startup-id betterlockscreen -u /home/raoul/Pictures/camera-lens.jpg
+exec_always --no-startup-id feh --bg-fill /home/raoul/Pictures/camera-lens.jpg
 
 #Needed for i3-gaps
 hide_edge_borders both
@@ -43,6 +43,8 @@ bindsym Shift+Print exec scrot -u $HOME/Images/`date +%Y-%m-%d_%H:%M:%S`.png
 # Open new terminal
 bindsym $mod+Return exec alacritty
 
+# Open gvim
+bindsym $mod+v exec gvim
 # Open browser
 bindsym $mod+b exec firefox
 
