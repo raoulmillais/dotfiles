@@ -19,8 +19,8 @@ exec_always --no-startup-id feh --bg-fill /home/raoul/Pictures/polygon-wallpaper
 #Needed for i3-gaps
 hide_edge_borders both
 for_window [class="^.*"] border pixel 2 
-gaps inner 50
-gaps outer 25
+gaps inner 15
+gaps outer 10
 
 # class                 border  bground text    indicator child_border
 client.focused          #FE8019 #285577 #FFFFFF #2E9EF4   #285577
