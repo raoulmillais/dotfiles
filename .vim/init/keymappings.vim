@@ -127,8 +127,10 @@ nnoremap <F12>            :set paste!<cr>
 " Move up and down by screenline instead of file line
 nnoremap j                gj
 nnoremap k                gk
-" Don't enter ex mode
-noremap Q                 <nop>
+" Don't use Q for Ex mode, use it for formatting.  Except for Select mode.
+" Revert with ":unmap Q".
+noremap Q gq
+sunmap Q
 " }}}
 
 " SUDO {{{

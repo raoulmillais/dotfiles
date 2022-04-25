@@ -22,8 +22,6 @@ highlight Comment cterm=italic gui=italic
 " DIFFING {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set diffopt=vertical
-command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
-	\ | wincmd p | diffthis
 " }}}
 
 " SEARCHING {{{
