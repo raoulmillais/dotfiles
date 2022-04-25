@@ -49,6 +49,7 @@ set showcmd               " Show the current command in the last line
 set showmatch             " Highlight matching brackets
 set wildmenu              " Improve tab completion menu
 set wildmode=full         " Tab complete longest common string and show list
+set wildoptions=pum       " Show wildmenu in pop up menu
 set t_Co=256              " Set 256 color mode
 set wildignore+=.git,.hg,.svn                    " Version control
 set wildignore+=*.aux,*.out,*.toc                " LaTeX intermediate files
