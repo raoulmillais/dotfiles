@@ -1,3 +1,5 @@
+" VIM-PLUG {{{
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
 
 Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
@@ -41,3 +43,12 @@ Plug 'liquidz/vim-iced-fern-debugger',             {'for': 'clojure'}
 Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
+" }}}
+
+" BUNDLED PLUGINS {{{
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Use the matchit macro to enable switching between open close tags and
+" if/elsif/else/end with %
+runtime macros/matchit.vim
+runtime ftplugin/man.vim  " Enable viewing man pages
+" }}}

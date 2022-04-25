@@ -4,14 +4,6 @@
 " set filetype plugin on   " Enable loading plugins for specific filetypes
 " syntax on            " Enable syntax highlighting
 
-" BUNDLED PLUGINS {{{
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Use the matchit macro to enable switching between open close tags and
-" if/elsif/else/end with %
-runtime macros/matchit.vim
-runtime ftplugin/man.vim  " Enable viewing man pages
-" }}}
-
 " COLORSCHEME {{{
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"   " Fix colors for tmux
