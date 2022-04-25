@@ -1,16 +1,16 @@
-function whitespace#Strip()
-  " Save the last search and cursor position
-  let _s=@/
-  let l = line(".")
-  let c = col(".")
+vim9script
 
-  " Remove trailing whitespace characters
-  %s/\s\+$//e
+export def Strip()
+  # Save the last search and cursor position
+  var _s = @/
+  var l = line(".")
+  var c = col(".")
 
-  " Reset last search position
-  let @/=_s
-  " Put the cursor back where it was
+  # Remove trailing whitespace characters
+  :%s/\s\+$//e
+
+  # Reset last search position
+  @/ = _s
+  # Put the cursor back where it was
   call cursor(l, c)
-endfunction
-
-
+enddef
