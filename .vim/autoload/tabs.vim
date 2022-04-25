@@ -1,19 +1,22 @@
-function tabs#Stab()
-  let l:tabstop = 1 * input('set tabstop = softtabstop = shiftwidth = ')
-  if l:tabstop > 0
-    let &l:sts = l:tabstop
-    let &l:ts = l:tabstop
-    let &l:sw = l:tabstop
-  endif
-  call tabs#SummarizeTabs()
-endfunction
+vim9script
 
-function tabs#SummarizeTabs()
+export def Stab()
+  var tabstop = str2nr(input('set tabstop = softtabstop = shiftwidth = '))
+  if tabstop > 0
+    &l:sts = tabstop
+    &l:ts = tabstop
+    &l:sw = tabstop
+  endif
+  redraw
+  call SummarizeTabs()
+enddef
+
+export def SummarizeTabs()
   try
     echohl ModeMsg
-    echon 'tabstop='.&l:ts
-    echon ' shiftwidth='.&l:sw
-    echon ' softtabstop='.&l:sts
+    echon 'tabstop=' .. &l:ts
+    echon ' shiftwidth=' .. &l:sw
+    echon ' softtabstop=' .. &l:sts
     if &l:et
       echon ' expandtab'
     else
@@ -22,5 +25,5 @@ function tabs#SummarizeTabs()
   finally
     echohl None
   endtry
-endfunction
+enddef
 
