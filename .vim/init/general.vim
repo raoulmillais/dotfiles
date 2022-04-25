@@ -37,6 +37,7 @@ set grepformat=%f:%l:%c:%m
 set guioptions-=T         " Remove GUI toolbar
 set guioptions-=e         " Use text tab bar, not GUI
 set guioptions-=rL        " Remove scrollbars
+set guioptions-=m         " Remove menu bar
 set noerrorbells          " No annoying beeps
 set visualbell t_vb=
 set history=1000          " Increase command history size
