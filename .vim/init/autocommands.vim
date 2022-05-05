@@ -8,15 +8,6 @@ autocmd InsertLeave * set nopaste
 autocmd VimResized * :wincmd =
 # }}}
 
-# HELP {{{1
-##############################################################################
-augroup ft_help
-  autocmd! 
-
-  autocmd FileType help wincmd L      # Open help in a vertical split
-augroup END
-# }}}
-
 # STATUS LINE {{{1
 ###############################################################################
 set laststatus=2 # Taller status line to reduce annoying prompts

@@ -59,7 +59,8 @@ set ttyfast               # Smoother redrawing with multiple windows
 set lazyredraw            # Suspend redrawing while running macros
 set report=0              # Always tell me how many lines were affected
 set completeopt=menuone   # Show menu even for one item and no preview
-set mouse=nv                        # Allow Mouse in normal and visual mode
+set mouse=nv              # Allow Mouse in normal and visual mode
+set iskeyword+=-          # Consider hypenated words as one word
 # }}}
 
 # STATUS LINE {{{1
