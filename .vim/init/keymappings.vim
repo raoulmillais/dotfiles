@@ -1,5 +1,5 @@
 vim9script noclear
-# COC {{
+# COC {{1
 ###############################################################################
 # Use tab for trigger completion with characters ahead and navigate.
 inoremap <silent><expr> <TAB>
@@ -36,7 +36,7 @@ nnoremap <silent> [g <Plug>(coc-diagnostic-prev)
 nnoremap <silent> ]g <Plug>(coc-diagnostic-next)
 # }}}
 
-# SEARCH {{{
+# SEARCH {{{1
 ###############################################################################
 # Clobber S with fast global search and replace
 nnoremap S :%s::g<LEFT><LEFT>
@@ -51,7 +51,7 @@ nnoremap /                /\v
 vnoremap \                /\v
 # }}}
 
-# VIMUX {{{
+# VIMUX {{{1
 ###############################################################################
 nnoremap <Leader>vp :VimuxPromptCommand<CR>
 nnoremap <Leader>vl :VimuxRunLastCommand<CR>
@@ -61,7 +61,7 @@ nnoremap <Leader>vc :VimuxCloseRunner<CR>
 nnoremap <Leader>vz :VimuxZoomRunner<CR>
 # }}}
 
-# GOLANG {{{
+# GOLANG {{{1
 ###############################################################################
 nnoremap <Leader>gb  :GoBuild<CR>
 nnoremap <Leader>gd  :GoDoc<CR>
@@ -74,12 +74,12 @@ nnoremap <Leader>gtf :GolangTestFocused<CR>
 nnoremap <Leader>gcc :GoCoverageToggle!<CR>
 # }}}
 
-# NERDTREE {{{
+# NERDTREE {{{1
 ###############################################################################
 noremap <f2> :NERDTreeToggle<cr>
 # }}}
 
-# VIM TABS {{{
+# VIM TABS {{{1
 ###############################################################################
 nnoremap <leader>tn          :tabn<cr>
 nnoremap <leader>tp          :tabp<cr>
@@ -87,7 +87,7 @@ nnoremap <leader>te          :tabe<space>
 nnoremap <leader>tc          :tabclose<cr>
 # }}}
 
-# COMMANDLINE {{{
+# COMMANDLINE {{{1
 ###############################################################################
 cnoremap <C-j> <t_kd>
 cnoremap <C-k> <t_ku>
@@ -95,7 +95,7 @@ cnoremap <C-a> <Home>
 cnoremap <C-e> <End>
 # }}}
 
-# WHITESPACE {{{
+# WHITESPACE {{{1
 ###############################################################################
 # Toggle whitespace
 noremap <leader>l :set list!<cr>
@@ -105,14 +105,14 @@ nnoremap <S-Tab>          <<
 vnoremap <S-Tab>          <<
 # }}}
 
-# MODE SWITCHING {{{
+# MODE SWITCHING {{{1
 ###############################################################################
 # Exit insert mode
 inoremap jk               <esc>
 nnoremap <F12>            :set paste!<cr>
 # }}}
 
-# REMAP ANNOYING DEFAULTS {{{
+# REMAP ANNOYING DEFAULTS {{{1
 ###############################################################################
 # Move up and down by screenline instead of file line
 nnoremap j                gj
@@ -123,7 +123,7 @@ noremap Q gq
 sunmap Q
 # }}}
 
-# SUDO {{{
+# SUDO {{{1
 ###############################################################################
 # Enable saving readonly files with sudo
 cnoremap w!! %!sudo tee > /dev/null %

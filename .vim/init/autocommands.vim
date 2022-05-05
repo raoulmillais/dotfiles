@@ -1,6 +1,6 @@
 vim9script noclear
 
-# AUTOMATION {{{
+# AUTOMATION {{{1
 ###############################################################################
 # Disable paste mode when leaving insert mode
 autocmd InsertLeave * set nopaste
@@ -9,7 +9,7 @@ autocmd VimResized * :wincmd =
 # }}}
 
 
-# HELP {{{
+# HELP {{{1
 ##############################################################################
 augroup ft_help
   autocmd! 
@@ -18,7 +18,7 @@ augroup ft_help
 augroup END
 # }}}
 
-# STATUS LINE {{{
+# STATUS LINE {{{1
 ###############################################################################
 set laststatus=2 # Taller status line to reduce annoying prompts
 augroup ft_statusline_background_colour
@@ -29,7 +29,7 @@ augroup ft_statusline_background_colour
 augroup END
 # }}}
 
-# GENERAL {{{
+# GENERAL {{{1
 ###############################################################################
 augroup global_automation
   autocmd!

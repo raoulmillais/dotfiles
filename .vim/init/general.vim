@@ -5,7 +5,7 @@ vim9script noclear
 # set filetype plugin on   " Enable loading plugins for specific filetypes
 # syntax on            " Enable syntax highlighting
 
-# COLORSCHEME {{{
+# COLORSCHEME {{{1
 ###############################################################################
 &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"   # Fix colors for tmux
 &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"   # https://github.com/tmux/tmux/issues/1246
@@ -20,18 +20,18 @@ colorscheme gruvbox
 highlight Comment cterm=italic gui=italic
 # }}}
 
-# DIFFING {{{
+# DIFFING {{{1
 ###############################################################################
 set diffopt=vertical
 # }}}
 
-# SEARCHING {{{
+# SEARCHING {{{1
 ###############################################################################
 set grepprg=rg\ --no-heading\ --vimgrep
 set grepformat=%f:%l:%c:%m
 # }}}
 
-# BASICS {{{
+# BASICS {{{1
 ###############################################################################
 set guioptions-=T         # Remove GUI toolbar
 set guioptions-=e         # Use text tab bar, not GUI
@@ -79,7 +79,7 @@ set cmdheight=2           # Allow a bit more room for messages
 set signcolumn=number     # Merge the sign column and the line number column
 # }}}
 
-# CURSOR SETTINGS {{{
+# CURSOR SETTINGS {{{1
 ###############################################################################
 set ruler                            # Show the line and column of the cursor position
 set cursorline                       # Highlight the line under the cursor
@@ -88,7 +88,7 @@ au WinEnter * setlocal cursorline    # Turn on cursorline on focus
 au WinLeave * setlocal nocursorline  # And off on losing focus
 # }}}
 
-# COLOR COLUMN SETTINGS {{{
+# COLOR COLUMN SETTINGS {{{1
 ###############################################################################
 # Show 80 char column in light grey
 set colorcolumn=80
@@ -98,7 +98,7 @@ highlight ColorColumn ctermbg=239 guibg=#4f4f4f
 au Filetype qf setlocal colorcolumn=0 nolist nocursorline nowrap
 # }}}
 
-# BACKUPS, UNDO AND SWAPFILES {{{
+# BACKUPS, UNDO AND SWAPFILES {{{1
 ###############################################################################
 set undofile
 set undodir=~/.vim/tmp/undo,~/tmp,/tmp
@@ -118,7 +118,7 @@ set expandtab                       # Expand tab to spaces
 set mouse=nv                        # Allow Mouse in normal and visual mode
 # }}}
 
-# FOLDING {{{
+# FOLDING {{{1
 ###############################################################################
 # FIXME: move to autoload
 def SimpleFoldText(): string
@@ -130,18 +130,18 @@ set foldcolumn=3                    # Show 3 levels
 set foldtext=SimpleFoldText()       # Only the function name
 # }}}
 
-# KEYMAPS {{{
+# KEYMAPS {{{1
 ###############################################################################
 g:mapleader = ","
 g:maplocalleader = ","
 # }}}
 
-# LINE NUMBERING {{{
+# LINE NUMBERING {{{1
 ###############################################################################
 set number
 set relativenumber
 
-# PROJECT LEVEL VIMRCS {{{
+# PROJECT LEVEL VIMRCS {{{1
 ###############################################################################
 set exrc
 set secure

@@ -1,6 +1,6 @@
 vim9script noclear
 
-# LOAD SCRIPTS {{{
+# LOAD SCRIPTS {{{1
 ###############################################################################
 # Functions are namespaced in a corresponding autoload/<namespace>.vim script
 import expand("$HOME/.vim/init/plug.vim")

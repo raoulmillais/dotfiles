@@ -1,6 +1,6 @@
 vim9script
 
-# AUTO-INSTALL VIM-PLUG {{{
+# AUTO-INSTALL VIM-PLUG {{{1
 ###############################################################################
 # Install vim-plug if not found
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -14,7 +14,7 @@ autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
 \| endif
 # }}}
 
-# VIM-PLUG {{{
+# VIM-PLUG {{{1
 ###############################################################################
 call plug#begin('~/.vim/plugged')
 
@@ -62,7 +62,7 @@ Plug 'ryanoasis/vim-devicons'
 call plug#end()
 # }}}
 
-# BUNDLED PLUGINS {{{
+# BUNDLED PLUGINS {{{1
 ###############################################################################
 # Use the matchit macro to enable switching between open close tags and
 # if/elsif/else/end with %
