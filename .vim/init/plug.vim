@@ -38,7 +38,6 @@ Plug 'neoclide/coc-eslint'
 Plug 'othree/yajs.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'mhinz/vim-signify'
-
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
@@ -67,6 +66,6 @@ call plug#end()
 ###############################################################################
 # Use the matchit macro to enable switching between open close tags and
 # if/elsif/else/end with %
-runtime macros/matchit.vim
-runtime ftplugin/man.vim  # Enable viewing man pages
+packadd! matchit
+runtime  ftplugin/man.vim  # Enable viewing man pages
 # }}}
