@@ -5,8 +5,3 @@ vim9script noclear
 set foldmethod=marker
 # }}}
 
-# REINSTATE GUTTER {{{1
-##############################################################################o#
-set relativenumber
-set number
-# }}}
