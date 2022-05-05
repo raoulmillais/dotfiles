@@ -38,6 +38,7 @@ Plug 'neoclide/coc-eslint'
 Plug 'othree/yajs.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'mhinz/vim-signify'
+
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
