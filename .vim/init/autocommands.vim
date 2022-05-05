@@ -8,7 +8,6 @@ autocmd InsertLeave * set nopaste
 autocmd VimResized * :wincmd =
 # }}}
 
-
 # HELP {{{1
 ##############################################################################
 augroup ft_help

@@ -32,6 +32,7 @@ g:notes_directories = ['~/Notes']
 g:NERDTreeIgnore = ['\~$', '\.git']
 g:NERDTreeMinimalUI = 1
 g:NERDTreeDirArrows = 1
+# }}}
 
 # DEVICONS {{{1
 ###############################################################################

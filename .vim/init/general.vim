@@ -1,9 +1,13 @@
 vim9script noclear
+
+# FILETYPE & SYNTAX HIGHLIGHTING {{{1
+###############################################################################
 # These are set by vim-plug automatically
 # set filetype on          " Autodetect filetypes
 # set filetype indent on   " Enable loading the indent file for specific filetypes
 # set filetype plugin on   " Enable loading plugins for specific filetypes
 # syntax on            " Enable syntax highlighting
+# }}}
 
 # COLORSCHEME {{{1
 ###############################################################################
@@ -140,6 +144,7 @@ g:maplocalleader = ","
 ###############################################################################
 set number
 set relativenumber
+# }}}
 
 # PROJECT LEVEL VIMRCS {{{1
 ###############################################################################
