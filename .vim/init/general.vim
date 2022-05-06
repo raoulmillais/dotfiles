@@ -61,6 +61,9 @@ set report=0              # Always tell me how many lines were affected
 set completeopt=menuone   # Show menu even for one item and no preview
 set mouse=nv              # Allow Mouse in normal and visual mode
 set iskeyword+=-          # Consider hypenated words as one word
+set path+=**              # Look for files in subdirectories of current 
+                          # directory. This gives fuzzy finding with tab
+                          # completions for :edit :write commands etc
 # }}}
 
 # STATUS LINE {{{1
