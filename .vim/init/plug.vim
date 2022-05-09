@@ -43,8 +43,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'jremmen/vim-ripgrep'
 Plug 'vim-scripts/scratch.vim'
-Plug 'xolox/vim-misc'
-Plug 'xolox/vim-notes'
 Plug 'vifm/vifm.vim'
 Plug 'cespare/vim-toml'
 Plug 'eraserhd/parinfer-rust',                     {'for': 'clojure'}
