@@ -36,6 +36,7 @@ g:NERDTreeDirArrows = 1
 
 # DEVICONS {{{1
 ###############################################################################
+g:webdevicons_enable_nerdtree = 1
 # after a re-source, fix syntax matching issues (concealing brackets):
 if exists('g:loaded_webdevicons')
   call webdevicons#refresh()
