@@ -1,5 +1,32 @@
 vim9script noclear
 
+# See :help map-which-keys
+
+# Calling functions from mappings (see :help usr_41.txt)
+#
+# <SID> can be used with mappings.  It generates a script ID, which identifies
+# the current script.  In our typing correction plugin we use it like this: >
+# 
+#  24	noremap <unique> <script> <Plug>TypecorrAdd;  <SID>Add
+#  ..
+#  28	noremap <SID>Add  :call <SID>Add(expand("<cword>"), true)<CR>
+# 
+# Thus when a user types "\a", this sequence is invoked: >
+# 
+# 	\a  ->  <Plug>TypecorrAdd;  ->  <SID>Add  ->  :call <SID>Add(...)
+# 
+# If another script also maps <SID>Add, it will get another script ID and
+# thus define another mapping.
+# 
+# Note that instead of Add() we use <SID>Add() here.  That is because the
+# mapping is typed by the user, thus outside of the script context.  The <SID>
+# is translated to the script ID, so that Vim knows in which script to look for
+# the Add() function.
+# 
+# This is a bit complicated, but it's required for the plugin to work together
+# with other plugins.  The basic rule is that you use <SID>Add() in mappings and
+# Add() in other places (the script itself, autocommands, user commands).
+
 # COC {{{1
 ###############################################################################
 # Use tab for trigger completion with characters ahead and navigate.
