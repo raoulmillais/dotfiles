@@ -1,12 +1,10 @@
-vim9script noclear
-
-# LOAD SCRIPTS {{{1
-###############################################################################
-# Functions are namespaced in a corresponding autoload/<namespace>.vim script
-import expand("$HOME/.vim/init/plug.vim")
-import expand("$HOME/.vim/init/general.vim")
-import expand("$HOME/.vim/init/commands.vim")
-import expand("$HOME/.vim/init/keymappings.vim")
-import expand("$HOME/.vim/init/plugins.vim")
-import expand("$HOME/.vim/init/autocommands.vim")
-# }}}
+" LOAD SCRIPTS {{{1
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Functions are namespaced in a corresponding autoload/<namespace>.vim script
+source $HOME/.vim/init/plug.vim
+source $HOME/.vim/init/general.vim
+source $HOME/.vim/init/commands.vim
+source $HOME/.vim/init/keymappings.vim
+source $HOME/.vim/init/plugins.vim
+source $HOME/.vim/init/autocommands.vim
+" }}}

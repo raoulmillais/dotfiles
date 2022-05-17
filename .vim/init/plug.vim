@@ -1,21 +1,19 @@
-vim9script
-
-# AUTO-INSTALL VIM-PLUG {{{1
-###############################################################################
-# Install vim-plug if not found
+" AUTO-INSTALL VIM-PLUG {{{1
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Install vim-plug if not found
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -sfLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
 
-# Run PlugInstall if there are missing plugins
+" Run PlugInstall if there are missing plugins
 autocmd VimEnter * if len(filter(values(g:plugs), '!isdirectory(v:val.dir)'))
   \| PlugInstall --sync | source $MYVIMRC
 \| endif
-# }}}
+" }}}
 
-# VIM-PLUG {{{1
-###############################################################################
+" VIM-PLUG {{{1
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 call plug#begin('~/.vim/plugged')
 
 Plug 'antoinemadec/coc-fzf', {'branch': 'release'}
@@ -50,20 +48,20 @@ Plug 'guns/vim-sexp',                              {'for': 'clojure'}
 Plug 'tpope/vim-sexp-mappings-for-regular-people', {'for': 'clojure'}
 Plug 'liquidz/vim-iced',                           {'for': 'clojure'}
 Plug 'liquidz/vim-iced-coc-source',                {'for': 'clojure'}
-# TODO: move from NERDTree to fern instead of having both?  NERDTree plays nice 
-# with devicons and I know all the mappings but the iced debugger wants fern
+" TODO: move from NERDTree to fern instead of having both?  NERDTree plays nice 
+" with devicons and I know all the mappings but the iced debugger wants fern
 Plug 'lambdalisue/fern.vim' 
 Plug 'liquidz/vim-iced-fern-debugger',             {'for': 'clojure'}
-# Must come last
+" Must come last
 Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
-# }}}
+" }}}
 
-# BUNDLED PLUGINS {{{1
-###############################################################################
-# Use the matchit macro to enable switching between open close tags and
-# if/elsif/else/end with %
-packadd! matchit
-runtime  ftplugin/man.vim  # Enable viewing man pages
-# }}}
+" BUNDLED PLUGINS {{{1
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Use the matchit macro to enable switching between open close tags and
+" if/elsif/else/end with %
+runtime macros/matchit.vim
+runtime  ftplugin/man.vim  " Enable viewing man pages
+" }}}

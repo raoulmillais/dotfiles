@@ -1,6 +1,4 @@
-vim9script
-
-export def Stab()
+function tabs#Stab()
   var tabstop = str2nr(input('set tabstop = softtabstop = shiftwidth = '))
   if tabstop > 0
     &l:sts = tabstop
@@ -9,9 +7,9 @@ export def Stab()
   endif
   redraw
   call SummarizeTabs()
-enddef
+endfunction
 
-export def SummarizeTabs()
+function tabs#SummarizeTabs()
   try
     echohl ModeMsg
     echon 'tabstop=' .. &l:ts
@@ -25,5 +23,5 @@ export def SummarizeTabs()
   finally
     echohl None
   endtry
-enddef
+endfunction
 
