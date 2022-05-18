@@ -2,7 +2,6 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Functions are namespaced in a corresponding autoload/<namespace>.vim script
 source $HOME/.vim/init/plug.vim
-source $HOME/.vim/init/general.vim
 source $HOME/.vim/init/commands.vim
 source $HOME/.vim/init/keymappings.vim
 source $HOME/.vim/init/plugins.vim
