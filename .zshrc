@@ -30,15 +30,15 @@ export KEYTIMEOUT=10            # reduce the timeout switching modes
 setopt interactivecomments     # Allow comments with a # in a interactive shell
 bindkey -v                     # vi mode
 bindkey -M viins '^R' history-incremental-search-backward # Ctrl-r to search history
-bindkey -M viins 'jk' vi-cmd-mode    # Bind jk to esc like in vim
+bindkey -M viins 'jk' vi-cmd-mode    # Bind jk to esc like in nvim
 bindkey -M viins '^Q' push-input   # Save line to history and clear line
-bindkey -s '^O' 'vim $(fzf)\n'     # Use Ctrl-O to interactively open a file in vim
+bindkey -s '^O' 'nvim $(fzf)\n'     # Use Ctrl-O to interactively open a file in nvim
 
 # "Fixes" for Filco USB keyboard in vi-cmd-mode ("normal" mode)
 # Make special keys behave more like in insert mode
 bindkey -M vicmd '^[[1~' vi-first-non-blank # Fix home key behave like "^"
 bindkey -M vicmd '^[[4~' vi-end-of-line     # Fix end key behave like "$"
-bindkey -M vicmd '^[[3~' vi-delete-char     # Make del key behave like "x" in vim
+bindkey -M vicmd '^[[3~' vi-delete-char     # Make del key behave like "x" in nvim
 
 zle -N zle-line-init
 zle -N zle-keymap-select
