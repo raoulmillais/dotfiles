@@ -23,6 +23,13 @@ return require("packer").startup(function(use)
 
   use { 'lewis6991/gitsigns.nvim' }
 
+  use { 'nanotee/luv-vimdocs' }
+  use { 'milisims/nvim-luaref' }
+
+
+  --
+  -- Legacy
+  --
   use { 'benmills/vimux' }
   use { 'benmills/vimux-golang' }
   use { 'christoomey/vim-tmux-navigator' }
