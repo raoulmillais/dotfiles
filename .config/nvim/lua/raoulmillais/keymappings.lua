@@ -65,7 +65,7 @@ keymap.set("n", "<Leader>gcc", ":GoCoverageToggle!<CR>")
 -- }}}
 
 -- NERDTREE {{{1
-keymap.set("n", "<f2>", "NERDTreeToggle<cr>")
+keymap.set("n", "<f2>", ":NERDTreeToggle<cr>")
 -- }}}
 
 -- VIM TABS {{{1
