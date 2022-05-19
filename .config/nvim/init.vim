@@ -5,3 +5,4 @@
   lua require('raoulmillais.commands')
   lua require('raoulmillais.autocommands')
   lua require('raoulmillais.keymappings')
+  lua require('raoulmillais.plugins')
