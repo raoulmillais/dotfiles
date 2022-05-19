@@ -11,6 +11,7 @@ vim.cmd[[runtime ftplugin/man.vim]]  -- Enable viewing man pages
 
 -- PACKER {{{1
 return require("packer").startup(function(use)
+  -- LSP & cmp
   use { 'neovim/nvim-lspconfig' }
   use { 'hrsh7th/cmp-nvim-lsp' }
   use { 'hrsh7th/cmp-buffer' }
@@ -20,20 +21,21 @@ return require("packer").startup(function(use)
   use { 'L3MON4D3/LuaSnip' }
   use { 'saadparwaiz1/cmp_luasnip' }
 
+  use { 'lewis6991/gitsigns.nvim' }
+
   use { 'benmills/vimux' }
   use { 'benmills/vimux-golang' }
   use { 'christoomey/vim-tmux-navigator' }
   use { 'editorconfig/editorconfig-vim' }
   use { 'elzr/vim-json' }
   use { 'fatih/vim-go' }
-  use {'junegunn/fzf', run = './install --all' }
+  use { 'junegunn/fzf', run = './install --all' }
   use { 'junegunn/fzf.vim' }
   use { 'morhetz/gruvbox' }
   use { 'mhinz/vim-startify' }
   use { 'rust-lang/rust.vim' }
   use { 'othree/yajs.vim' }
   use { 'scrooloose/nerdtree' }
-  use { 'mhinz/vim-signify' }
   use { 'tpope/vim-fugitive' }
   use { 'tpope/vim-surround' }
   use { 'tpope/vim-unimpaired' }

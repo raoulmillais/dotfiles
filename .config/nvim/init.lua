@@ -4,6 +4,7 @@ end
 
 require('raoulmillais.plug')
 require('raoulmillais.general')
+require('raoulmillais.signs')
 require('raoulmillais.commands')
 require('raoulmillais.autocommands')
 require('raoulmillais.keymappings')
