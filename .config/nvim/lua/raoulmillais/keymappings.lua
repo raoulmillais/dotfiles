@@ -2,68 +2,68 @@ local keymap = vim.keymap
 
 -- SEARCH {{{1
 -- Clobber S with fast global search and replace
-keymap.set("n", "S", ":%s::g<LEFT><LEFT>")
+nmap("S", ":%s::g<LEFT><LEFT>")
 -- Turn off search highlighting
-keymap.set("n", "<leader><space>",  ":noh<cr>")
+nmap("<leader><space>",  ":noh<cr>")
 -- Highlight word at cursor and return to same position
-keymap.set("n", "<leader>h", "*<C-O>")
+nmap("<leader>h", "*<C-O>")
 -- }}}
 
 -- VIMUX {{{1
-keymap.set("n", "<Leader>vp", ":VimuxPromptCommand<CR>")
-keymap.set("n", "<Leader>vl", ":VimuxRunLastCommand<CR>")
+nmap("<Leader>vp", ":VimuxPromptCommand<CR>")
+nmap("<Leader>vl", ":VimuxRunLastCommand<CR>")
 -- enter vimux pane in copymode (same as entering and typing <C-[>)
-keymap.set("n",  "<Leader>vi", ":VimuxInspectRunner<CR>")
-keymap.set("n", "<Leader>vc", ":VimuxCloseRunner<CR>")
-keymap.set("n", "<Leader>vz", ":VimuxZoomRunner<CR>")
+nmap("<Leader>vi", ":VimuxInspectRunner<CR>")
+nmap("<Leader>vc", ":VimuxCloseRunner<CR>")
+nmap("<Leader>vz", ":VimuxZoomRunner<CR>")
 -- }}}
 
 -- GOLANG {{{1
 -- TODO: Use Lsp builtins instead
-keymap.set("n", "<Leader>gb", ":GoBuild<CR>")
-keymap.set("n", "<Leader>gd", ":GoDoc<CR>")
-keymap.set("n", "<Leader>gi", ":GoInfo<CR>")
-keymap.set("n", "<Leader>grn", ":GoRename<CR>")
-keymap.set("n", "<Leader>gre", ":GoReferrers<CR>")
-keymap.set("n", "<Leader>gtd", ":GoDef<CR>")
-keymap.set("n", "<Leader>gta", ":GolangTestCurrentPackage<CR>")
-keymap.set("n", "<Leader>gtf", ":GolangTestFocused<CR>")
-keymap.set("n", "<Leader>gcc", ":GoCoverageToggle!<CR>")
+nmap("<Leader>gb", ":GoBuild<CR>")
+nmap("<Leader>gd", ":GoDoc<CR>")
+nmap("<Leader>gi", ":GoInfo<CR>")
+nmap("<Leader>grn", ":GoRename<CR>")
+nmap("<Leader>gre", ":GoReferrers<CR>")
+nmap("<Leader>gtd", ":GoDef<CR>")
+nmap("<Leader>gta", ":GolangTestCurrentPackage<CR>")
+nmap("<Leader>gtf", ":GolangTestFocused<CR>")
+nmap("<Leader>gcc", ":GoCoverageToggle!<CR>")
 -- }}}
 
 -- NERDTREE {{{1
-keymap.set("n", "<f2>", ":NERDTreeToggle<cr>")
+nmap("<f2>", ":NERDTreeToggle<cr>")
 -- }}}
 
 -- VIM TABS {{{1
-keymap.set("n", "<leader>tn", ":tabn<cr>")
-keymap.set("n", "<leader>tp", ":tabp<cr>")
-keymap.set("n", "<leader>te", ":tabe<space>")
-keymap.set("n", "<leader>tc", ":tabclose<cr>")
+nmap("<leader>tn", ":tabn<cr>")
+nmap("<leader>tp", ":tabp<cr>")
+nmap("<leader>te", ":tabe<space>")
+nmap("<leader>tc", ":tabclose<cr>")
 -- }}}
 
 -- COMMANDLINE {{{1
-keymap.set("c", "<C-j>", "t_kd>")
-keymap.set("c", "<C-k>", "t_ku>")
-keymap.set("c", "<C-a>", "Home>")
-keymap.set("c", "<C-e>", "End>")
+cmap("<C-j>", "t_kd>")
+cmap("<C-k>", "t_ku>")
+cmap("<C-a>", "Home>")
+cmap("<C-e>", "End>")
 -- }}}
 
 -- WHITESPACE {{{1
 -- Toggle whitespace
-keymap.set("n", "<leader>l", "set list!<cr>")
+nmap("<leader>l", "set list!<cr>")
 -- }}}
 
 -- MODE SWITCHING {{{1
 -- Exit insert mode
-keymap.set("i", "jk", "<esc>")
-keymap.set("n", "<F12>", ":set paste!<cr>")
+imap("jk", "<esc>")
+nmap("<F12>", ":set paste!<cr>")
 -- }}}
 
 -- REMAP ANNOYING DEFAULTS {{{1
 -- Move up and down by screenline instead of file line
-keymap.set("n", "j", "gj")
-keymap.set("n", "k", "gk")
+nmap("j", "gj")
+nmap("k", "gk")
 -- Don't use Q for Ex mode, use it for formatting.  Except for Select mode.
 -- Revert with ":unmap Q".
 keymap.set("", "Q", "gq")
@@ -72,4 +72,4 @@ keymap.del("s", "Q")
 
 -- SUDO {{{1
 -- Enable saving readonly files with sudo
-keymap.set("c", "w!!", "%!sudo tee > /dev/null %")
+cmap("w!!", "%!sudo tee > /dev/null %")

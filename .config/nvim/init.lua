@@ -2,6 +2,7 @@ if require "raoulmillais.packer".ensure() then
   return
 end
 
+require('raoulmillais.global')
 require('raoulmillais.plug')
 require('raoulmillais.general')
 require('raoulmillais.signs')
