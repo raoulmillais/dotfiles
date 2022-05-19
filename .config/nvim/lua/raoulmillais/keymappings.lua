@@ -1,38 +1,5 @@
 local keymap = vim.keymap
 
--- COC {{{1
--- Use tab for trigger completion with characters ahead and navigate.
-keymap.set("i", "<Tab>", function () 
-  return vm.fn.pumvisible == 1 and "<C-N>" or "<Tab>"
-end, { expr = true })
-keymap.set("i", "<S-Tab>", function () 
-  return vm.fn.pumvisible == 1 and "<C-p>" or "<C-h>"
-end, { expr = true })
-
--- Easier to type :Prettier command that uses coc-prettier
--- TODO: MOve this command to commands and convert to lua
--- command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
--- Use <c-space> to trigger completion.
-keymap.set("i", "<c-@>", "coc#refresh()")
-
-keymap.set("n", "<leader>cr", "<Plug>(coc-rename)")
-keymap.set("n", "<leader>cd", "<Plug>(coc-definition)")
-keymap.set("n", "<leader>cy", "<Plug>(coc-type-definition)")
-keymap.set("n", "<leader>cR", "<Plug>(coc-references)")
-keymap.set("n", "<leader>ca", ":CocAction<cr>")
-keymap.set("n", "<leader>cD", ":CocDiagnostics<cr>")
-
--- Format document
-keymap.set("v", "<leader>cf", "<Plug>(coc-format-selected)")
-keymap.set("n", "<leader>cf", "<Plug>(coc-format-selected)")
-
--- Use `[g` and `]g` to navigate diagnostics
--- Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
--- This matches the vim-unimpaired key bindings
-keymap.set("n", "[g", "<Plug>(coc-diagnostic-prev)")
-keymap.set("n", "]g", "<Plug>(coc-diagnostic-next)")
--- }}}
-
 -- SEARCH {{{1
 -- Clobber S with fast global search and replace
 keymap.set("n", "S", ":%s::g<LEFT><LEFT>")
