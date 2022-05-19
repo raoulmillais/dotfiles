@@ -79,6 +79,11 @@ function zle-line-init zle-keymap-select {
 
 PROMPT="%{%F{214}%}λ%{$reset_color%} %~/%{$reset_color%} \$vcs_info_msg_0_ »%{$reset_color%} "
 
+#
+# Nvim
+#
+alias vim=nvim
+
 # Less source code highlighting
 export LESSOPEN="| /usr/bin/src-hilite-lesspipe.sh %s"
 export LESS=" -R "
