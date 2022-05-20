@@ -39,6 +39,13 @@ return require("packer").startup(function(use)
       {"nvim-treesitter/nvim-treesitter"}
     }
   }
+
+  -- Telescope
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = { {'nvim-lua/plenary.nvim'} }
+  }
+ 
   --
   -- Legacy
   --

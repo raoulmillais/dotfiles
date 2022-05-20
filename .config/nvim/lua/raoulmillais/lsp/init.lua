@@ -62,7 +62,6 @@ require("null-ls").setup({
         builtins.completion.luasnip,
         builtins.completion.spell,
         builtins.diagnostics.eslint,
-        builtins.diagnostics.gitlint,
         builtins.diagnostics.shellcheck,
         builtins.formatting.stylua,
     },
