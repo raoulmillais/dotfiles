@@ -5,7 +5,6 @@ vim.cmd [[packadd vimball]]
 -- Use the matchit macro to enable switching between open close tags and
 -- if/elsif/else/end with %
 vim.cmd[[runtime macros/matchit.vim]]
-
 vim.cmd[[runtime ftplugin/man.vim]]  -- Enable viewing man pages
 -- }}}
 
@@ -21,6 +20,7 @@ return require("packer").startup(function(use)
   use { 'hrsh7th/nvim-cmp' }
   use { 'L3MON4D3/LuaSnip' }
   use { 'saadparwaiz1/cmp_luasnip' }
+  use { 'williamboman/nvim-lsp-installer' }
 
   use { 'lewis6991/gitsigns.nvim' }
 
