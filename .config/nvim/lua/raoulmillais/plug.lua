@@ -24,6 +24,7 @@ return require("packer").startup(function(use)
   use { 'saadparwaiz1/cmp_luasnip' }
   use { 'williamboman/nvim-lsp-installer' }
   use { 'jose-elias-alvarez/null-ls.nvim' }
+  use { 'onsails/lspkind.nvim' } -- code pictograms
 
   use { 'lewis6991/gitsigns.nvim' }
 
