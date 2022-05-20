@@ -1,5 +1,9 @@
 local keymap = vim.keymap
 
+-- TELESCOPE {{{
+nmap("<C-p>", ":Telescope find_files<CR>")
+-- }}}
+--
 -- SEARCH {{{1
 -- Clobber S with fast global search and replace
 nmap("S", ":%s::g<LEFT><LEFT>")
