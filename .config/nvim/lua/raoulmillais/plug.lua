@@ -5,6 +5,7 @@ vim.cmd [[packadd vimball]]
 -- Use the matchit macro to enable switching between open close tags and
 -- if/elsif/else/end with %
 vim.cmd[[runtime macros/matchit.vim]]
+
 vim.cmd[[runtime ftplugin/man.vim]]  -- Enable viewing man pages
 -- }}}
 
