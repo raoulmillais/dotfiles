@@ -13,3 +13,4 @@ require('raoulmillais.plugins')
 
 require('raoulmillais.cmp')
 require('raoulmillais.lsp')
+require('raoulmillais.telescope')
