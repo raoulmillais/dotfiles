@@ -31,7 +31,6 @@ return require("packer").startup(function(use)
   use { 'nanotee/luv-vimdocs' }
   use { 'milisims/nvim-luaref' }
 
-  use { 'kosayoda/nvim-lightbulb' }
   use {
     "ThePrimeagen/refactoring.nvim",
     requires = {

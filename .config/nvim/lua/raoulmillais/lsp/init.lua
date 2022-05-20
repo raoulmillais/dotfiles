@@ -66,5 +66,3 @@ require("null-ls").setup({
         builtins.formatting.stylua,
     },
 })
-
-require('nvim-lightbulb').setup({autocmd = {enabled = true}})
