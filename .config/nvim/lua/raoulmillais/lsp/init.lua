@@ -51,3 +51,21 @@ for _, lsp in pairs(servers) do
     on_attach = on_attach
   }
 end
+
+local builtins = require('null-ls').builtins
+
+require("null-ls").setup({
+    sources = {
+        builtins.code_actions.gitsigns,
+        builtins.code_actions.refactoring,
+        builtins.code_actions.shellcheck,
+        builtins.completion.luasnip,
+        builtins.completion.spell,
+        builtins.diagnostics.eslint,
+        builtins.diagnostics.gitlint,
+        builtins.diagnostics.shellcheck,
+        builtins.formatting.stylua,
+    },
+})
+
+require('nvim-lightbulb').setup({autocmd = {enabled = true}})

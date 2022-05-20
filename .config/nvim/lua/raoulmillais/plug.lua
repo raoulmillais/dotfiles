@@ -8,12 +8,14 @@ vim.cmd[[runtime macros/matchit.vim]]
 vim.cmd[[runtime ftplugin/man.vim]]  -- Enable viewing man pages
 -- }}}
 
-
 -- PACKER {{{1
 return require("packer").startup(function(use)
+  -- Utilities
+  use { 'nvim-lua/plenary.nvim' }
   -- LSP & cmp
   use { 'neovim/nvim-lspconfig' }
   use { 'hrsh7th/cmp-nvim-lsp' }
+  use { 'hrsh7th/cmp-nvim-lsp-signature-help' }
   use { 'hrsh7th/cmp-buffer' }
   use { 'hrsh7th/cmp-path' }
   use { 'hrsh7th/cmp-cmdline' }
@@ -21,13 +23,21 @@ return require("packer").startup(function(use)
   use { 'L3MON4D3/LuaSnip' }
   use { 'saadparwaiz1/cmp_luasnip' }
   use { 'williamboman/nvim-lsp-installer' }
+  use { 'jose-elias-alvarez/null-ls.nvim' }
 
   use { 'lewis6991/gitsigns.nvim' }
 
   use { 'nanotee/luv-vimdocs' }
   use { 'milisims/nvim-luaref' }
 
-
+  use { 'kosayoda/nvim-lightbulb' }
+  use {
+    "ThePrimeagen/refactoring.nvim",
+    requires = {
+      {"nvim-lua/plenary.nvim"},
+      {"nvim-treesitter/nvim-treesitter"}
+    }
+  }
   --
   -- Legacy
   --
