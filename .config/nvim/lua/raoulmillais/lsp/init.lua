@@ -52,6 +52,7 @@ for _, lsp in pairs(servers) do
 end
 
 require('lspconfig').jsonls.setup {
+  on_attach = on_attach,
   settings = {
     json = {
       schemas = require('schemastore').json.schemas(),
@@ -59,8 +60,12 @@ require('lspconfig').jsonls.setup {
   },
 }
 
-local builtins = require("null-ls").builtins
+require('lspconfig').sumneko_lua.setup {
+  on_attach = on_attach,
+  settings = require('raoulmillais.lsp.servers.sumneko_lua').settings,
+}
 
+local builtins = require("null-ls").builtins
 require("null-ls").setup {
   sources = {
     builtins.code_actions.gitsigns,

@@ -10,8 +10,13 @@ vim.cmd[[runtime ftplugin/man.vim]]  -- Enable viewing man pages
 
 -- PACKER {{{1
 return require("packer").startup(function(use)
+  use 'wbthomason/packer.nvim'
+
+  -- Speed up loading
+  use { 'lewis6991/impatient.nvim' }
+
   -- Treesitter
- use {
+  use {
       'nvim-treesitter/nvim-treesitter',
       run = ':TSUpdate'
   }
@@ -19,6 +24,7 @@ return require("packer").startup(function(use)
   -- Utilities
   use { 'nvim-lua/plenary.nvim' }
   use { 'kyazdani42/nvim-tree.lua' }
+  use { 'gpanders/editorconfig.nvim' }
   -- LSP & cmp
   use { 'neovim/nvim-lspconfig' }
   use { 'hrsh7th/cmp-nvim-lsp' }
@@ -62,8 +68,6 @@ return require("packer").startup(function(use)
   use { 'benmills/vimux' }
   use { 'benmills/vimux-golang' }
   use { 'christoomey/vim-tmux-navigator' }
-  use { 'editorconfig/editorconfig-vim' }
-  use { 'elzr/vim-json' }
   use { 'mhinz/vim-startify' }
   use { 'rust-lang/rust.vim' }
   use { 'othree/yajs.vim' }
@@ -73,7 +77,6 @@ return require("packer").startup(function(use)
   use { 'jremmen/vim-ripgrep' }
   use { 'vim-scripts/scratch.vim' }
   use { 'vifm/vifm.vim' }
-  use { 'cespare/vim-toml' }
   use { 'eraserhd/parinfer-rust', ft = { 'clojure' } }
   use {'guns/vim-sexp', ft = { 'clojure' } }
   use { 'tpope/vim-sexp-mappings-for-regular-people', ft = { 'clojure' } }
