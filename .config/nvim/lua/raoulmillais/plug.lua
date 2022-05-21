@@ -10,7 +10,11 @@ vim.cmd[[runtime ftplugin/man.vim]]  -- Enable viewing man pages
 
 -- PACKER {{{1
 return require("packer").startup(function(use)
-  -- Colors
+  -- Treesitter
+ use {
+      'nvim-treesitter/nvim-treesitter',
+      run = ':TSUpdate'
+  }
   use { 'ellisonleao/gruvbox.nvim' }
   -- Utilities
   use { 'nvim-lua/plenary.nvim' }
