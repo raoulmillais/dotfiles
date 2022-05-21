@@ -10,6 +10,8 @@ vim.cmd[[runtime ftplugin/man.vim]]  -- Enable viewing man pages
 
 -- PACKER {{{1
 return require("packer").startup(function(use)
+  -- Colors
+  use { 'ellisonleao/gruvbox.nvim' }
   -- Utilities
   use { 'nvim-lua/plenary.nvim' }
   -- LSP & cmp
@@ -59,7 +61,6 @@ return require("packer").startup(function(use)
   use { 'fatih/vim-go' }
   use { 'junegunn/fzf', run = './install --all' }
   use { 'junegunn/fzf.vim' }
-  use { 'morhetz/gruvbox' }
   use { 'mhinz/vim-startify' }
   use { 'rust-lang/rust.vim' }
   use { 'othree/yajs.vim' }
