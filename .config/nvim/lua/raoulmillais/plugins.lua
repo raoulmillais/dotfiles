@@ -1,6 +1,5 @@
-
 -- GO {{{1
-vim.g.go_rename_command = 'gopls'
+vim.g.go_rename_command = "gopls"
 -- }}}
 
 -- ICED {{{1
@@ -9,7 +8,7 @@ vim.g.sexp_enable_insert_mode_mappings = 0
 -- }}}
 
 -- NERDTREE {{{1
-vim.g.NERDTreeIgnore = { '~$', '.git' }
+vim.g.NERDTreeIgnore = { "~$", ".git" }
 vim.g.NERDTreeMinimalUI = 1
 vim.g.NERDTreeDirArrows = 1
 -- }}}
@@ -21,4 +20,3 @@ if vim.g.loaded_webdevicons == true then
   vim.cmd [[ call webdevicons#refresh() ]]
 end
 -- }}}
-

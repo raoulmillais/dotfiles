@@ -4,15 +4,16 @@ local opt = vim.opt
 local group = vim.api.nvim_create_augroup("GlobalAutomation", { clear = true })
 vim.api.nvim_create_autocmd("InsertLeave", {
   group = group,
-  pattern= "*",
-  callback = function() 
+  pattern = "*",
+  callback = function()
     opt.paste = false
-  end})
+  end,
+})
 -- Automatically rebalance windows on vim resize
 vim.api.nvim_create_autocmd("VimResized", {
   group = group,
   pattern = "*",
-  command = "wincmd ="
+  command = "wincmd =",
 })
 -- }}}
 
@@ -22,12 +23,12 @@ local sl_group = vim.api.nvim_create_augroup("StatusLineActiveColorToggle", { cl
 vim.api.nvim_create_autocmd("InsertEnter", {
   group = sl_group,
   pattern = "*",
-  command = "hi StatusLine ctermfg=214 guifg=#FFAF00"
+  command = "hi StatusLine ctermfg=214 guifg=#FFAF00",
 })
 vim.api.nvim_create_autocmd("InsertLeave", {
   group = sl_group,
   pattern = "*",
-  command = "hi StatusLine ctermfg=236 guifg=#CD5907"
+  command = "hi StatusLine ctermfg=236 guifg=#CD5907",
 })
 -- }}}
 
@@ -35,17 +36,16 @@ vim.api.nvim_create_autocmd("InsertLeave", {
 vim.api.nvim_create_autocmd("VimEnter", {
   group = group,
   pattern = "*",
-  command = "wincmd p"
+  command = "wincmd p",
 })
 -- TODO: This should be set as a buffer local option in an ftplugin
 vim.api.nvim_create_autocmd("FileType", {
   group = sl_group,
   pattern = "make",
-  callback = function() 
+  callback = function()
     vim.opt_local.tabstop = 8
     vim.opt_local.softtabstop = 8
     vim.opt_local.shiftwidth = 8
-  end
+  end,
 })
 -- }}}
-

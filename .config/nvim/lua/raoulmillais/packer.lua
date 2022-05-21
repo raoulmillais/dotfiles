@@ -26,5 +26,5 @@ return {
     end
 
     return false
-  end
+  end,
 }

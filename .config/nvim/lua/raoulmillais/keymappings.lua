@@ -8,7 +8,7 @@ nmap("<C-p>", ":Telescope find_files<CR>")
 -- Clobber S with fast global search and replace
 nmap("S", ":%s::g<LEFT><LEFT>")
 -- Turn off search highlighting
-nmap("<leader><space>",  ":noh<cr>")
+nmap("<leader><space>", ":noh<cr>")
 -- Highlight word at cursor and return to same position
 nmap("<leader>h", "*<C-O>")
 -- }}}

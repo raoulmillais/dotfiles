@@ -63,8 +63,6 @@ return require("packer").startup(function(use)
   use { 'editorconfig/editorconfig-vim' }
   use { 'elzr/vim-json' }
   use { 'fatih/vim-go' }
-  use { 'junegunn/fzf', run = './install --all' }
-  use { 'junegunn/fzf.vim' }
   use { 'mhinz/vim-startify' }
   use { 'rust-lang/rust.vim' }
   use { 'othree/yajs.vim' }
@@ -81,7 +79,7 @@ return require("packer").startup(function(use)
   use { 'tpope/vim-sexp-mappings-for-regular-people', ft = { 'clojure' } }
   use { 'liquidz/vim-iced', ft = { 'clojure'} }
   -- Must come last
-  use { 'ryanoasis/vim-devicons' }
+  use { 'kyazdani42/nvim-web-devicons' }
 end)
 -- }}}
 
