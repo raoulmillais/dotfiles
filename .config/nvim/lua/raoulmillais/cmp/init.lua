@@ -6,8 +6,13 @@ lspkind.init()
 cmp.setup {
   formatting = {
     format = lspkind.cmp_format {
-      mode = "symbol",
-      maxwidth = 50,
+      mode = "symbol_text",
+      menu = ({
+        buffer = "[Buffer]",
+        nvim_lsp = "[LSP]",
+        luasnip = "[LuaSnip]",
+        nvim_lua = "[Lua]",
+      })
     },
   },
   snippet = {

@@ -18,6 +18,7 @@ return require("packer").startup(function(use)
   use { 'ellisonleao/gruvbox.nvim' }
   -- Utilities
   use { 'nvim-lua/plenary.nvim' }
+  use { 'kyazdani42/nvim-tree.lua' }
   -- LSP & cmp
   use { 'neovim/nvim-lspconfig' }
   use { 'hrsh7th/cmp-nvim-lsp' }
@@ -66,7 +67,6 @@ return require("packer").startup(function(use)
   use { 'mhinz/vim-startify' }
   use { 'rust-lang/rust.vim' }
   use { 'othree/yajs.vim' }
-  use { 'scrooloose/nerdtree' }
   use { 'tpope/vim-fugitive' }
   use { 'tpope/vim-surround' }
   use { 'tpope/vim-unimpaired' }
@@ -78,7 +78,6 @@ return require("packer").startup(function(use)
   use {'guns/vim-sexp', ft = { 'clojure' } }
   use { 'tpope/vim-sexp-mappings-for-regular-people', ft = { 'clojure' } }
   use { 'liquidz/vim-iced', ft = { 'clojure'} }
-  -- Must come last
   use { 'kyazdani42/nvim-web-devicons' }
 end)
 -- }}}

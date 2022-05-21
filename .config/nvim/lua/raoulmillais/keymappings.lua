@@ -35,8 +35,8 @@ nmap("<Leader>gtf", ":GolangTestFocused<CR>")
 nmap("<Leader>gcc", ":GoCoverageToggle!<CR>")
 -- }}}
 
--- NERDTREE {{{1
-nmap("<f2>", ":NERDTreeToggle<cr>")
+-- NVIMTREE {{{1
+nmap("<f2>", ":NvimTreeToggle<cr>")
 -- }}}
 
 -- VIM TABS {{{1
