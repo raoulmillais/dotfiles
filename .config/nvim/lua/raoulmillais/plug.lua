@@ -31,7 +31,8 @@ return require("packer").startup(function(use)
   use { 'saadparwaiz1/cmp_luasnip' }
   use { 'williamboman/nvim-lsp-installer' }
   use { 'jose-elias-alvarez/null-ls.nvim' }
-  use { 'onsails/lspkind.nvim' } -- code pictograms
+  use { 'onsails/lspkind.nvim' }
+  use { 'sar/schemastore.nvim' }
 
   use { 'lewis6991/gitsigns.nvim' }
 
@@ -63,7 +64,6 @@ return require("packer").startup(function(use)
   use { 'christoomey/vim-tmux-navigator' }
   use { 'editorconfig/editorconfig-vim' }
   use { 'elzr/vim-json' }
-  use { 'fatih/vim-go' }
   use { 'mhinz/vim-startify' }
   use { 'rust-lang/rust.vim' }
   use { 'othree/yajs.vim' }

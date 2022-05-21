@@ -51,6 +51,14 @@ for _, lsp in pairs(servers) do
   }
 end
 
+require('lspconfig').jsonls.setup {
+  settings = {
+    json = {
+      schemas = require('schemastore').json.schemas(),
+    },
+  },
+}
+
 local builtins = require("null-ls").builtins
 
 require("null-ls").setup {
