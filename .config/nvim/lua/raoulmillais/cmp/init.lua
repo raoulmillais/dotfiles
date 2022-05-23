@@ -11,6 +11,7 @@ cmp.setup {
         buffer = "[Buffer]",
         nvim_lsp = "[LSP]",
         luasnip = "[LuaSnip]",
+        gh_issues = "[Github]",
         nvim_lua = "[Lua]",
       })
     },
@@ -36,6 +37,7 @@ cmp.setup {
     ["<CR>"] = cmp.mapping.confirm { select = true },
   },
   sources = cmp.config.sources({
+    { name = "gh_issues" },
     { name = "nvim_lua" },
     { name = 'orgmode' },
     { name = "nvim_lsp" },
