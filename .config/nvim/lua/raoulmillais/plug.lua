@@ -39,6 +39,19 @@ return require("packer").startup(function(use)
   use { 'jose-elias-alvarez/null-ls.nvim' }
   use { 'onsails/lspkind.nvim' }
   use { 'sar/schemastore.nvim' }
+  use {
+    'RishabhRD/nvim-lsputils',
+    requires = 'RishabhRD/popfix',
+  }
+  use "folke/lua-dev.nvim"
+
+  use {
+    'folke/trouble.nvim',
+    requires = "kyazdani42/nvim-web-devicons",
+    config = function()
+      require("trouble").setup { }
+    end
+  }
 
   use { 'lewis6991/gitsigns.nvim' }
 
