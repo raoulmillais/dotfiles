@@ -8,7 +8,7 @@ My configuration files for my dev environment on arch linux
 git clone --bare git@github.com:raoulmillais/dotfiles.git $HOME/.dotfiles
 git --git-dir=$HOME/.dotfiles --work-tree=$HOME reset --hard
 source .zshrc
-config config status.showUntrackedFiles no
+c config status.showUntrackedFiles no
 ```
 
 ## Standing on the shoulders of giants fighting dragons

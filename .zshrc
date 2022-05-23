@@ -135,6 +135,7 @@ alias docker-kill-all='docker kill $(docker ps -q)'
 alias cat="bat"
 # Special alias for managing dotfiles in home dir with git and avoiding clashes
 # See https://wiki.archlinux.org/index.php/Dotfiles
+alias c="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 alias config="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 eval "$(hub alias -s)"
 
