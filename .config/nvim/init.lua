@@ -1,3 +1,10 @@
+local ok, impatient = pcall(require, 'impatient')
+if ok then
+  impatient.enable_profile()
+else
+  vim.notify(impatient)
+end
+
 if require("raoulmillais.packer-install").ensure() then
   return
 end
