@@ -25,12 +25,7 @@ return require("packer").startup(function(use)
   use { 'nvim-lua/plenary.nvim' }
   use { 'kyazdani42/nvim-tree.lua' }
   use { 'gpanders/editorconfig.nvim' }
-  use {
-    'nvim-orgmode/orgmode',
-     config = function()
-       require('orgmode').setup{}
-    end
-  }
+  use { 'nvim-orgmode/orgmode' }
   -- LSP & cmp
   use { 'neovim/nvim-lspconfig' }
   use { 'hrsh7th/cmp-nvim-lsp' }
