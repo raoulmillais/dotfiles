@@ -1,9 +1,9 @@
-if require("raoulmillais.packer").ensure() then
+if require("raoulmillais.packer-install").ensure() then
   return
 end
 
 require "raoulmillais.global"
-require "raoulmillais.plug"
+require "raoulmillais.packer"
 require "raoulmillais.general"
 require "raoulmillais.signs"
 require "raoulmillais.commands"
