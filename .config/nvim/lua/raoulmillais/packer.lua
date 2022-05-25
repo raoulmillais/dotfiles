@@ -7,6 +7,22 @@ vim.cmd [[packadd vimball]]
 vim.cmd[[runtime macros/matchit.vim]]
 vim.cmd[[runtime ftplugin/man.vim]]  -- Enable viewing man pages
 -- }}}
+--
+local status_ok, packer = pcall(require, "packer")
+if not status_ok then
+  -- Should not get here - packer-install.lua should run first
+  print("Packer not installed")
+  return
+end
+
+-- Have packer use a popup window
+packer.init {
+  display = {
+    open_fn = function()
+      return require("packer.util").float { border = "rounded" }
+    end,
+  },
+}
 
 -- PACKER {{{1
 return require("packer").startup(function(use)
@@ -27,6 +43,13 @@ return require("packer").startup(function(use)
   use { 'kyazdani42/nvim-tree.lua' }
   use { 'gpanders/editorconfig.nvim' }
   use { 'nvim-orgmode/orgmode' }
+  use {
+    'lewis6991/spellsitter.nvim',
+    enable = true,
+    config = function()
+      require('spellsitter').setup()
+    end
+  }
   -- LSP & cmp
   use { 'neovim/nvim-lspconfig' }
   use { 'hrsh7th/cmp-nvim-lsp' }
