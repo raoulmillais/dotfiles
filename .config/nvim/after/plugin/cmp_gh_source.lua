@@ -26,7 +26,8 @@ source.complete = function (self, _, callback)
       print(vim.inspect(result))
       local decoded, parsed = pcall(vim.json.decode, table.concat(result, ""))
       if not decoded then
-        vim.notify "Failed to parse gh result"
+        --TODO figure ot how to log in aplenary jo
+        --vim.notify "Failed to parse gh result"
         return
       end
 
