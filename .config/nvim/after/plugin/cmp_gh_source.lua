@@ -23,7 +23,6 @@ source.complete = function (self, _, callback)
     "gh", "issue", "list", "--limit", "1000", "--json", "title,number,body",
     on_exit = function(job)
       local result = job:result()
-      print(vim.inspect(result))
       local decoded, parsed = pcall(vim.json.decode, table.concat(result, ""))
       if not decoded then
         --TODO figure ot how to log in aplenary jo
