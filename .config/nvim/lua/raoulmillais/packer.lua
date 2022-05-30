@@ -52,6 +52,13 @@ return require("packer").startup(function(use)
   }
   -- LSP & cmp
   use { 'neovim/nvim-lspconfig' }
+  use "j-hui/fidget.nvim"
+  use {
+    "ericpubu/lsp_codelens_extensions.nvim",
+    config = function()
+      require("codelens_extensions").setup()
+    end,
+  }
   use { 'hrsh7th/cmp-nvim-lsp' }
   use { 'hrsh7th/cmp-nvim-lsp-signature-help' }
   use { 'hrsh7th/cmp-nvim-lsp-document-symbol' }

@@ -87,3 +87,15 @@ vim.lsp.handlers['textDocument/typeDefinition'] = require'lsputil.locations'.typ
 vim.lsp.handlers['textDocument/implementation'] = require'lsputil.locations'.implementation_handler
 vim.lsp.handlers['textDocument/documentSymbol'] = require'lsputil.symbols'.document_handler
 vim.lsp.handlers['workspace/symbol'] = require'lsputil.symbols'.workspace_handler
+
+require("fidget").setup {
+  text = {
+    spinner = "moon",
+  },
+  align = {
+    bottom = true,
+  },
+  window = {
+    relative = "editor",
+  },
+}
