@@ -4,6 +4,7 @@ local lspkind = require "lspkind"
 lspkind.init()
 
 cmp.setup {
+  preselect = cmp.PreselectMode.None,
   formatting = {
     format = lspkind.cmp_format {
       mode = "symbol_text",
