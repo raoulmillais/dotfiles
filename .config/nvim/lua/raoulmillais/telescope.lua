@@ -1,4 +1,7 @@
-require("telescope").setup {
+local telescope = require('telescope')
+local builtin = require('telescope.builtin')
+
+telescope.setup {
   extensions = {
     fzf = {
       fuzzy = true,
@@ -11,6 +14,11 @@ require("telescope").setup {
     winblend = 30,
   },
 }
-require("telescope").load_extension "fzf"
+telescope.load_extension 'fzf'
 
-nmap("<leader>td", ":Telescope diagnostics<CR>")
+nmap('<leader>td', builtin.diagnostics)
+nmap('<leader>ff', builtin.find_files)
+nmap('<leader>fg', builtin.live_grep)
+nmap('<leader>fb', builtin.buffers)
+nmap('<leader>fh', builtin.help_tags)
+
