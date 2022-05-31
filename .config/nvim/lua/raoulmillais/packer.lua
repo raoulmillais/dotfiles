@@ -79,14 +79,6 @@ return require("packer").startup(function(use)
   }
   use "folke/lua-dev.nvim"
 
-  use {
-    'folke/trouble.nvim',
-    requires = "kyazdani42/nvim-web-devicons",
-    config = function()
-      require("trouble").setup { }
-    end
-  }
-
   use { 'lewis6991/gitsigns.nvim' }
 
   use { 'nanotee/luv-vimdocs' }
