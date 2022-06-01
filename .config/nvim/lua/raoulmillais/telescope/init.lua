@@ -27,6 +27,9 @@ telescope.setup {
 telescope.load_extension 'fzf'
 
 nmap('<leader>td', builtin.diagnostics)
+nmap('<leader>tgs', finders.git_status)
+
+-- Find
 nmap('<leader>ff', builtin.find_files)
 nmap('<leader>fg', builtin.live_grep)
 nmap('<leader>fb', builtin.buffers)
