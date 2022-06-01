@@ -5,6 +5,9 @@ local finders = require('raoulmillais.telescope.finders')
 
 telescope.setup {
   extensions = {
+    ["ui-select"] = {
+      require('telescope.themes').get_dropdown{}
+    },
     fzf = {
       fuzzy = true,
       override_generic_sorter = true,
@@ -24,9 +27,11 @@ telescope.setup {
   scroll_strategy = "cycle"
 }
 
-telescope.load_extension 'fzf'
+telescope.load_extension('fzf')
+telescope.load_extension('ui-select')
 
 nmap('<leader>td', builtin.diagnostics)
+nmap('<leader>ta', vim.lsp.buf.code_action)
 nmap('<leader>tgs', finders.git_status)
 
 -- Find

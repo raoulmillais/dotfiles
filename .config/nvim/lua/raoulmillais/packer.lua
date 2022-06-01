@@ -77,7 +77,7 @@ return require("packer").startup(function(use)
     'RishabhRD/nvim-lsputils',
     requires = 'RishabhRD/popfix',
   }
-  use "folke/lua-dev.nvim"
+  use { 'folke/lua-dev.nvim' }
 
   use { 'lewis6991/gitsigns.nvim' }
 
@@ -101,6 +101,7 @@ return require("packer").startup(function(use)
     'nvim-telescope/telescope-fzf-native.nvim',
     run = 'make'
   }
+  use {'nvim-telescope/telescope-ui-select.nvim' }
   --
   -- Legacy
   --
