@@ -24,6 +24,7 @@ opt.grepprg = "rg --no-heading --vimgrep"
 opt.errorbells = false -- No annoying beeps
 opt.history = 1000 -- Increase command history size
 opt.incsearch = true -- Incomplete search matches
+opt.inccommand = 'split' -- neovim special
 opt.hlsearch = true -- Keep search highlight after complete
 -- TODO: Figure out a lua "native" way of doing this
 vim.cmd [[set t_Co=256]] -- Set 256 color mode
