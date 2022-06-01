@@ -2,15 +2,16 @@ local themes = require('telescope.themes')
 
 local M = {}
 
-M.project_find_drop_down = function()
-  return themes.get_dropdown({
+M.top_dropdown_without_preview = function(opts)
+  opts = opts or {}
+
+  local theme_opts = themes.get_dropdown({
     border = true,
     borderchars = {
       prompt = { "─", "│", " ", "│", "╭", "╮", "│", "│" },
       results = { "─", "│", "─", "│", "├", "┤", "╯", "╰" },
     },
     prompt_prefix = "🔍 ",
-    prompt_title = "Find in project",
     previewer = false,
     layout_strategy = "center",
     layout_config = {
@@ -27,7 +28,8 @@ M.project_find_drop_down = function()
     sorting_strategy = "descending",
     shorten_path = true
   })
-end
 
+  return vim.tbl_deep_extend("force", theme_opts, opts)
+end
 
 return M

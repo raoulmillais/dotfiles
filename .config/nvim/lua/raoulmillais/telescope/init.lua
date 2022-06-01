@@ -31,4 +31,6 @@ nmap('<leader>ff', builtin.find_files)
 nmap('<leader>fg', builtin.live_grep)
 nmap('<leader>fb', builtin.buffers)
 nmap('<leader>fh', builtin.help_tags)
+
 nmap('<leader>fi', finders.find_file_in_project)
+nmap('<leader>fn', finders. find_nvim_config_file)
