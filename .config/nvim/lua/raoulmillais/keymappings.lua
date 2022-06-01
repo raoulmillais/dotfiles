@@ -53,11 +53,6 @@ cmap("<C-a>", "Home>")
 cmap("<C-e>", "End>")
 -- }}}
 
--- WHITESPACE {{{1
--- Toggle whitespace
-nmap("<leader>l", "set list!<cr>")
--- }}}
-
 -- MODE SWITCHING {{{1
 -- Exit insert mode
 imap("jk", "<esc>")
