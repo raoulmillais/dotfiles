@@ -9,7 +9,7 @@ nmap("<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
-local on_attach = function(client, bufnr)
+local on_attach = function(_, bufnr)
   -- Enable completion triggered by <c-x><c-o>
   set_buf(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
@@ -102,12 +102,16 @@ require("fidget").setup {
 }
 
 vim.diagnostic.config({
-  virtual_text = true,
+  virtual_text = false,
   signs = true,
   underline = true,
   update_in_insert = true,
   severity_sort = false,
 })
+
+-- Use a float instead of virtual text
+vim.o.updatetime = 250
+vim.cmd [[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
 
 for type, icon in pairs(signs) do
   local hl = "DiagnosticSign" .. type
