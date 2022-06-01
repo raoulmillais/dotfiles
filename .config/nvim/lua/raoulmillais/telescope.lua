@@ -1,4 +1,5 @@
 local telescope = require('telescope')
+local actions = require('telescope.actions')
 local builtin = require('telescope.builtin')
 
 telescope.setup {
@@ -12,8 +13,14 @@ telescope.setup {
   },
   defaults = {
     winblend = 30,
-  },
+    mappings = {
+      i = {
+        ["<esc>"] = actions.close
+      },
+    },
+  }
 }
+
 telescope.load_extension 'fzf'
 
 nmap('<leader>td', builtin.diagnostics)
