@@ -25,7 +25,7 @@ packer.init {
 }
 
 -- PACKER {{{1
-return require("packer").startup(function(use)
+return require("packer").startup({function(use)
   use 'wbthomason/packer.nvim'
 
   -- Speed up loading
@@ -33,8 +33,8 @@ return require("packer").startup(function(use)
 
   -- Treesitter
   use {
-      'nvim-treesitter/nvim-treesitter',
-      run = ':TSUpdate'
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate'
   }
   use { 'nvim-treesitter/nvim-treesitter-textobjects' }
   use { 'ellisonleao/gruvbox.nvim' }
@@ -122,6 +122,10 @@ return require("packer").startup(function(use)
   use { 'tpope/vim-sexp-mappings-for-regular-people', ft = { 'clojure' } }
   use { 'liquidz/vim-iced', ft = { 'clojure'} }
   use { 'kyazdani42/nvim-web-devicons' }
-end)
+end, config = {
+  display = {
+    prompt_border = 'rounded'
+  }
+}})
 -- }}}
 
