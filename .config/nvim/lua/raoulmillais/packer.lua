@@ -78,6 +78,7 @@ return require("packer").startup({function(use)
     requires = 'RishabhRD/popfix',
   }
   use { 'folke/lua-dev.nvim' }
+  use { 'simrat39/rust-tools.nvim' }
 
   use { 'lewis6991/gitsigns.nvim' }
 
@@ -102,14 +103,15 @@ return require("packer").startup({function(use)
     run = 'make'
   }
   use {'nvim-telescope/telescope-ui-select.nvim' }
-  --
+
+  -- Debugging
+  use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
+
   -- Legacy
-  --
   use { 'benmills/vimux' }
   use { 'benmills/vimux-golang' }
   use { 'christoomey/vim-tmux-navigator' }
   use { 'mhinz/vim-startify' }
-  use { 'rust-lang/rust.vim' }
   use { 'othree/yajs.vim' }
   use { 'tpope/vim-fugitive' }
   use { 'tpope/vim-surround' }

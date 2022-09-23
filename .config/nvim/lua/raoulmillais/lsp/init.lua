@@ -66,6 +66,10 @@ require('lspconfig').sumneko_lua.setup {
   settings = require('raoulmillais.lsp.servers.sumneko_lua').settings,
 }
 
+require('rust-tools').setup {
+  settings = on_attach
+}
+
 local builtins = require("null-ls").builtins
 require("null-ls").setup {
   sources = {
