@@ -79,6 +79,7 @@ return require("packer").startup({function(use)
   }
   use { 'folke/lua-dev.nvim' }
   use { 'simrat39/rust-tools.nvim' }
+  use { 'MunifTanjim/prettier.nvim' }
 
   use { 'lewis6991/gitsigns.nvim' }
 
