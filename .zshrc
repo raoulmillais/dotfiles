@@ -23,6 +23,9 @@ setopt share_history
 
 # Builtin zsh plugins
 autoload -U colors && colors
+
+# Load completions
+fpath=(~/.zsh $fpath)
 autoload -Uz compinit && compinit
 
 # Line editing
@@ -112,6 +115,7 @@ bindkey '^I' expand-or-complete-prefix   # Keep rest of line when completing
 bindkey '\M-\C-I' reverse-menu-complete  # Alt-tab to reverse cycle completions
 
 export BAT_THEME=gruvbox-dark
+
 
 #
 # fzf
