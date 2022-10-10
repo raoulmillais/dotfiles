@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# restart i3 to trigger a reload of feh with the resized background
+i3-msg restart
 notify-send -i display "Display profile" "$AUTORANDR_CURRENT_PROFILE"
 
 # vim:ft=bash
