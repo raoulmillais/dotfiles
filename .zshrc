@@ -127,7 +127,7 @@ export FZF_DEFAULT_COMMAND='rg --files --follow'
 
 
 # Aliases
-alias ack="ag"
+alias ack="rg"
 alias g='git'
 alias k='kubectl'
 alias t='terraform'
@@ -147,7 +147,6 @@ export PYTHONSTARTUP=~/.pythonrc
 #
 if [ -f $HOME/.priv-env ]; then
   source $HOME/.priv-env
-
 fi
 
 export NVS_HOME="$HOME/.nvs"
