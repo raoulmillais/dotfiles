@@ -7,14 +7,10 @@ nmap("[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
 nmap("]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
 nmap("<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
 
--- Use an on_attach function to only map the following keys
--- after the language server attaches to the current buffer
-local on_attach = function(_, bufnr)
+local set_keybindings = function(_, bufnr)
   -- Enable completion triggered by <c-x><c-o>
   set_buf(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
-  -- Mappings.
-  -- See `:help vim.lsp.*` for documentation on any of the below functions
   nmap_buf(bufnr, "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
   nmap_buf(bufnr, "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
   nmap_buf(bufnr, "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)
@@ -30,30 +26,46 @@ local on_attach = function(_, bufnr)
   nmap_buf(bufnr, "<leader>cf", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
 end
 
--- Use a loop to conveniently call 'setup' on multiple servers and
--- map buffer local keybindings when the language server attaches
+require("nvim-lsp-installer").setup {}
+
+require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
+
+local lspconfig = require('lspconfig')
+
+-- servers with no special settings
 local servers = {
   "bashls",
   "gopls",
   "html",
   "rust_analyzer",
   "tailwindcss",
-  "tsserver",
   "vimls",
 }
 
-require("nvim-lsp-installer").setup {}
-
-require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
-
 for _, lsp in pairs(servers) do
-  require("lspconfig")[lsp].setup {
-    on_attach = on_attach,
+  lspconfig[lsp].setup {
+    on_attach = set_keybindings,
   }
 end
 
-require('lspconfig').jsonls.setup {
-  on_attach = on_attach,
+-- Servers with custom setup
+
+lspconfig.denols.setup {
+  on_attach = set_keybindings,
+  root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
+}
+
+lspconfig.tsserver.setup {
+  on_attach = set_keybindings,
+  root_dir = lspconfig.util.root_pattern("package.json"),
+}
+
+vim.g.markdown_fenced_languages = {
+  "ts=typescript"
+}
+
+lspconfig.jsonls.setup {
+  on_attach = set_keybindings,
   settings = {
     json = {
       schemas = require('schemastore').json.schemas(),
@@ -61,13 +73,13 @@ require('lspconfig').jsonls.setup {
   },
 }
 
-require('lspconfig').sumneko_lua.setup {
-  on_attach = on_attach,
+lspconfig.sumneko_lua.setup {
+  on_attach = set_keybindings,
   settings = require('raoulmillais.lsp.servers.sumneko_lua').settings,
 }
 
 require('rust-tools').setup {
-  settings = on_attach
+  on_attach = set_keybindings
 }
 
 local builtins = require("null-ls").builtins
@@ -104,6 +116,8 @@ require("fidget").setup {
   },
 }
 
+-- DIAGNOSTICS
+
 vim.diagnostic.config({
   virtual_text = false,
   signs = true,
@@ -112,9 +126,10 @@ vim.diagnostic.config({
   severity_sort = false,
 })
 
--- Use a float instead of virtual text
+-- Use a float instead of virtual text for diagnostics
 vim.o.updatetime = 250
 vim.cmd [[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
+
 
 for type, icon in pairs(signs) do
   local hl = "DiagnosticSign" .. type
