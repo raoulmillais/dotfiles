@@ -3,9 +3,9 @@ local tt = require('telescope.themes')
 local themes = require('raoulmillais.telescope.themes')
 local exec = require('raoulmillais.exec')
 
-local M =  {}
+local finders =  {}
 
-M.find_file_in_project = function()
+finders.find_file_in_project = function()
   local opts = themes.top_dropdown_without_preview({
     prompt_title = "Find file in project"
   })
@@ -15,7 +15,7 @@ M.find_file_in_project = function()
   end
 end
 
-function M.find_nvim_config_file()
+function finders.find_nvim_config_file()
   local opts = themes.top_dropdown_without_preview({
     prompt_title = "Find neovim config file",
     cwd = "~/.config/nvim"
@@ -23,7 +23,7 @@ function M.find_nvim_config_file()
   builtin.find_files(opts)
 end
 
-function M.git_status()
+function finders.git_status()
   local _, ret = exec({
     "git", "rev-parse", "--show-toplevel"
   }, vim.fn.getcwd())
@@ -34,7 +34,7 @@ function M.git_status()
 
   -- TODO: Standardise icons between gitsigns and here
   -- opts.git_icons = {
-  --   changed = "M"
+  --   changed = "finders"
   -- }
   local opts = tt.get_dropdown {
     winblend = 10,
@@ -46,4 +46,4 @@ function M.git_status()
   builtin.git_status(opts)
 end
 
-return M
+return finders

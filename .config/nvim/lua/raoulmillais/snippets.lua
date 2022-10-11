@@ -1,9 +1,9 @@
-local M = {}
+local snippets = {}
 
-M.setup = function()
+snippets.setup = function()
   local luasnip = require("luasnip")
 
   luasnip.snippets = require("luasnip-snippets").load_snippets()
 end
 
-return M
+return snippets

@@ -1,3 +1,5 @@
+local packer = {}
+
 local download_packer = function()
   if vim.fn.input "Download Packer? (y for yes)" ~= "y" then
     return
@@ -8,7 +10,7 @@ local download_packer = function()
   vim.fn.mkdir(directory, "p")
 
   local out = vim.fn.system(
-    string.format("git clone %s %s", "https://github.com/wbthomason/packer.nvim", directory .. "/packer.nvim")
+  string.format("git clone %s %s", "https://github.com/wbthomason/packer.nvim", directory .. "/packer.nvim")
   )
 
   print(out)
@@ -17,14 +19,15 @@ local download_packer = function()
   vim.cmd [[qa]]
 end
 
-return {
-  ensure = function()
-    if not pcall(require, "packer") then
-      download_packer()
+-- returns true when packer was installed
+packer.ensure = function()
+  if not pcall(require, "packer") then
+    download_packer()
 
-      return true
-    end
+    return true
+  end
 
-    return false
-  end,
-}
+  return false
+end
+
+return packer

@@ -6,6 +6,7 @@ else
 end
 
 if require('raoulmillais.packer-install').ensure() then
+  -- packer was just installed - restart required
   return
 end
 
@@ -13,7 +14,6 @@ require 'raoulmillais.global'
 require 'raoulmillais.packer'
 require 'raoulmillais.general'
 require 'raoulmillais.signs'
-require 'raoulmillais.commands'
 require 'raoulmillais.autocommands'
 require 'raoulmillais.keymappings'
 require 'raoulmillais.plugins'
@@ -23,5 +23,4 @@ require 'raoulmillais.snippets'
 require 'raoulmillais.treesitter'
 require 'raoulmillais.diagnostics'
 require 'raoulmillais.cmp'
-require 'raoulmillais.lsp'
-require 'raoulmillais.telescope'
+require 'raoulmillais.lsp' require 'raoulmillais.telescope'

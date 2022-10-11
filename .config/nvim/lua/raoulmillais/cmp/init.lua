@@ -1,5 +1,5 @@
-local cmp = require "cmp"
-local lspkind = require "lspkind"
+local cmp = require('cmp')
+local lspkind = require('lspkind')
 
 lspkind.init()
 

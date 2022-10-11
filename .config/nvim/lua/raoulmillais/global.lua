@@ -18,5 +18,3 @@ nmap_buf = function(bufnr, lhs, rhs, opts)
   vim.api.nvim_buf_set_keymap(bufnr, "n", lhs, rhs, opts)
 end
 
-require'nvim-web-devicons'.setup { default = true }
-require'nvim-tree'.setup { }

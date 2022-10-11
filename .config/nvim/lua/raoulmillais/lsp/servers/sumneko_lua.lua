@@ -1,10 +1,10 @@
 local lua_dev = require('lua-dev')
 
-local M = {}
+local sumneko_lua = {}
 
-M.settings = lua_dev.setup().settings
+sumneko_lua.settings = lua_dev.setup().settings
 
-M.settings.Lua = {
+sumneko_lua.settings.Lua = {
     diagnostics = {
       globals = {
         'vim', 'bit', 'imap', 'nmap', 'cmap', 'setbuf', 'nmap_buf'
@@ -12,5 +12,5 @@ M.settings.Lua = {
     }
   }
 
-return M
+return sumneko_lua
 

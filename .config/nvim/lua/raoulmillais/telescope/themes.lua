@@ -1,11 +1,11 @@
-local themes = require('telescope.themes')
+local telescope_themes = require('telescope.themes')
 
-local M = {}
+local themes = {}
 
-M.top_dropdown_without_preview = function(opts)
+themes.top_dropdown_without_preview = function(opts)
   opts = opts or {}
 
-  local theme_opts = themes.get_dropdown({
+  local theme_opts = telescope_themes.get_dropdown({
     border = true,
     borderchars = {
       prompt = { "─", "│", " ", "│", "╭", "╮", "│", "│" },
@@ -32,4 +32,4 @@ M.top_dropdown_without_preview = function(opts)
   return vim.tbl_deep_extend("force", theme_opts, opts)
 end
 
-return M
+return themes

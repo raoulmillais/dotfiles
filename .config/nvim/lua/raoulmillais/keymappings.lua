@@ -1,5 +1,3 @@
-local keymap = vim.keymap
-
 -- TELESCOPE {{{
 nmap("<C-p>", ":Telescope find_files<CR>")
 -- }}}
@@ -65,8 +63,8 @@ nmap("j", "gj")
 nmap("k", "gk")
 -- Don't use Q for Ex mode, use it for formatting.  Except for Select mode.
 -- Revert with ":unmap Q".
-keymap.set("", "Q", "gq")
-keymap.del("s", "Q")
+vim.keymap.set("", "Q", "gq")
+vim.keymap.del("s", "Q")
 -- }}}
 
 -- SUDO {{{1

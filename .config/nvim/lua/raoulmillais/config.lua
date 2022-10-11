@@ -1,10 +1,10 @@
-local M = {
-  signs = {
-    Error = " ",
-    Warn = " ",
-    Hint = " ",
-    Info = " "
-  }
+local config = { }
+
+config.signs = {
+  Error = " ",
+  Warn = " ",
+  Hint = " ",
+  Info = " "
 }
 
-return M
+return config
