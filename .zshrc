@@ -131,7 +131,8 @@ export FZF_DEFAULT_COMMAND='rg --files --follow'
 
 
 # Aliases
-alias ack="rg"
+alias nvimconf='cd ~/.config/nvim/'
+alias ack='rg'
 alias g='git'
 alias k='kubectl'
 alias t='terraform'
