@@ -83,10 +83,6 @@ return require("packer").startup({function(use)
   use { 'jose-elias-alvarez/null-ls.nvim' }
   use { 'onsails/lspkind.nvim' }
   use { 'sar/schemastore.nvim' }
-  use {
-    'RishabhRD/nvim-lsputils',
-    requires = 'RishabhRD/popfix',
-  }
   use { 'folke/lua-dev.nvim' }
   use { 'simrat39/rust-tools.nvim' }
   use { 'MunifTanjim/prettier.nvim' }
