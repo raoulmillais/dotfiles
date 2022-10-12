@@ -14,3 +14,8 @@ if vim.g.loaded_webdevicons == true then
   vim.cmd [[ call webdevicons#refresh() ]]
 end
 -- }}}
+
+-- calling this inside a config function when configuring packer does not
+-- work - this must be done after that file has loaded. See
+-- https://github.com/nvim-tree/nvim-tree.lua/issues/767#issuecomment-1004017555
+require('nvim-tree').setup()

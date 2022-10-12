@@ -42,7 +42,8 @@ return require("packer").startup({function(use)
   use {
     'kyazdani42/nvim-tree.lua',
     config = function()
-      require('nvim-tree').setup { }
+      -- This function may not work for this plugin
+      -- https://github.com/nvim-tree/nvim-tree.lua/issues/767#issuecomment-1004017555
     end
   }
   use { 'gpanders/editorconfig.nvim' }
@@ -70,9 +71,14 @@ return require("packer").startup({function(use)
   use { 'hrsh7th/cmp-path' }
   use { 'hrsh7th/cmp-cmdline' }
   use { 'hrsh7th/nvim-cmp' }
-  use { 'L3MON4D3/LuaSnip' }
-  use { 'molleweide/LuaSnip-snippets.nvim' }
   use { 'saadparwaiz1/cmp_luasnip' }
+  use {
+    'L3MON4D3/LuaSnip',
+    config = require('raoulmillais.snippets').config,
+    requires = {
+      'molleweide/LuaSnip-snippets.nvim'
+    }
+  }
   use { 'williamboman/nvim-lsp-installer' }
   use { 'jose-elias-alvarez/null-ls.nvim' }
   use { 'onsails/lspkind.nvim' }
@@ -132,7 +138,7 @@ return require("packer").startup({function(use)
     'kyazdani42/nvim-web-devicons',
     config = function()
       require('nvim-web-devicons').setup { default = true }
-      end
+    end
   }
 end, config = {
   display = {
