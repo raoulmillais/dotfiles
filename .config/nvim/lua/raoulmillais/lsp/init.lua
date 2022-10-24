@@ -1,9 +1,11 @@
 local keymappings = require('raoulmillais.lsp.keymappings')
 local set_keymappings = keymappings.on_attach
 
+-- Allows installing new lsp servers from within nvim
 require("nvim-lsp-installer").setup {}
 
-require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require("cmp_nvim_lsp")
+      .update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 local lspconfig = require('lspconfig')
 
@@ -20,6 +22,7 @@ local servers = {
 for _, lsp in pairs(servers) do
   lspconfig[lsp].setup {
     on_attach = set_keymappings,
+    capabilities = capabilities,
   }
 end
 
@@ -28,11 +31,13 @@ end
 lspconfig.denols.setup {
   on_attach = set_keymappings,
   root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
+  capabilities = capabilities,
 }
 
 lspconfig.tsserver.setup {
   on_attach = set_keymappings,
   root_dir = lspconfig.util.root_pattern("package.json"),
+  capabilities = capabilities,
 }
 
 vim.g.markdown_fenced_languages = {
@@ -46,15 +51,18 @@ lspconfig.jsonls.setup {
       schemas = require('schemastore').json.schemas(),
     },
   },
+  capabilities = capabilities,
 }
 
 lspconfig.sumneko_lua.setup {
   on_attach = set_keymappings,
   settings = require('raoulmillais.lsp.servers.sumneko_lua').settings,
+  capabilities = capabilities,
 }
 
 require('rust-tools').setup {
-  on_attach = set_keymappings
+  on_attach = set_keymappings,
+  capabilities = capabilities,
 }
 
 local builtins = require("null-ls").builtins
@@ -64,12 +72,12 @@ require("null-ls").setup {
     builtins.code_actions.refactoring,
     builtins.code_actions.shellcheck,
     builtins.completion.luasnip,
-    builtins.completion.spell,
     builtins.diagnostics.shellcheck,
     builtins.formatting.stylua,
   },
 }
 
+-- Status messages in bottom right for what the LSP servers are doing
 require("fidget").setup {
   text = {
     spinner = "moon",

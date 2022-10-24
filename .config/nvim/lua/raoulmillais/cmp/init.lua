@@ -1,20 +1,14 @@
 local cmp = require('cmp')
 local lspkind = require('lspkind')
 
+-- Adds pretty pictograms to the lsp pum
 lspkind.init()
 
 cmp.setup {
   preselect = cmp.PreselectMode.None,
   formatting = {
     format = lspkind.cmp_format {
-      mode = "symbol_text",
-      menu = ({
-        buffer = "[Buffer]",
-        nvim_lsp = "[LSP]",
-        luasnip = "[LuaSnip]",
-        gh_issues = "[Github]",
-        nvim_lua = "[Lua]",
-      })
+      mode = "symbol",
     },
   },
   window = {
@@ -45,8 +39,6 @@ cmp.setup {
     { name = "nvim_lsp" },
     { name = "luasnip" },
     { name = "nvim_lsp_signature_help" },
-  }, {
-    { name = "buffer", keyword_length = 5 },
   }),
 }
 
