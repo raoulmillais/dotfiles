@@ -12,6 +12,7 @@ typeset -U path
 path+=("./node_modules/.bin")
 path+=("$HOME/go/bin")
 path+=("$HOME/.cargo/bin")
+path+=("$HOME/.deno/bin")
 
 # Precompiled binaries downloaded from the web and my own scripts
 path+=("$HOME/bin")
