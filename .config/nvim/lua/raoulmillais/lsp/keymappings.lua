@@ -19,6 +19,7 @@ keymappings.on_attach = function(_, bufnr)
   nmap_buf(bufnr, "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", opts)
   nmap_buf(bufnr, "gr", "<cmd>lua vim.lsp.buf.references()<CR>", opts)
   nmap_buf(bufnr, "<leader>cf", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
+  nmap_buf(bufnr, "<leader>ca", ":CodeActionMenu<CR>", opts)
 end
 
 return keymappings

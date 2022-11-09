@@ -1,6 +1,9 @@
 local cmp = require('cmp')
 local lspkind = require('lspkind')
 
+-- Show a lightbulb when code actions are available
+require('nvim-lightbulb').setup({autocmd = {enabled = true}})
+
 -- Adds pretty pictograms to the lsp pum
 lspkind.init()
 

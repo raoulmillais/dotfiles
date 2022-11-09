@@ -72,9 +72,6 @@ require('rust-tools').setup {
 local builtins = require("null-ls").builtins
 require("null-ls").setup {
   sources = {
-    builtins.code_actions.gitsigns,
-    builtins.code_actions.refactoring,
-    builtins.code_actions.shellcheck,
     builtins.completion.luasnip,
     builtins.diagnostics.shellcheck,
     builtins.formatting.stylua,

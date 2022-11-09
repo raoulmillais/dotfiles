@@ -64,6 +64,14 @@ return require("packer").startup({function(use)
       require("codelens_extensions").setup()
     end,
   }
+  use {
+      'kosayoda/nvim-lightbulb',
+      requires = 'antoinemadec/FixCursorHold.nvim',
+  }
+  use {
+    'weilbith/nvim-code-action-menu',
+    cmd = 'CodeActionMenu',
+  }
   use { 'hrsh7th/cmp-nvim-lsp' }
   use { 'hrsh7th/cmp-nvim-lsp-signature-help' }
   use { 'hrsh7th/cmp-nvim-lsp-document-symbol' }
