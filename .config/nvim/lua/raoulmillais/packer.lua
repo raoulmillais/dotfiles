@@ -83,7 +83,7 @@ return require("packer").startup({function(use)
   use { 'jose-elias-alvarez/null-ls.nvim' }
   use { 'onsails/lspkind.nvim' }
   use { 'sar/schemastore.nvim' }
-  use { 'folke/lua-dev.nvim' }
+  use { 'folke/neodev.nvim' }
   use { 'simrat39/rust-tools.nvim' }
   use { 'MunifTanjim/prettier.nvim' }
 

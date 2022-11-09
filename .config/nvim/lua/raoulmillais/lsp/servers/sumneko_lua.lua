@@ -1,8 +1,6 @@
-local lua_dev = require('lua-dev')
-
 local sumneko_lua = {}
 
-sumneko_lua.settings = lua_dev.setup().settings
+sumneko_lua.settings = {}
 
 sumneko_lua.settings.Lua = {
     diagnostics = {
