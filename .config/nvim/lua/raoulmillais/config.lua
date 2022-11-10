@@ -3,7 +3,7 @@ local config = { }
 config.signs = {
   Error = " ",
   Warn = " ",
-  Hint = " ",
+  Hint = " ",
   Info = " "
 }
 
