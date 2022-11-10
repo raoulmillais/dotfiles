@@ -5,11 +5,12 @@ local lspkind = require('lspkind')
 require('nvim-lightbulb').setup {
   autocmd = {enabled = true}, 
   sign = {enabled = false}, 
-  virtual_text = {
+  float = {
+    win_opts = { anchor = "SW", offset_y = -1, offset_x = -1 },
     enabled = true,
-    hl_mode = "blend"
   }
 }
+
 
 -- Adds pretty pictograms to the lsp pum
 lspkind.init()
