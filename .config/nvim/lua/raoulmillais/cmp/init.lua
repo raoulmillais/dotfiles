@@ -3,14 +3,13 @@ local lspkind = require('lspkind')
 
 -- Show a lightbulb when code actions are available
 require('nvim-lightbulb').setup {
-  autocmd = {enabled = true}, 
-  sign = {enabled = false}, 
+  autocmd = {enabled = true},
+  sign = {enabled = false},
   float = {
     win_opts = { anchor = "SW", offset_y = -1, offset_x = -1 },
     enabled = true,
   }
 }
-
 
 -- Adds pretty pictograms to the lsp pum
 lspkind.init()
@@ -21,10 +20,6 @@ cmp.setup {
     format = lspkind.cmp_format {
       mode = "symbol",
     },
-  },
-  window = {
-    completion = cmp.config.window.bordered(),
-    documentation = cmp.config.window.bordered(),
   },
   snippet = {
     expand = function(args)
@@ -66,13 +61,13 @@ cmp.setup {
   }),
 }
 
--- Use buffer source for `/` (if you enabled `native_menu`, this won't work anymore).
+-- Use text in buffer for completing searches
 cmp.setup.cmdline("/", {
   mapping = cmp.mapping.preset.cmdline(),
   sources = cmp.config.sources({ { name = 'nvim_lsp_document_symbol' } },
   { { name = 'buffer' } }) })
 
--- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+-- Use cmdline & paths for the command line
 cmp.setup.cmdline(":", {
   mapping = cmp.mapping.preset.cmdline(),
   sources = cmp.config.sources({
