@@ -6,7 +6,7 @@ local set_keymappings = keymappings.on_attach
 require("neodev").setup {}
 
 -- Allows installing new lsp servers from within nvim
-require("nvim-lsp-installer").setup {}
+require("mason").setup {}
 
 local capabilities = require("cmp_nvim_lsp")
       .default_capabilities()
@@ -58,9 +58,9 @@ lspconfig.jsonls.setup {
   capabilities = capabilities,
 }
 
-lspconfig.sumneko_lua.setup {
+lspconfig.lua_ls.setup {
   on_attach = set_keymappings,
-  settings = require('raoulmillais.lsp.servers.sumneko_lua').settings,
+  settings = require('raoulmillais.lsp.servers.lua_ls').settings,
   capabilities = capabilities,
 }
 

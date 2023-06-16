@@ -57,7 +57,7 @@ return require("packer").startup({function(use)
   }
   -- LSP & cmp
   use { 'neovim/nvim-lspconfig' }
-  use "j-hui/fidget.nvim"
+  use { "j-hui/fidget.nvim", tag='legacy' }
   use {
     "ericpubu/lsp_codelens_extensions.nvim",
     config = function()
@@ -87,7 +87,8 @@ return require("packer").startup({function(use)
       'molleweide/LuaSnip-snippets.nvim'
     }
   }
-  use { 'williamboman/nvim-lsp-installer' }
+  use { 'williamboman/mason.nvim' }
+  use { 'williamboman/mason-lspconfig.nvim' }
   use { 'jose-elias-alvarez/null-ls.nvim' }
   use { 'onsails/lspkind.nvim' }
   use { 'sar/schemastore.nvim' }
