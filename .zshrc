@@ -147,6 +147,8 @@ eval "$(hub alias -s)"
 export CLOUDSDK_PYTHON=`which python2`
 export PYTHONSTARTUP=~/.pythonrc
 
+export GPG_TTY=$(tty)
+
 #
 # Private environment variables
 #
