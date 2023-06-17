@@ -5,7 +5,7 @@
 /*****----- Configuration -----*****/
 configuration {
 	modi:                       "drun,run,filebrowser";
-    show-icons:                 true;
+    show-icons:                 false;
     display-drun:               "";
     display-run:                "";
     display-filebrowser:        "";
@@ -20,12 +20,12 @@ configuration {
 window {
     /* properties for window widget */
     transparency:                "real";
-    location:                    west;
-    anchor:                      west;
+    location:                    east;
+    anchor:                      east;
     fullscreen:                  false;
     width:                       500px;
     height:                      96%;
-    x-offset:                    20px;
+    x-offset:                    -20px;
     y-offset:                    0px;
 
     /* properties for all widgets */
@@ -46,7 +46,7 @@ mainbox {
     margin:                      0px;
     padding:                     20px;
     background-color:            transparent;
-    children:                    [ "inputbar", "message", "listview", "mode-switcher" ];
+    children:                    [ "inputbar", "listview" ];
 }
 
 /*****----- Inputbar -----*****/
@@ -54,33 +54,36 @@ inputbar {
     enabled:                     true;
     spacing:                     10px;
     margin:                      0px;
-    padding:                     10px;
-    border-radius:               12px;
-    background-color:            @background-alt;
+    padding:                     0px;
+    border-radius:               0px;
+    background-color:            transparent;
     text-color:                  @foreground;
-    children:                    [ "textbox-prompt-colon", "entry" ];
+    children:                    [ "textbox-prompt-colon", "prompt", "entry" ];
 }
 
 prompt {
     enabled:                     true;
-    background-color:            inherit;
-    text-color:                  inherit;
+    padding:                     8px;
+    border-radius:               12px;
+    background-color:            var(active);
+    text-color:                  @background;
 }
 textbox-prompt-colon {
     enabled:                     true;
-    padding:                     0px;
     expand:                      false;
-    str:                         "";
-    background-color:            inherit;
-    text-color:                  inherit;
+    str:                         "直";
+    padding:                     8px 11px;
+    border-radius:               12px;
+    background-color:            var(urgent);
+    text-color:                  @background;
 }
 entry {
     enabled:                     true;
-    padding:                     0px;
+    padding:                     8px 0px;
     background-color:            inherit;
     text-color:                  inherit;
     cursor:                      text;
-    placeholder:                 "Search...";
+    placeholder:                 "";
     placeholder-color:           inherit;
 }
 
@@ -88,7 +91,7 @@ entry {
 listview {
     enabled:                     true;
     columns:                     1;
-    lines:                       12;
+    lines:                       8;
     cycle:                       true;
     dynamic:                     true;
     scrollbar:                   true;
@@ -114,7 +117,7 @@ element {
     enabled:                     true;
     spacing:                     10px;
     margin:                      0px;
-    padding:                     6px;
+    padding:                     8px;
     border-radius:               12px;
     background-color:            transparent;
     text-color:                  @foreground;
@@ -161,19 +164,19 @@ mode-switcher{
     enabled:                     true;
     spacing:                     10px;
     margin:                      0px;
-    padding:                     0px 0px;
+    padding:                     0px;
     background-color:            transparent;
     text-color:                  @foreground;
 }
 button {
-    padding:                     10px;
+    padding:                     8px 12px;
     border-radius:               12px;
     background-color:            @background-alt;
     text-color:                  inherit;
     cursor:                      pointer;
 }
 button selected {
-    background-color:            var(urgent);
+    background-image:          	 linear-gradient(to right, #E06B74, #C778DD);
     text-color:                  var(background);
 }
 
@@ -181,7 +184,7 @@ button selected {
 message {
     enabled:                     true;
     margin:                      0px;
-    padding:                     10px;
+    padding:                     8px 12px;
     border-radius:               12px;
     background-color:            @background-alt;
     text-color:                  @foreground;

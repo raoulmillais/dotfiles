@@ -1,6 +1,6 @@
 configuration {
   modi: "drun";
-  icon-theme: "Papirus-Dark";
+  icon-theme: "Luv";
   show-icons: true;
   terminal: "foot";
   location: 0;

@@ -3,7 +3,7 @@
   "position": "top",
   "modules-left": ["wlr/workspaces"],
   "modules-center": ["hyprland/window"],
-  "modules-right": ["pulseaudio", "network", "backlight", "battery", "clock", "tray", "custom/power"],
+  "modules-right": ["pulseaudio", "backlight", "battery", "clock", "tray", "custom/power"],
 
   "tray": {
     "icon-size": 21,
@@ -25,14 +25,6 @@
     "format-icons": ["奄", "奔", "墳"],
     "tooltip": true,
     "tooltip-format": "{volume}%"
-  },
-
-  "network": {
-    "format-wifi": " ",
-    "format-disconnected": "睊",
-    "format-ethernet": " ",
-    "format-alt": "  {signalStrength}%",
-    "tooltip": false
   },
 
   "backlight": {
