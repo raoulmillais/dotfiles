@@ -1,0 +1,7 @@
+#!/usr/bin/bash
+
+while true; do
+  waybar | systemd-cat &
+  inotifywait -s -e modify,create ~/.config/waybar
+  killall waybar
+done
