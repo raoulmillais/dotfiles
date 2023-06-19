@@ -49,7 +49,7 @@
 
   "custom/power": {
     "tooltip": false,
-    "on-click": "powermenu",
+    "on-click": "~/.config/rofi/powermenu/type-1/powermenu.sh",
     "format": "襤"
   },
 
