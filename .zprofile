@@ -5,4 +5,3 @@
 
 stty -ixon
 
-export PATH="$HOME/.cargo/bin:$PATH"

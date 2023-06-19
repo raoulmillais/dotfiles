@@ -21,3 +21,4 @@ path+=("$HOME/.local/bin")
 path+=("$HOME/.vim/plugged/vim-iced/bin")
 path+=("$HOME/.npm-global/bin")
 export PATH
+. "$HOME/.cargo/env"
