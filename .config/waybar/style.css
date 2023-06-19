@@ -1,37 +1,35 @@
-@import "mocha.css";
-
 * {
-  font-family: FantasqueSansMono Nerd Font;
+  font-family: SauceCodePro Nerd Font;
   font-size: 17px;
   min-height: 0;
 }
 
 #waybar {
   background: transparent;
-  color: @text;
+  color: #ebdbb2;
   margin: 5px 5px;
 }
 
 #workspaces {
   border-radius: 1rem;
   margin: 5px 0px;
-  background-color: @surface0;
+  background-color: #282828;
   margin-left: 1rem;
 }
 
 #workspaces button {
-  color: @lavender;
+  color: #ebdbb2;
   border-radius: 1rem;
   padding: 0.5rem;
 }
 
 #workspaces button.active {
-  color: @sky;
+  color: #83a598;
   border-radius: 1rem;
 }
 
 #workspaces button:hover {
-  color: @sapphire;
+  color: #b8bb26;
   border-radius: 1rem;
 }
 
@@ -44,35 +42,35 @@
 #pulseaudio,
 #custom-lock,
 #custom-power {
-  background-color: @surface0;
+  background-color: #282828;
   padding: 0.5rem 1rem;
   margin: 5px 0;
 }
 
 #clock {
-  color: @lavender;
+  color: #458588;
   border-radius: 0px 1rem 1rem 0px;
   margin-right: 1rem;
 }
 
 #battery {
-  color: @green;
+  color: #b8bb26;
 }
 
 #battery.charging {
-  color: @green;
+  color: #b8bb26;
 }
 
 #battery.warning:not(.charging) {
-  color: @red;
+  color: #fb4934;
 }
 
 #network {
-    color: @flamingo;
+    color: #d3869b;
 }
 
 #backlight {
-  color: @yellow;
+  color: #fabd2f;
 }
 
 #backlight, #battery {
@@ -80,25 +78,25 @@
 }
 
 #pulseaudio {
-  color: @pink;
+  color: #8ec07c;
   border-radius: 1rem 0px 0px 1rem;
   margin-left: 1rem;
 }
 
 #pulseaudio.muted {
-    color: @red;
+    color: #fb4934;
 }
 
 
 #custom-music {
-  color: @teal;
+  color: #83a598;
   border-radius: 1rem;
 }
 
 #custom-power {
     margin-right: 1rem;
     border-radius: 1rem;
-    color: @red;
+    color: #fb4934;
 }
 
 #tray {
