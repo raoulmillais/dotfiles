@@ -1,12 +1,14 @@
 local keymappings = require('raoulmillais.lsp.keymappings')
 local set_keymappings = keymappings.on_attach
 
-
 -- IMPORTANT: make sure to setup neodev BEFORE lspconfig
+-- Provides lsp for your nvim lua config
 require("neodev").setup {}
 
 -- Allows installing new lsp servers from within nvim
 require("mason").setup {}
+-- Bridges gap between mason and lspconfig (eg. old server names)
+require("mason-lspconfig")
 
 local capabilities = require("cmp_nvim_lsp")
       .default_capabilities()
