@@ -66,10 +66,16 @@ lspconfig.lua_ls.setup {
   capabilities = capabilities,
 }
 
+local rust_tools = require('rust-tools')
+local rust_on_attach = function(_, bufnr)
+  set_keymappings(_, bufnr)
+  rust_tools.hover_actions.hover_actions()
+end
 require('rust-tools').setup {
-  on_attach = set_keymappings,
+  on_attach = rust_on_attach,
   capabilities = capabilities,
 }
+
 
 local builtins = require("null-ls").builtins
 require("null-ls").setup {

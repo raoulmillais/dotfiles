@@ -49,3 +49,12 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 -- }}}
+
+vim.api.nvim_create_autocmd("FileType",{
+  group = group,
+  pattern = "rust",
+  callback = function()
+    vim.opt_local.makeprg = "cargo run"
+      nmap("<F5>", ":make<cr>")
+  end,
+})
