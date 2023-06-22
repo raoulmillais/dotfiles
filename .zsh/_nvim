@@ -1,0 +1,4 @@
+#compdef edit=nvim ex=nvim vedit=nvim vi=nvim view=nvim vim=nvim vimdiff=nvim
+
+_vim
+
