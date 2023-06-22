@@ -1,0 +1,5 @@
+#compdef dev
+
+_arguments '1:code directory:_path_files -W ~/code'
+
+#vim: ft=zsh
