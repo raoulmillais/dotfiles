@@ -28,6 +28,10 @@ autoload -U colors && colors
 fpath=(~/.zsh $fpath)
 autoload -Uz compinit && compinit
 
+function dev() {
+  cd ~/code/$1
+}
+
 # Line editing
 export KEYTIMEOUT=10            # reduce the timeout switching modes
 setopt interactivecomments     # Allow comments with a # in a interactive shell
