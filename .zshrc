@@ -98,15 +98,15 @@ alias less='COLUMNS=80 less -m -N -g -i -J --underline-special --SILENT'
 alias more='less'
 
 #
-# ls / exa
+# ls / eza
 #
 
 # ls colors
 DIRCOLORS=/home/raoul/gruvbox.dir_colors
 test -r ${DIRCOLORS} && eval "$(dircolors ${DIRCOLORS})"
-alias ls='exa --long --header --group --links --blocks --accessed --modified --git'
-alias ll='exa --long --header --group --links --blocks --accessed --modified --git'       # same as ls
-alias la='exa --long --all --header --group --links --blocks --accessed --modified --git' # show hidden files
+alias ls='eza --long --header --group --links --accessed --modified --git'
+alias ll='eza --long --header --group --links --accessed --modified --git'       # same as ls
+alias la='eza --long --all --header --group --links --accessed --modified --git' # show hidden files
 
 # Use LS_COLORS for autompoletion too
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
@@ -133,12 +133,12 @@ export FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS} --height 40% --layout=reverse --bor
 # prefer ripgrep to find
 export FZF_DEFAULT_COMMAND='rg --files --follow'
 
-
 # Aliases
 alias nvimconf='cd ~/.config/nvim/'
 alias ack='rg'
 alias g='git'
-alias k='kubectl'
+alias kubectl='kubecolor'
+alias k='kubecolor'
 alias t='terraform'
 alias docker-kill-all='docker kill $(docker ps -q)'
 alias cat="bat"
@@ -160,29 +160,21 @@ if [ -f $HOME/.priv-env ]; then
   source $HOME/.priv-env
 fi
 
-export NVS_HOME="$HOME/.nvs"
-[ -s "$NVS_HOME/nvs.sh" ] && . "$NVS_HOME/nvs.sh"
-
-
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/home/raoul/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/home/raoul/Downloads/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/home/raoul/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/raoul/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
+
+if command -v kubebuilder >/dev/null; then
+  source <(kubebuilder completion zsh)
+fi
+
 # Show the git status of config files on every interactive login
 if [[ -n "$(config st)" ]]; then
   echo "Config is dirty:"
   config st
 fi
-
-case `uname` in
-  Darwin)
-    [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-  ;;
-  Linux)
-    # commands for Linux go here
-    source /usr/share/fzf/key-bindings.zsh
-    source /usr/share/fzf/completion.zsh
-  ;;
-esac
