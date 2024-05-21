@@ -5,10 +5,18 @@
 --  vim.notify(impatient)
 --end
 
-if require('raoulmillais.packer-install').ensure() then
-  -- packer was just installed - restart required
-  return
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
 end
+vim.opt.rtp:prepend(lazypath)
 
 -- MAIN ENTRY POINT
 --
@@ -18,7 +26,7 @@ end
 -- Note: Do not require files which are modules - I.E. modules that return
 -- something (hopefully a table if module conventions are followed)
 require 'raoulmillais.global'
-require 'raoulmillais.packer'
+require 'raoulmillais.lazy'
 require 'raoulmillais.general'
 require 'raoulmillais.signs'
 require 'raoulmillais.autocommands'
