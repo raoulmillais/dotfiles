@@ -1,5 +1,4 @@
 vim.cmd [[packadd packer.nvim]]
-vim.cmd [[packadd vimball]]
 
 -- BUNDLED PLUGINS {{{1
 -- Use the matchit macro to enable switching between open close tags and
@@ -47,7 +46,6 @@ return require("packer").startup({function(use)
     end
   }
   use { 'gpanders/editorconfig.nvim' }
-  use { 'nvim-orgmode/orgmode' }
   use {
     'lewis6991/spellsitter.nvim',
     enable = true,
@@ -65,13 +63,14 @@ return require("packer").startup({function(use)
     end,
   }
   use {
-      'kosayoda/nvim-lightbulb',
-      requires = 'antoinemadec/FixCursorHold.nvim',
+      "windwp/nvim-autopairs",
+      config = function() require("nvim-autopairs").setup {} end
   }
   use {
     'weilbith/nvim-code-action-menu',
     cmd = 'CodeActionMenu',
   }
+  use { 'windwp/nvim-ts-autotag' }
   use { 'hrsh7th/cmp-nvim-lsp' }
   use { 'hrsh7th/cmp-nvim-lsp-signature-help' }
   use { 'hrsh7th/cmp-nvim-lsp-document-symbol' }
@@ -129,16 +128,20 @@ return require("packer").startup({function(use)
   use { 'christoomey/vim-tmux-navigator' }
   use { 'mhinz/vim-startify' }
   use { 'othree/yajs.vim' }
+  use { 'tpope/vim-dispatch' }
   use { 'tpope/vim-fugitive' }
   use { 'tpope/vim-surround' }
   use { 'tpope/vim-unimpaired' }
   use { 'jremmen/vim-ripgrep' }
   use { 'vim-scripts/scratch.vim' }
   use { 'vifm/vifm.vim' }
-  use { 'eraserhd/parinfer-rust', ft = { 'clojure' } }
+  use { 'eraserhd/parinfer-rust', run = 'cargo build --release' }
   use {'guns/vim-sexp', ft = { 'clojure' } }
   use { 'tpope/vim-sexp-mappings-for-regular-people', ft = { 'clojure' } }
-  use { 'liquidz/vim-iced', ft = { 'clojure'} }
+  use { 'Olical/conjure'}
+  use { 'Olical/nfnl'}
+  use { 'clojure-vim/vim-jack-in'}
+  use { 'radenling/vim-dispatch-neovim'}
   use {
     'kyazdani42/nvim-web-devicons',
     config = function()

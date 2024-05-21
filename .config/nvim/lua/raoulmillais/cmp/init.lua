@@ -1,15 +1,6 @@
 local cmp = require('cmp')
 local lspkind = require('lspkind')
-
--- Show a lightbulb when code actions are available
-require('nvim-lightbulb').setup {
-  autocmd = {enabled = true},
-  sign = {enabled = false},
-  float = {
-    win_opts = { anchor = "SW", offset_y = -1, offset_x = -1 },
-    enabled = true,
-  }
-}
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 
 -- Adds pretty pictograms to the lsp pum
 lspkind.init()
@@ -76,3 +67,9 @@ cmp.setup.cmdline(":", {
     { name = "cmdline" },
   }),
 })
+
+-- Adds parentheses after selecting a function or method
+cmp.event:on(
+  'confirm_done',
+  cmp_autopairs.on_confirm_done()
+)

@@ -25,7 +25,6 @@ require 'raoulmillais.autocommands'
 require 'raoulmillais.keymappings'
 require 'raoulmillais.plugins'
 
-require 'raoulmillais.orgmode'
 require 'raoulmillais.treesitter'
 require 'raoulmillais.diagnostics'
 require 'raoulmillais.cmp'
