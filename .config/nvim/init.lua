@@ -1,10 +1,3 @@
---local ok, impatient = pcall(require, 'impatient')
---if ok then
---  impatient.enable_profile()
---else
---  vim.notify(impatient)
---end
-
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   vim.fn.system({
@@ -18,23 +11,16 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- MAIN ENTRY POINT
---
--- 'require' files which perform custom configuration in a specific order
--- should go here - they are split up for easier maintenance :)
---
--- Note: Do not require files which are modules - I.E. modules that return
--- something (hopefully a table if module conventions are followed)
-require 'raoulmillais.global'
-require 'raoulmillais.lazy'
-require 'raoulmillais.general'
-require 'raoulmillais.signs'
-require 'raoulmillais.autocommands'
-require 'raoulmillais.keymappings'
-require 'raoulmillais.plugins'
+require 'config.global'
+require 'config.lazy'
+require 'config.options'
+require 'config.signs'
+require 'config.autocommands'
+require 'config.keymaps'
+require 'config.plugins'
 
-require 'raoulmillais.treesitter'
-require 'raoulmillais.diagnostics'
-require 'raoulmillais.cmp'
-require 'raoulmillais.lsp'
-require 'raoulmillais.telescope'
+require 'config.treesitter'
+require 'config.diagnostics'
+require 'config.cmp'
+require 'config.lsp'
+require 'config.telescope'

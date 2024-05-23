@@ -1,7 +1,7 @@
 local telescope = require('telescope')
 local actions = require('telescope.actions')
 local builtin = require('telescope.builtin')
-local finders = require('raoulmillais.telescope.finders')
+local finders = require('config.telescope.finders')
 
 telescope.setup {
   extensions = {

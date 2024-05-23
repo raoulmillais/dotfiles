@@ -11,8 +11,6 @@ source .zshrc
 c config status.showUntrackedFiles no
 ```
 
-## Standing on the shoulders of giants fighting dragons
-
 Use at your own risk!  Feel free to peruse and take inspiration from anything
 you find useful.  I have done the same from many other colleagues and other 
 people on the web.

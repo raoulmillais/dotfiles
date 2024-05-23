@@ -1,5 +1,3 @@
-vim.cmd [[packadd packer.nvim]]
-
 -- BUNDLED PLUGINS {{{1
 -- Use the matchit macro to enable switching between open close tags and
 -- if/elsif/else/end with %
@@ -83,7 +81,7 @@ lazy.setup({
   'jremmen/vim-ripgrep',
   'vim-scripts/scratch.vim',
   'vifm/vifm.vim',
-  { 'eraserhd/parinfer-rust', run = 'cargo build --release' },
+  { 'eraserhd/parinfer-rust', build = 'cargo build --release' },
   {'guns/vim-sexp', ft = { 'clojure' } },
   { 'tpope/vim-sexp-mappings-for-regular-people', ft = { 'clojure' } },
   'Olical/conjure',

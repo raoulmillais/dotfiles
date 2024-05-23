@@ -1,7 +1,7 @@
 local builtin = require('telescope.builtin')
 local tt = require('telescope.themes')
-local themes = require('raoulmillais.telescope.themes')
-local exec = require('raoulmillais.exec')
+local themes = require('config.telescope.themes')
+local exec = require('config.exec')
 
 local finders =  {}
 

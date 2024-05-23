@@ -1,4 +1,4 @@
-local signs = require('raoulmillais.config').signs
+local signs = require('config.config').signs
 
 local opts = { noremap = true, silent = true }
 
