@@ -34,7 +34,7 @@ nmap("<Leader>gcc", ":GoCoverageToggle!<CR>")
 -- }}}
 
 -- NVIMTREE {{{1
-nmap("<f2>", ":NvimTreeToggle<cr>")
+nmap("<f2>", ":Neotree<cr>")
 -- }}}
 
 -- VIM TABS {{{1

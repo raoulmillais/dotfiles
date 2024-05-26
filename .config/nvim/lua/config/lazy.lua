@@ -17,19 +17,21 @@ vim.g.mapleader = "," -- Make sure to set `mapleader` before lazy so your mappin
 vim.g.maplocalleader = "," -- Same for `maplocalleader`
 
 lazy.setup({
-  'lewis6991/impatient.nvim',
   {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
   'nvim-treesitter/nvim-treesitter-textobjects',
   'ellisonleao/gruvbox.nvim',
-  'kyazdani42/nvim-tree.lua',
-  'gpanders/editorconfig.nvim',
-  'neovim/nvim-lspconfig',
-  "j-hui/fidget.nvim",
   {
-    'windwp/nvim-autopairs',
-    event = "InsertEnter",
-    config = true
+      "nvim-neo-tree/neo-tree.nvim",
+      branch = "v3.x",
+      dependencies = {
+        "nvim-lua/plenary.nvim",
+        "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+        "MunifTanjim/nui.nvim",
+      }
   },
+{ 'echasnovski/mini.pairs', version = '*' },
+  'gpanders/editorconfig.nvim',
+  "j-hui/fidget.nvim",
   'windwp/nvim-ts-autotag',
   'hrsh7th/cmp-nvim-lsp',
   'hrsh7th/cmp-nvim-lsp-signature-help',
@@ -39,6 +41,7 @@ lazy.setup({
   'hrsh7th/cmp-cmdline',
   'hrsh7th/nvim-cmp',
   'saadparwaiz1/cmp_luasnip',
+  'neovim/nvim-lspconfig',
   'williamboman/mason.nvim',
   'williamboman/mason-lspconfig.nvim',
   'jose-elias-alvarez/null-ls.nvim',

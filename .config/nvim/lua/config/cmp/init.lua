@@ -1,6 +1,5 @@
 local cmp = require('cmp')
 local lspkind = require('lspkind')
-local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 
 -- Adds pretty pictograms to the lsp pum
 lspkind.init()
@@ -67,9 +66,3 @@ cmp.setup.cmdline(":", {
     { name = "cmdline" },
   }),
 })
-
--- Adds parentheses after selecting a function or method
-cmp.event:on(
-  'confirm_done',
-  cmp_autopairs.on_confirm_done()
-)
