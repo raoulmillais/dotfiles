@@ -91,9 +91,14 @@ lazy.setup({
   'Olical/nfnl',
   'clojure-vim/vim-jack-in',
   'radenling/vim-dispatch-neovim',
-  'ryanoasis/vim-devicons',
-
-  "folke/which-key.nvim",
+  {
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    init = function()
+      vim.o.timeout = true
+      vim.o.timeoutlen = 300
+    end,
+  },
   { "folke/neoconf.nvim", cmd = "Neoconf" },
   "folke/neodev.nvim",
 })

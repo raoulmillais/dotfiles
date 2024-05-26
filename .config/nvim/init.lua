@@ -17,7 +17,6 @@ require 'config.options'
 require 'config.signs'
 require 'config.autocommands'
 require 'config.keymaps'
-require 'config.plugins'
 
 require 'config.treesitter'
 require 'config.diagnostics'
