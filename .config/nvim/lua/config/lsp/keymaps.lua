@@ -2,10 +2,13 @@ local keymappings = {}
 
 local opts = { noremap = true, silent = true }
 
+nmap_buf = function(bufnr, lhs, rhs, o)
+  vim.api.nvim_buf_set_keymap(bufnr, "n", lhs, rhs, o)
+end
+
+
 keymappings.on_attach = function(_, bufnr)
   -- Enable completion triggered by <c-x><c-o>
-  set_buf(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
-
   nmap_buf(bufnr, "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
   nmap_buf(bufnr, "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", opts)
   nmap_buf(bufnr, "K", "<cmd>lua vim.lsp.buf.hover()<CR>", opts)

@@ -1,3 +1,16 @@
+imap = function(lhs, rhs, opts)
+  vim.keymap.set("i", lhs, rhs, opts)
+end
+
+nmap = function(lhs, rhs, opts)
+  vim.keymap.set("n", lhs, rhs, opts)
+end
+
+cmap = function(lhs, rhs, opts)
+  vim.keymap.set("c", lhs, rhs, opts)
+end
+
+--
 -- TELESCOPE {{{
 nmap("<C-p>", ":Telescope find_files<CR>")
 -- }}}
