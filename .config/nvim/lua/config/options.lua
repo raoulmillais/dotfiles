@@ -21,6 +21,7 @@ opt.grepprg = "rg --no-heading --vimgrep"
 -- }}}
 
 -- BASICS {{{1
+opt.exrc = true -- Allow current working directory vim configs
 opt.errorbells = false -- No annoying beeps
 opt.history = 1000 -- Increase command history size
 opt.incsearch = true -- Incomplete search matches
