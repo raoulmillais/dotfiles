@@ -39,6 +39,7 @@ lazy.setup({
   'hrsh7th/cmp-buffer',
   'hrsh7th/cmp-path',
   'hrsh7th/cmp-cmdline',
+  'PaterJason/cmp-conjure',
   'hrsh7th/nvim-cmp',
   'saadparwaiz1/cmp_luasnip',
   'neovim/nvim-lspconfig',

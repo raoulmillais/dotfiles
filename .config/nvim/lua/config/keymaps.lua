@@ -12,41 +12,28 @@ end
 
 --
 -- TELESCOPE {{{
-nmap("<C-p>", ":Telescope find_files<CR>")
+nmap("<C-p>", ":Telescope find_files<CR>", { desc = "Find files" })
 -- }}}
 --
 -- SEARCH {{{1
 -- Clobber S with fast global search and replace
-nmap("S", ":%s::g<LEFT><LEFT>")
+nmap("S", ":%s::g<LEFT><LEFT>", { desc = "Global search and replace" })
 -- Turn off search highlighting
-nmap("<leader><space>", ":noh<cr>")
+nmap("<leader><space>", ":noh<cr>", { desc = "Disable search highlighting" })
 -- Highlight word at cursor and return to same position
-nmap("<leader>h", "*<C-O>")
+nmap("<leader>h", "*<C-O>", { desc = "Highlight other instances of word at cursor"})
 -- }}}
 
 -- VIMUX {{{1
-nmap("<Leader>vp", ":VimuxPromptCommand<CR>")
-nmap("<Leader>vl", ":VimuxRunLastCommand<CR>")
+nmap("<Leader>vp", ":VimuxPromptCommand<CR>", { desc = "Vimux prompt" })
+nmap("<Leader>vl", ":VimuxRunLastCommand<CR>", { desc = "Vimux run last command" })
 -- enter vimux pane in copymode (same as entering and typing <C-[>)
-nmap("<Leader>vi", ":VimuxInspectRunner<CR>")
-nmap("<Leader>vc", ":VimuxCloseRunner<CR>")
-nmap("<Leader>vz", ":VimuxZoomRunner<CR>")
+nmap("<Leader>vi", ":VimuxInspectRunner<CR>", { desc = "Vimux inspect runner" })
+nmap("<Leader>vc", ":VimuxCloseRunner<CR>", { desc = "Vimux close runner" })
+nmap("<Leader>vz", ":VimuxZoomRunner<CR>", { desc = "Vimux zoom runner" })
 -- }}}
 
--- GOLANG {{{1
--- TODO: Use Lsp builtins instead
-nmap("<Leader>gb", ":GoBuild<CR>")
-nmap("<Leader>gd", ":GoDoc<CR>")
-nmap("<Leader>gi", ":GoInfo<CR>")
-nmap("<Leader>grn", ":GoRename<CR>")
-nmap("<Leader>gre", ":GoReferrers<CR>")
-nmap("<Leader>gtd", ":GoDef<CR>")
-nmap("<Leader>gta", ":GolangTestCurrentPackage<CR>")
-nmap("<Leader>gtf", ":GolangTestFocused<CR>")
-nmap("<Leader>gcc", ":GoCoverageToggle!<CR>")
--- }}}
-
--- NVIMTREE {{{1
+-- NEOTREE {{{1
 nmap("<f2>", ":Neotree<cr>")
 -- }}}
 
