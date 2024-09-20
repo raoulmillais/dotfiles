@@ -1,6 +1,8 @@
 local cmp = require('cmp')
 local lspkind = require('lspkind')
 
+-- require("luasnip.loaders.from_vscode").lazy_load()
+
 -- Adds pretty pictograms to the lsp pum
 lspkind.init()
 

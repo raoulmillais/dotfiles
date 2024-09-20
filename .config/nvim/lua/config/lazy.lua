@@ -25,7 +25,7 @@ lazy.setup({
       branch = "v3.x",
       dependencies = {
         "nvim-lua/plenary.nvim",
-        "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+        "nvim-tree/nvim-web-devicons", 
         "MunifTanjim/nui.nvim",
       }
   },
@@ -57,7 +57,8 @@ lazy.setup({
   {
     "L3MON4D3/LuaSnip",
     version = "v2.*",
-    build = "make install_jsregexp"
+    build = "make install_jsregexp",
+    dependencies = "rafamadriz/friendly-snippets"
   },
   { "rafamadriz/friendly-snippets" },
   {

@@ -34,7 +34,7 @@ nmap("<Leader>vz", ":VimuxZoomRunner<CR>", { desc = "Vimux zoom runner" })
 -- }}}
 
 -- NEOTREE {{{1
-nmap("<f2>", ":Neotree<cr>")
+nmap("<f2>", ":Neotree toggle<cr>")
 -- }}}
 
 -- VIM TABS {{{1
