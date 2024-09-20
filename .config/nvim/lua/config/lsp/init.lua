@@ -40,7 +40,7 @@ lspconfig.denols.setup {
   capabilities = capabilities,
 }
 
-lspconfig.tsserver.setup {
+lspconfig.ts_ls.setup {
   on_attach = set_keymaps,
   root_dir = lspconfig.util.root_pattern("package.json"),
   capabilities = capabilities,
