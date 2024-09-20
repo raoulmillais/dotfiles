@@ -85,6 +85,3 @@ require("null-ls").setup {
     builtins.formatting.stylua,
   },
 }
-
--- Status messages in bottom right for what the LSP servers are doing
-require("fidget").setup { }

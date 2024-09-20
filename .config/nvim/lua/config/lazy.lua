@@ -25,13 +25,16 @@ lazy.setup({
       branch = "v3.x",
       dependencies = {
         "nvim-lua/plenary.nvim",
-        "nvim-tree/nvim-web-devicons", 
+        "nvim-tree/nvim-web-devicons",
         "MunifTanjim/nui.nvim",
       }
   },
-{ 'echasnovski/mini.pairs', version = '*' },
+  {
+    'echasnovski/mini.pairs',
+    version = '*'
+  },
   'gpanders/editorconfig.nvim',
-  "j-hui/fidget.nvim",
+  'folke/noice.nvim',
   'windwp/nvim-ts-autotag',
   'hrsh7th/cmp-nvim-lsp',
   'hrsh7th/cmp-nvim-lsp-signature-help',
