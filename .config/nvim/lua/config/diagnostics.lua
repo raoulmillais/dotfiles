@@ -1,4 +1,4 @@
-local signs = require('config.config').signs
+local icons = require('config.icons')
 
 local opts = { noremap = true, silent = true }
 
@@ -19,7 +19,7 @@ vim.diagnostic.config({
 vim.o.updatetime = 250
 vim.cmd [[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
 
-for type, icon in pairs(signs) do
+for type, icon in pairs(icons.diagnostics) do
   local hl = "DiagnosticSign" .. type
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 end

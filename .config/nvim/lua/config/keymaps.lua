@@ -33,6 +33,8 @@ nmap("<Leader>vc", ":VimuxCloseRunner<CR>", { desc = "Vimux close runner" })
 nmap("<Leader>vz", ":VimuxZoomRunner<CR>", { desc = "Vimux zoom runner" })
 -- }}}
 
+nmap("<Leader>sv", ":source $MYVIMRC<CR>", { desc = "Reload neovim config" })
+
 -- NEOTREE {{{1
 nmap("<f2>", ":Neotree toggle<cr>")
 -- }}}

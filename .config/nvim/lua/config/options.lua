@@ -34,7 +34,6 @@ opt.scrolloff = 2 -- start scrolling 2 lines from screen edge
 opt.hidden = true -- Hide rather than close abandoned buffers
 opt.backspace = { "indent", "eol", "start" } -- Make backspace work for indent, eol, start
 opt.ttyfast = true -- Smoother redrawing with multiple windows
-opt.lazyredraw = true -- Suspend redrawing while running macros
 opt.report = 0 -- Always tell me how many lines were affected
 opt.completeopt = { "menuone" } -- Show menu even for one item and no preview
 opt.mouse = "nv" -- Allow Mouse in normal and visual mode

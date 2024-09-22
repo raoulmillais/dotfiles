@@ -1,10 +1,10 @@
-local config = { }
+local icons = { }
 
-config.signs = {
+icons.diagnostics = {
   Error = " ",
   Warn = " ",
   Hint = " ",
   Info = " "
 }
 
-return config
+return icons

@@ -34,7 +34,14 @@ lazy.setup({
     version = '*'
   },
   'gpanders/editorconfig.nvim',
-  'folke/noice.nvim',
+  {
+    'folke/noice.nvim',
+    event = "VeryLazy",
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      "rcarriga/nvim-notify",
+      }
+  },
   'windwp/nvim-ts-autotag',
   'hrsh7th/cmp-nvim-lsp',
   'hrsh7th/cmp-nvim-lsp-signature-help',
