@@ -35,6 +35,11 @@ lazy.setup({
   },
   'gpanders/editorconfig.nvim',
   {
+    'akinsho/bufferline.nvim',
+    version = "*",
+    dependencies = 'nvim-tree/nvim-web-devicons'
+  },
+  {
     'folke/noice.nvim',
     event = "VeryLazy",
     dependencies = {

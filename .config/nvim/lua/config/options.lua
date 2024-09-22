@@ -101,6 +101,9 @@ opt.splitright = true -- Open new vsplits to the right
 opt.cursorline = true -- Highlight the line under the cursor
 opt.cursorcolumn = false -- Don't Highlight the column
 
+opt.smoothscroll = true
+opt.smartindent = true
+
 -- Toggle on focus
 local group = vim.api.nvim_create_augroup("CursorLineFocus", { clear = true })
 local set_cursorline = function(event, value, pattern)
@@ -162,3 +165,4 @@ g.maplocalleader = ","
 -- SEXP {{{1
 vim.g.sexp_enable_insert_mode_mappings = 0
 -- }}}
+--

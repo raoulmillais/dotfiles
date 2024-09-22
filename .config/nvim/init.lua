@@ -13,13 +13,15 @@ vim.opt.rtp:prepend(lazypath)
 
 require 'config.lazy'
 require 'config.options'
-require 'config.signs'
+require 'config.icons'
 require 'config.autocommands'
 require 'config.keymaps'
+require 'config.lsp'
+require 'config.telescope'
 
 require 'plugins.treesitter'
 require 'config.diagnostics'
 require 'plugins.cmp'
 require 'plugins.dap'
-require 'config.lsp'
-require 'config.telescope'
+require 'plugins.ui'
+require 'plugins.ui'
