@@ -26,7 +26,6 @@ lazy.setup({
   'williamboman/mason-lspconfig.nvim',
   'jose-elias-alvarez/null-ls.nvim',
   'sar/schemastore.nvim',
-  'folke/neodev.nvim',
   'simrat39/rust-tools.nvim',
   'MunifTanjim/prettier.nvim',
   -- telescope
@@ -39,14 +38,9 @@ lazy.setup({
     build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
   },
   'nvim-telescope/telescope-ui-select.nvim',
-  -- tmux
-  'benmills/vimux',
-  'benmills/vimux-golang',
-  'christoomey/vim-tmux-navigator',
 
   'mhinz/vim-startify',
   'othree/yajs.vim',
-  'tpope/vim-dispatch',
   'tpope/vim-fugitive',
   'tpope/vim-surround',
   'tpope/vim-unimpaired',
