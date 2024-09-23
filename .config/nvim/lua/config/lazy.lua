@@ -12,10 +12,6 @@ if not status_ok then
   return
 end
 
--- Example using a list of specs with the default options
-vim.g.mapleader = "," -- Make sure to set `mapleader` before lazy so your mappings are correct
-vim.g.maplocalleader = "," -- Same for `maplocalleader`
-
 lazy.setup({
   { import = "plugins" },
   'ellisonleao/gruvbox.nvim',
@@ -33,8 +29,7 @@ lazy.setup({
   'folke/neodev.nvim',
   'simrat39/rust-tools.nvim',
   'MunifTanjim/prettier.nvim',
-  'nanotee/luv-vimdocs',
-  'milisims/nvim-luaref',
+  -- telescope
   {
     'nvim-telescope/telescope.nvim', tag = '0.1.6',
     dependencies = { 'nvim-lua/plenary.nvim' }
@@ -44,9 +39,11 @@ lazy.setup({
     build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
   },
   'nvim-telescope/telescope-ui-select.nvim',
+  -- tmux
   'benmills/vimux',
   'benmills/vimux-golang',
   'christoomey/vim-tmux-navigator',
+
   'mhinz/vim-startify',
   'othree/yajs.vim',
   'tpope/vim-dispatch',
@@ -56,6 +53,8 @@ lazy.setup({
   'jremmen/vim-ripgrep',
   'vim-scripts/scratch.vim',
   'vifm/vifm.vim',
+
+  -- clojure
   { 'eraserhd/parinfer-rust', build = 'cargo build --release' },
   {'guns/vim-sexp', ft = { 'clojure' } },
   { 'tpope/vim-sexp-mappings-for-regular-people', ft = { 'clojure' } },
@@ -63,6 +62,10 @@ lazy.setup({
   'Olical/nfnl',
   'clojure-vim/vim-jack-in',
   'radenling/vim-dispatch-neovim',
+
+  -- lua
+  'nanotee/luv-vimdocs',
+  'milisims/nvim-luaref',
   { "folke/neoconf.nvim", cmd = "Neoconf" },
   "folke/neodev.nvim",
 })

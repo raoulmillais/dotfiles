@@ -132,9 +132,6 @@ vim.cmd [[au Filetype qf setlocal colorcolumn=0 nolist nocursorline nowrap]]
 
 -- BACKUPS, UNDO AND SWAPFILES {{{1
 opt.undofile = true
-opt.undodir = "~/.vim/tmp/undo,~/tmp,/tmp"
-opt.backupdir = "~/.vim/tmp/backup,~/tmp,/tmp"
-opt.directory = "~/.vim/tmp/swap/,~/tmp,/tmp"
 opt.updatecount = 50 -- save the files sooner than the default (after 50 chars)
 -- triggers the CursorHold event sooner than the default 4s
 -- (makes coc feel more responsive)
