@@ -39,13 +39,6 @@ lazy.setup({
   'nanotee/luv-vimdocs',
   'milisims/nvim-luaref',
   {
-    "L3MON4D3/LuaSnip",
-    version = "v2.*",
-    build = "make install_jsregexp",
-    dependencies = "rafamadriz/friendly-snippets"
-  },
-  { "rafamadriz/friendly-snippets" },
-  {
     'nvim-telescope/telescope.nvim', tag = '0.1.6',
     dependencies = { 'nvim-lua/plenary.nvim' }
   },
