@@ -21,11 +21,7 @@ lazy.setup({
   },
   'gpanders/editorconfig.nvim',
   'windwp/nvim-ts-autotag',
-  'neovim/nvim-lspconfig',
-  'williamboman/mason.nvim',
-  'williamboman/mason-lspconfig.nvim',
-  'jose-elias-alvarez/null-ls.nvim',
-  'sar/schemastore.nvim',
+
   'simrat39/rust-tools.nvim',
   'MunifTanjim/prettier.nvim',
 
