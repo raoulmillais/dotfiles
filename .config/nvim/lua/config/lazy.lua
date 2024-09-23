@@ -17,51 +17,20 @@ vim.g.mapleader = "," -- Make sure to set `mapleader` before lazy so your mappin
 vim.g.maplocalleader = "," -- Same for `maplocalleader`
 
 lazy.setup({
-  {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
-  'nvim-treesitter/nvim-treesitter-textobjects',
+  { import = "plugins" },
   'ellisonleao/gruvbox.nvim',
-  {
-      "nvim-neo-tree/neo-tree.nvim",
-      branch = "v3.x",
-      dependencies = {
-        "nvim-lua/plenary.nvim",
-        "nvim-tree/nvim-web-devicons",
-        "MunifTanjim/nui.nvim",
-      }
-  },
   {
     'echasnovski/mini.pairs',
     version = '*'
   },
   'gpanders/editorconfig.nvim',
-  {
-    'akinsho/bufferline.nvim',
-    version = "*",
-    dependencies = 'nvim-tree/nvim-web-devicons'
-  },
-  {
-    'folke/noice.nvim',
-    event = "VeryLazy",
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-      "rcarriga/nvim-notify",
-      }
-  },
   'windwp/nvim-ts-autotag',
-  'hrsh7th/cmp-nvim-lsp',
-  'hrsh7th/cmp-nvim-lsp-signature-help',
-  'hrsh7th/cmp-nvim-lsp-document-symbol',
-  'hrsh7th/cmp-buffer',
-  'hrsh7th/cmp-path',
-  'hrsh7th/cmp-cmdline',
-  'PaterJason/cmp-conjure',
-  'hrsh7th/nvim-cmp',
-  'saadparwaiz1/cmp_luasnip',
+
+
   'neovim/nvim-lspconfig',
   'williamboman/mason.nvim',
   'williamboman/mason-lspconfig.nvim',
   'jose-elias-alvarez/null-ls.nvim',
-  'onsails/lspkind.nvim',
   'sar/schemastore.nvim',
   'folke/neodev.nvim',
   'simrat39/rust-tools.nvim',
@@ -85,10 +54,6 @@ lazy.setup({
     build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build'
   },
   'nvim-telescope/telescope-ui-select.nvim',
-  {
-    "rcarriga/nvim-dap-ui",
-    dependencies = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"}
-  },
   'benmills/vimux',
   'benmills/vimux-golang',
   'christoomey/vim-tmux-navigator',
@@ -108,14 +73,6 @@ lazy.setup({
   'Olical/nfnl',
   'clojure-vim/vim-jack-in',
   'radenling/vim-dispatch-neovim',
-  {
-    "folke/which-key.nvim",
-    event = "VeryLazy",
-    init = function()
-      vim.o.timeout = true
-      vim.o.timeoutlen = 300
-    end,
-  },
   { "folke/neoconf.nvim", cmd = "Neoconf" },
   "folke/neodev.nvim",
 })

@@ -12,5 +12,5 @@ signs.setup {
     relative = "cursor",
     row = 0,
     col = 1,
-  },
+  }
 }
