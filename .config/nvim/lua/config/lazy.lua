@@ -14,21 +14,4 @@ end
 
 lazy.setup({
   { import = "plugins" },
-  'ellisonleao/gruvbox.nvim',
-  {
-    'echasnovski/mini.pairs',
-    version = '*'
-  },
-  'gpanders/editorconfig.nvim',
-
-
-  'mhinz/vim-startify',
-  'tpope/vim-fugitive',
-  'tpope/vim-surround',
-  'tpope/vim-unimpaired',
-  'jremmen/vim-ripgrep',
-  'vim-scripts/scratch.vim',
-  'vifm/vifm.vim',
-
-  { "folke/neoconf.nvim", cmd = "Neoconf" },
 })
