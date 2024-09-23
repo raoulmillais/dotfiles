@@ -25,8 +25,6 @@ lazy.setup({
   },
   'gpanders/editorconfig.nvim',
   'windwp/nvim-ts-autotag',
-
-
   'neovim/nvim-lspconfig',
   'williamboman/mason.nvim',
   'williamboman/mason-lspconfig.nvim',
@@ -35,7 +33,6 @@ lazy.setup({
   'folke/neodev.nvim',
   'simrat39/rust-tools.nvim',
   'MunifTanjim/prettier.nvim',
-  'lewis6991/gitsigns.nvim',
   'nanotee/luv-vimdocs',
   'milisims/nvim-luaref',
   {
