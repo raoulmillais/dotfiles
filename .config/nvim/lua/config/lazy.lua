@@ -54,15 +54,6 @@ lazy.setup({
   'vim-scripts/scratch.vim',
   'vifm/vifm.vim',
 
-  -- clojure
-  { 'eraserhd/parinfer-rust', build = 'cargo build --release' },
-  {'guns/vim-sexp', ft = { 'clojure' } },
-  { 'tpope/vim-sexp-mappings-for-regular-people', ft = { 'clojure' } },
-  'Olical/conjure',
-  'Olical/nfnl',
-  'clojure-vim/vim-jack-in',
-  'radenling/vim-dispatch-neovim',
-
   -- lua
   'nanotee/luv-vimdocs',
   'milisims/nvim-luaref',
