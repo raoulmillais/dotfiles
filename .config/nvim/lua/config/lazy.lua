@@ -54,9 +54,5 @@ lazy.setup({
   'vim-scripts/scratch.vim',
   'vifm/vifm.vim',
 
-  -- lua
-  'nanotee/luv-vimdocs',
-  'milisims/nvim-luaref',
   { "folke/neoconf.nvim", cmd = "Neoconf" },
-  "folke/neodev.nvim",
 })
