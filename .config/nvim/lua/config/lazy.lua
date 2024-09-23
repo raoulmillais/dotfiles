@@ -20,13 +20,9 @@ lazy.setup({
     version = '*'
   },
   'gpanders/editorconfig.nvim',
-  'windwp/nvim-ts-autotag',
 
-  'simrat39/rust-tools.nvim',
-  'MunifTanjim/prettier.nvim',
 
   'mhinz/vim-startify',
-  'othree/yajs.vim',
   'tpope/vim-fugitive',
   'tpope/vim-surround',
   'tpope/vim-unimpaired',
