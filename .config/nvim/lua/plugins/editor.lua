@@ -4,9 +4,24 @@ return {
     'echasnovski/mini.pairs',
     version = '*'
   },
-  { 'mhinz/vim-startify' },
   { 'tpope/vim-surround' },
   { 'tpope/vim-unimpaired' },
   { 'jremmen/vim-ripgrep' },
   { 'vim-scripts/scratch.vim' },
+  {
+    'nvimdev/dashboard-nvim',
+    event = 'VimEnter',
+    opts = {
+      theme = 'hyper',
+      config = {
+        mru = { limit = 15 },
+        shortcut = {},
+        week_header = {
+         enable = true,
+        },
+        footer = { '' },
+      },
+    },
+    dependencies = { 'nvim-tree/nvim-web-devicons' }
+  }
 }
