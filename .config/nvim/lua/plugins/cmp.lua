@@ -17,9 +17,10 @@ return {
       'hrsh7th/cmp-path',
       'hrsh7th/cmp-cmdline',
       'PaterJason/cmp-conjure',
-      'saadparwaiz1/cmp_luasnip'
+      'saadparwaiz1/cmp_luasnip',
+      'folke/lazydev.nvim'
     },
-    opts = function()
+    opts = function(_, opts)
       local cmp = require("cmp")
       local lspkind = require('lspkind')
 
@@ -61,6 +62,7 @@ return {
           end,
         },
         sources = cmp.config.sources({
+          { name = "lazydev" },
           { name = "gh_issues" },
           { name = "nvim_lua" },
           { name = 'conjure' },

@@ -34,7 +34,6 @@ lazy.setup({
     rtp = {
       disabled_plugins = {
         "gzip",
-        "matchparen",
         "netrwPlugin",
         "tarPlugin",
         "tohtml",

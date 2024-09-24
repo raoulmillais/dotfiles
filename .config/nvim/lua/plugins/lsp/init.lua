@@ -1,11 +1,19 @@
 local set_keymaps = require('plugins.lsp.keymaps').on_attach
 
+local function keys(t)
+   local l = {}
+   for k in pairs(t) do
+      l[#l + 1] = k
+   end
+   return l
+end
+
 return {
   { 'williamboman/mason.nvim' },
   { 'williamboman/mason-lspconfig.nvim' },
   { 'jose-elias-alvarez/null-ls.nvim' },
   { 'sar/schemastore.nvim' },
-  { 
+  {
     'neovim/nvim-lspconfig',
     dependencies = {
       'folke/neodev.nvim',
@@ -29,7 +37,7 @@ return {
           root_dir = lspconfig.util.root_pattern("package.json"),
         }
       end,
-      jsonls = function() 
+      jsonls = function()
         local schemastore = require('schemastore')
         return {
           settings = {
@@ -39,7 +47,7 @@ return {
           }
         }
       end,
-      luals = {
+      lua_ls = {
         settings = {
           diagnostics = {
             globals = {
@@ -58,6 +66,9 @@ return {
       tailwindcss = {},
     },
     config = function(opts)
+      require("mason").setup()
+      require("mason-lspconfig").setup({ ensure_installed = keys(opts.servers) })
+
       local function setup(server)
         local server_opts = {}
         if type(opts.servers[server]) == "function" then
