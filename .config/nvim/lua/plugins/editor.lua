@@ -20,6 +20,7 @@ return {
          enable = true,
         },
         footer = { '' },
+        project = { enable = false }
       },
     },
     dependencies = { 'nvim-tree/nvim-web-devicons' }
