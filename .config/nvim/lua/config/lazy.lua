@@ -50,5 +50,4 @@ lazy.setup({
 require 'config.options'
 require 'config.autocommands'
 require 'config.keymaps'
-require 'config.telescope'
 require 'config.diagnostics'
