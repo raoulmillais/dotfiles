@@ -10,7 +10,7 @@ return {
       'nvim-telescope/telescope-fzf-native.nvim',
       'nvim-lua/plenary.nvim'
     },
-    opts = function(_, opts) 
+    opts = function(_, opts)
       return {
         extensions = {
           ["ui-select"] = {
