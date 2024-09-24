@@ -1,6 +1,6 @@
 local opt = vim.opt
 local function augroup(name)
-  return vim.api.nvim_create_augroup("raoulmillalis_" .. name, { clear = true })
+  return vim.api.nvim_create_augroup("raoulmillais_" .. name, { clear = true })
 end
 
 -- AUTOMATION {{{1
