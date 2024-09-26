@@ -24,8 +24,8 @@ vim.g.mapleader = ","
 vim.g.maplocalleader = ","
 
 lazy.setup({
-  spec = { 
-    import = "plugins" 
+  spec = {
+    import = "plugins"
   },
   performance = {
     cache = { enabled = true },

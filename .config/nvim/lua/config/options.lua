@@ -3,14 +3,6 @@ local g, opt = vim.g, vim.opt
 -- COLORSCHEME {{{1
 -- Enable true colors if available
 opt.termguicolors = true
-opt.background = "dark" -- Dark colorscheme please
-g.gruvbox_italic = 1 -- Alacritty supports italics just fine
-g.gruvbox_contrast_dark = "hard"
-vim.cmd [[colorscheme gruvbox]]
--- Enable italics, Make sure this is immediately after colorscheme
--- https://stackoverflow.com/questions/3494435/vimrc-make-comments-italic
-vim.cmd [[highlight Comment cterm=italic gui=italic]]
--- }}}
 
 -- DIFFING {{{1
 opt.diffopt = "vertical"
