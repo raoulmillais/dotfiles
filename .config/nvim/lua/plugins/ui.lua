@@ -41,6 +41,14 @@ return {
     "folke/which-key.nvim",
     event = "VeryLazy",
     opts = {
+      preset = 'helix',
+      win = {
+        height = { min = 10, max = 25 },
+        wo = {
+          winblend = 10
+        }
+
+      },
       spec = {
         mode = { "n", "v" },
         { "<leader>t", group = "[T]abs" },
