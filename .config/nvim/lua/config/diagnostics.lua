@@ -3,10 +3,10 @@ local icons = require('config.icons')
 
 local opts = { noremap = true, silent = true }
 
-c.nmap("<leader>e", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
+c.nmap("<leader>df", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
 c.nmap("[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
 c.nmap("]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
-c.nmap("<leader>q", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
+c.nmap("<leader>dq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
 
 vim.diagnostic.config({
   virtual_text = false,

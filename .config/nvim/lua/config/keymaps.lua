@@ -1,35 +1,41 @@
 local c = require('core')
 
---
--- TELESCOPE {{{
+--[[
+-- TELESCOPE
+-- ]]
 c.nmap("<C-p>", ":Telescope find_files<CR>", { desc = "Find files" })
--- }}}
---
--- SEARCH {{{1
+c.nmap("<C-t>", ":Telescope<CR>", { desc = "Open telescope" })
+
+--[[
+-- SEARCH
+--]]
 -- Clobber S with fast global search and replace
 c.nmap("S", ":%s::g<LEFT><LEFT>", { desc = "Global search and replace" })
 -- Turn off search highlighting
 c.nmap("<leader><space>", ":noh<cr>", { desc = "Disable search highlighting" })
 -- Highlight word at cursor and return to same position
 c.nmap("<leader>h", "*<C-O>", { desc = "Highlight other instances of word at cursor"})
--- }}}
 
--- VIMUX {{{1
+--[[
+--VIMUX
+--]]
 c.nmap("<Leader>vp", ":VimuxPromptCommand<CR>", { desc = "Vimux prompt" })
 c.nmap("<Leader>vl", ":VimuxRunLastCommand<CR>", { desc = "Vimux run last command" })
 -- enter vimux pane in copymode (same as entering and typing <C-[>)
 c.nmap("<Leader>vi", ":VimuxInspectRunner<CR>", { desc = "Vimux inspect runner" })
 c.nmap("<Leader>vc", ":VimuxCloseRunner<CR>", { desc = "Vimux close runner" })
 c.nmap("<Leader>vz", ":VimuxZoomRunner<CR>", { desc = "Vimux zoom runner" })
--- }}}
 
 c.nmap("<Leader>sv", ":source $MYVIMRC<CR>", { desc = "Reload neovim config" })
 
--- NEOTREE {{{1
+--[[
+--NEOTREE
+--]]
 c.nmap("<f2>", ":Neotree toggle<cr>")
--- }}}
 
--- VIM TABS {{{1
+--[[
+--VIM TABS
+--]]
 c.nmap("<leader>tn", ":tabn<cr>")
 c.nmap("<leader>tp", ":tabp<cr>")
 c.nmap("<leader>te", ":tabe<space>")
