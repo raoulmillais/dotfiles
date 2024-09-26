@@ -5,10 +5,30 @@ local c = require('core')
 -- ]]
 c.nmap("<C-p>", ":Telescope find_files<CR>", { desc = "Find files" })
 c.nmap("<C-t>", ":Telescope<CR>", { desc = "Open telescope" })
-
---[[
--- SEARCH
---]]
+c.nmap("<leader>fb", "<cmd>Telescope buffers sort_mru=true sort_lastused=true<cr>", { desc = "Buffers" })
+c.nmap("<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Find Files (Root Dir )" })
+c.nmap("<leader>fg", "<cmd>Telescope git_files<cr>", { desc = "Find Files (git-files )" })
+c.nmap("<leader>fr", "<cmd>Telescope oldfiles<cr>", { desc = "Recent" })
+c.nmap("<leader>gc", "<cmd>Telescope git_commits<CR>", { desc = "Commits" })
+c.nmap("<leader>gs", "<cmd>Telescope git_status<CR>", { desc = "Status" })
+c.nmap("<leader>sr", "<cmd>Telescope registers<cr>", { desc = "Registers" })
+c.nmap("<leader>sa", "<cmd>Telescope autocommands<cr>", { desc = "Auto Commands" })
+c.nmap("<leader>sb", "<cmd>Telescope current_buffer_fuzzy_find<cr>", { desc = "Buffer" })
+c.nmap("<leader>sc", "<cmd>Telescope command_history<cr>", { desc = "Command History" })
+c.nmap("<leader>sC", "<cmd>Telescope commands<cr>", { desc = "Commands" })
+c.nmap("<leader>sd", "<cmd>Telescope diagnostics bufnr=0<cr>", { desc = "Document Diagnostics" })
+c.nmap("<leader>sD", "<cmd>Telescope diagnostics<cr>", { desc = "Workspace Diagnostics" })
+c.nmap("<leader>sh", "<cmd>Telescope help_tags<cr>", { desc = "Help Pages" })
+c.nmap("<leader>sH", "<cmd>Telescope highlights<cr>", { desc = "Search Highlight Groups" })
+c.nmap("<leader>sj", "<cmd>Telescope jumplist<cr>", { desc = "Jumplist" })
+c.nmap("<leader>sk", "<cmd>Telescope keymaps<cr>", { desc = "Key Maps" })
+c.nmap("<leader>sl", "<cmd>Telescope loclist<cr>", { desc = "Location List" })
+c.nmap("<leader>sM", "<cmd>Telescope man_pages<cr>", { desc = "Man Pages" })
+c.nmap("<leader>sm", "<cmd>Telescope marks<cr>", { desc = "Jump to Mark" })
+c.nmap("<leader>so", "<cmd>Telescope vim_options<cr>", { desc = "Options" })
+c.nmap("<leader>sR", "<cmd>Telescope resume<cr>", { desc = "Resume" })
+c.nmap("<leader>sq", "<cmd>Telescope quickfix<cr>", { desc = "Quickfix List" })
+          --
 -- Clobber S with fast global search and replace
 c.nmap("S", ":%s::g<LEFT><LEFT>", { desc = "Global search and replace" })
 -- Turn off search highlighting

@@ -16,5 +16,10 @@ M.nmap_buf = function(bufnr, lhs, rhs, o)
   vim.api.nvim_buf_set_keymap(bufnr, "n", lhs, rhs, o)
 end
 
+--- merge is a short cut for vim.tbl_deep_extend with 'force' behaviour
+M.merge = function(...)
+  return vim.tbl_deep_extend('force', ...)
+end
+
 
 return M
