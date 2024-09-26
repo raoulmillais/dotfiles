@@ -1,4 +1,5 @@
--- TODO: Move telescope here
+local c = require('core')
+
 return {
   { "nvim-lua/plenary.nvim"},
   { "nvim-tree/nvim-web-devicons" },
@@ -24,6 +25,12 @@ return {
         },
       },
     },
+    init = function()
+      local keymaps = require('config.keymaps')
+      for _, km in pairs(keymaps.neotree) do
+        c.nmap(unpack(km))
+      end
+    end
   },
   {
     'akinsho/bufferline.nvim',
