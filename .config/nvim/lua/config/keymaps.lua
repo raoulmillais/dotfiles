@@ -1,74 +1,64 @@
-imap = function(lhs, rhs, opts)
-  vim.keymap.set("i", lhs, rhs, opts)
-end
-
-nmap = function(lhs, rhs, opts)
-  vim.keymap.set("n", lhs, rhs, opts)
-end
-
-cmap = function(lhs, rhs, opts)
-  vim.keymap.set("c", lhs, rhs, opts)
-end
+local c = require('core')
 
 --
 -- TELESCOPE {{{
-nmap("<C-p>", ":Telescope find_files<CR>", { desc = "Find files" })
+c.nmap("<C-p>", ":Telescope find_files<CR>", { desc = "Find files" })
 -- }}}
 --
 -- SEARCH {{{1
 -- Clobber S with fast global search and replace
-nmap("S", ":%s::g<LEFT><LEFT>", { desc = "Global search and replace" })
+c.nmap("S", ":%s::g<LEFT><LEFT>", { desc = "Global search and replace" })
 -- Turn off search highlighting
-nmap("<leader><space>", ":noh<cr>", { desc = "Disable search highlighting" })
+c.nmap("<leader><space>", ":noh<cr>", { desc = "Disable search highlighting" })
 -- Highlight word at cursor and return to same position
-nmap("<leader>h", "*<C-O>", { desc = "Highlight other instances of word at cursor"})
+c.nmap("<leader>h", "*<C-O>", { desc = "Highlight other instances of word at cursor"})
 -- }}}
 
 -- VIMUX {{{1
-nmap("<Leader>vp", ":VimuxPromptCommand<CR>", { desc = "Vimux prompt" })
-nmap("<Leader>vl", ":VimuxRunLastCommand<CR>", { desc = "Vimux run last command" })
+c.nmap("<Leader>vp", ":VimuxPromptCommand<CR>", { desc = "Vimux prompt" })
+c.nmap("<Leader>vl", ":VimuxRunLastCommand<CR>", { desc = "Vimux run last command" })
 -- enter vimux pane in copymode (same as entering and typing <C-[>)
-nmap("<Leader>vi", ":VimuxInspectRunner<CR>", { desc = "Vimux inspect runner" })
-nmap("<Leader>vc", ":VimuxCloseRunner<CR>", { desc = "Vimux close runner" })
-nmap("<Leader>vz", ":VimuxZoomRunner<CR>", { desc = "Vimux zoom runner" })
+c.nmap("<Leader>vi", ":VimuxInspectRunner<CR>", { desc = "Vimux inspect runner" })
+c.nmap("<Leader>vc", ":VimuxCloseRunner<CR>", { desc = "Vimux close runner" })
+c.nmap("<Leader>vz", ":VimuxZoomRunner<CR>", { desc = "Vimux zoom runner" })
 -- }}}
 
-nmap("<Leader>sv", ":source $MYVIMRC<CR>", { desc = "Reload neovim config" })
+c.nmap("<Leader>sv", ":source $MYVIMRC<CR>", { desc = "Reload neovim config" })
 
 -- NEOTREE {{{1
-nmap("<f2>", ":Neotree toggle<cr>")
+c.nmap("<f2>", ":Neotree toggle<cr>")
 -- }}}
 
 -- VIM TABS {{{1
-nmap("<leader>tn", ":tabn<cr>")
-nmap("<leader>tp", ":tabp<cr>")
-nmap("<leader>te", ":tabe<space>")
-nmap("<leader>tc", ":tabclose<cr>")
+c.nmap("<leader>tn", ":tabn<cr>")
+c.nmap("<leader>tp", ":tabp<cr>")
+c.nmap("<leader>te", ":tabe<space>")
+c.nmap("<leader>tc", ":tabclose<cr>")
 -- }}}
 
 -- COMMANDLINE {{{1
-cmap("<C-j>", "t_kd>")
-cmap("<C-k>", "t_ku>")
-cmap("<C-a>", "Home>")
-cmap("<C-e>", "End>")
+c.cmap("<C-j>", "t_kd>")
+c.cmap("<C-k>", "t_ku>")
+c.cmap("<C-a>", "Home>")
+c.cmap("<C-e>", "End>")
 -- }}}
 
 -- MODE SWITCHING {{{1
 -- Exit insert mode
-imap("jk", "<esc>")
-nmap("<F12>", ":set paste!<cr>")
+c.imap("jk", "<esc>")
+c.nmap("<F12>", ":set paste!<cr>")
 -- }}}
 
 -- REMAP ANNOYING DEFAULTS {{{1
 -- Move up and down by screenline instead of file line
-nmap("j", "gj")
-nmap("k", "gk")
+c.nmap("j", "gj")
+c.nmap("k", "gk")
 -- Don't use Q for Ex mode, use it for formatting.  Except for Select mode.
--- Revert with ":unmap Q".
+-- Revert with ":uc.nmap Q".
 vim.keymap.set("", "Q", "gq")
 vim.keymap.del("s", "Q")
 -- }}}
 
 -- SUDO {{{1
 -- Enable saving readonly files with sudo
-cmap("w!!", "%!sudo tee > /dev/null %")
+c.cmap("w!!", "%!sudo tee > /dev/null %")

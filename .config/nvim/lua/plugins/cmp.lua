@@ -65,7 +65,7 @@ return {
           { name = "lazydev" },
           { name = "gh_issues" },
           { name = "nvim_lua" },
-          { name = 'conjure' },
+          { name = 'clojure' },
           { name = "nvim_lsp" },
           { name = "luasnip" },
           { name = "nvim_lsp_signature_help" },
