@@ -32,6 +32,9 @@ lazy.setup({
     -- reset the package path to improve startup time
     reset_packpath = true,
     rtp = {
+      paths = {
+        "/usr/share/nvim/site",
+      },
       disabled_plugins = {
         "gzip",
         "netrwPlugin",
