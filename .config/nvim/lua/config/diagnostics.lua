@@ -9,11 +9,7 @@ c.nmap("]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
 c.nmap("<leader>dq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
 
 vim.diagnostic.config({
-  virtual_text = false,
-  signs = true,
-  underline = true,
-  update_in_insert = true,
-  severity_sort = false,
+  virtual_lines = true
 })
 
 -- Use a float instead of virtual text for diagnostics
