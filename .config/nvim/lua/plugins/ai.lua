@@ -1,3 +1,6 @@
+return {}
+
+--[[
 return {
   {
     "yetone/avante.nvim",
@@ -26,3 +29,4 @@ return {
     cmd = { "Copilot" },
   }
 }
+]]

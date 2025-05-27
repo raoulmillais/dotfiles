@@ -29,7 +29,7 @@ return {
     version = '*',
     event = "VeryLazy",
     opts = {
-      modes = { insert = true, command = true, terminal = false },
+      modes = { insert = true, command = false, terminal = false },
       -- skip autopair when next character is one of these
       skip_next = [=[[%w%%%'%[%"%.%`%$]]=],
       -- skip autopair when the cursor is inside these treesitter nodes
@@ -40,6 +40,27 @@ return {
       -- better deal with markdown code blocks
       markdown = true,
     },
+    config = function(_, opts)
+      require('mini.pairs').setup(opts)
+      -- Disable mini.pairs when going from visual block or visual into insert
+      vim.api.nvim_create_autocmd("ModeChanged", {
+        group = "MiniPairs", -- same as the group in `mini.pairs`
+        pattern = { "V:i", "\22:i" },
+        callback = function()
+            vim.b.minipairs_disable = true
+        end
+      })
+      -- Re-enable mini.pairs if it was disabled when leaving insert mode
+      vim.api.nvim_create_autocmd("ModeChanged", {
+        group = "MiniPairs", -- same as the group in `mini.pairs`
+        pattern = "i:*",
+        callback = function()
+          if vim.b.minipairs_disable == true then
+            vim.b.minipairs_disable = false
+          end
+        end
+      })
+    end,
   },
   -- Add/delete/replace/find/highlight surrounding parens/quotes/etc
   {
@@ -80,5 +101,9 @@ return {
       },
     },
     dependencies = { 'nvim-tree/nvim-web-devicons' }
+  },
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
   }
 }

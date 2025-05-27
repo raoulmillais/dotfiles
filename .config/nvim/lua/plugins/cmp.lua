@@ -46,14 +46,14 @@ return {
           ["<C-f>"] = cmp.mapping.scroll_docs(4),
           ["<C-Space>"] = cmp.mapping.complete(),
           ["<C-e>"] = cmp.mapping.abort(),
-          ["<Tab>"] = function(fallback)
+          ["<C-j>"] = function(fallback)
             if cmp.visible() then
               cmp.select_next_item()
             else
               fallback()
             end
           end,
-          ["<S-Tab>"] = function(fallback)
+          ["<C-k>"] = function(fallback)
             if cmp.visible() then
               cmp.select_prev_item()
             else

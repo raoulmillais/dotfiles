@@ -109,3 +109,5 @@ vim.api.nvim_create_autocmd("FileType",{
       nmap("<F5>", ":make<cr>")
   end,
 })
+
+
