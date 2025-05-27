@@ -1,4 +1,9 @@
-# Many of the settings inspired by https://blog.gitbutler.com/how-git-core-devs-configure-git/
+# Many of the settings inspired by 
+# https://blog.gitbutler.com/how-git-core-devs-configure-git/
+
+#
+# Aliases - mostly shorter command names
+#
 [alias]
   # shorter commands
   st = status -s
@@ -6,10 +11,13 @@
   br = branch
   co = checkout
   df = difftool
-  pom = push origin master
+  pom = push origin main
   rso = remote show origin
   # Show an abbreviated pretty graph log
+  # Only `abbrev-commit` can be configured in `[log]` hence an alias
   lg = log --graph --pretty=oneline --abbrev-commit
+  # Nicer `git branch` sorts by most recent commit and shows how long ago it was
+  # This sadly can't be configured under `[branch]`
   lb = "!git branch --sort=\"-committerdate\" --format=\"%(color:green)%(committerdate:relative)%(color:reset) %(refname:short)\""
   # Rebases fixing up any commits that have not been gpg signed
   # Do not run this if you already pushed!
@@ -50,6 +58,8 @@
 [init]
   # Github wnats you to do this so just make it the default for an easier life
   defaultBranch = main
+[branch]
+  sort = committerdate
 [push]
   # Only push the current branch and only if the remote branch has the same name
   default = simple
@@ -67,6 +77,9 @@
   # Shows the diff under the commit message in your editor when you are committing
   verbose = true
   gpgsign = true
+[log]
+  # Shorten the 40byte commit SHA to a sensible prefix
+  abbrev-commit = true
 [rerere]
   # Remembers how you fixed a conflict when rebasing and does the same thing 
   # automatically so you don't have to repeat yourself
