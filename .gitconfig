@@ -18,7 +18,7 @@
   lg = log --graph --pretty=oneline --abbrev-commit
   # Nicer `git branch` sorts by most recent commit and shows how long ago it was
   # This sadly can't be configured under `[branch]`
-  lb = "!git branch --sort=\"-committerdate\" --format=\"%(color:green)%(committerdate:relative)%(color:reset) %(refname:short)\""
+  lb = "!git branch --sort=\"-committerdate\" --format=\"* %(color:bold white)%(refname:short)%(color:reset) (%(color:green)%(committerdate:relative)%(color:reset) %(committername))\""
   # Rebases fixing up any commits that have not been gpg signed
   # Do not run this if you already pushed!
   re-sign = "!f() { git rebase --exec 'git commit --amend --no-edit -n -S' -i $1; }; f"
