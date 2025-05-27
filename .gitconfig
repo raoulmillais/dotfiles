@@ -1,55 +1,111 @@
+# Many of the settings inspired by https://blog.gitbutler.com/how-git-core-devs-configure-git/
 [alias]
-	st = status -s
-	ci = commit
-	br = branch
-	co = checkout
-	df = difftool
+  # shorter commands
+  st = status -s
+  ci = commit
+  br = branch
+  co = checkout
+  df = difftool
   pom = push origin master
-	rso = remote show origin
-	lg = log --graph --pretty=oneline --abbrev-commit
-	longlog = log
+  rso = remote show origin
+  # Show an abbreviated pretty graph log
+  lg = log --graph --pretty=oneline --abbrev-commit
   lb = "!git branch --sort=\"-committerdate\" --format=\"%(color:green)%(committerdate:relative)%(color:reset) %(refname:short)\""
-	re-sign = "!f() { git rebase --exec 'git commit --amend --no-edit -n -S' -i $1; }; f"
-
+  # Rebases fixing up any commits that have not been gpg signed
+  # Do not run this if you already pushed!
+  re-sign = "!f() { git rebase --exec 'git commit --amend --no-edit -n -S' -i $1; }; f"
 [user]
-	name = Raoul Millais
-	email = raoul@raoulmillais.com
-	signing-key = 34338D18A42BE4F7
+  name = Raoul Millais
+  email = raoul@raoulmillais.com
+  signing-key = 34338D18A42BE4F7
 
+#
+#  UI related settings
+#
+[column]
+  # Use more of the screen width by showing lists in columns
+  ui = auto
 [color]
-	branch = auto
-	diff = auto
-	status = auto
-	ui = always
-
+  branch = auto
+  diff = auto
+  status = auto
+  ui = always
 [color "branch"]
-	current = yellow reverse
-	local = yellow
-	remote = green
-
+  current = yellow reverse
+  local = yellow
+  remote = green
 [color "diff"]
-	meta = yellow bold
-	frag = magenta bold
-	old = red bold
-	new = green bold
-
+  meta = yellow bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
 [color "status"]
-	added = yellow
-	changed = green
-	untracked = cyan
-
+  added = yellow
+  changed = green
+  untracked = cyan
 [diff]
-	tool = vimdiff
+  tool = vimdiff
 [difftool]
-	prompt = false
+  prompt = false
 [core]
-	editor = nvim
+  editor = nvim
+  # Speeds up git status (disable this for large repositories)
+  fsmonitor = true
+  untrackedCache = true
 [help]
-	autocorrect = 3
+  # Ask before autocorrecting typos - don't just immediately run them
+  # See https://blog.gitbutler.com/why-is-git-autocorrect-too-fast-for-formula-one-drivers/
+  autocorrect = prompt
+
+#
+# Settings for the git commands
+#
+[init]
+  # Github wnats you to do this so just make it the default for an easier life
+  defaultBranch = main
 [push]
-	default = nothing
+  # Only push the current branch and only if the remote branch has the same name
+  default = simple
+  # Assumes --set-upstream/-u when pushing (we always want this)
+  autoSetupRemote = true
+  # Local tags should always follow remote tags (like above but for tags not branches)
+  followTags = true
+[fetch]
+  # These settings auto cleanup remote tracking tags/branches that were delete
+  # on the remote
+  prune = true
+  pruneTags = true
+  all = true
 [commit]
-	verbose = true
+  # Shows the diff under the commit message in your editor when you are committing
+  verbose = true
   gpgsign = true
 [rerere]
-	enabled = true
+  # Remembers how you fixed a conflict when rebasing and does the same thing 
+  # automatically so you don't have to repeat yourself
+  enabled = true
+  autoupdate = true
+[pull]
+  # Always rebase not merge when pulling (cleaner history)
+  rebase = true
+[diff]
+  # Much better diff algorithm
+  algorithm = histogram
+  # Show moves in a different colour
+  colorMoved = plain
+  # replace the a/ and b/ in your diff header output with where the diff is 
+  # coming from, so i/ (index), w/ (working directory) or c/ commit
+  mnemonicPrefix = true
+  # Better rename detection in diffs
+  renames = true
+[tag]
+  # Sensible sorting - treating dotted version numbers as a series of integer
+  # values for sorting purposes
+  sort = version:refname
+[rebase]
+  # Auto stash any uncommitted changes before rebasing (no more scary warning)
+  # also unstashes your changes after
+  autoStash = true
+  # Much simpler rebasing of stacked branches
+  # See https://andrewlock.net/working-with-stacked-branches-in-git-is-easier-with-update-refs/
+  updateRefs = true
