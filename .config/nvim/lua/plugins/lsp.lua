@@ -14,6 +14,7 @@ return {
     init = function(_)
       require("mason").setup()
       vim.lsp.enable({
+        'ts_ls',
         'bashls',
         'gopls',
         'html',
