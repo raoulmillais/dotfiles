@@ -17,6 +17,9 @@ if status is-interactive
 
   # Arch
   alias upd 'sudo pacman -Syu'
+  alias srch 'pacman -Ss'
+  alias inst 'sudo pacman -S'
+
   # Vim
   alias vim nvim
   alias nvimconf 'cd ~/.config/nvim/'
