@@ -5,6 +5,9 @@ if status is-interactive
 
   theme_gruvbox dark hard
 
+  # Awesome history
+  atuin init fish | source
+
   # Configure vim keybindings (but allow use of emacs style too)
   set -g fish_key_bindings fish_hybrid_key_bindings
   # Remap jk to escape in insert mode
@@ -54,6 +57,6 @@ if status is-interactive
   bind \t complete
 
   # Make !! behave like bash/zsh
-  function last_history_item; echo $history[1]; end 
+  function last_history_item; echo $history[1]; end
   abbr -a !! --position anywhere --function last_history_item
 end
