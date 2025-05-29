@@ -1,6 +1,0 @@
-#!/bin/bash
-
-# delay profile switching a little so that monitor is ready.  Without this the resolution cannot be set correctly
-sleep 2
-
-# vim:ft=bash
