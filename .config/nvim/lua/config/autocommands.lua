@@ -1,13 +1,9 @@
+local c = require('core')
 local opt = vim.opt
-local function augroup(name)
-  return vim.api.nvim_create_augroup("raoulmillais_" .. name, { clear = true })
-end
 
--- AUTOMATION {{{1
 -- Disable paste mode when leaving insert mode
-local group = vim.api.nvim_create_augroup("GlobalAutomation", { clear = true })
 vim.api.nvim_create_autocmd("InsertLeave", {
-  group = augroup("disable_paste"),
+  group = c.augroup("disable_paste"),
   pattern = "*",
   callback = function()
     opt.paste = false
@@ -15,14 +11,13 @@ vim.api.nvim_create_autocmd("InsertLeave", {
 })
 -- Automatically rebalance windows on vim resize
 vim.api.nvim_create_autocmd("VimResized", {
-  group = augroup("resize_splits"),
+  group = c.augroup("resize_splits"),
   pattern = "*",
   command = "wincmd =",
 })
--- }}}
 
 vim.api.nvim_create_autocmd("FileType", {
-  group = augroup("close_with_q"),
+  group = c.augroup("close_with_q"),
   pattern = {
     "PlenaryTestPopup",
     "grug-far",
@@ -52,7 +47,7 @@ vim.api.nvim_create_autocmd("FileType", {
 
 -- go to last loc when opening a buffer (Adapted from LazyVim)
 vim.api.nvim_create_autocmd("BufReadPost", {
-  group = augroup("last_location"),
+  group = c.augroup("last_location"),
   callback = function(event)
     local exclude = { "gitcommit" }
     local buf = event.buf
@@ -68,30 +63,27 @@ vim.api.nvim_create_autocmd("BufReadPost", {
   end,
 })
 
--- STATUS LINE {{{1
 opt.laststatus = 2 -- Taller status line to reduce annoying prompts
-local sl_group = vim.api.nvim_create_augroup("StatusLineActiveColorToggle", { clear = true })
 vim.api.nvim_create_autocmd("InsertEnter", {
-  group = augroup("status_line_colors"),
+  group = c.augroup("status_line_colors"),
   pattern = "*",
   command = "hi StatusLine ctermfg=214 guifg=#FFAF00",
 })
 vim.api.nvim_create_autocmd("InsertLeave", {
-  group = augroup("status_line_colors"),
+  group = c.augroup("status_line_colors"),
   pattern = "*",
   command = "hi StatusLine ctermfg=236 guifg=#CD5907",
 })
--- }}}
 
--- GENERAL {{{1
-vim.api.nvim_create_autocmd("VimEnter", {
-  group = group,
-  pattern = "*",
-  command = "wincmd p",
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+  group = c.augroup("remove_trailing_whitespace"),
+  pattern = { "*" },
+  command = [[%s/\s\+$//e]],
 })
--- TODO: This should be set as a buffer local option in an ftplugin
+
+-- TODO: These should be set as a buffer local in ftplugins
 vim.api.nvim_create_autocmd("FileType", {
-  group = sl_group,
+  group = c.augroup("set_make_tab_settings"),
   pattern = "make",
   callback = function()
     vim.opt_local.tabstop = 8
@@ -99,15 +91,12 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.shiftwidth = 8
   end,
 })
--- }}}
 
 vim.api.nvim_create_autocmd("FileType",{
-  group = group,
+  group = c.augroup("rust_cargo_run_on_F5"),
   pattern = "rust",
   callback = function()
     vim.opt_local.makeprg = "cargo run"
-      nmap("<F5>", ":make<cr>")
+      c.nmap("<F5>", ":make<cr>")
   end,
 })
-
-

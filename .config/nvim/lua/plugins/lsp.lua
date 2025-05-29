@@ -24,6 +24,7 @@ return {
         'lua_ls'
       })
       vim.api.nvim_create_autocmd('LspAttach', {
+        group = c.augroup("attach_lsp_keybinds"),
         callback = function (args)
           local keymaps = require('config.keymaps')
           local bufnr = args.buf
