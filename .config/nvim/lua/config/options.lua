@@ -16,8 +16,6 @@ opt.history = 1000 -- Increase command history size
 opt.incsearch = true -- Incomplete search matches
 opt.inccommand = 'split' -- neovim special
 opt.hlsearch = true -- Keep search highlight after complete
--- TODO: Figure out a lua "native" way of doing this
-vim.cmd [[set t_Co=256]] -- Set 256 color mode
 opt.encoding = "utf-8" -- Default to UTF-8
 opt.scrolloff = 2 -- start scrolling 2 lines from screen edge
 opt.hidden = true -- Hide rather than close abandoned buffers
