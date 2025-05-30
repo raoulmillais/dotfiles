@@ -59,4 +59,7 @@ if status is-interactive
   # Make !! behave like bash/zsh
   function last_history_item; echo $history[1]; end
   abbr -a !! --position anywhere --function last_history_item
+
+  # Setup starship prompt
+  starship init fish | source
 end
