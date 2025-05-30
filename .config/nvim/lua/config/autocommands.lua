@@ -69,6 +69,7 @@ vim.api.nvim_create_autocmd("InsertEnter", {
   pattern = "*",
   command = "hi StatusLine ctermfg=214 guifg=#FFAF00",
 })
+
 vim.api.nvim_create_autocmd("InsertLeave", {
   group = c.augroup("status_line_colors"),
   pattern = "*",
@@ -79,26 +80,6 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   group = c.augroup("remove_trailing_whitespace"),
   pattern = { "*" },
   command = [[%s/\s\+$//e]],
-})
-
--- TODO: These should be set as a buffer local in ftplugins
-vim.api.nvim_create_autocmd("FileType", {
-  group = c.augroup("set_make_tab_settings"),
-  pattern = "make",
-  callback = function()
-    vim.opt_local.tabstop = 8
-    vim.opt_local.softtabstop = 8
-    vim.opt_local.shiftwidth = 8
-  end,
-})
-
-vim.api.nvim_create_autocmd("FileType",{
-  group = c.augroup("run_make_on_F5"),
-  pattern = "rust",
-  callback = function()
-    vim.opt_local.makeprg = "cargo run"
-      c.nmap("<F5>", ":make<cr>")
-  end,
 })
 
 local set_cursorline = function(event, value, pattern)
