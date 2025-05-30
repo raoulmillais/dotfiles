@@ -93,10 +93,35 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.api.nvim_create_autocmd("FileType",{
-  group = c.augroup("rust_cargo_run_on_F5"),
+  group = c.augroup("run_make_on_F5"),
   pattern = "rust",
   callback = function()
     vim.opt_local.makeprg = "cargo run"
       c.nmap("<F5>", ":make<cr>")
   end,
 })
+
+local set_cursorline = function(event, value, pattern)
+  vim.api.nvim_create_autocmd(event, {
+    group = c.augroup("toggle_cursor_line_on_focus"),
+    pattern = pattern,
+    callback = function()
+      vim.opt_local.cursorline = value
+    end,
+  })
+end
+set_cursorline("WinLeave", false)
+set_cursorline("WinEnter", true)
+set_cursorline("FileType", false, "TelescopePrompt")
+
+vim.api.nvim_create_autocmd("FileType", {
+  group = c.augroup("disable_guides_in_quickfix"),
+  pattern = "qf",
+  callback = function()
+    vim.opt_local.colorcolumn = "0"
+    vim.opt_local.list = false
+    vim.opt_local.cursorline = false
+    vim.opt_local.wrap = false
+  end
+})
+

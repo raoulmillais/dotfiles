@@ -82,32 +82,12 @@ opt.splitright = true -- Open new vsplits to the right
 opt.cursorline = true -- Highlight the line under the cursor
 opt.cursorcolumn = false -- Don't Highlight the column
 
+-- Show 80 char column in light grey
+opt.colorcolumn = "80" -- Show a guide at 80 chars
+vim.api.nvim_set_hl(0, 'ColorColumn', { ctermbg=239 })
+
 opt.smoothscroll = true
 opt.smartindent = true
-
--- Toggle on focus
-local group = vim.api.nvim_create_augroup("CursorLineFocus", { clear = true })
-local set_cursorline = function(event, value, pattern)
-  vim.api.nvim_create_autocmd(event, {
-    group = group,
-    pattern = pattern,
-    callback = function()
-      vim.opt_local.cursorline = value
-    end,
-  })
-end
-set_cursorline("WinLeave", false)
-set_cursorline("WinEnter", true)
-set_cursorline("FileType", false, "TelescopePrompt")
-
--- COLOR COLUMN SETTINGS
--- Show 80 char column in light grey
-opt.colorcolumn = "80"
-vim.cmd [[highlight ColorColumn ctermbg=239 guibg=#4f4f4f]]
-
--- Disable colorcolumn in the quickfix buffers
--- TODO: convert this autocommand to use the lua API
-vim.cmd [[au Filetype qf setlocal colorcolumn=0 nolist nocursorline nowrap]]
 
 -- BACKUPS, UNDO AND SWAPFILES
 opt.undofile = true
