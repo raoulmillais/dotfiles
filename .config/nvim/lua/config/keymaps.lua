@@ -83,14 +83,6 @@ local keymaps = {
   },
   neotree = {
     { "<f2>", ":Neotree toggle<cr>", { desc = "Toggle Neotree" } },
-  },
-  vimux = {
-    { "<Leader>vp", ":VimuxPromptCommand<CR>", { desc = "Vimux prompt" } },
-    { "<Leader>vl", ":VimuxRunLastCommand<CR>", { desc = "Vimux run last command" } },
-    -- enter vimux pane in copymode (same as entering and typing <C-[>)
-    { "<Leader>vi", ":VimuxInspectRunner<CR>", { desc = "Vimux inspect runner" } },
-    { "<Leader>vc", ":VimuxCloseRunner<CR>", { desc = "Vimux close runner" } },
-    { "<Leader>vz", ":VimuxZoomRunner<CR>", { desc = "Vimux zoom runner" } },
   }
 }
 
