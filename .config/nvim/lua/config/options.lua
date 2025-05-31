@@ -82,7 +82,7 @@ opt.cursorcolumn = false -- Don't Highlight the column
 
 -- Show 80 char column in light grey
 opt.colorcolumn = "80" -- Show a guide at 80 chars
-vim.api.nvim_set_hl(0, 'ColorColumn', { ctermbg=239 })
+vim.api.nvim_set_hl(0, 'ColorColumn', { bg="#4f4f4f" })
 
 opt.smoothscroll = true
 opt.smartindent = true
