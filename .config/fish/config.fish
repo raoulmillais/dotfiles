@@ -1,4 +1,7 @@
 if status is-interactive
+  # Suppress the welcome message
+  set fish_greeting
+
   set -Ux PAGER less
   set -Ux EDITOR nvim
   set -Ux VISUAL nvim
