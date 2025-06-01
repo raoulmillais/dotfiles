@@ -1,2 +1,87 @@
+palette = 'gruvbox_dark'
+
+[palettes.gruvbox_dark]
+color_fg = '#ebdbb2'
+color_fg0 = '#fbf1c7'
+color_fg1 = '#ebdbb2'
+color_fg2 = '#d5c4a1'
+color_fg3 = '#bdae93'
+color_fg4 = '#a89984'
+color_bg1 = '#3c3836'
+color_bg3 = '#665c54'
+color_dark_blue = '#458588'
+color_blue = '#83a598'
+color_dark_aqua = '#689d6a'
+color_aqua = '#8ec07c'
+color_dark_green = '#98971a'
+color_green = '#b8bb26'
+color_dark_orange = '#d65d0e'
+color_orange = '#fe8019'
+color_dark_purple = '#b16286'
+color_purple = '#d3869b'
+color_dark_red = '#cc241d'
+color_red = '#fb4934'
+color_dark_yellow = '#d79921'
+color_yellow = '#fabd2f'
+
+[directory]
+style = 'fg:color_green'
+
+[character]
+success_symbol = '[❯](bold color_yellow)'
+error_symbol = '[❯](bold color_dark_red)'
+vimcmd_symbol = '[❮](bold color_yellow)'
+vimcmd_replace_one_symbol = '[❮](bold color_purple)'
+vimcmd_replace_symbol = '[❮](bold color_purple)'
+vimcmd_visual_symbol = '[❮](bold color_aqua)'
+
 [package]
 disabled = true
+
+[status]
+format = "[$status]($style) "
+disabled = false
+
+[git_branch]
+style = "fg:color_orange"
+
+[git_status]
+style = "fg:color_dark_blue"
+
+# Remove the superfluous "via" before language versions in the prompt
+[nodejs]
+format = '[$symbol($version )]($style)'
+
+[golang]
+format = '[$symbol($version )]($style)'
+style = 'fg:color_aqua'
+
+[fennel]
+format = '[$symbol($version )]($style)'
+
+[lua]
+format = '[$symbol($version )]($style)'
+
+[c]
+format = '[$symbol($version(-$name) )]($style)'
+
+[cpp]
+format = '[$symbol($version(-$name) )]($style)'
+
+[deno]
+format = '[$symbol($version )]($style)'
+
+[docker_context]
+format = '[$symbol$context]($style) '
+
+[python]
+format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+
+[rust]
+format = '[$symbol($version )]($style)'
+
+[username]
+show_always = true
+format = '[$user]($style) '
+style_root = "fg:color_dark_red"
+style_user = "fg:color_fg4"
