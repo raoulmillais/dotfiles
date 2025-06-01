@@ -106,3 +106,15 @@ vim.api.nvim_create_autocmd("FileType", {
   end
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+  group = c.augroup("help_in_vertical_split"),
+  pattern = "help",
+  callback = function ()
+    vim.opt_local.bufhidden="unload"
+    vim.api.nvim_command("wincmd L | vertical resize 80")
+    vim.opt_local.ruler = false
+    vim.opt_local.statuscolumn = ""
+    vim.opt_local.signcolumn = "no"
+    vim.opt_local.foldcolumn = "0"
+  end
+})
