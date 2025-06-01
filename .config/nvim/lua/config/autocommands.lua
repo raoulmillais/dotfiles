@@ -2,7 +2,7 @@ local c = require('core')
 local opt = vim.opt
 
 -- Disable paste mode when leaving insert mode
-vim.api.nvim_create_autocmd("InsertLeave", {
+c.autocmd("InsertLeave", {
   group = c.augroup("disable_paste"),
   pattern = "*",
   callback = function()
@@ -10,13 +10,13 @@ vim.api.nvim_create_autocmd("InsertLeave", {
   end,
 })
 -- Automatically rebalance windows on vim resize
-vim.api.nvim_create_autocmd("VimResized", {
+c.autocmd("VimResized", {
   group = c.augroup("resize_splits"),
   pattern = "*",
   command = "wincmd =",
 })
 
-vim.api.nvim_create_autocmd("FileType", {
+c.autocmd("FileType", {
   group = c.augroup("close_with_q"),
   pattern = {
     "PlenaryTestPopup",
@@ -46,7 +46,7 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- go to last loc when opening a buffer (Adapted from LazyVim)
-vim.api.nvim_create_autocmd("BufReadPost", {
+c.autocmd("BufReadPost", {
   group = c.augroup("last_location"),
   callback = function(event)
     local exclude = { "gitcommit" }
@@ -64,26 +64,26 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 })
 
 opt.laststatus = 2 -- Taller status line to reduce annoying prompts
-vim.api.nvim_create_autocmd("InsertEnter", {
+c.autocmd("InsertEnter", {
   group = c.augroup("status_line_colors"),
   pattern = "*",
   command = "hi StatusLine ctermfg=214 guifg=#FFAF00",
 })
 
-vim.api.nvim_create_autocmd("InsertLeave", {
+c.autocmd("InsertLeave", {
   group = c.augroup("status_line_colors"),
   pattern = "*",
   command = "hi StatusLine ctermfg=236 guifg=#CD5907",
 })
 
-vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+c.autocmd({ "BufWritePre" }, {
   group = c.augroup("remove_trailing_whitespace"),
   pattern = { "*" },
   command = [[%s/\s\+$//e]],
 })
 
 local set_cursorline = function(event, value, pattern)
-  vim.api.nvim_create_autocmd(event, {
+  c.autocmd(event, {
     group = c.augroup("toggle_cursor_line_on_focus"),
     pattern = pattern,
     callback = function()
@@ -95,7 +95,7 @@ set_cursorline("WinLeave", false)
 set_cursorline("WinEnter", true)
 set_cursorline("FileType", false, "TelescopePrompt")
 
-vim.api.nvim_create_autocmd("FileType", {
+c.autocmd("FileType", {
   group = c.augroup("disable_guides_in_quickfix"),
   pattern = "qf",
   callback = function()
@@ -108,7 +108,7 @@ vim.api.nvim_create_autocmd("FileType", {
   end
 })
 
-vim.api.nvim_create_autocmd("FileType", {
+c.autocmd("FileType", {
   group = c.augroup("help_in_vertical_split"),
   pattern = "help",
   callback = function ()

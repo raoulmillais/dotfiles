@@ -22,7 +22,7 @@ return {
         'denols',
         'lua_ls'
       })
-      vim.api.nvim_create_autocmd('LspAttach', {
+      c.autocmd('LspAttach', {
         group = c.augroup("attach_lsp_keybinds"),
         callback = function (args)
           local keymaps = require('config.keymaps')

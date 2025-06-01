@@ -1,3 +1,4 @@
+local c = require('core')
 return {
   --[[
   --  All the mini.nvim plugins provide modern-treesitter aware and undo-enabled
@@ -21,7 +22,7 @@ return {
     config = function(_, opts)
       require('mini.pairs').setup(opts)
       -- Disable mini.pairs when going from visual block or visual into insert
-      vim.api.nvim_create_autocmd("ModeChanged", {
+      c.autocmd("ModeChanged", {
         group = "MiniPairs", -- same as the group in `mini.pairs`
         pattern = { "V:i", "\22:i" },
         callback = function()
@@ -29,7 +30,7 @@ return {
         end
       })
       -- Re-enable mini.pairs if it was disabled when leaving insert mode
-      vim.api.nvim_create_autocmd("ModeChanged", {
+      c.autocmd("ModeChanged", {
         group = "MiniPairs", -- same as the group in `mini.pairs`
         pattern = "i:*",
         callback = function()

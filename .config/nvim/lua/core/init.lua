@@ -20,6 +20,8 @@ M.augroup = function(name)
   return vim.api.nvim_create_augroup("raoulmillais_" .. name, { clear = true })
 end
 
+M.autocmd = vim.api.nvim_create_autocmd
+
 --- merge is a short cut for vim.tbl_deep_extend with 'force' behaviour
 M.merge = function(...)
   return vim.tbl_deep_extend('force', ...)

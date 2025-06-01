@@ -1,3 +1,5 @@
+local c = require('core')
+
 return {
   "ray-x/go.nvim",
   dependencies = {  -- optional packages
@@ -12,7 +14,7 @@ return {
   config = function(_, opts)
     require("go").setup(opts)
     local format_sync_grp = vim.api.nvim_create_augroup("GoFormat", {})
-    vim.api.nvim_create_autocmd("BufWritePre", {
+    c.autocmd("BufWritePre", {
       pattern = "*.go",
       callback = function()
       require('go.format').goimports()
