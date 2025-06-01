@@ -32,7 +32,8 @@ if status is-interactive
   alias ll 'eza --long --header --group --links --accessed --modified --git'       # same as ls
   alias la 'eza --long --all --header --group --links --accessed --modified --git' # show hidden files
 
-  alias ack 'rg'
+  # Have zoxide replace cd
+  zoxide init --cmd cd fish | source
 
   alias g 'git'
 
