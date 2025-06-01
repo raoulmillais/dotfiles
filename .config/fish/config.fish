@@ -2,11 +2,9 @@ if status is-interactive
   set -Ux PAGER less
   set -Ux EDITOR nvim
   set -Ux VISUAL nvim
+  set -Ux FZF_DEFAULT_OPTS "--height=40% --layout=reverse --style=minimal --info=inline --preview 'bat {}' --border --margin=1 --padding=1"
 
   theme_gruvbox dark hard
-
-  # Awesome history
-  atuin init fish | source
 
   # Configure vim keybindings (but allow use of emacs style too)
   set -g fish_key_bindings fish_hybrid_key_bindings
@@ -32,8 +30,6 @@ if status is-interactive
   alias ll 'eza --long --header --group --links --accessed --modified --git'       # same as ls
   alias la 'eza --long --all --header --group --links --accessed --modified --git' # show hidden files
 
-  # Have zoxide replace cd
-  zoxide init --cmd cd fish | source
 
   alias g 'git'
 
@@ -63,4 +59,8 @@ if status is-interactive
 
   # Setup starship prompt
   starship init fish | source
+  # Awesome history
+  atuin init fish | source
+  # Have zoxide replace cd
+  zoxide init --cmd cd fish | source
 end
