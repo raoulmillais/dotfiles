@@ -34,7 +34,11 @@ return {
   {
     "lukas-reineke/indent-blankline.nvim",
     main = "ibl",
-    opts = {},
+    opts = {
+      exclude = {
+        filetypes = { "dashboard" },
+      },
+    },
     config = function(_, opts)
       require('ibl').setup(opts)
     end
