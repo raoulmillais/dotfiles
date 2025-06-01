@@ -21,6 +21,7 @@ M.augroup = function(name)
 end
 
 M.autocmd = vim.api.nvim_create_autocmd
+M.hl = vim.api.nvim_set_hl
 
 --- merge is a short cut for vim.tbl_deep_extend with 'force' behaviour
 M.merge = function(...)

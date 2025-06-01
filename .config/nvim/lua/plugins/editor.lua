@@ -1,3 +1,4 @@
+local c = require('core')
 return {
   {
     'ellisonleao/gruvbox.nvim',
@@ -9,7 +10,7 @@ return {
       vim.o.background = "dark" -- Dark colorscheme
       vim.g.gruvbox_italic = 1 -- Alacritty supports italics just fine
       vim.cmd.colorscheme 'gruvbox'
-      vim.api.nvim_set_hl(0, 'Comment', {italic = true})
+      c.hl(0, 'Comment', {italic = true})
     end
   },
   { 'jremmen/vim-ripgrep' },

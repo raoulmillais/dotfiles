@@ -1,3 +1,5 @@
+local c = require('core')
+
 return {
   'saghen/blink.cmp',
   dependencies = { 'rafamadriz/friendly-snippets' },
@@ -14,5 +16,9 @@ return {
     },
     fuzzy = { implementation = "prefer_rust_with_warning" }
   },
-  opts_extend = { "sources.default" }
+  opts_extend = { "sources.default" },
+  init = function()
+    c.hl(0, 'BlinkCmpMenu', { bg = '#1d2021' })
+    c.hl(0, 'BlinkCmpMenuBorder', { bg = '#1d2021' })
+  end
 }

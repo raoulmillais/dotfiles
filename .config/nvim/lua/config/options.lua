@@ -1,7 +1,9 @@
+local c = require('core')
 local g, opt = vim.g, vim.opt
 
 -- COLORSCHEME
 opt.termguicolors = true
+c.hl(0, 'NormalFloat', { bg = '#1d2021' })
 
 -- DIFFING
 opt.diffopt = "vertical"
@@ -26,9 +28,8 @@ opt.completeopt = { "menuone" } -- Show menu even for one item and no preview
 opt.mouse = "nv" -- Allow Mouse in normal and visual mode
 opt.iskeyword:append "-" -- Consider hypenated words as one word
 opt.title = true -- Sets the terminal window title
-opt.path:append "**" -- Look for files in subdirectories of current
--- directory. This gives fuzzy finding with tab
--- completions for :edit :write commands etc
+opt.path:append "**" -- Look for files in subdirectories of current directory
+opt.winborder = "rounded" -- Rounded borders on floating windows
 
 -- STATUS LINE
 opt.showmode = true -- Show the current mode in the last line
@@ -82,7 +83,7 @@ opt.cursorcolumn = false -- Don't Highlight the column
 
 -- Show 80 char column in light grey
 opt.colorcolumn = "80" -- Show a guide at 80 chars
-vim.api.nvim_set_hl(0, 'ColorColumn', { bg="#4f4f4f" })
+c.hl(0, 'ColorColumn', { bg="#4f4f4f" })
 
 opt.smoothscroll = true
 opt.smartindent = true
@@ -90,9 +91,6 @@ opt.smartindent = true
 -- BACKUPS, UNDO AND SWAPFILES
 opt.undofile = true
 opt.updatecount = 50 -- save the files sooner than the default (after 50 chars)
--- triggers the CursorHold event sooner than the default 4s
--- (makes coc feel more responsive)
-opt.updatetime = 300
 
 -- TABS AND WHITESPACE
 opt.cindent = true -- Indent new lines to same level as last
@@ -112,5 +110,5 @@ opt.foldmethod = "marker"
 g.mapleader = ","
 g.maplocalleader = ","
 
--- SEXP
+-- SEXP (For lisps)
 vim.g.sexp_enable_insert_mode_mappings = 0
