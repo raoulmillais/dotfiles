@@ -103,6 +103,8 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.list = false
     vim.opt_local.cursorline = false
     vim.opt_local.wrap = false
+    vim.opt_local.signcolumn = "no"
+    vim.opt_local.foldcolumn = "0"
   end
 })
 
@@ -110,8 +112,12 @@ vim.api.nvim_create_autocmd("FileType", {
   group = c.augroup("help_in_vertical_split"),
   pattern = "help",
   callback = function ()
+    -- Help buffers are large and readonly and easily recretaed so free up some
+    -- RAM and declutter the buffer list by unloading them when they are closed
     vim.opt_local.bufhidden="unload"
+    -- Put the help buffer in an 80 column vertical split
     vim.api.nvim_command("wincmd L | vertical resize 80")
+    -- Remove all the unnecessary buffer decorations
     vim.opt_local.ruler = false
     vim.opt_local.statuscolumn = ""
     vim.opt_local.signcolumn = "no"
