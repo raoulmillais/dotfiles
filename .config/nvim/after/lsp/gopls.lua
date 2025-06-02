@@ -24,11 +24,33 @@ return {
   settings = {
     autoformat = true,
     gopls = {
+      codelenses = {
+        gc_details = false,
+        generate = true,
+        regenerate_cgo = true,
+        run_govulncheck = true,
+        test = true,
+        tidy = true,
+        upgrade_dependency = true,
+        vendor = true,
+      },
+      hints = {
+        assignVariableTypes = true,
+        compositeLiteralFields = true,
+        compositeLiteralTypes = true,
+        constantValues = true,
+        functionTypeParameters = true,
+        parameterNames = true,
+        rangeVariableTypes = true,
+      },
       analyses = {
         unusedparams = true,
         unusedwrite = true,
-        nilness = true
+        nilness = true,
+        useany = true,
       },
+      usePlaceholders = true,
+      completeUnimported = true,
       -- experimental features
       semanticTokens = true,
       staticcheck = true -- runs checks described at staticcheck.dev
