@@ -30,6 +30,7 @@ M.augroup = function(name)
   return vim.api.nvim_create_augroup("raoulmillais_" .. name, { clear = true })
 end
 
+M.usercmd = vim.api.nvim_create_user_command
 M.autocmd = vim.api.nvim_create_autocmd
 M.hl = vim.api.nvim_set_hl
 
