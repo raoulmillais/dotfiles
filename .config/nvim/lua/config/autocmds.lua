@@ -63,6 +63,10 @@ c.autocmd("BufReadPost", {
   end,
 })
 
+-- This is onyl way to make this work.  Having separate autocmds for InsertEnter
+-- and InsertLeave - only the last defined one ever triggers.  Checking
+-- for `vim.v.insertmode` also doesnt work. So we check the event name and
+-- toggle on that.
 c.autocmd({ "InsertEnter", "InsertLeave" }, {
   group = c.augroup("status_line_colors"),
   pattern = "*",
