@@ -5,7 +5,12 @@ if status is-interactive
   set -Ux PAGER less
   set -Ux EDITOR nvim
   set -Ux VISUAL nvim
-  set -Ux FZF_DEFAULT_OPTS "--height=40% --layout=reverse --style=minimal --info=inline --preview 'bat {}' --border --margin=1 --padding=1"
+  set -Ux FZF_DEFAULT_OPTS "--bind='ctrl-y:accept'
+  --bind='ctrl-alt-y:yank'
+  --height=40%
+  --layout=reverse
+  --style=minimal
+  --info=inline --preview 'bat {}' --border --margin=1 --padding=1"
 
   theme_gruvbox dark hard
 
