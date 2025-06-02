@@ -63,13 +63,6 @@ c.autocmd("BufReadPost", {
   end,
 })
 
--- This is only way to make this work.  Having separate autocmds for InsertEnter
--- and InsertLeave - only the last defined one ever triggers.  Checking
--- for `vim.v.insertmode` also doesnt work. So we check the event name and
--- toggle on that.
---
--- Both events fire when I disable importing plugins so some plugin is
--- interfering with the autocmds.
 c.autocmd({ "InsertEnter", "InsertLeave" }, {
   group = c.augroup("status_line_colors"),
   pattern = "*",
@@ -89,6 +82,7 @@ c.autocmd({ "BufWritePre" }, {
   pattern = { "*" },
   command = [[%s/\s\+$//e]],
 })
+
 
 local set_cursorline = function(event, value, pattern)
   c.autocmd(event, {
