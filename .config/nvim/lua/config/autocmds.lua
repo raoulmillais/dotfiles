@@ -47,7 +47,7 @@ c.autocmd("FileType", {
 
 -- go to last loc when opening a buffer (Adapted from LazyVim)
 c.autocmd("BufReadPost", {
-  group = c.augroup("resstore_last_location"),
+  group = c.augroup("restore_last_location"),
   callback = function(event)
     local exclude = { "gitcommit" }
     local buf = event.buf
@@ -63,10 +63,13 @@ c.autocmd("BufReadPost", {
   end,
 })
 
--- This is onyl way to make this work.  Having separate autocmds for InsertEnter
+-- This is only way to make this work.  Having separate autocmds for InsertEnter
 -- and InsertLeave - only the last defined one ever triggers.  Checking
 -- for `vim.v.insertmode` also doesnt work. So we check the event name and
 -- toggle on that.
+--
+-- Both events fire when I disable importing plugins so some plugin is
+-- interfering with the autocmds.
 c.autocmd({ "InsertEnter", "InsertLeave" }, {
   group = c.augroup("status_line_colors"),
   pattern = "*",
