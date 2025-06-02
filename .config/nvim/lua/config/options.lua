@@ -26,6 +26,7 @@ opt.ttyfast = true -- Smoother redrawing with multiple windows
 opt.report = 0 -- Always tell me how many lines were affected
 opt.completeopt = { "menuone" } -- Show menu even for one item and no preview
 opt.mouse = "nv" -- Allow Mouse in normal and visual mode
+---@diagnostic disable-next-line: undefined-field
 opt.iskeyword:append "-" -- Consider hypenated words as one word
 opt.title = true -- Sets the terminal window title
 opt.path:append "**" -- Look for files in subdirectories of current directory
@@ -35,6 +36,10 @@ opt.winborder = "rounded" -- Rounded borders on floating windows
 opt.showmode = true -- Show the current mode in the last line
 opt.showcmd = true -- Show the current command in the last line
 opt.ruler = true -- Show the line and column of the cursor position
+opt.laststatus = 2 -- Taller status line to reduce annoying prompts
+opt.fillchars = { stl = "─" }
+c.hl(0, 'StatusLine', { fg = '#665c54', bg = '#1d2021' })
+
 
 -- WILDMENU
 opt.wildmode = "full" -- Tab complete longest common string and show list

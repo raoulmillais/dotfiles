@@ -33,6 +33,7 @@ local function get_blink_menu_width()
   return menu_win:get_width()
 end
 
+---
 ---@diagnostic disable-next-line: unused-local, unused-function
 local function diagnostics_float(_, _)
   local opts = {
@@ -51,7 +52,8 @@ end
 
 vim.diagnostic.config({
   virtual_text = false, -- We show diagnostics in a float
-  -- TODO: use `diagnostics_float` instead
+  -- TODO: use `diagnostics_float` instead and turn back on diagnostic float
+  -- on CursorHoldI (autocmd)
   float = {
     header = "",
     source = true,

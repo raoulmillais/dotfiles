@@ -63,17 +63,18 @@ c.autocmd("BufReadPost", {
   end,
 })
 
-opt.laststatus = 2 -- Taller status line to reduce annoying prompts
-c.autocmd("InsertEnter", {
+c.autocmd({ "InsertEnter", "InsertLeave" }, {
   group = c.augroup("status_line_colors"),
   pattern = "*",
-  command = "hi StatusLine ctermfg=214 guifg=#FFAF00",
-})
-
-c.autocmd("InsertLeave", {
-  group = c.augroup("status_line_colors"),
-  pattern = "*",
-  command = "hi StatusLine ctermfg=236 guifg=#CD5907",
+  callback = function(event)
+    if event.event == 'InsertEnter' then
+      -- Orange in insert mode
+      c.hl(0, 'StatusLine', { fg = '#ffaf00', bg = '#1d2021' })
+    else
+      -- Gray
+      c.hl(0, 'StatusLine', { fg = '#665c54', bg = '#1d2021' })
+    end
+  end
 })
 
 c.autocmd({ "BufWritePre" }, {
@@ -125,7 +126,8 @@ c.autocmd("FileType", {
   end
 })
 
-c.autocmd({"CursorHold", "CursorHoldI"}, {
+--TODO: Add CursorHoldI back in when bug is fixed (see diagnostics.lua)
+c.autocmd({"CursorHold"}, {
   group = c.augroup("diagnostics_in_float"),
   pattern = "*",
   callback = function ()
