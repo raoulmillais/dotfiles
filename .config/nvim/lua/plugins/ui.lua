@@ -32,7 +32,7 @@ return {
       win = {
         height = { min = 10, max = 25 },
         wo = {
-          winblend = 10
+          winblend = 0
         }
 
       },
