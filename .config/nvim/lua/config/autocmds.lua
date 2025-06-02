@@ -47,7 +47,7 @@ c.autocmd("FileType", {
 
 -- go to last loc when opening a buffer (Adapted from LazyVim)
 c.autocmd("BufReadPost", {
-  group = c.augroup("last_location"),
+  group = c.augroup("resstore_last_location"),
   callback = function(event)
     local exclude = { "gitcommit" }
     local buf = event.buf
@@ -122,5 +122,13 @@ c.autocmd("FileType", {
     vim.opt_local.statuscolumn = ""
     vim.opt_local.signcolumn = "no"
     vim.opt_local.foldcolumn = "0"
+  end
+})
+
+c.autocmd({"CursorHold", "CursorHoldI"}, {
+  group = c.augroup("diagnostics_in_float"),
+  pattern = "*",
+  callback = function ()
+    vim.diagnostic.open_float()
   end
 })

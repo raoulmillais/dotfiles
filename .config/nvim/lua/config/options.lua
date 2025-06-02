@@ -91,6 +91,7 @@ opt.smartindent = true
 -- BACKUPS, UNDO AND SWAPFILES
 opt.undofile = true
 opt.updatecount = 50 -- save the files sooner than the default (after 50 chars)
+opt.updatetime = 250
 
 -- TABS AND WHITESPACE
 opt.cindent = true -- Indent new lines to same level as last

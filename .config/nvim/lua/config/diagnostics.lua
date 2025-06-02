@@ -18,7 +18,3 @@ vim.diagnostic.config({
     }
   }
 })
-
--- Use a float instead of virtual text for diagnostics
-vim.o.updatetime = 250
-vim.cmd [[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]]
