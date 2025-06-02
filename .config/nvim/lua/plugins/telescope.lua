@@ -39,9 +39,7 @@ return {
       telescope.load_extension('fzf')
       telescope.load_extension('ui-select')
       local keymaps = require('config.keymaps')
-      for _, km in pairs(keymaps.telescope) do
-        c.nmap(unpack(km))
-      end
+      c.register_normal_keymaps(keymaps.telescope)
     end
   },
 }

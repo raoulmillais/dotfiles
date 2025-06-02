@@ -16,9 +16,7 @@ return {
       },
     init = function()
       local keymaps = require('config.keymaps')
-      for _, km in pairs(keymaps.neotree) do
-        c.nmap(unpack(km))
-      end
+      c.register_normal_keymaps(keymaps.neotree)
     end
   },
   {

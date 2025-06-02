@@ -36,6 +36,12 @@ c.cmap("w!!", "%!sudo tee > /dev/null %")
 -- Any keymaps defined here will be installed with `noremap`
 -- ]]
 local keymaps = {
+  diagnostics = {
+    { "<leader>df", "<cmd>lua vim.diagnostic.open_float()<CR>", { desc = "Open diagnostics in float"}},
+    { "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", { desc = "Goto previous diagnostic" } },
+    { "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", { desc = "Goto next diagnostic"} },
+    { "<leader>dl", "<cmd>lua vim.diagnostic.setloclist()<CR>", { desc = "Open diagnostics in location list" } },
+  },
   lsp = {
     -- lsp keymaps are set per buffer when an LSP client attaches unlike other
     -- plugins which usually attach keymaps globally when they initialise
@@ -83,7 +89,7 @@ local keymaps = {
   },
   neotree = {
     { "<f2>", ":Neotree toggle<cr>", { desc = "Toggle Neotree" } },
-  }
+  },
 }
 
 return keymaps

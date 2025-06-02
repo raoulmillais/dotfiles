@@ -1,11 +1,7 @@
 local c = require('core')
+local keymaps = require('config.keymaps')
 
-local opts = { noremap = true, silent = true }
-
-c.nmap("<leader>df", "<cmd>lua vim.diagnostic.open_float()<CR>", opts)
-c.nmap("[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>", opts)
-c.nmap("]d", "<cmd>lua vim.diagnostic.goto_next()<CR>", opts)
-c.nmap("<leader>dq", "<cmd>lua vim.diagnostic.setloclist()<CR>", opts)
+c.register_normal_keymaps(keymaps.diagnostics)
 
 vim.diagnostic.config({
   virtual_text = true,
