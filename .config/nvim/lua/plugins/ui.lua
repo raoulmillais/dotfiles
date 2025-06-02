@@ -11,21 +11,9 @@ return {
      "nvim-lua/plenary.nvim",
       "nvim-tree/nvim-web-devicons",
     },
-    popup_border_style = "",
-    default_component_configs = {
-      indent = {
-        with_expanders = nil, -- if nil and file nesting is enabled, will enable expanders
-        expander_collapsed = "",
-        expander_expanded = "",
-        expander_highlight = "NeoTreeExpander",
+    opts = {
+      popup_border_style = "",
       },
-      git_status = {
-        symbols = {
-          unstaged = "󰄱",
-          staged = "󰱒",
-        },
-      },
-    },
     init = function()
       local keymaps = require('config.keymaps')
       for _, km in pairs(keymaps.neotree) do
