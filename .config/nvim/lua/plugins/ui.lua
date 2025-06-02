@@ -11,6 +11,7 @@ return {
      "nvim-lua/plenary.nvim",
       "nvim-tree/nvim-web-devicons",
     },
+    popup_border_style = "",
     default_component_configs = {
       indent = {
         with_expanders = nil, -- if nil and file nesting is enabled, will enable expanders

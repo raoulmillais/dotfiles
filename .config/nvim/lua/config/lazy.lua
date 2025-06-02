@@ -50,8 +50,10 @@ lazy.setup({
 -- [
 -- Configure neovim
 -- ]
+-- NOTE: we're not using LazyVim so these do have to be required
 require 'config.options'
-require 'config.autocommands'
+require 'config.autocmds'
 require 'config.keymaps'
+
 require 'config.diagnostics'
 require 'config.user_commands'
