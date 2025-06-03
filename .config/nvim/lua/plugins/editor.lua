@@ -19,7 +19,11 @@ return {
         NormalFloat = { bg = '#1d2021' }, -- same as Normal background
         StatusLine = { fg = '#458588', bg = '#1d2021' }, --blue in normal mode
         StatusLineNC = { fg = '#665c54', bg = '#1d2021' }, -- gray without focus
-        Comment = { fg  = '#504945' }, -- darker but still legible
+        Comment = { fg = '#504945' }, -- darker but still legible
+        -- orange to match the status line in insert mode
+        ModeMsg = { fg= '#ffaf00', bold = true },
+        -- much less alarming error messages
+        ErrorMsg = { fg = '#cc241d', bg = "#1d2021", bold = false },
       }
     },
     init = function ()
