@@ -36,6 +36,13 @@ return {
     "lukas-reineke/indent-blankline.nvim",
     main = "ibl",
     opts = {
+      -- Use slimmer guidelines and we have list/listchars set so we
+      -- have to set tab_char or the guides won't show (ibl uses the
+      -- lcs-tab setting)
+      indent = {
+        char = "│",
+        tab_char = "│",
+      },
       exclude = {
         filetypes = { "dashboard" },
       },
