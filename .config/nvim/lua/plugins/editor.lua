@@ -24,6 +24,7 @@ return {
         CursorLine = { bg = "#282828" }, -- darkest bg apart from Normal
         CursorLineNr = { bg = "#282828" }, -- darkest bg apart from Normal
         NormalFloat = { bg = '#1d2021' }, -- same as Normal background
+        Search = { bg = "#7c6f64", fg= "#1d2021" },
         StatusLine = { fg = '#458588', bg = '#1d2021' }, --blue in normal mode
         StatusLineNC = { fg = '#665c54', bg = '#1d2021' }, -- gray without focus
         Comment = { fg = '#504945' }, -- darker but still legible

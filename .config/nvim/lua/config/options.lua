@@ -104,8 +104,10 @@ opt.shiftwidth = 2 -- Shift by 2 spaces
 opt.expandtab = true -- Expand tab to spaces
 
 -- FOLDING
+-- I don't use folds but leave the settings that I liked when
+-- I experimented wih them.
 opt.foldlevelstart = 99 -- Open all folds
-opt.foldcolumn = "3" -- Show 3 levels
+opt.foldcolumn = "0" -- Dont show the fold column
 opt.foldmethod = "marker"
 
 -- KEYMAPS

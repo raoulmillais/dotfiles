@@ -16,7 +16,7 @@ return {
       local new_icons = {}
 
       for key, icon in pairs(current_icons) do
-          icon.color = "#ebdbb2"
+          icon.color = "#d5c4a1"
           new_icons[key] = icon
       end
 
@@ -40,6 +40,16 @@ return {
           expander_collapsed = "",
           expander_expanded = "",
           expander_highlight = "NeoTreeExpander",
+        }
+      },
+      event_handlers = {
+        {
+          event = "after_render",
+          handler = function()
+            -- This can only be set here - doing it iin the ftplugin causes
+            -- the tree to not render until a key is pressed
+            vim.opt_local.fillchars = { eob = ' ' }
+          end
         }
       }
     },
