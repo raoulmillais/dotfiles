@@ -5,12 +5,40 @@ if status is-interactive
   set -Ux PAGER less
   set -Ux EDITOR nvim
   set -Ux VISUAL nvim
-  set -Ux FZF_DEFAULT_OPTS "--bind='ctrl-y:accept'
+
+  # Gruvbox dark colours
+  set -l gb_bg0_h '#1d2021'
+  set -l gb_bg1 '#3c3836'
+  set -l gb_bg2 '#504945'
+  set -l gb_bg3 '#665c54'
+  set -l gb_fg3 '#bdae93'
+  set -l gb_fg2 '#d5c4a1'
+  set -l gb_fg1 '#ebdbb2'
+  set -l gb_fg0 '#fbf1c7'
+  set -l gb_red '#fb4934'
+  set -l gb_dark_red '#cc241d'
+  set -l gb_orange '#fe8019'
+  set -l gb_dark_orange '#d65d0e'
+  set -l gb_yellow '#fabd2f'
+  set -l gb_dark_yellow '#d79921'
+  set -l gb_green '#b8bb26'
+  set -l gb_dark_green '#98971a'
+  set -l gb_aqua '#8ec07c'
+  set -l gb_dark_aqua '#689d6a'
+  set -l gb_blue '#83a598'
+  set -l gb_dark_blue '#458588'
+  set -l gb_purple '#d3869b'
+  set -l gb_dark_purple '#b16286'
+
+  set -Ux fifc_custom_fzf_opts "--bind='ctrl-y:accept'
   --bind='ctrl-alt-y:yank'
   --height=40%
   --layout=reverse
   --style=minimal
-  --info=inline --preview 'bat {}' --border --margin=1 --padding=1"
+  --info=inline --border --margin=1 --padding=1
+  --color=fg:$gb_fg3,header:$gb_blue,info:$gb_yellow,pointer:$gb_aqua
+  --color=bg+:$gb_bg1,bg:$gb_bg0_h,spinner:$gb_aqua,hl:$gb_dark_blue
+  --color=marker:$gb_aqua,fg+:$gb_fg1,prompt:$gb_yellow,hl+:$gb_blue"
 
   theme_gruvbox dark hard
 
@@ -57,9 +85,6 @@ if status is-interactive
   alias config "/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
 
   alias fly flyctl
-
-  # Use tab for auto completion
-  bind \t complete
 
   # Make !! behave like bash/zsh
   function last_history_item; echo $history[1]; end
