@@ -90,6 +90,11 @@ opt.cursorcolumn = false -- Don't Highlight the column
 opt.colorcolumn = "80" -- Show a guide at 80 chars
 c.hl(0, 'ColorColumn', { bg="#4f4f4f" })
 
+-- override the colorscheme and make fold and sign columns same as
+-- normal bg color
+c.hl(0, 'FoldColumn', { bg="#1d2021" })
+c.hl(0, 'SignColumn', { bg="#1d2021" })
+
 opt.smoothscroll = true
 opt.smartindent = true
 

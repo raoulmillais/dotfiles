@@ -13,7 +13,7 @@ return {
     },
     opts = {
       popup_border_style = "",
-      },
+    },
     init = function()
       local keymaps = require('config.keymaps')
       c.register_normal_keymaps(keymaps.neotree)
@@ -27,7 +27,15 @@ return {
       local bl = require('bufferline')
       bl.setup({
         options = {
-          separator_style = 'slant'
+          separator_style = 'slant',
+          offsets = {
+            {
+              filetype = "neo-tree",
+              text = "File Explorer",
+              highlight = "Directory",
+              text_align = "left"
+            }
+          }
         }
       })
       end
