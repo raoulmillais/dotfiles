@@ -71,8 +71,8 @@ c.autocmd({ "InsertEnter", "InsertLeave" }, {
       -- Orange in insert mode
       c.hl(0, 'StatusLine', { fg = '#ffaf00', bg = '#1d2021' })
     else
-      -- Gray
-      c.hl(0, 'StatusLine', { fg = '#665c54', bg = '#1d2021' })
+      -- Blue
+      c.hl(0, 'StatusLine', { fg = '#458588', bg = '#1d2021' })
     end
   end
 })

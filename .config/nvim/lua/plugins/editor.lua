@@ -1,16 +1,29 @@
-local c = require('core')
 return {
   {
     'ellisonleao/gruvbox.nvim',
     priority = 1000, -- Load this very early
     opts = {
       contrast = 'hard',
+      -- Still gruvbox but less distracting
+      overrides = {
+        FoldColumn = { bg = "#1d2021" }, -- same as Normal background
+        SignColumn = { bg = "#1d2021" }, -- same as Normal background
+        Directory = { bg = "#0f1112" }, -- same as Normal background
+        DiagnosticSignError = { fg = "#cc241d", bg = "#1d2021" }, -- red
+        DiagnosticSignWarn = { fg = "#d79921", bg = "#1d2021" }, -- yellow
+        DiagnosticSignInfo = { fg = "#689d6a", bg = "#1d2021" }, -- aqua
+        DiagnosticSignHint = { bg = "#1d2021" }, -- normal text color and bg
+        ColorColumn = { bg = "#282828" }, -- darkest bg apart from Normal
+        CursorLine = { bg = "#282828" }, -- darkest bg apart from Normal
+        CursorLineNr = { bg = "#282828" }, -- darkest bg apart from Normal
+        NormalFloat = { bg = '#1d2021' }, -- same as Normal background
+        StatusLine = { fg = '#458588', bg = '#1d2021' }, --blue in normal mode
+        StatusLineNC = { fg = '#665c54', bg = '#1d2021' }, -- gray without focus
+        Comment = { fg  = '#504945' }, -- darker but still legible
+      }
     },
     init = function ()
-      vim.o.background = "dark" -- Dark colorscheme
-      vim.g.gruvbox_italic = 1 -- Alacritty supports italics just fine
       vim.cmd.colorscheme 'gruvbox'
-      c.hl(0, 'Comment', {italic = true})
     end
   },
   { 'jremmen/vim-ripgrep' },

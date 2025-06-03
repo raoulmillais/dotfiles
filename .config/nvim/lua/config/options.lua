@@ -3,7 +3,6 @@ local g, opt = vim.g, vim.opt
 
 -- COLORSCHEME
 opt.termguicolors = true
-c.hl(0, 'NormalFloat', { bg = '#1d2021' })
 
 -- DIFFING
 opt.diffopt = "vertical"
@@ -37,8 +36,7 @@ opt.showmode = true -- Show the current mode in the last line
 opt.showcmd = true -- Show the current command in the last line
 opt.ruler = true -- Show the line and column of the cursor position
 opt.laststatus = 2 -- Taller status line to reduce annoying prompts
-opt.fillchars = { stl = "─" }
-c.hl(0, 'StatusLine', { fg = '#665c54', bg = '#1d2021' })
+opt.fillchars = { stl = "─", stlnc = "─" }
 
 
 -- WILDMENU
@@ -86,14 +84,8 @@ opt.splitright = true -- Open new vsplits to the right
 opt.cursorline = true -- Highlight the line under the cursor
 opt.cursorcolumn = false -- Don't Highlight the column
 
--- Show 80 char column in light grey
+-- Show 80 char column
 opt.colorcolumn = "80" -- Show a guide at 80 chars
-c.hl(0, 'ColorColumn', { bg="#4f4f4f" })
-
--- override the colorscheme and make fold and sign columns same as
--- normal bg color
-c.hl(0, 'FoldColumn', { bg="#1d2021" })
-c.hl(0, 'SignColumn', { bg="#1d2021" })
 
 opt.smoothscroll = true
 opt.smartindent = true
