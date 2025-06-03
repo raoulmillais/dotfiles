@@ -2,7 +2,27 @@ local c = require('core')
 
 return {
   { "nvim-lua/plenary.nvim"},
-  { "nvim-tree/nvim-web-devicons" },
+  {
+    "nvim-tree/nvim-web-devicons" ,
+    opts = {
+      -- the colors clash with gruvbox
+      color_icons = false
+    },
+    init = function ()
+      -- This is the only way to change all the icons to a gruvbox colour
+      -- https://github.com/nvim-tree/nvim-web-devicons/issues/101
+      local nvim_web_devicons = require("nvim-web-devicons")
+      local current_icons = nvim_web_devicons.get_icons()
+      local new_icons = {}
+
+      for key, icon in pairs(current_icons) do
+          icon.color = "#ebdbb2"
+          new_icons[key] = icon
+      end
+
+      nvim_web_devicons.set_icon(new_icons)
+    end,
+  },
   { "MunifTanjim/nui.nvim" },
   {
     "nvim-neo-tree/neo-tree.nvim",
@@ -13,6 +33,15 @@ return {
     },
     opts = {
       popup_border_style = "",
+      color_icons = false,
+      default_component_configs = {
+        indent = {
+          with_expanders = true,
+          expander_collapsed = "",
+          expander_expanded = "",
+          expander_highlight = "NeoTreeExpander",
+        }
+      }
     },
     init = function()
       local keymaps = require('config.keymaps')
@@ -27,8 +56,8 @@ return {
       local bl = require('bufferline')
       bl.setup({
         options = {
-          themable = true,
           separator_style = 'slant',
+          show_close_icon = false,
           offsets = {
             {
               filetype = "neo-tree",

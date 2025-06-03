@@ -38,7 +38,6 @@ opt.ruler = true -- Show the line and column of the cursor position
 opt.laststatus = 2 -- Taller status line to reduce annoying prompts
 opt.fillchars = { stl = "─", stlnc = "─" }
 
-
 -- WILDMENU
 opt.wildmode = "full" -- Tab complete longest common string and show list
 opt.wildoptions = "pum" -- Show wildmenu in pop up menu

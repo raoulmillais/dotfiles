@@ -8,7 +8,14 @@ return {
       overrides = {
         FoldColumn = { bg = "#1d2021" }, -- same as Normal background
         SignColumn = { bg = "#1d2021" }, -- same as Normal background
-        Directory = { bg = "#0f1112" }, -- same as Normal background
+        -- This is the heading above neo-tree added by bufferline, I want it
+        -- to match the rest of the background of bufferline. This iis not a
+        -- gruvbox dark colour but it works nicely
+        Directory = { bg = "#0f1112" }, -- same as Normal backgroundS
+        NeoTreeDirectoryIcon = { fg= '#ffaf00' },
+        NeoTreeDirectoryName = { fg= '#ffaf00' },
+        NeoTreeFileIcon = { fg = '#928374' },
+        NeoTreeFileName = { fg = '#928374' },
         DiagnosticSignError = { fg = "#cc241d", bg = "#1d2021" }, -- red
         DiagnosticSignWarn = { fg = "#d79921", bg = "#1d2021" }, -- yellow
         DiagnosticSignInfo = { fg = "#689d6a", bg = "#1d2021" }, -- aqua
