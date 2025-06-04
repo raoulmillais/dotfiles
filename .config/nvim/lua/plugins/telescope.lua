@@ -21,28 +21,50 @@ return {
         winblend = 0,
       },
       scroll_strategy = "cycle",
-      pickers = {
-        find_files = {
-          theme = "dropdown",
-          previewer = false,
-        }
-      },
-      extensions = {
-        ["ui-select"] = {
-          theme = "dropdown",
-          previewer = false,
-        },
-        fzf = {
-          fuzzy = true,
-          override_generic_sorter = true,
-          override_file_sorter = true,
-          case_mode = "smart_case",
-        },
-      },
     },
     config = function(_, o)
       local telescope = require('telescope')
-      telescope.setup(o)
+      local actions = require('telescope.actions')
+      local themes = require('telescope.themes')
+
+      local simple_dropdown = {
+        theme = "dropdown",
+        previewer = false,
+      }
+      local overrides = {
+        defaults = {
+          -- Add the same mappints as blink menu and the 'wildmenu'
+          mappings = {
+            i = {
+              ['<C-y>'] = actions.select_default,
+              ['<C-e>'] = actions.close
+            },
+            n = {
+              ['<C-y>'] = actions.select_default,
+              ['<C-e>'] = actions.close
+            }
+          }
+        },
+        pickers = {
+          find_files = simple_dropdown,
+          git_files = simple_dropdown,
+        },
+        extensions = {
+          ["ui-select"] = {
+            -- there seems to be no way to override the
+            themes.get_cursor(),
+          },
+          fzf = {
+            fuzzy = true,
+            override_generic_sorter = true,
+            override_file_sorter = true,
+            case_mode = "smart_case",
+          },
+        },
+      }
+
+      telescope.setup(c.merge(o, overrides))
+
       telescope.load_extension('fzf')
       telescope.load_extension('ui-select')
       local keymaps = require('config.keymaps')

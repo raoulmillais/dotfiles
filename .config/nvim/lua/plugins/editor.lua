@@ -16,6 +16,10 @@ return {
         NeoTreeDirectoryName = { fg= '#ffaf00' },
         NeoTreeFileIcon = { fg = '#928374' },
         NeoTreeFileName = { fg = '#928374' },
+        TelescopeSelection = { fg = '#ffaf00', bg = '#282828' },
+        TelescopePromptTitle = { fg = '#ebdbb2', italic = true, bold = true },
+        TelescopePromptPrefix = { fg = '#458588', bold = true },
+        TelescopeSelectionCaret = { fg = '#ffaf00', bold = true },
         DiagnosticSignError = { fg = "#cc241d", bg = "#1d2021" }, -- red
         DiagnosticSignWarn = { fg = "#d79921", bg = "#1d2021" }, -- yellow
         DiagnosticSignInfo = { fg = "#689d6a", bg = "#1d2021" }, -- aqua
