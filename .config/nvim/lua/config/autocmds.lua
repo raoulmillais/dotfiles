@@ -138,7 +138,7 @@ c.autocmd({"CursorHold"}, {
 
 local opts = { noremap = true, silent = true }
 c.autocmd('LspAttach', {
-  group = c.augroup("attach_lsp_keybinds"),
+  group = c.augroup("attach_lsp_keys_and_features"),
   callback = function (args)
     local keymaps = require('config.keymaps')
     local client = vim.lsp.get_client_by_id(args.data.client_id)
