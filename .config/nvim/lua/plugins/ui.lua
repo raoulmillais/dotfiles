@@ -66,6 +66,7 @@ return {
         options = {
           separator_style = 'slant',
           show_close_icon = false,
+          mode = "tabs",
           offsets = {
             {
               filetype = "neo-tree",
