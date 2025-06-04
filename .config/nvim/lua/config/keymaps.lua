@@ -58,7 +58,6 @@ local keymaps = {
     { "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>", { desc = "Code acion" } },
     { "gr", "<cmd>lua vim.lsp.buf.references()<CR>", { desc = "Find references" } },
     { "<leader>cf", "<cmd>lua vim.lsp.buf.formatting()<CR>", { desc = "Format buffer" } },
-    { "<leader>ca", ":CodeActionMenu<CR>", { desc = "Code action menu" } },
   },
   telescope = {
     { "<C-p>", ":Telescope find_files<CR>", { desc = "Find files" } },
