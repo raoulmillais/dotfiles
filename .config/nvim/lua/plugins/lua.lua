@@ -1,5 +1,4 @@
 return {
-  { 'nanotee/luv-vimdocs' },
   { 'milisims/nvim-luaref' },
   -- `vim.uv` typings
   { "Bilal2453/luvit-meta", lazy = true },
