@@ -13,9 +13,9 @@ return {
       'nvim-lua/plenary.nvim'
     },
     opts = {
-      color_devicons = true,
+      color_devicons = false,
       defaults = {
-        winblend = 30,
+        winblend = 0,
       },
       scroll_strategy = "cycle",
     },

@@ -102,7 +102,6 @@ return {
         { "<leader>g", group = "[G]it" },
         { "<leader>q", group = "[Q]uit/session" },
         { "<leader>s", group = "[S]earch" },
-        { "<leader>u", group = "[U]i", icon = { icon = "󰙵 ", color = "cyan" } },
         { "<leader>d", group = "[D]iagnostics/quickfix", icon = { icon = "󱖫 ", color = "green" } },
         { "[", group = "prev" },
         { "]", group = "next" },
