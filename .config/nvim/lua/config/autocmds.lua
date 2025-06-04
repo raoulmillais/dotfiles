@@ -135,3 +135,33 @@ c.autocmd({"CursorHold"}, {
     vim.diagnostic.open_float()
   end
 })
+
+local opts = { noremap = true, silent = true }
+c.autocmd('LspAttach', {
+  group = c.augroup("attach_lsp_keybinds"),
+  callback = function (args)
+    local keymaps = require('config.keymaps')
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    local bufnr = args.buf
+    for _, km in pairs(keymaps.lsp) do
+      local lhs, rhs, o = unpack(km)
+      c.merge(o, opts)
+      c.nmap_buf(bufnr, lhs, rhs, o)
+    end
+    if client and client:supports_method 'textDocument/inlayHint' then
+      if
+        vim.api.nvim_buf_is_valid(bufnr) and vim.bo[bufnr].buftype == ""
+      then
+        vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+      end
+    end
+
+    if client and client:supports_method 'textDocument/codeLens' then
+      vim.lsp.codelens.refresh()
+      vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
+        buffer = bufnr,
+        callback = vim.lsp.codelens.refresh,
+      })
+    end
+  end
+})

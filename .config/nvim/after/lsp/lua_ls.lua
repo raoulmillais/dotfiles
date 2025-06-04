@@ -11,6 +11,9 @@ return {
         library = vim.api.nvim_get_runtime_file("lua", true),
         checkThirdParty = false,
       },
+      codeLens = {
+        enable = true,
+      },
       telemetry = {
         enabled = false, -- don't send telemetry
       },
