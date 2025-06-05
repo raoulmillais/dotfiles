@@ -1,5 +1,6 @@
 local c = require('core')
 local map = require('core.map')
+local autocmd = require('core.autocmd')
 
 return {
   --[[
@@ -24,7 +25,7 @@ return {
     config = function(_, opts)
       require('mini.pairs').setup(opts)
       -- Disable mini.pairs when going from visual block or visual into insert
-      c.autocmd("ModeChanged", {
+      autocmd.create("ModeChanged", {
         group = "MiniPairs", -- same as the group in `mini.pairs`
         pattern = { "V:i", "\22:i" },
         callback = function()
@@ -32,7 +33,7 @@ return {
         end
       })
       -- Re-enable mini.pairs if it was disabled when leaving insert mode
-      c.autocmd("ModeChanged", {
+      autocmd.create("ModeChanged", {
         group = "MiniPairs", -- same as the group in `mini.pairs`
         pattern = "i:*",
         callback = function()
