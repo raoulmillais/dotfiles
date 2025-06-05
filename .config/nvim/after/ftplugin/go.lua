@@ -4,8 +4,8 @@ if vim.b.ftplugin_loaded then
 end
 vim.b.ftplugin_loaded = true
 
-local augroup = require('core.augroup')
-local autocmd = require('core.autocmd')
+local augroup = require('core.nvim.augroup')
+local autocmd = require('core.nvim.autocmd')
 
 vim.opt_local.tabstop = 4
 vim.cmd("compiler go")

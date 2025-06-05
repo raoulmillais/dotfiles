@@ -1,6 +1,3 @@
-local c = require('core')
-local opts = { noremap = true, silent = true }
-
 return {
   { 'williamboman/mason.nvim' },
   { 'williamboman/mason-lspconfig.nvim' },

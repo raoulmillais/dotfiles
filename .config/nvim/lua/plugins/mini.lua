@@ -1,6 +1,6 @@
 local c = require('core')
-local map = require('core.map')
-local autocmd = require('core.autocmd')
+local map = require('core.nvim.map')
+local autocmd = require('core.nvim.autocmd')
 
 return {
   --[[

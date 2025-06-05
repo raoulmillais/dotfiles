@@ -1,8 +1,8 @@
 local c = require('core')
-local map = require('core.map')
-local hl = require('core.hl')
-local augroup = require('core.augroup')
-local autocmd = require('core.autocmd')
+local map = require('core.nvim.map')
+local hl = require('core.nvim.hl')
+local augroup = require('core.nvim.augroup')
+local autocmd = require('core.nvim.autocmd')
 
 local opt = vim.opt
 

@@ -1,4 +1,4 @@
-local map = require('core.map')
+local map = require('core.nvim.map')
 
 local M = {}
 

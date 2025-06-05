@@ -1,5 +1,5 @@
 local c = require('core')
-local map = require('core.map')
+local map = require('core.nvim.map')
 
 map.n("S", ":%s::g<LEFT><LEFT>", { desc = "Global search and replace" })
 map.n("<leader><space>", ":noh<cr>", { desc = "Disable search highlighting" })

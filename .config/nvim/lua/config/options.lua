@@ -1,4 +1,3 @@
-local c = require('core')
 local g, opt = vim.g, vim.opt
 
 -- COLORSCHEME

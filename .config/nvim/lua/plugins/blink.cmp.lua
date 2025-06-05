@@ -1,4 +1,4 @@
-local hl = require('core.hl')
+local hl = require('core.nvim.hl')
 
 return {
   'saghen/blink.cmp',

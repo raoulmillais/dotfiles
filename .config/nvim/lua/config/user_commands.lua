@@ -1,4 +1,4 @@
-local usercmd = require('core.usercmd')
+local usercmd = require('core.nvim.usercmd')
 
 usercmd.create('DiagnosticsToggle', function()
     local enabled = vim.diagnostic.is_enabled()
