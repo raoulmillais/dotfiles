@@ -47,6 +47,8 @@ return {
           max_completion_tokens = 1000000,
           reasoning_effort = "high",
           model = "claude-sonnet-4",
+          -- I want to always be in charge of commiting changes to history
+          diabled_tools = { "git" },
         },
       },
       windows = {
@@ -59,6 +61,18 @@ return {
           border = "single",
           start_insert = true,
         },
+      },
+      -- These are nhelpful as I have which-key to remind me of keymaps
+      -- and they cause my nvim to lockup for a while
+      hints = { enabled = false },
+      behaviour = {
+        -- This is the default but I never want tab-tab-tab-complete it stops
+        -- me thinking and validating the suggestions.
+        auto_suggestions = false,
+        -- Also a default but I never want an update to turn this on. I really
+        -- want to be able to intervvene before a model does something on my
+        -- machine
+        auto_approve_tool_permissions = false,
       },
       -- system_prompt as function ensures LLM always has latest MCP server state
       -- This is evaluated for every message, even in existing chats
