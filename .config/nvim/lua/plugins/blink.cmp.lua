@@ -2,7 +2,10 @@ local c = require('core')
 
 return {
   'saghen/blink.cmp',
-  dependencies = { 'rafamadriz/friendly-snippets' },
+  dependencies = {
+    'Kaiser-Yang/blink-cmp-avante',
+    'rafamadriz/friendly-snippets'
+  },
   version = '1.*',
   opts = {
     keymap = { preset = 'default' },
@@ -12,13 +15,20 @@ return {
     completion = { documentation = { auto_show = false } },
     signature = { enabled = true },
     sources = {
-      default = { 'lazydev', 'lsp', 'path', 'snippets', 'buffer' },
+      default = { 'avante', 'lazydev', 'lsp', 'path', 'snippets', 'buffer' },
       providers = {
         lazydev = {
           name = "LazyDev",
           module = "lazydev.integrations.blink",
           score_offset = 100,
         },
+        avante = {
+          module = 'blink-cmp-avante',
+          name = 'Avante',
+          opts = {
+            -- options for blink-cmp-avante
+          }
+        }
       },
     },
     fuzzy = { implementation = "prefer_rust_with_warning" }
