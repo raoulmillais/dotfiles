@@ -20,8 +20,6 @@ map.c("<C-e>", "End>")
 
 -- Exit insert mode
 map.i("jk", "<esc>")
--- Always disable `paste` when leaving insert mode
-map.n("<F12>", ":set paste!<cr>")
 
 -- Move up and down by screenline instead of file line
 map.n("j", "gj")
@@ -33,6 +31,8 @@ map.c("w!!", "%!sudo tee > /dev/null %")
 --[[
 -- These keymaps will be installed at the relevant time by their respective
 -- plugins.  They are defined here to more easily view all keymaps at a glance.
+-- Where I have overriden keymaps in plugins to make them behave like the rest
+-- of vim they aren't here
 --
 -- Any keymaps defined here will be installed with `noremap`
 -- ]]

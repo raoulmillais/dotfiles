@@ -40,6 +40,12 @@ return {
           expander_highlight = "NeoTreeExpander",
         }
       },
+      window = {
+        mappings = {
+          ["<C-x>"] = "open_split",
+          ["<C-v>"] = "open_vsplit",
+      },
+      },
       event_handlers = {
         {
           event = "after_render",
