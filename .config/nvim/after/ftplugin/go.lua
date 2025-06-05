@@ -5,12 +5,13 @@ end
 vim.b.ftplugin_loaded = true
 
 local c = require('core')
+local augroup = require('core.augroup')
 
 vim.opt_local.tabstop = 4
 vim.cmd("compiler go")
 
 c.autocmd("QuickFixCmdPost", {
-  group = c.augroup("open_qf_when_build_fails"),
+  group = augroup.create("open_qf_when_build_fails"),
   pattern = "make", -- pattern is matched against the command being run
   callback = function()
     local qf_is_open = vim.fn.getqflist({winid = 0}).winid > 0

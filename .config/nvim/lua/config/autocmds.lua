@@ -1,11 +1,12 @@
 local c = require('core')
 local map = require('core.map')
+local augroup = require('core.augroup')
 
 local opt = vim.opt
 
 -- Disable paste mode when leaving insert mode
 c.autocmd("InsertLeave", {
-  group = c.augroup("disable_paste"),
+  group = augroup.create("disable_paste"),
   pattern = "*",
   callback = function()
     opt.paste = false
@@ -13,13 +14,13 @@ c.autocmd("InsertLeave", {
 })
 -- Automatically rebalance windows on vim resize
 c.autocmd("VimResized", {
-  group = c.augroup("resize_splits"),
+  group = augroup.create("resize_splits"),
   pattern = "*",
   command = "wincmd =",
 })
 
 c.autocmd("FileType", {
-  group = c.augroup("close_with_q"),
+  group = augroup.create("close_with_q"),
   pattern = {
     "PlenaryTestPopup",
     "grug-far",
@@ -49,7 +50,7 @@ c.autocmd("FileType", {
 
 -- go to last loc when opening a buffer (Adapted from LazyVim)
 c.autocmd("BufReadPost", {
-  group = c.augroup("restore_last_location"),
+  group = augroup.create("restore_last_location"),
   callback = function(event)
     local exclude = { "gitcommit" }
     local buf = event.buf
@@ -66,7 +67,7 @@ c.autocmd("BufReadPost", {
 })
 
 c.autocmd({ "InsertEnter", "InsertLeave" }, {
-  group = c.augroup("status_line_colors"),
+  group = augroup.create("status_line_colors"),
   pattern = "*",
   callback = function(event)
     if event.event == 'InsertEnter' then
@@ -80,7 +81,7 @@ c.autocmd({ "InsertEnter", "InsertLeave" }, {
 })
 
 c.autocmd({ "BufWritePre" }, {
-  group = c.augroup("remove_trailing_whitespace"),
+  group = augroup.create("remove_trailing_whitespace"),
   pattern = { "*" },
   command = [[%s/\s\+$//e]],
 })
@@ -88,7 +89,7 @@ c.autocmd({ "BufWritePre" }, {
 
 local set_cursorline = function(event, value, pattern)
   c.autocmd(event, {
-    group = c.augroup("toggle_cursor_line_on_focus"),
+    group = augroup.create("toggle_cursor_line_on_focus"),
     pattern = pattern,
     callback = function()
       vim.opt_local.cursorline = value
@@ -100,7 +101,7 @@ set_cursorline("WinEnter", true)
 set_cursorline("FileType", false, "TelescopePrompt")
 
 c.autocmd("FileType", {
-  group = c.augroup("disable_guides_in_quickfix"),
+  group = augroup.create("disable_guides_in_quickfix"),
   pattern = "qf",
   callback = function()
     vim.opt_local.colorcolumn = "0"
@@ -113,7 +114,7 @@ c.autocmd("FileType", {
 })
 
 c.autocmd("FileType", {
-  group = c.augroup("help_in_vertical_split"),
+  group = augroup.create("help_in_vertical_split"),
   pattern = { "help", "markdown" }, -- some plugins have help as markdown :(
   callback = function ()
     -- Don't do anything for regular markdown files
@@ -133,7 +134,7 @@ c.autocmd("FileType", {
 
 --TODO: Add CursorHoldI back in when bug is fixed (see diagnostics.lua)
 c.autocmd({"CursorHold"}, {
-  group = c.augroup("diagnostics_in_float"),
+  group = augroup.create("diagnostics_in_float"),
   pattern = "*",
   callback = function ()
     vim.diagnostic.open_float()
@@ -142,7 +143,7 @@ c.autocmd({"CursorHold"}, {
 
 local opts = { noremap = true, silent = true }
 c.autocmd('LspAttach', {
-  group = c.augroup("attach_lsp_keys_and_features"),
+  group = augroup.create("attach_lsp_keys_and_features"),
   callback = function (args)
     local keymaps = require('config.keymaps')
     local client = vim.lsp.get_client_by_id(args.data.client_id)
