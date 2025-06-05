@@ -1,4 +1,4 @@
-local c = require('core')
+local hl = require('core.hl')
 
 return {
   'saghen/blink.cmp',
@@ -25,9 +25,7 @@ return {
         avante = {
           module = 'blink-cmp-avante',
           name = 'Avante',
-          opts = {
-            -- options for blink-cmp-avante
-          }
+          opts = { }
         }
       },
     },
@@ -35,7 +33,7 @@ return {
   },
   opts_extend = { "sources.default" },
   init = function()
-    c.hl(0, 'BlinkCmpMenu', { bg = '#1d2021' })
-    c.hl(0, 'BlinkCmpMenuBorder', { bg = '#1d2021' })
+    hl.set(0, 'BlinkCmpMenu', { bg = '#1d2021' })
+    hl.set(0, 'BlinkCmpMenuBorder', { bg = '#1d2021' })
   end
 }

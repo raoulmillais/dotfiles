@@ -1,5 +1,6 @@
 local c = require('core')
 local map = require('core.map')
+local hl = require('core.hl')
 local augroup = require('core.augroup')
 local autocmd = require('core.autocmd')
 
@@ -73,10 +74,10 @@ autocmd.create({ "InsertEnter", "InsertLeave" }, {
   callback = function(event)
     if event.event == 'InsertEnter' then
       -- Orange in insert mode
-      c.hl(0, 'StatusLine', { fg = '#ffaf00', bg = '#1d2021' })
+      hl.set(0, 'StatusLine', { fg = '#ffaf00', bg = '#1d2021' })
     else
       -- Blue
-      c.hl(0, 'StatusLine', { fg = '#458588', bg = '#1d2021' })
+      hl.set(0, 'StatusLine', { fg = '#458588', bg = '#1d2021' })
     end
   end
 })
