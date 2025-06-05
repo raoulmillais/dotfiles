@@ -12,7 +12,6 @@ M.register_normal_keymaps = function(keymaps)
   end
 end
 
-M.usercmd = vim.api.nvim_create_user_command
 M.hl = vim.api.nvim_set_hl
 
 --- merge is a short cut for vim.tbl_deep_extend with 'force' behaviour

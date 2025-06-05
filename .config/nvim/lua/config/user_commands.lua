@@ -1,6 +1,6 @@
-local c = require('core')
+local usercmd = require('core.usercmd')
 
-c.usercmd('DiagnosticsToggle', function()
+usercmd.create('DiagnosticsToggle', function()
     local enabled = vim.diagnostic.is_enabled()
     if enabled then
       vim.diagnostic.enable(false)
