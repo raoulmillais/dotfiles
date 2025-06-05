@@ -112,8 +112,10 @@ c.autocmd("FileType", {
 
 c.autocmd("FileType", {
   group = c.augroup("help_in_vertical_split"),
-  pattern = "help",
+  pattern = { "help", "markdown" },
   callback = function ()
+    -- Don't do anything for regular markdown files
+    if vim.bo.buftype ~= "help" then return end
     -- Help buffers are large and readonly and easily recretaed so free up some
     -- RAM and declutter the buffer list by unloading them when they are closed
     vim.opt_local.bufhidden="unload"
