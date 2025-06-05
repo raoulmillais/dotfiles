@@ -62,7 +62,7 @@ return {
           start_insert = true,
         },
       },
-      -- These are nhelpful as I have which-key to remind me of keymaps
+      -- These are not helpful as I have which-key to remind me of keymaps
       -- and they cause my nvim to lockup for a while
       hints = { enabled = false },
       behaviour = {

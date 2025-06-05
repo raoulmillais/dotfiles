@@ -1,33 +1,34 @@
 local c = require('core')
+local map = require('core.map')
 
-c.nmap("S", ":%s::g<LEFT><LEFT>", { desc = "Global search and replace" })
-c.nmap("<leader><space>", ":noh<cr>", { desc = "Disable search highlighting" })
-c.nmap("<leader>h", "*<C-O>", { desc = "Highlight other instances of word at cursor"})
-c.nmap("<Leader>sv", ":source $MYVIMRC<CR>", { desc = "Reload neovim config" })
+map.c("S", ":%s::g<LEFT><LEFT>", { desc = "Global search and replace" })
+map.c("<leader><space>", ":noh<cr>", { desc = "Disable search highlighting" })
+map.c("<leader>h", "*<C-O>", { desc = "Highlight other instances of word at cursor"})
+map.c("<Leader>sv", ":source $MYVIMRC<CR>", { desc = "Reload neovim config" })
 
 -- tabs
-c.nmap("<leader>tn", ":tabn<cr>", { desc = "Next tab" })
-c.nmap("<leader>tp", ":tabp<cr>", { desc = "Previous tab" })
-c.nmap("<leader>te", ":tabe<space>", { desc = "New empty tab" })
-c.nmap("<leader>tc", ":tabclose<cr>", { desc = "Close tab" })
+map.c("<leader>tn", ":tabn<cr>", { desc = "Next tab" })
+map.c("<leader>tp", ":tabp<cr>", { desc = "Previous tab" })
+map.c("<leader>te", ":tabe<space>", { desc = "New empty tab" })
+map.c("<leader>tc", ":tabclose<cr>", { desc = "Close tab" })
 
 -- Command line remappings like standard (non-vi mode) readline mappings
-c.cmap("<C-j>", "t_kd>")
-c.cmap("<C-k>", "t_ku>")
-c.cmap("<C-a>", "Home>")
-c.cmap("<C-e>", "End>")
+map.c("<C-j>", "t_kd>")
+map.c("<C-k>", "t_ku>")
+map.c("<C-a>", "Home>")
+map.c("<C-e>", "End>")
 
 -- Exit insert mode
-c.imap("jk", "<esc>")
+map.i("jk", "<esc>")
 -- Always disable `paste` when leaving insert mode
-c.nmap("<F12>", ":set paste!<cr>")
+map.c("<F12>", ":set paste!<cr>")
 
 -- Move up and down by screenline instead of file line
-c.nmap("j", "gj")
-c.nmap("k", "gk")
+map.c("j", "gj")
+map.c("k", "gk")
 
 -- Enable saving readonly files with sudo
-c.cmap("w!!", "%!sudo tee > /dev/null %")
+map.c("w!!", "%!sudo tee > /dev/null %")
 
 --[[
 -- These keymaps will be installed at the relevant time by their respective

@@ -1,4 +1,6 @@
 local c = require('core')
+local map = require('core.map')
+
 local opt = vim.opt
 
 -- Disable paste mode when leaving insert mode
@@ -37,7 +39,7 @@ c.autocmd("FileType", {
   },
   callback = function(event)
     vim.bo[event.buf].buflisted = false
-    vim.keymap.set("n", "q", "<cmd>close<cr>", {
+    map.n("q", "<cmd>close<cr>", {
       buffer = event.buf,
       silent = true,
       desc = "Quit buffer",
@@ -148,7 +150,7 @@ c.autocmd('LspAttach', {
     for _, km in pairs(keymaps.lsp) do
       local lhs, rhs, o = unpack(km)
       c.merge(o, opts)
-      c.nmap_buf(bufnr, lhs, rhs, o)
+      map.buf.n(bufnr, lhs, rhs, o)
     end
     if client and client:supports_method 'textDocument/inlayHint' then
       if

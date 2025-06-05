@@ -1,4 +1,6 @@
 local c = require('core')
+local map = require('core.map')
+
 return {
   --[[
   --  All the mini.nvim plugins provide modern-treesitter aware and undo-enabled
@@ -67,10 +69,10 @@ return {
       --
       -- Remap adding surrounding to Visual mode selection
       vim.keymap.del('x', 'ys')
-      vim.keymap.set('x', 'S', [[:<C-u>lua MiniSurround.add('visual')<CR>]], { silent = true })
+      map.x('S', [[:<C-u>lua MiniSurround.add('visual')<CR>]], { silent = true })
 
       -- Make special mapping for "add surrounding for line"
-      vim.keymap.set('n', 'yss', 'ys_', { remap = true })
+      map.n('yss', 'ys_', { remap = true })
     end
   },
   -- Cycle through targets with square bracket keymaps - (like vim-unimpaired)

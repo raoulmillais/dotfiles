@@ -1,5 +1,5 @@
-local c = require('core')
+local map = require('core.map')
 
 vim.opt_local.makeprg = "cargo run"
-c.nmap("<F5>", ":make<cr>")
+map.buf.n("<F5>", ":make<cr>")
 
