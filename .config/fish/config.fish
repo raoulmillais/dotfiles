@@ -1,3 +1,5 @@
+fish_add_path -m ~/.bin ~/.npm-global
+
 if status is-interactive
   # Suppress the welcome message
   set fish_greeting
