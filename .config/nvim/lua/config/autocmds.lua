@@ -112,7 +112,7 @@ c.autocmd("FileType", {
 
 c.autocmd("FileType", {
   group = c.augroup("help_in_vertical_split"),
-  pattern = { "help", "markdown" },
+  pattern = { "help", "markdown" }, -- some plugins have help as markdown :(
   callback = function ()
     -- Don't do anything for regular markdown files
     if vim.bo.buftype ~= "help" then return end
