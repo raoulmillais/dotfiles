@@ -46,6 +46,7 @@ if status is-interactive
 
   # Configure vim keybindings (but allow use of emacs style too)
   set -g fish_key_bindings fish_hybrid_key_bindings
+  fish_hybrid_key_bindings
   # Remap jk to escape in insert mode
   bind -M insert jk "if commandline -P; commandline -f cancel; else; set fish_bind_mode default; commandline -f backward-char force-repaint; end"
 
