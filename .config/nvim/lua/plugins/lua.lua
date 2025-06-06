@@ -8,8 +8,8 @@ return {
     opts = {
       library = {
         -- See the configuration section for more details
-        -- Load luvit types when the `vim.uv` word is found
-        { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+        -- Always load luvit types - I only use lua for neovim
+        { path = "${3rd}/luv/library" },
       },
     },
   },
