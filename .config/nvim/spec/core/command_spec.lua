@@ -1,5 +1,3 @@
--- spec/core/process_spec.lua (Fixed for Plenary.nvim)
-
 local Command = require('core.command')
 
 describe("Command class", function()
