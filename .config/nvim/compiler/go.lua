@@ -1,6 +1,4 @@
--- This was taken from https://github.com/fatih/vim-go/blob/787342da47bc5fe6fa88e9d65842c6a0a6304700/compiler/go.vim
--- and rewritten in lua and removing the compatibility parts that aren't
--- relevant for latest neovim.
+-- The go build errorformat was taken from https://github.com/fatih/vim-go/blob/787342da47bc5fe6fa88e9d65842c6a0a6304700/compiler/go.vim
 --
 -- Copyright notice from the original source:
 --
@@ -21,13 +19,7 @@ else
   vim.opt_local.makeprg = "go build"
 end
 
--- Define the patterns that will be recognized by QuickFix when parsing the
--- output of Go command that use this errorformat (when called make, cexpr or
--- lmake, lexpr). This is the global errorformat, however some command might
--- use a different output, for those we define them directly and modify the
--- errorformat ourselves. More information at:
--- http://vimdoc.sourceforge.net/htmldoc/quickfix.html#errorformat
-
+-- errorformat for parsing go build output and populating the quickfix list
 vim.opt_local.errorformat = {
   "%-G#\\ %.%#",                                 -- Ignore lines beginning with '#' ('# command-line-arguments' line sometimes appears?)
   "%-G%.%#panic:\\ %m",                          -- Ignore lines containing 'panic: message'
