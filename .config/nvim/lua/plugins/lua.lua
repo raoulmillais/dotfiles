@@ -1,4 +1,14 @@
+local c = require('core')
+
 return {
+  -- nvim lua repl
+  {
+    'ii14/neorepl.nvim',
+    init = function()
+      local keymaps = require('config.keymaps')
+      c.register_normal_keymaps(keymaps.neorepl)
+    end
+  },
   { 'milisims/nvim-luaref' },
   -- `vim.uv` typings
   { "Bilal2453/luvit-meta", lazy = true },

@@ -61,6 +61,9 @@ local keymaps = {
     { "gr", "<cmd>lua vim.lsp.buf.references()<CR>", { desc = "Find references" } },
     { "<leader>cf", "<cmd>lua vim.lsp.buf.formatting()<CR>", { desc = "Format buffer" } },
   },
+  neorepl = {
+    { "<F11>", ":NeoReplOpen<CR>", { desc = "Opens a new neorepl (nvim lua)"} }
+  },
   telescope = {
     { "<C-p>", ":Telescope find_files<CR>", { desc = "Find files" } },
     { "<C-t>", ":Telescope<CR>", { desc = "Open telescope" } },
