@@ -4,7 +4,7 @@
 -- the quickfix list with test failures. It filters out passed tests and
 -- external dependencies.
 
-if vim.g.current_compiler then
+if vim.g.current_compiler == "go_test" then
   return
 end
 vim.g.current_compiler = "go_test"
@@ -14,20 +14,14 @@ vim.opt_local.makeprg = "go test -v ./..."
 -- errorformat for parsing go test -v output
 -- Only captures test failures with absolute paths from stack traces
 vim.opt_local.errorformat = {
-  [[%-G=== RUN%.%#]],                            -- Ignore RUN lines
-  [[%-G%*\s/go/pkg/mod/%.%#]],                   -- Ignore external deps (/go/pkg/mod/...)
-  [[%-G%*\s/usr/lib/go/%.%#]],                   -- Ignore stdlib (/usr/lib/go/...)
-  [[%-G%*\s/home/%.%#/go/pkg/mod/%.%#]],         -- Ignore external deps in home dir
-  [[%-G%*\s%.%#pkg/mod/%.%#]],                   -- Ignore any pkg/mod paths
-  [[%I%*\s%f:%l: %m]],                           -- Info: error message (no navigation)
-  [[%E%*\s%f:%l +%.%#]],                         -- Error: first stack trace line (navigable)
-  [[%-G%*\s%.%#:\d\+ +%.%#]],                      -- Ignore: subsequent stack trace lines
-  [[%-G%*\s%.%#]],                               -- Ignore other indented content
-  [[%-G--- FAIL: %m]],                           -- Ignore FAIL lines
-  [[%-G--- PASS%.%#]],                           -- Ignore PASS lines
-  [[%-GFAIL%*\s%*\S%*\s%.%#]],                   -- Ignore final "FAIL package timing" line
-  [[%-GFAIL$]],                                  -- Ignore standalone "FAIL"
-  [[%-G%.%#]]                                    -- Ignore everything else
+  [[%E=== RUN   %o]],                                    -- Start multiline with test name
+  [[%C%*\sError Trace:%*\s%f:%l]],                       -- Capture file:line from Error Trace
+  [[%C%*\sMessages:%*\s%m]],                             -- Capture message from Messages line
+  [[%C%.%#]],                                            -- Continue other lines
+  [[%-Z--- SKIP:.*]],                                    -- End and discard SKIP tests (before FAIL)
+  [[%-Z--- PASS:.*]],                                    -- End and discard PASS tests (before FAIL)
+  [[%Z--- FAIL:.*]],                                     -- End and keep FAIL tests
+  [[panic: %m]],                                         -- Single-line pattern for panic messages
+  [[%-G%.%#]]                                            -- Ignore other lines
 }
-
 -- vim: sw=2 ts=2 et
