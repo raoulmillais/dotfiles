@@ -8,11 +8,15 @@
 --
 -- compiler/go.lua: Neovim compiler file for Go.
 
-if vim.g.current_compiler then
-  return
-end
-vim.g.current_compiler = "go"
-
+-- This has a few improvements over the built-in go compiler plugin and
+-- fatih/vim-go
+--
+-- Doesn't check current_compiler to ensure it overrides the builtin
+-- compiler (as per :h compiler)
+-- Awareness of multiline error strings when faailing to load packages
+-- Correctly assigns build failure messages as eerrot type instead of
+-- unspecified type
+-- Prefers using make over go build directly
 if vim.fn.filereadable("makefile") == 1 or vim.fn.filereadable("Makefile") == 1 then
   vim.opt_local.makeprg = "make"
 else
@@ -21,13 +25,14 @@ end
 
 -- errorformat for parsing go build output and populating the quickfix list
 vim.opt_local.errorformat = {
-  "%-G#\\ %.%#",                                 -- Ignore lines beginning with '#' ('# command-line-arguments' line sometimes appears?)
-  "%-G%.%#panic:\\ %m",                          -- Ignore lines containing 'panic: message'
-  "%Ecan\\'t\\ load\\ package:\\ %m",            -- Start of multiline error string is 'can\'t load package'
+  -- Ignore lines beginning with '#' (When there are errors - there is a comment line with the package name before the errors)
+  "%-G#\\ %.%#",
+  "%-G%.%#panic:\\ %m",                           -- Ignore lines containing 'panic: message'
+  "%Ecan\\'t\\ load\\ package:\\ %m",             -- Start of multiline error string is 'can\'t load package'
   "%A%\\%%(%[%^:]%\\+:\\ %\\)%\\?%f:%l:%c:\\ %m", -- Start of multiline unspecified string is 'filename:linenumber:columnnumber:'
   "%A%\\%%(%[%^:]%\\+:\\ %\\)%\\?%f:%l:\\ %m",    -- Start of multiline unspecified string is 'filename:linenumber:'
-  "%C%*\\s%m",                                   -- Continuation of multiline error message is indented
-  "%-G%.%#"                                      -- All lines not matching any of the above patterns are ignored
+  "%C%*\\s%m",                                    -- Continuation of multiline error message is indented
+  "%-G%.%#"                                       -- All lines not matching any of the above patterns are ignored
 }
 
 -- vim: sw=2 ts=2 et
