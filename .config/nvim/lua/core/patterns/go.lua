@@ -23,13 +23,13 @@ local ss = whitespace * P("goroutine ") * number * P(" [running]:") * eol
 --The first pair in a stacktrace is always the runtime/debug/Stack()
 --  runtime/debug.Stack()
 --    /usr/lib/go/src/runtime/debug/stack.go:26 +0x5e
-local sp = whitespace * P("runtime/debug/Stack()") * eol *
-           whitespace * path_line_offset
+local sp = whitespace * P("runtime/debug.Stack()") * eol *
+             path_line_offset
 -- stack entries come in pairs
 --  github.com/stretchr/testify/suite.failOnPanic(0xc000103500, {0xa76e80, 0xc00017ade0})
 --    /home/raoul/go/pkg/mod/github.com/stretchr/testify@v1.10.0/suite/suite.go:89 +0x37
 local se = whitespace * relative_path * P("(") * stack_arg_list * P(")") + eol *
-                      path_line_offset
+             path_line_offset
 
 -- Putting it all together
 local st = ss * sp * se^1

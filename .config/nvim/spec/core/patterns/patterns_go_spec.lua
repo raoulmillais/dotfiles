@@ -1,9 +1,10 @@
 local p = require('core.patterns.go')
 local lpeg = require('lpeg')
-local pegdebug = require('pegdebug')
 
 local function read_fixture()
-  local file = io.open("../../fixture/go-test-output.txt", "r")
+  local test_dir = vim.fn.expand("%:p:h")
+  local fixture_path = vim.fn.resolve(test_dir .. "/spec/fixture/go-test-output.txt")
+  local file = io.open(fixture_path, "r")
   if not file then
     error("Could not open fixture file: ../../fixture/go-test-output.txt")
   end
@@ -11,6 +12,8 @@ local function read_fixture()
   file:close()
   return content
 end
+
+local fixture_content = read_fixture()
 
 describe("core.patterns.go", function()
 
@@ -148,15 +151,14 @@ describe("core.patterns.go", function()
     it("should match the runtime debug stack entry", function()
       local test_input = "        runtime/debug.Stack()\n" ..
                         "                /usr/lib/go/src/runtime/debug/stack.go:26 +0x5e\n"
-      local debugpat = pegdebug.trace(p.stack_prelude)
-      print(lpeg.match(lpeg.P(debugpat), test_input))
-      assert.equals(#test_input, p.stack_prelude:match(test_input))
+
+      assert.equals(#test_input + 1, p.stack_prelude:match(test_input))
     end)
 
     it("should handle varying whitespace", function()
       local test_input = "runtime/debug.Stack()\n" ..
                         "        /usr/lib/go/src/runtime/debug/stack.go:26 +0x5e\n"
-      assert.equals(#test_input, p.stack_prelude:match(test_input))
+      assert.equals(#test_input + 1, p.stack_prelude:match(test_input))
     end)
 
     it("should not match other function names", function()
@@ -175,12 +177,6 @@ describe("core.patterns.go", function()
 
   -- Integration tests using the fixture file
   describe("integration tests with fixture", function()
-    local fixture_content
-
-    setup(function()
-      fixture_content = read_fixture()
-    end)
-
     it("should find runtime representations in fixture", function()
       local matches = {}
       local pos = 1
@@ -200,8 +196,8 @@ describe("core.patterns.go", function()
 
       -- Check for specific expected matches
       local found_matches = table.concat(matches, " ")
-      assert.is_true(found_matches:find("{0xa76e80, 0xc00017ade0}") ~= nil)
-      assert.is_true(found_matches:find("{0xc000281300?, 0xc00011fd98?, 0x13?}") ~= nil)
+      assert.is_true(found_matches:find("{0xa76e80, 0xc00017ade0}", 1, true) ~= nil)
+      assert.is_true(found_matches:find("{0xc000281300?, 0xc00011fd98?, 0x13?}", 1, true) ~= nil)
     end)
 
     it("should find stack start patterns in fixture", function()
