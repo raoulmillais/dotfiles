@@ -44,6 +44,7 @@ return {
         mappings = {
           ["<C-x>"] = "open_split",
           ["<C-v>"] = "open_vsplit",
+          ["<C-t>"] = "open_tabnew",
       },
       },
       event_handlers = {
