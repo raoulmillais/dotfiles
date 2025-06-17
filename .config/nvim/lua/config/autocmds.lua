@@ -134,15 +134,6 @@ autocmd.create("FileType", {
   end
 })
 
---TODO: Add CursorHoldI back in when bug is fixed (see diagnostics.lua)
-autocmd.create({"CursorHold"}, {
-  group = augroup.create("diagnostics_in_float"),
-  pattern = "*",
-  callback = function ()
-    vim.diagnostic.open_float()
-  end
-})
-
 local opts = { noremap = true, silent = true }
 autocmd.create('LspAttach', {
   group = augroup.create("attach_lsp_keys_and_features"),
