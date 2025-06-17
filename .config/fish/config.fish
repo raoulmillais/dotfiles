@@ -89,6 +89,11 @@ if status is-interactive
 
   alias fly flyctl
 
+  # lua rocks
+export LUA_PATH='/usr/share/lua/5.4/?.lua;/usr/local/share/lua/5.4/?.lua;/usr/local/share/lua/5.4/?/init.lua;/usr/share/lua/5.4/?/init.lua;/usr/local/lib/lua/5.4/?.lua;/usr/local/lib/lua/5.4/?/init.lua;/usr/lib/lua/5.4/?.lua;/usr/lib/lua/5.4/?/init.lua;./?.lua;./?/init.lua;/home/raoul/.luarocks/share/lua/5.4/?.lua;/home/raoul/.luarocks/share/lua/5.4/?/init.lua'
+export LUA_CPATH='/usr/local/lib/lua/5.4/?.so;/usr/lib/lua/5.4/?.so;/usr/local/lib/lua/5.4/loadall.so;/usr/lib/lua/5.4/loadall.so;./?.so;/home/raoul/.luarocks/lib/lua/5.4/?.so'
+export PATH="/home/raoul/.luarocks/bin:$PATH"
+
   # Make !! behave like bash/zsh
   function last_history_item; echo $history[1]; end
   abbr -a !! --position anywhere --function last_history_item
